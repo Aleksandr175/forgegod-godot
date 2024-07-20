@@ -1,0 +1,14 @@
+# Godot specific ignores
+.import/
+export/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+*.godot
+*.import
+*.mono/
+*.tscn.import
+*.tres.import
