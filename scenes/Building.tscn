@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://r0t1t1640nx4"]
+
+[ext_resource type="Script" path="res://scenes/Building.gd" id="1_gq0d1"]
+[ext_resource type="Texture2D" uid="uid://vxaak3f2fca2" path="res://assets/sprites/buildings/blueHouse_0_0.png" id="1_hodew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa08p"]
+atlas = ExtResource("1_hodew")
+region = Rect2(10, 13, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mk4u"]
+atlas = ExtResource("1_hodew")
+region = Rect2(106, 13, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mblo5"]
+atlas = ExtResource("1_hodew")
+region = Rect2(202, 13, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0ikg"]
+atlas = ExtResource("1_hodew")
+region = Rect2(298, 13, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awivh"]
+atlas = ExtResource("1_hodew")
+region = Rect2(10, 109, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r3kx"]
+atlas = ExtResource("1_hodew")
+region = Rect2(106, 109, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cxgl"]
+atlas = ExtResource("1_hodew")
+region = Rect2(202, 109, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43omh"]
+atlas = ExtResource("1_hodew")
+region = Rect2(298, 109, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7vrp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa08p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mk4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mblo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0ikg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awivh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r3kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cxgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43omh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0truk"]
+radius = 11.0454
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nh2q"]
+size = Vector2(79, 45)
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_gq0d1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p7vrp")
+animation = &"idle"
+frame = 5
+frame_progress = 0.917138
+
+[node name="DoorArea2D2" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D2"]
+position = Vector2(-13, 34)
+shape = SubResource("CircleShape2D_0truk")
+
+[node name="RoofArea2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoofArea2D"]
+position = Vector2(0.5, -6.5)
+shape = SubResource("RectangleShape2D_0nh2q")
+
+[connection signal="body_entered" from="DoorArea2D2" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DoorArea2D2" to="." method="_on_roof_area_2d_body_entered"]
+[connection signal="body_entered" from="DoorArea2D2" to="." method="_on_door_area_2d_2_body_entered"]
+[connection signal="body_entered" from="RoofArea2D" to="." method="_on_roof_area_2d_body_entered"]
+[connection signal="body_entered" from="RoofArea2D" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="RoofArea2D" to="." method="_on_door_area_2d_body_entered"]
