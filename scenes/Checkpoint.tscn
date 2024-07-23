@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhvmtffufxoc2"]
+
+[ext_resource type="Script" path="res://scripts/INteractable/Checkpoint.gd" id="1_haw7r"]
+[ext_resource type="Texture2D" uid="uid://dvl7p04e2b5rd" path="res://assets/sprites/world/objects_/staticObjects_.png" id="1_ja6qs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbxwl"]
+atlas = ExtResource("1_ja6qs")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1h1jw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbxwl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkmro"]
+size = Vector2(14, 13)
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_haw7r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1h1jw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_rkmro")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=26 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://kwtn51cg7kbk" path="res://assets/sprites/player/knight_full.png" id="2_vhjuk"]
@@ -113,9 +113,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bvcm0"]
-radius = 5.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qnyo"]
 atlas = ExtResource("3_85lmk")
 region = Rect2(0, 32, 32, 32)
@@ -157,27 +154,58 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0qct"]
+size = Vector2(7.56218, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybecf"]
+size = Vector2(11, 19)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2cx8"]
+radius = 5.5
+height = 19.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_ofpvf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_81gkq")
 animation = &"run"
 autoplay = "idle"
 frame_progress = 0.44196
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_bvcm0")
-
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(15, -15)
+position = Vector2(4, -6)
 sprite_frames = SubResource("SpriteFrames_hxe5v")
-animation = &"attack"
+animation = &"idle"
+centered = false
+offset = Vector2(-16, -22)
+
+[node name="WeaponArea2D" type="Area2D" parent="WeaponSprite"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WeaponSprite/WeaponArea2D"]
+position = Vector2(4.76837e-07, -6)
+shape = SubResource("RectangleShape2D_o0qct")
+
+[node name="AreaPlayer2D" type="Area2D" parent="."]
+
+[node name="CollisionShapePlayer" type="CollisionShape2D" parent="AreaPlayer2D"]
+position = Vector2(-0.5, -9.5)
+shape = SubResource("RectangleShape2D_ybecf")
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -9.5)
+shape = SubResource("CapsuleShape2D_p2cx8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
 
 [connection signal="animation_finished" from="WeaponSprite" to="." method="_on_weapon_sprite_animation_finished"]
 [connection signal="frame_changed" from="WeaponSprite" to="." method="_on_weapon_sprite_frame_changed"]
 [connection signal="ready" from="WeaponSprite" to="." method="_on_weapon_sprite_ready"]
+[connection signal="body_entered" from="WeaponSprite/WeaponArea2D" to="." method="_on_weapon_area_2d_body_entered"]
+[connection signal="body_entered" from="WeaponSprite/WeaponArea2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2w2i5h0lhc6l"]
+[gd_scene load_steps=11 format=3 uid="uid://d2w2i5h0lhc6l"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_fxbww"]
 [ext_resource type="Texture2D" uid="uid://bl53gpvg5mh1y" path="res://assets/sprites/slime_green.png" id="1_nuk1g"]
@@ -41,12 +41,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4xjq"]
-size = Vector2(10, 14)
+size = Vector2(10, 15)
 
-[node name="Slime" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hcfh"]
+size = Vector2(10, 15)
+
+[node name="Slime" type="Node2D" groups=["enemies"]]
 script = ExtResource("1_fxbww")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSpriteSlime" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_a8uf2")
 autoplay = "default"
@@ -56,7 +59,7 @@ frame_progress = 0.722655
 [node name="Killzone" parent="." instance=ExtResource("2_aiwyj")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -7)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_u4xjq")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -66,3 +69,20 @@ target_position = Vector2(9, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, -7)
 target_position = Vector2(-9, 0)
+
+[node name="RayCastLeftDown" type="RayCast2D" parent="."]
+position = Vector2(-10, -7)
+target_position = Vector2(0, 13)
+
+[node name="RayCastRightDown" type="RayCast2D" parent="."]
+position = Vector2(10, -7)
+target_position = Vector2(0, 13)
+
+[node name="KillBody" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBody"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_0hcfh")
+
+[connection signal="area_entered" from="Killzone" to="." method="_on_killzone_area_entered"]
+[connection signal="area_entered" from="KillBody" to="." method="_on_kill_body_area_entered"]
