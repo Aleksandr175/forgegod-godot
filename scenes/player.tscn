@@ -177,7 +177,7 @@ autoplay = "idle"
 frame_progress = 0.44196
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -6)
+position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_hxe5v")
 animation = &"idle"
 centered = false

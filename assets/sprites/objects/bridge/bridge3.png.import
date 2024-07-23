@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rb47q5neywqd"
-path="res://.godot/imported/summer_.png-44ae67a3dba866c3d9a8efd96bb8f6c5.ctex"
+uid="uid://bxgg5cibq270c"
+path="res://.godot/imported/bridge3.png-7e01e2c8b7797d97a19890b69656943d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/summer_.png"
-dest_files=["res://.godot/imported/summer_.png-44ae67a3dba866c3d9a8efd96bb8f6c5.ctex"]
+source_file="res://assets/sprites/objects/bridge/bridge3.png"
+dest_files=["res://.godot/imported/bridge3.png-7e01e2c8b7797d97a19890b69656943d.ctex"]
 
 [params]
 

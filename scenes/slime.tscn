@@ -47,6 +47,7 @@ size = Vector2(10, 15)
 size = Vector2(10, 15)
 
 [node name="Slime" type="Node2D" groups=["enemies"]]
+z_index = 1
 script = ExtResource("1_fxbww")
 
 [node name="AnimatedSpriteSlime" type="AnimatedSprite2D" parent="."]
