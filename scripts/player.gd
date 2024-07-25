@@ -51,10 +51,11 @@ func _physics_process(delta):
 		change_weapon_position()
 		attack_end()
 
-	update_animations(direction)
-	move_and_slide()
+	if !dying:
+		update_animations(direction)
+		move_and_slide()
 	
-	if position.y > 600 && !dying:
+	if position.y > 300 && !dying:
 		die()
 
 func change_weapon_position():
@@ -100,21 +101,24 @@ func _on_weapon_sprite_frame_changed():
 	# Rotate the weapon by 15 degrees each frame
 	if weapon_sprite.animation == "attack":
 		weapon_sprite.rotation += (ROTATION_INCREMENT * last_direction)
-	
-
-
-func _on_weapon_area_2d_body_entered(body):
-	if body.is_in_group("enemies"):
-		print("Enemy hit!")
 
 func die():
 	print("You died!", self, self.get_parent())
 	Engine.time_scale = 0.5
+	animated_sprite.play("die")
 	dying = true
 	timer.start()
 
 func _on_timer_timeout():
-	print('respawn')
-	dying = false
-	Engine.time_scale = 1.0
-	GameManager.respawn_player()
+	Engine.time_scale = 1	
+
+func _on_animated_sprite_player_animation_finished():
+	print(animated_sprite.animation)
+	if animated_sprite.animation == 'die':
+		dying = false
+		GameManager.respawn_player()
+	
+func _on_weapon_area_2d_area_entered(area):
+	if attacking and area.get_parent().is_in_group('enemies'):
+		area.get_parent().die()
+

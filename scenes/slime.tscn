@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2w2i5h0lhc6l"]
+[gd_scene load_steps=19 format=3 uid="uid://d2w2i5h0lhc6l"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_fxbww"]
 [ext_resource type="Texture2D" uid="uid://bl53gpvg5mh1y" path="res://assets/sprites/slime_green.png" id="1_nuk1g"]
@@ -20,6 +20,38 @@ region = Rect2(48, 24, 24, 24)
 atlas = ExtResource("1_nuk1g")
 region = Rect2(72, 24, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2si0"]
+atlas = ExtResource("1_nuk1g")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpgbx"]
+atlas = ExtResource("1_nuk1g")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw7s3"]
+atlas = ExtResource("1_nuk1g")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d31g5"]
+atlas = ExtResource("1_nuk1g")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66xto"]
+atlas = ExtResource("1_nuk1g")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kow"]
+atlas = ExtResource("1_nuk1g")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6gq6"]
+atlas = ExtResource("1_nuk1g")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jainl"]
+atlas = ExtResource("1_nuk1g")
+region = Rect2(72, 48, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_a8uf2"]
 animations = [{
 "frames": [{
@@ -38,6 +70,40 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2si0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpgbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw7s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d31g5")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66xto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6gq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jainl")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4xjq"]
@@ -53,9 +119,8 @@ script = ExtResource("1_fxbww")
 [node name="AnimatedSpriteSlime" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_a8uf2")
+animation = &"die"
 autoplay = "default"
-frame = 2
-frame_progress = 0.722655
 
 [node name="Killzone" parent="." instance=ExtResource("2_aiwyj")]
 
@@ -85,5 +150,6 @@ target_position = Vector2(0, 13)
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_0hcfh")
 
+[connection signal="animation_finished" from="AnimatedSpriteSlime" to="." method="_on_animated_sprite_slime_animation_finished"]
 [connection signal="area_entered" from="Killzone" to="." method="_on_killzone_area_entered"]
 [connection signal="area_entered" from="KillBody" to="." method="_on_kill_body_area_entered"]
