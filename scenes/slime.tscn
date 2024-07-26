@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2w2i5h0lhc6l"]
+[gd_scene load_steps=22 format=3 uid="uid://d2w2i5h0lhc6l"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_fxbww"]
 [ext_resource type="Texture2D" uid="uid://bl53gpvg5mh1y" path="res://assets/sprites/slime_green.png" id="1_nuk1g"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="2_aiwyj"]
+[ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="5_meor6"]
+[ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="5_x47ap"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayoyu"]
 atlas = ExtResource("1_nuk1g")
@@ -101,7 +103,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jainl")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 10.0
 }]
@@ -112,6 +114,9 @@ size = Vector2(10, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hcfh"]
 size = Vector2(10, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3tbm"]
+size = Vector2(10, 15)
+
 [node name="Slime" type="Node2D" groups=["enemies"]]
 z_index = 1
 script = ExtResource("1_fxbww")
@@ -119,7 +124,7 @@ script = ExtResource("1_fxbww")
 [node name="AnimatedSpriteSlime" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_a8uf2")
-animation = &"die"
+animation = &"hit"
 autoplay = "default"
 
 [node name="Killzone" parent="." instance=ExtResource("2_aiwyj")]
@@ -127,6 +132,23 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_u4xjq")
+
+[node name="KillBody" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBody"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_0hcfh")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_meor6")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_g3tbm")
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_x47ap")]
+MAX_HEALTH = 15.0
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, -7)
@@ -143,12 +165,6 @@ target_position = Vector2(0, 13)
 [node name="RayCastRightDown" type="RayCast2D" parent="."]
 position = Vector2(10, -7)
 target_position = Vector2(0, 13)
-
-[node name="KillBody" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBody"]
-position = Vector2(0, -7.5)
-shape = SubResource("RectangleShape2D_0hcfh")
 
 [connection signal="animation_finished" from="AnimatedSpriteSlime" to="." method="_on_animated_sprite_slime_animation_finished"]
 [connection signal="area_entered" from="Killzone" to="." method="_on_killzone_area_entered"]

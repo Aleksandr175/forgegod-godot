@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -300.0
 const ATTACK_DURATION = 0.5 # Duration of the attack animation in seconds
 const ROTATION_INCREMENT = deg_to_rad(45) # 45 degrees in radians
 @onready var timer = $Timer
+@export var DAMAGE = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -14,7 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var weapon_sprite = $WeaponSprite
 @onready var weapon_area = $WeaponSprite/WeaponArea2D
 
-@export var attacking = false
+var attacking = false
 var dying = false;
 var direction = 0;
 var last_direction = 1
@@ -70,6 +71,8 @@ func update_animations(direction):
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
+	else:
+		animated_sprite.play("jump")
 
 	# Flip the Sprite
 	if direction > 0:
@@ -117,8 +120,10 @@ func _on_animated_sprite_player_animation_finished():
 	if animated_sprite.animation == 'die':
 		dying = false
 		GameManager.respawn_player()
-	
-func _on_weapon_area_2d_area_entered(area):
-	if attacking and area.get_parent().is_in_group('enemies'):
-		area.get_parent().die()
 
+func _on_hitbox_component_area_entered(area):
+	if area.has_method("damage") and attacking:
+		var attack = Attack.new()
+		attack.attack_force = DAMAGE
+
+		area.damage(attack)

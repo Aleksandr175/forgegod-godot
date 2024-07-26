@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=30 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://kwtn51cg7kbk" path="res://assets/sprites/player/knight_full.png" id="2_vhjuk"]
 [ext_resource type="Texture2D" uid="uid://delmnwiv40q4k" path="res://assets/sprites/excalibur.png" id="3_85lmk"]
+[ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="4_cmd1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7k8h"]
 atlas = ExtResource("2_vhjuk")
@@ -198,7 +199,7 @@ script = ExtResource("1_ofpvf")
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_81gkq")
-animation = &"die"
+animation = &"run"
 autoplay = "idle"
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
@@ -208,10 +209,11 @@ animation = &"idle"
 centered = false
 offset = Vector2(-16, -22)
 
-[node name="WeaponArea2D" type="Area2D" parent="WeaponSprite"]
+[node name="HitboxComponent" parent="WeaponSprite" instance=ExtResource("4_cmd1b")]
+position = Vector2(0, 6)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WeaponSprite/WeaponArea2D"]
-position = Vector2(4.76837e-07, -6)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WeaponSprite/HitboxComponent"]
+position = Vector2(4.76837e-07, -12)
 shape = SubResource("RectangleShape2D_o0qct")
 
 [node name="AreaPlayer2D" type="Area2D" parent="."]
@@ -232,7 +234,5 @@ one_shot = true
 [connection signal="animation_finished" from="WeaponSprite" to="." method="_on_weapon_sprite_animation_finished"]
 [connection signal="frame_changed" from="WeaponSprite" to="." method="_on_weapon_sprite_frame_changed"]
 [connection signal="ready" from="WeaponSprite" to="." method="_on_weapon_sprite_ready"]
-[connection signal="area_entered" from="WeaponSprite/WeaponArea2D" to="." method="_on_weapon_area_2d_area_entered"]
-[connection signal="body_entered" from="WeaponSprite/WeaponArea2D" to="." method="_on_weapon_area_2d_body_entered"]
-[connection signal="body_entered" from="WeaponSprite/WeaponArea2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="WeaponSprite/HitboxComponent" to="." method="_on_hitbox_component_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
