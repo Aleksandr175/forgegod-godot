@@ -18,7 +18,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var attacking = false
 var dying = false;
 var direction = 0;
+var direction_vertical = 0;
 var last_direction = 1
+var is_climbing = false
 
 func _ready():
 	GameManager.player = self
@@ -31,15 +33,18 @@ func _process(delta):
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and !is_climbing:
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and !is_climbing:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction: -1, 0, 1
 	direction = Input.get_axis("move_left", "move_right")
+
+	# Get the input direction vertical: -1, 0, 1
+	direction_vertical = Input.get_axis("move_up", "move_down")
 
 	# Apply movement
 	if direction:
@@ -52,8 +57,16 @@ func _physics_process(delta):
 		change_weapon_position()
 		attack_end()
 
+	if is_climbing:
+		# Handle climbing logic
+		# Example: Move up or down based on input
+		if direction_vertical:
+			velocity.y = direction_vertical * SPEED
+		else:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+
 	if !dying:
-		update_animations(direction)
+		update_animations(direction, is_climbing)
 		move_and_slide()
 	
 	if position.y > 300 && !dying:
@@ -64,9 +77,9 @@ func change_weapon_position():
 	weapon_sprite.rotation = deg_to_rad(30)
 	weapon_sprite.rotation = weapon_sprite.rotation * last_direction
 
-func update_animations(direction):
+func update_animations(direction, is_cli):
 	# Play animations
-	if is_on_floor():
+	if is_on_floor() or is_climbing:
 		if direction == 0:
 			animated_sprite.play("idle")
 		else:
@@ -127,3 +140,9 @@ func _on_hitbox_component_area_entered(area):
 		attack.attack_force = DAMAGE
 
 		area.damage(attack)
+
+func start_climbing():
+	is_climbing = true
+
+func stop_climbing():
+	is_climbing = false

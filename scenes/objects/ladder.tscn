@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://x65w1om52k6m"]
+
+[ext_resource type="Texture2D" uid="uid://wworwmn275n6" path="res://assets/sprites/objects/ladder/ladder.png" id="1_klj4d"]
+[ext_resource type="Script" path="res://scenes/objects/ladder.gd" id="1_mheis"]
+[ext_resource type="Texture2D" uid="uid://b5krfscfey2ca" path="res://assets/sprites/objects/ladder/ladder-top.png" id="2_v8pcw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48q3k"]
+size = Vector2(10, 81)
+
+[node name="Ladder" type="Node2D"]
+script = ExtResource("1_mheis")
+
+[node name="Ladder" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_klj4d")
+
+[node name="Ladder-top" type="Sprite2D" parent="."]
+position = Vector2(0, -88)
+texture = ExtResource("2_v8pcw")
+
+[node name="Ladder2" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_klj4d")
+
+[node name="Ladder3" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("1_klj4d")
+
+[node name="Ladder4" type="Sprite2D" parent="."]
+position = Vector2(0, -56)
+texture = ExtResource("1_klj4d")
+
+[node name="Ladder5" type="Sprite2D" parent="."]
+position = Vector2(0, -72)
+texture = ExtResource("1_klj4d")
+
+[node name="LadderArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderArea"]
+position = Vector2(0, -40.5)
+shape = SubResource("RectangleShape2D_48q3k")
+
+[connection signal="area_entered" from="LadderArea" to="." method="_on_ladder_area_area_entered"]
+[connection signal="area_exited" from="LadderArea" to="." method="_on_ladder_area_area_exited"]
+[connection signal="body_entered" from="LadderArea" to="." method="_on_ladder_area_body_entered"]
