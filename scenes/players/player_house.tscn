@@ -162,3 +162,12 @@ shape = SubResource("CapsuleShape2D_kh1h2")
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -9.5)
 shape = SubResource("CapsuleShape2D_kh1h2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -7)
+zoom = Vector2(4, 4)
+limit_top = -240
+limit_bottom = 160
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0

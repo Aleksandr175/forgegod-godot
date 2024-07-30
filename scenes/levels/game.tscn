@@ -12,7 +12,7 @@
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="10_t1ux7"]
 [ext_resource type="Texture2D" uid="uid://cwwwkcapq80st" path="res://assets/sprites/world/midground_/summer_.png" id="11_6xqhb"]
 [ext_resource type="Texture2D" uid="uid://dvl7p04e2b5rd" path="res://assets/sprites/world/objects_/staticObjects_.png" id="12_q3037"]
-[ext_resource type="PackedScene" uid="uid://dibq7mfdev0iv" path="res://scenes/Bridge.tscn" id="13_u2xe0"]
+[ext_resource type="PackedScene" uid="uid://dibq7mfdev0iv" path="res://scenes/objects/bridge.tscn" id="13_u2xe0"]
 [ext_resource type="PackedScene" uid="uid://bhvmtffufxoc2" path="res://scenes/Checkpoint.tscn" id="14_hh5b0"]
 [ext_resource type="PackedScene" uid="uid://ca4e1jm0gkcs2" path="res://scenes/Spikes.tscn" id="15_u5fud"]
 [ext_resource type="PackedScene" uid="uid://r0t1t1640nx4" path="res://scenes/Building.tscn" id="16_gx6gd"]
@@ -2024,15 +2024,6 @@ layer_1/tile_data = PackedInt32Array(524287, 262144, 10, 458752, 262144, 10, 458
 
 [node name="Player" parent="." instance=ExtResource("6_0bx3n")]
 position = Vector2(34, 37)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -7)
-zoom = Vector2(4, 4)
-limit_top = -240
-limit_bottom = 160
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 20.0
 
 [node name="Coins" type="Node" parent="."]
 
