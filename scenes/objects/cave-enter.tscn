@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://csinli4ootbiv"]
+
+[ext_resource type="Script" path="res://scenes/objects/cave-enter.gd" id="1_abpao"]
+[ext_resource type="Texture2D" uid="uid://cjmx3ttaa73xt" path="res://assets/sprites/objects/caveEnter/cave-enter.png" id="1_dcqm4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1xu3"]
+radius = 11.0
+
+[node name="Cave-enter" type="Node2D"]
+script = ExtResource("1_abpao")
+
+[node name="Cave-enter" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("1_dcqm4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_h1xu3")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

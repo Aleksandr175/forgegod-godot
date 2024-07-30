@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name PlayerHouse
 
 const SPEED = 130.0
 @onready var animated_sprite = $AnimatedSpritePlayer

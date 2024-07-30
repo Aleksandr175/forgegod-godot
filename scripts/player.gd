@@ -73,9 +73,10 @@ func _physics_process(delta):
 		die()
 
 func change_weapon_position():
-	weapon_sprite.position.x = 7 * last_direction
-	weapon_sprite.rotation = deg_to_rad(30)
-	weapon_sprite.rotation = weapon_sprite.rotation * last_direction
+	if !dying:
+		weapon_sprite.position.x = 7 * last_direction
+		weapon_sprite.rotation = deg_to_rad(30)
+		weapon_sprite.rotation = weapon_sprite.rotation * last_direction
 
 func update_animations(direction, is_cli):
 	# Play animations
