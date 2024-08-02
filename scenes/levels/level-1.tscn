@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://3e43oykb2evy"]
 
-[ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/summer.tres" id="1_n88j0"]
+[ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="1_n88j0"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/players/player.tscn" id="2_rpr4n"]
 
 [node name="Level-1" type="Node2D"]
