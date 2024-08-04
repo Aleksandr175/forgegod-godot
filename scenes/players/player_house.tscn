@@ -142,7 +142,7 @@ animations = [{
 radius = 5.5
 height = 19.0
 
-[node name="PlayerHouse" type="CharacterBody2D"]
+[node name="PlayerHouse" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_mytfb")
 
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="."]

@@ -191,7 +191,7 @@ size = Vector2(11, 19)
 radius = 5.5
 height = 19.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_ofpvf")

@@ -26,6 +26,7 @@ func _ready():
 	GameManager.player = self
 	weapon_sprite.play("idle")
 	change_weapon_position()
+	Inventory.set_player_reference(self)
 	
 func _process(delta):
 	if Input.is_action_just_pressed("attack") and !attacking:

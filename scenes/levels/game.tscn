@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=27 format=3 uid="uid://cuv4vme4rwno0"]
 
 [ext_resource type="Script" path="res://scenes/levels/game.gd" id="1_a1mxs"]
 [ext_resource type="Texture2D" uid="uid://bcai44mi7h3l4" path="res://assets/sprites/world/taiga_.png" id="2_bx0il"]
+[ext_resource type="PackedScene" uid="uid://dxo2qlfvpvxms" path="res://scenes/objects/inventory_item.tscn" id="2_urqwx"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_jn5h5"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_ernxa"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="5_sdaax"]
@@ -19,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://scenes/HUD.tscn" id="16_gxmfn"]
 [ext_resource type="PackedScene" uid="uid://x65w1om52k6m" path="res://scenes/objects/ladder.tscn" id="17_1qxey"]
 [ext_resource type="PackedScene" uid="uid://csinli4ootbiv" path="res://scenes/objects/cave-enter.tscn" id="18_7887p"]
+[ext_resource type="Texture2D" uid="uid://b1vsfmnc5go5r" path="res://assets/sprites/objects/resources/resource-copper.png" id="21_qwh2q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ashvg"]
 texture = ExtResource("5_sdaax")
@@ -829,3 +831,7 @@ position = Vector2(420, -64)
 
 [node name="Ladder2" parent="." instance=ExtResource("17_1qxey")]
 position = Vector2(344, 48)
+
+[node name="InventoryItem" parent="." instance=ExtResource("2_urqwx")]
+position = Vector2(203, 44)
+item_texture = ExtResource("21_qwh2q")
