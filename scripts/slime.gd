@@ -32,9 +32,10 @@ func _process(delta):
 		position.x += direction * SPEED * delta
 
 func _on_kill_body_area_entered(area):
-	if area.get_parent() is Player && !dying:
+	var player = area.get_parent()
+	if player is Player && !dying:
 		print('die')
-		area.get_parent().die()
+		player.die()
 
 func die():
 	dying = true

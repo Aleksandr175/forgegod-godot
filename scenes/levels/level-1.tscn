@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://3e43oykb2evy"]
+[gd_scene load_steps=5 format=3 uid="uid://3e43oykb2evy"]
 
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="1_n88j0"]
 [ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://scenes/HUD.tscn" id="1_okd3i"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/players/player.tscn" id="2_rpr4n"]
+[ext_resource type="PackedScene" uid="uid://cw6jy6mcv68bh" path="res://scenes/objects/resources/resource_iron.tscn" id="4_tpuee"]
 
 [node name="Level-1" type="Node2D"]
 
@@ -25,3 +26,15 @@ layer_3/tile_data = PackedInt32Array(-589840, 4, 2, -524304, 4, 2, -458768, 4, 2
 
 [node name="Player" parent="." instance=ExtResource("2_rpr4n")]
 position = Vector2(1, -15)
+
+[node name="ResourceIron" parent="." instance=ExtResource("4_tpuee")]
+position = Vector2(79, 0)
+
+[node name="ResourceIron2" parent="." instance=ExtResource("4_tpuee")]
+position = Vector2(202, -16)
+
+[node name="ResourceIron3" parent="." instance=ExtResource("4_tpuee")]
+position = Vector2(399, -17)
+
+[node name="ResourceIron4" parent="." instance=ExtResource("4_tpuee")]
+position = Vector2(489, -17)

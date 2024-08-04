@@ -9,6 +9,7 @@ func _ready():
 
 #attack: Attack
 func damage(attack: Attack):
+	print(attack.attack_force, get_parent())
 	health -= attack.attack_force
 	
 	if health <= 0:

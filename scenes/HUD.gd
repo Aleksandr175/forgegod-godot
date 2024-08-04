@@ -7,19 +7,22 @@ func _ready():
 	GameManager.play_pause()
 
 	GameManager.gained_coins.connect(update_coin_display)
-	update_coin_display(GameManager.coins)
+	GameManager.gained_resource_iron.connect(update_iron_display)
+	update_coin_display()
+	update_iron_display()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Open menu"):
 		GameManager.play_pause()
 		get_tree().paused = GameManager.isPaused
 	
-func update_coin_display(gained_coins):
+func update_coin_display():
 	$CoinLabel.text = str(GameManager.coins)
 
+func update_iron_display():
+	$IronLabel.text = str(GameManager.resources.iron)
 
 func _on_resume_pressed():
-	print('resume')
 	GameManager.resume()
 
 func _on_exit_pressed():
