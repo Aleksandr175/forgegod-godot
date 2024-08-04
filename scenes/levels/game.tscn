@@ -504,7 +504,7 @@ layer_1/name = "Mid"
 layer_1/tile_data = PackedInt32Array(262144, 65536, 0)
 
 [node name="Player" parent="." instance=ExtResource("6_0bx3n")]
-position = Vector2(599, 71)
+position = Vector2(168, 63)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -816,6 +816,7 @@ position = Vector2(1849, -176)
 position = Vector2(1976, -128)
 
 [node name="Hud" parent="." instance=ExtResource("16_gxmfn")]
+layer = 100
 
 [node name="Building" parent="." instance=ExtResource("16_gx6gd")]
 position = Vector2(-53, -32)
