@@ -1,7 +1,7 @@
 extends Node
 
-signal gained_coins()
-signal gained_resource_iron()
+signal gained_coins
+signal gained_resource_iron
 var coins: int = 3
 var isPaused = false
 
@@ -9,19 +9,21 @@ var resources = {
 	'iron': 5
 }
 
-@onready var score_label = $ScoreLabel
+#@onready var score_label = $ScoreLabel
 var player: Player
 var current_checkpoint: Checkpoint
 var pause_menu
 
-func add_point(gained_coins: int):
-	coins += gained_coins
-	emit_signal("gained_coins", gained_coins)
+func add_point(inceased_coins: int):
+	coins += inceased_coins
+	gained_coins.emit()
+	#emit_signal("gained_coins", gained_coins)
 
 func add_resource(resource_type: String, qty: int):
 	resources[resource_type] += qty
 	if (resource_type == 'iron'):
-		emit_signal("gained_resource_iron")
+		gained_resource_iron.emit()
+		#emit_signal("gained_resource_iron")
 
 func play_pause():
 	isPaused = !isPaused
