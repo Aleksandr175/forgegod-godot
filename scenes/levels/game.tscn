@@ -92,6 +92,7 @@ autowrap_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("6_0bx3n")]
 position = Vector2(168, 63)
+DAMAGE = null
 
 [node name="Coins" type="Node" parent="."]
 

@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://diy2f44ffdnvb"]
+
+[ext_resource type="Script" path="res://scripts/ui/Inventory_Slot.gd" id="1_yhdnk"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="2_cib5k"]
+[ext_resource type="Texture2D" uid="uid://dk5i0ss6k1m4u" path="res://assets/sprites/objects/resources/resource-iron.png" id="2_sswkq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7vc2"]
+
+[node name="InventorySlot" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -1010.0
+offset_bottom = -2372.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yhdnk")
+
+[node name="OuterBorder" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105614, 0.105614, 0.105614, 1)
+
+[node name="InnerBorder" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 145.0
+offset_bottom = 145.0
+color = Color(0.135012, 0.135012, 0.135012, 1)
+
+[node name="ItemQty" type="Label" parent="InnerBorder"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("2_cib5k")
+theme_override_font_sizes/font_size = 40
+text = "1"
+
+[node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
+position = Vector2(70, 70)
+scale = Vector2(5, 5)
+texture = ExtResource("2_sswkq")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t7vc2")
+
+[node name="Details" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = -160.0
+offset_right = 300.0
+offset_bottom = -10.0
+color = Color(0.135012, 0.135012, 0.135012, 1)
+
+[node name="ItemType" type="Label" parent="Details"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 74.0
+offset_right = 50.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_cib5k")
+theme_override_font_sizes/font_size = 40
+text = "TYPE"
+
+[node name="ItemName" type="Label" parent="Details"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 57.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_cib5k")
+theme_override_font_sizes/font_size = 40
+text = "Name"

@@ -15,6 +15,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var weapon_sprite = $WeaponSprite
 #@onready var weapon_area = $WeaponSprite/WeaponArea2D
 
+@onready var inventory_ui = $InventoryUI
+
 var attacking = false
 var dying = false;
 var direction = 0;
@@ -149,3 +151,8 @@ func start_climbing():
 
 func stop_climbing():
 	is_climbing = false
+
+func _input(event):
+	if event.is_action_pressed("inventory_ui"):
+		inventory_ui.visible = !inventory_ui.visible
+		get_tree().paused = !get_tree().paused

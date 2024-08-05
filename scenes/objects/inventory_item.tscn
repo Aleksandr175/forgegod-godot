@@ -9,7 +9,6 @@ radius = 7.0
 
 [node name="InventoryItem" type="Node2D" groups=["resources"]]
 script = ExtResource("1_i00co")
-item_qty = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
