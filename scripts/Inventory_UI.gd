@@ -9,10 +9,19 @@ func _ready():
 
 func _on_inventory_updated():
 	clear_grid_container()
-	pass
-
+	# Add slots for each inventory position
+	for item in Inventory.inventory_items:
+		var slot = Inventory.inventory_slot_scene.instantiate()
+		grid_container.add_child(slot)
+		if item != null:
+			slot.set_item(item)
+		else:
+			slot.set_empty()
+	
 func clear_grid_container():
+	print('clear')
 	while grid_container.get_child_count() > 0:
 		var child = grid_container.get_child(0)
 		grid_container.remove_child(child)
 		child.queue_free()
+		print('delete....')

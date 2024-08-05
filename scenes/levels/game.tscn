@@ -92,7 +92,6 @@ autowrap_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("6_0bx3n")]
 position = Vector2(168, 63)
-DAMAGE = null
 
 [node name="Coins" type="Node" parent="."]
 
@@ -417,6 +416,20 @@ position = Vector2(420, -64)
 
 [node name="InventoryItem" parent="." instance=ExtResource("19_ypt8l")]
 position = Vector2(186, 59)
+item_name = "iron"
+item_type = "resource"
+item_texture = ExtResource("20_2s303")
+item_qty = 3
+
+[node name="InventoryItem2" parent="." instance=ExtResource("19_ypt8l")]
+position = Vector2(208, 44)
+item_name = "iron"
+item_type = "resource"
+item_texture = ExtResource("20_2s303")
+item_qty = 3
+
+[node name="InventoryItem3" parent="." instance=ExtResource("19_ypt8l")]
+position = Vector2(226, 45)
 item_name = "iron"
 item_type = "resource"
 item_texture = ExtResource("20_2s303")

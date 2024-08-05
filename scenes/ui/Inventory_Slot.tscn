@@ -7,15 +7,15 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7vc2"]
 
 [node name="InventorySlot" type="Control"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 10.0
-offset_right = -1010.0
-offset_bottom = -2372.0
+offset_right = -1060.0
+offset_bottom = -2422.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yhdnk")
@@ -33,26 +33,25 @@ color = Color(0.105614, 0.105614, 0.105614, 1)
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 145.0
-offset_bottom = 145.0
+offset_right = 95.0
+offset_bottom = 95.0
 color = Color(0.135012, 0.135012, 0.135012, 1)
 
 [node name="ItemQty" type="Label" parent="InnerBorder"]
 layout_mode = 0
-offset_left = 5.0
 offset_top = 5.0
-offset_right = 45.0
+offset_right = 40.0
 offset_bottom = 37.0
 theme_override_fonts/font = ExtResource("2_cib5k")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 24
 text = "1"
 
 [node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
-position = Vector2(70, 70)
-scale = Vector2(5, 5)
+position = Vector2(44, 48)
+scale = Vector2(4, 4)
 texture = ExtResource("2_sswkq")
 
-[node name="Button" type="Button" parent="."]
+[node name="ItemButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,14 +60,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_t7vc2")
 
-[node name="Details" type="ColorRect" parent="."]
+[node name="DetailsPanel" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_top = -160.0
 offset_right = 300.0
 offset_bottom = -10.0
 color = Color(0.135012, 0.135012, 0.135012, 1)
 
-[node name="ItemType" type="Label" parent="Details"]
+[node name="ItemType" type="Label" parent="DetailsPanel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 74.0
@@ -78,7 +78,7 @@ theme_override_fonts/font = ExtResource("2_cib5k")
 theme_override_font_sizes/font_size = 40
 text = "TYPE"
 
-[node name="ItemName" type="Label" parent="Details"]
+[node name="ItemName" type="Label" parent="DetailsPanel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
@@ -87,3 +87,6 @@ offset_bottom = 33.0
 theme_override_fonts/font = ExtResource("2_cib5k")
 theme_override_font_sizes/font_size = 40
 text = "Name"
+
+[connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]
+[connection signal="mouse_exited" from="ItemButton" to="." method="_on_item_button_mouse_exited"]

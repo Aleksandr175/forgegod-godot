@@ -198,7 +198,6 @@ process_mode = 3
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_ofpvf")
-DAMAGE = null
 
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)

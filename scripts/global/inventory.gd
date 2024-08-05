@@ -1,33 +1,41 @@
 extends Node2D
 
-var inventoryItems = []
+var inventory_items = []
 
 signal inventory_updated
 
 # Scene and node references
 var player_node: Node = null
 
+@onready var inventory_slot_scene = preload("res://scenes/ui/Inventory_Slot.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	inventoryItems.resize(30)
+	inventory_items.resize(10)
 	pass # Replace with function body.
 
 func add_item(new_item):
 	var item_found = false	
 
-	# Loop through inventory to find the item by name
-	for item in inventoryItems:
-		if item and item.name == new_item.name:
+	# Check if the item already exists in the inventory
+	for i in range(inventory_items.size()):
+		var item = inventory_items[i]
+		if item != null and item.name == new_item.name:
 			# Item found, increase quantity
 			item.qty += new_item.qty
+			inventory_items[i] = item
 			item_found = true
 			break
 
+	# If item was not found, find the first empty slot to add the new item
 	if not item_found:
-		# Item not found, add new item to inventory
-		inventoryItems.append(new_item)
+		for i in range(inventory_items.size()):
+			if inventory_items[i] == null:
+				inventory_items[i] = new_item
+				item_found = true
+				break
 
-	print('inventoryItems',inventoryItems)
+	print('inventory_items', inventory_items)
 	# Emit signal after adding/updating the item
 	inventory_updated.emit()
 	

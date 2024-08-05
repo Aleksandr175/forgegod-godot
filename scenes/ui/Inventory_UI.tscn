@@ -12,9 +12,15 @@ grow_vertical = 2
 script = ExtResource("1_mxafj")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 400.0
-offset_bottom = 400.0
-columns = 4
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
