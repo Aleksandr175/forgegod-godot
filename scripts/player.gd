@@ -13,7 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSpritePlayer
 @onready var weapon_sprite = $WeaponSprite
-@onready var weapon_area = $WeaponSprite/WeaponArea2D
+#@onready var weapon_area = $WeaponSprite/WeaponArea2D
 
 var attacking = false
 var dying = false;
@@ -28,7 +28,7 @@ func _ready():
 	change_weapon_position()
 	Inventory.set_player_reference(self)
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("attack") and !attacking:
 		attack()
 
@@ -79,10 +79,10 @@ func change_weapon_position():
 		weapon_sprite.rotation = deg_to_rad(30)
 		weapon_sprite.rotation = weapon_sprite.rotation * last_direction
 
-func update_animations(direction, is_cli):
+func update_animations(direction_value, is_climbing_value):
 	# Play animations
-	if is_on_floor() or is_climbing:
-		if direction == 0:
+	if is_on_floor() or is_climbing_value:
+		if direction_value == 0:
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
@@ -90,9 +90,9 @@ func update_animations(direction, is_cli):
 		animated_sprite.play("jump")
 
 	# Flip the Sprite
-	if direction > 0:
+	if direction_value > 0:
 		animated_sprite.flip_h = false
-	elif direction < 0:
+	elif direction_value < 0:
 		animated_sprite.flip_h = true
 		
 	if last_direction > 0:
@@ -138,11 +138,11 @@ func _on_animated_sprite_player_animation_finished():
 
 func _on_hitbox_component_area_entered(area):
 	if area.has_method("damage") and attacking:
-		var attack = Attack.new()
-		attack.attack_force = DAMAGE
+		var attack_data = Attack.new()
+		attack_data.attack_force = DAMAGE
 
-		print('damage', attack)
-		area.damage(attack)
+		print('damage', attack_data)
+		area.damage(attack_data)
 
 func start_climbing():
 	is_climbing = true
