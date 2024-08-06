@@ -44,16 +44,13 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 100
 
 [node name="InventoryUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_8vcnw")]
+custom_minimum_size = Vector2(2.08165e-12, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-
-[node name="RecipesUi" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_r1uj4")]
+[node name="RecipesUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_r1uj4")]
+custom_minimum_size = Vector2(2.08165e-12, 200)
 layout_mode = 2

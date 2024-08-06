@@ -13,23 +13,23 @@ grow_vertical = 2
 script = ExtResource("1_ph8c3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 1170.0
-offset_bottom = 200.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.0
+offset_right = 135.0
+offset_bottom = 44.0
+grow_horizontal = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-columns = 4
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_lop3v")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 32
 text = "Recipes"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(440, 200)
+layout_mode = 2
+columns = 4

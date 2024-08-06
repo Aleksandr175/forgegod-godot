@@ -1,6 +1,7 @@
 extends Node2D
 
 var inventory_items = []
+var inventory_size = 8
 var recipes = [{
 	"id": "sword",
 	"name": "Sword",
@@ -32,7 +33,7 @@ var player_node: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	inventory_items.resize(10)
+	inventory_items.resize(inventory_size)
 	pass # Replace with function body.
 
 func add_item(new_item):

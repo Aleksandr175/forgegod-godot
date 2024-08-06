@@ -42,9 +42,9 @@ theme_override_font_sizes/font_size = 32
 text = "Inventory"
 
 [node name="inventory" type="GridContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(440, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 4

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var recipes_container = $VBoxContainer/HBoxContainer/GridContainer
+@onready var recipes_container = $VBoxContainer/GridContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
