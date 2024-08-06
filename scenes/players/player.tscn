@@ -1,11 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=31 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://kwtn51cg7kbk" path="res://assets/sprites/player/knight_full.png" id="2_vhjuk"]
 [ext_resource type="Texture2D" uid="uid://delmnwiv40q4k" path="res://assets/sprites/excalibur.png" id="3_85lmk"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="4_cmd1b"]
-[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_a3yp7"]
-[ext_resource type="PackedScene" uid="uid://dutum2bfx4x6o" path="res://scenes/ui/Inventory_UI.tscn" id="6_tpm8c"]
+[ext_resource type="PackedScene" uid="uid://6b07cvgy8iqh" path="res://scenes/ui/Inventory_Panel.tscn" id="5_pvdss"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7k8h"]
 atlas = ExtResource("2_vhjuk")
@@ -245,30 +244,7 @@ position_smoothing_speed = 20.0
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="InventoryUI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.235732, 0.235732, 0.235732, 1)
-
-[node name="Label" type="Label" parent="InventoryUI/ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -138.0
-offset_top = 39.0
-offset_right = 138.0
-offset_bottom = 71.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("5_a3yp7")
-theme_override_font_sizes/font_size = 32
-text = "Inventory"
-
-[node name="InventoryUi" parent="InventoryUI/ColorRect" instance=ExtResource("6_tpm8c")]
-layout_mode = 1
+[node name="InventoryPanel" parent="InventoryUI" instance=ExtResource("5_pvdss")]
 
 [connection signal="animation_finished" from="AnimatedSpritePlayer" to="." method="_on_animated_sprite_player_animation_finished"]
 [connection signal="animation_finished" from="WeaponSprite" to="." method="_on_weapon_sprite_animation_finished"]

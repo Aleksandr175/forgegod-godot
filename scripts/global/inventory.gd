@@ -1,6 +1,27 @@
 extends Node2D
 
 var inventory_items = []
+var recipes = [{
+	"id": "sword",
+	"name": "Sword",
+	"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
+	"qty": "1",
+	"requirements": [{
+		"id": "iron",
+		"qty": "2"
+	}],
+	"type": "recipe"
+}, {
+	"id": "sword2",
+	"name": "Sword Copper",
+	"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
+	"qty": "1",
+	"requirements": [{
+		"id": "copper",
+		"qty": "2"
+	}],
+	"type": "recipe"
+}]
 
 signal inventory_updated
 

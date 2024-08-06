@@ -1,9 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=21 format=3 uid="uid://cuv4vme4rwno0"]
 
 [ext_resource type="Script" path="res://scenes/levels/game.gd" id="1_a1mxs"]
-[ext_resource type="Texture2D" uid="uid://bcai44mi7h3l4" path="res://assets/sprites/world/taiga_.png" id="2_bx0il"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_jn5h5"]
-[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_ernxa"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/players/player.tscn" id="6_0bx3n"]
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://scenes/coin.tscn" id="7_djagn"]
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="8_vgi7m"]
@@ -61,33 +59,9 @@ _data = {
 [node name="Game" type="Node2D"]
 script = ExtResource("1_a1mxs")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-layer = 12
-visible = false
-follow_viewport_scale = 0.5
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(2.08165e-12, 2.08165e-12)
-motion_mirroring = Vector2(2.08165e-12, 2.08165e-12)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("2_bx0il")
-
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_jn5h5")
-
-[node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = 513.0
-offset_top = -144.0
-offset_right = 618.0
-offset_bottom = -125.0
-theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
-theme_override_fonts/font = ExtResource("4_ernxa")
-theme_override_font_sizes/font_size = 8
-text = "You collected X coins."
-horizontal_alignment = 1
-autowrap_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("6_0bx3n")]
 position = Vector2(168, 63)

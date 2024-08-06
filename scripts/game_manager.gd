@@ -9,7 +9,6 @@ var resources = {
 	'iron': 5
 }
 
-#@onready var score_label = $ScoreLabel
 var player: Player
 var current_checkpoint: Checkpoint
 var pause_menu

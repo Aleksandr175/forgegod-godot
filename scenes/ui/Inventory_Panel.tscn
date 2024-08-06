@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://6b07cvgy8iqh"]
+
+[ext_resource type="PackedScene" uid="uid://dutum2bfx4x6o" path="res://scenes/ui/Inventory_UI.tscn" id="1_8vcnw"]
+[ext_resource type="PackedScene" uid="uid://bhf5u0afx8yxb" path="res://scenes/ui/Recipes_UI.tscn" id="2_r1uj4"]
+
+[node name="InventoryPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -500.0
+offset_right = 240.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235732, 0.235732, 0.235732, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="InventoryUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_8vcnw")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="RecipesUi" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_r1uj4")]
+layout_mode = 2

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var grid_container = $GridContainer
+@onready var inventory_container = $VBoxContainer/inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,16 +12,14 @@ func _on_inventory_updated():
 	# Add slots for each inventory position
 	for item in Inventory.inventory_items:
 		var slot = Inventory.inventory_slot_scene.instantiate()
-		grid_container.add_child(slot)
+		inventory_container.add_child(slot)
 		if item != null:
 			slot.set_item(item)
 		else:
 			slot.set_empty()
 	
 func clear_grid_container():
-	print('clear')
-	while grid_container.get_child_count() > 0:
-		var child = grid_container.get_child(0)
-		grid_container.remove_child(child)
+	while inventory_container.get_child_count() > 0:
+		var child = inventory_container.get_child(0)
+		inventory_container.remove_child(child)
 		child.queue_free()
-		print('delete....')
