@@ -63,19 +63,19 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_t7vc2")
 [node name="DetailsPanel" type="ColorRect" parent="."]
 visible = false
 layout_mode = 0
-offset_top = -160.0
+offset_top = -130.0
 offset_right = 300.0
 offset_bottom = -10.0
 color = Color(0.135012, 0.135012, 0.135012, 1)
 
 [node name="ItemType" type="Label" parent="DetailsPanel"]
-layout_mode = 0
+layout_mode = 1
 offset_left = 10.0
-offset_top = 74.0
-offset_right = 50.0
-offset_bottom = 97.0
+offset_top = 66.0
+offset_right = 94.0
+offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("2_cib5k")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 24
 text = "TYPE"
 
 [node name="ItemName" type="Label" parent="DetailsPanel"]
@@ -85,7 +85,7 @@ offset_top = 10.0
 offset_right = 57.0
 offset_bottom = 33.0
 theme_override_fonts/font = ExtResource("2_cib5k")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 32
 text = "Name"
 
 [connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]

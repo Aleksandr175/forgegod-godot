@@ -3,8 +3,8 @@ extends Control
 @onready var icon = $InnerBorder/ItemIcon
 @onready var label_qty = $InnerBorder/ItemQty
 @onready var details_panel = $DetailsPanel
-@onready var item_name = $Details/ItemName
-@onready var item_type = $Details/ItemType
+@onready var item_name = $DetailsPanel/ItemName
+@onready var item_type = $DetailsPanel/ItemType
 
 # Slot item
 var item = null
@@ -25,5 +25,5 @@ func set_item(new_item):
 	item = new_item
 	icon.texture = item['texture']
 	label_qty.text = str(item['qty'])
-	#item_name.text = str(item['name'])
-	#item_type.text = str(item['type'])
+	item_name.text = str(item['name'])
+	item_type.text = str(item['type'])
