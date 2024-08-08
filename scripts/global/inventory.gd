@@ -9,7 +9,10 @@ var recipes = [{
 	"qty": "1",
 	"requirements": [{
 		"id": "iron",
-		"qty": "2"
+		"name": "Iron",
+		"qty": "5",
+		"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
+		"type": "resource",
 	}],
 	"type": "recipe"
 }, {
@@ -19,7 +22,10 @@ var recipes = [{
 	"qty": "1",
 	"requirements": [{
 		"id": "copper",
-		"qty": "2"
+		"name": "Copper",
+		"qty": "3",
+		"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
+		"type": "resource",
 	}],
 	"type": "recipe"
 }]
@@ -30,6 +36,7 @@ signal inventory_updated
 var player_node: Node = null
 
 @onready var inventory_slot_scene = preload("res://scenes/ui/Inventory_Slot.tscn")
+@onready var inventory_slot_small_scene = preload("res://scenes/ui/Inventory_Slot_Small.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

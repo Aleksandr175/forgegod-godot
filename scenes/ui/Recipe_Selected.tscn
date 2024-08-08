@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://baphtpay2atal"]
+
+[ext_resource type="PackedScene" uid="uid://diy2f44ffdnvb" path="res://scenes/ui/Inventory_Slot.tscn" id="1_qbhvp"]
+[ext_resource type="Script" path="res://scenes/ui/Recipe_Selected.gd" id="1_rtpl1"]
+[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_u0qec"]
+[ext_resource type="PackedScene" uid="uid://da05yq43vfk4f" path="res://scenes/ui/Inventory_Slot_Small.tscn" id="2_yjdlx"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="3_u8req"]
+
+[node name="RecipeSelected" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -850.0
+offset_bottom = -2382.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rtpl1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1170.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_u0qec")
+theme_override_font_sizes/font_size = 24
+text = "Selected Recipe
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RecipeImageContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="InventorySlot" parent="VBoxContainer/HBoxContainer/RecipeImageContainer" instance=ExtResource("1_qbhvp")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u8req")
+theme_override_font_sizes/font_size = 24
+text = "NAME"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u8req")
+theme_override_font_sizes/font_size = 16
+text = "Requirements:"
+
+[node name="GridRequirements" type="GridContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="InventorySlotSmall" parent="VBoxContainer/HBoxContainer/VBoxContainer/GridRequirements" instance=ExtResource("2_yjdlx")]
+layout_mode = 2
+
+[node name="InventorySlotSmall2" parent="VBoxContainer/HBoxContainer/VBoxContainer/GridRequirements" instance=ExtResource("2_yjdlx")]
+layout_mode = 2

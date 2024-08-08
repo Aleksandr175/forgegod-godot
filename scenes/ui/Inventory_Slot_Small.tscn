@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://da05yq43vfk4f"]
+
+[ext_resource type="Script" path="res://scripts/ui/Inventory_Slot_Small.gd" id="1_eaxpb"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_tufhb"]
+[ext_resource type="Texture2D" uid="uid://dk5i0ss6k1m4u" path="res://assets/sprites/objects/resources/resource-iron.png" id="2_1d0kg"]
+
+[node name="InventorySlotSmall" type="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1120.0
+offset_bottom = -2482.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eaxpb")
+
+[node name="OuterBorder" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105614, 0.105614, 0.105614, 1)
+
+[node name="InnerBorder" type="ColorRect" parent="."]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+color = Color(0.135012, 0.135012, 0.135012, 1)
+
+[node name="ItemQty" type="Label" parent="InnerBorder"]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("1_tufhb")
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
+position = Vector2(20, 23)
+scale = Vector2(2, 2)
+texture = ExtResource("2_1d0kg")

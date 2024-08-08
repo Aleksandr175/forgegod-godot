@@ -38,7 +38,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_lsje7")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Inventory"
 
 [node name="inventory" type="GridContainer" parent="VBoxContainer"]

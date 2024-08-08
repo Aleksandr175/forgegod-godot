@@ -1,20 +1,25 @@
 extends Control
+class_name InventorySlot
 
 @onready var icon = $InnerBorder/ItemIcon
 @onready var label_qty = $InnerBorder/ItemQty
 @onready var details_panel = $DetailsPanel
 @onready var item_name = $DetailsPanel/ItemName
 @onready var item_type = $DetailsPanel/ItemType
+@onready var item_button = $ItemButton
+
+signal invetory_slot_selected
 
 # Slot item
 var item = null
 
 func _on_item_button_mouse_entered():
-	if item != null:
+	if item != null and details_panel:
 		details_panel.visible = true
 
 func _on_item_button_mouse_exited():
-	details_panel.visible = false
+	if details_panel:
+		details_panel.visible = false
 
 func set_empty():
 	icon.texture = null
@@ -27,3 +32,8 @@ func set_item(new_item):
 	label_qty.text = str(item['qty'])
 	item_name.text = str(item['name'])
 	item_type.text = str(item['type'])
+
+
+func _on_item_button_pressed():
+	invetory_slot_selected.emit()
+	pass # Replace with function body.

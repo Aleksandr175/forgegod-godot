@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://6b07cvgy8iqh"]
+[gd_scene load_steps=4 format=3 uid="uid://6b07cvgy8iqh"]
 
+[ext_resource type="PackedScene" uid="uid://baphtpay2atal" path="res://scenes/ui/Recipe_Selected.tscn" id="1_8hw5d"]
 [ext_resource type="PackedScene" uid="uid://dutum2bfx4x6o" path="res://scenes/ui/Inventory_UI.tscn" id="1_8vcnw"]
 [ext_resource type="PackedScene" uid="uid://bhf5u0afx8yxb" path="res://scenes/ui/Recipes_UI.tscn" id="2_r1uj4"]
 
@@ -46,8 +47,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 100
 
+[node name="RecipeSelected" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_8hw5d")]
+custom_minimum_size = Vector2(320, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [node name="InventoryUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_8vcnw")]
-custom_minimum_size = Vector2(2.08165e-12, 200)
+custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 
