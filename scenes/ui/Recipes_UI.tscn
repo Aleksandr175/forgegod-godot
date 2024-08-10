@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/Recipes_UI.gd" id="1_ph8c3"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_lop3v"]
-[ext_resource type="PackedScene" uid="uid://dovmicj0e2hfa" path="res://scenes/ui/Recipe_Slot2.tscn" id="3_fwed8"]
+[ext_resource type="PackedScene" uid="uid://dp6h2dbl4d8yc" path="res://scenes/ui/Recipe_Slot.tscn" id="3_3w7ok"]
 
 [node name="RecipesUi" type="Control"]
 layout_mode = 3
@@ -18,9 +18,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -135.0
-offset_right = 135.0
-offset_bottom = 44.0
+offset_left = -220.0
+offset_right = 220.0
+offset_bottom = 228.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -35,18 +35,11 @@ custom_minimum_size = Vector2(440, 200)
 layout_mode = 2
 columns = 4
 
-[node name="RecipeSlot" parent="VBoxContainer/GridContainer" instance=ExtResource("3_fwed8")]
-custom_minimum_size = Vector2(100, 100)
+[node name="RecipeSlot" parent="VBoxContainer/GridContainer" instance=ExtResource("3_3w7ok")]
 layout_mode = 2
 
-[node name="RecipeSlot2" parent="VBoxContainer/GridContainer" instance=ExtResource("3_fwed8")]
-custom_minimum_size = Vector2(100, 100)
+[node name="RecipeSlot2" parent="VBoxContainer/GridContainer" instance=ExtResource("3_3w7ok")]
 layout_mode = 2
 
-[node name="RecipeSlot3" parent="VBoxContainer/GridContainer" instance=ExtResource("3_fwed8")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="RecipeSlot4" parent="VBoxContainer/GridContainer" instance=ExtResource("3_fwed8")]
-custom_minimum_size = Vector2(100, 100)
+[node name="RecipeSlot3" parent="VBoxContainer/GridContainer" instance=ExtResource("3_3w7ok")]
 layout_mode = 2

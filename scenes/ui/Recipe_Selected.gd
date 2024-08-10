@@ -3,6 +3,7 @@ extends Control
 var selected_recipe = null
 @onready var recipe_image_container = $VBoxContainer/HBoxContainer/RecipeImageContainer
 @onready var recipe_requirements_container = $VBoxContainer/HBoxContainer/VBoxContainer/GridRequirements
+@onready var recipe_name = $VBoxContainer/HBoxContainer/VBoxContainer/Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,8 @@ func _ready():
 
 func _on_selected_recipe_updated(item):
 	clear_grid_container()
+	recipe_name.text = item.name
+
 	# add recipe main image
 	var slot = Inventory.inventory_slot_scene.instantiate()
 	recipe_image_container.add_child(slot)
