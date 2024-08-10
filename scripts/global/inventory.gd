@@ -1,6 +1,19 @@
 extends Node2D
 
-var inventory_items = []
+var inventory_items = [{ 
+	"qty": 5, 
+	"name": "Iron", 
+	"type": "Resource", 
+	"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
+	"scene_path": "res://scenes/objects/inventory_item.tscn" 
+},{ 
+	"qty": 20, 
+	"name": "Copper", 
+	"type": "Resource", 
+	"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
+	"scene_path": "res://scenes/objects/inventory_item.tscn" 
+}]
+
 var inventory_size = 8
 var recipes = [{
 	"id": "sword",
@@ -36,6 +49,7 @@ signal inventory_updated
 var player_node: Node = null
 
 @onready var inventory_slot_scene = preload("res://scenes/ui/Inventory_Slot.tscn")
+@onready var recipe_slot_scene = preload("res://scenes/ui/Recipe_Slot.tscn")
 @onready var inventory_slot_small_scene = preload("res://scenes/ui/Inventory_Slot_Small.tscn")
 
 # Called when the node enters the scene tree for the first time.

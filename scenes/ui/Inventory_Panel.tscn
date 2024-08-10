@@ -53,11 +53,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="RecipesUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_r1uj4")]
+custom_minimum_size = Vector2(2.08165e-12, 200)
+layout_mode = 2
+
 [node name="InventoryUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_8vcnw")]
 custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="RecipesUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_r1uj4")]
-custom_minimum_size = Vector2(2.08165e-12, 200)
-layout_mode = 2
+[connection signal="recipe_ui_slot_selected" from="ColorRect/MarginContainer/VBoxContainer/RecipesUi" to="ColorRect/MarginContainer/VBoxContainer/RecipeSelected" method="_on_recipes_ui_recipe_ui_slot_selected"]

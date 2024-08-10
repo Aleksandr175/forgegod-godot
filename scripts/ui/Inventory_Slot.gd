@@ -8,7 +8,7 @@ class_name InventorySlot
 @onready var item_type = $DetailsPanel/ItemType
 @onready var item_button = $ItemButton
 
-signal invetory_slot_selected
+signal inventory_slot_selected
 
 # Slot item
 var item = null
@@ -32,8 +32,7 @@ func set_item(new_item):
 	label_qty.text = str(item['qty'])
 	item_name.text = str(item['name'])
 	item_type.text = str(item['type'])
-
+ 
 
 func _on_item_button_pressed():
-	invetory_slot_selected.emit()
-	pass # Replace with function body.
+	inventory_slot_selected.emit()

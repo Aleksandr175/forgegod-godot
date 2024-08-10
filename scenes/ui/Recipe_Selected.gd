@@ -1,23 +1,16 @@
 extends Control
 
-
 var selected_recipe = null
 @onready var recipe_image_container = $VBoxContainer/HBoxContainer/RecipeImageContainer
 @onready var recipe_requirements_container = $VBoxContainer/HBoxContainer/VBoxContainer/GridRequirements
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#InventorySlot.invetory_slot_selected.connect(_on_selected_recipe_updated)
 	selected_recipe = Inventory.recipes[0]
-	clear_grid_container()
 	_on_selected_recipe_updated(selected_recipe)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_selected_recipe_updated(item):
+	clear_grid_container()
 	# add recipe main image
 	var slot = Inventory.inventory_slot_scene.instantiate()
 	recipe_image_container.add_child(slot)
@@ -28,7 +21,6 @@ func _on_selected_recipe_updated(item):
 
 	# requirements info
 	for requirement in item['requirements']:
-		print('requirements')
 		var small_slot = Inventory.inventory_slot_small_scene.instantiate()
 		recipe_requirements_container.add_child(small_slot)
 		if requirement != null:
@@ -45,3 +37,14 @@ func clear_grid_container():
 	# remove recipe main image
 	var child = recipe_image_container.get_child(0)
 	recipe_image_container.remove_child(child)
+
+
+func _on_recipes_ui_recipe_ui_slot_selected(recipe):
+	var recipeData = find_item_by_name(recipe.name)
+	_on_selected_recipe_updated(recipe)
+
+func find_item_by_name(recipe_name):
+	for item in Inventory.recipes:
+		if item.name == recipe_name:
+			return item
+	return null  # Return null if the item is not found

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhf5u0afx8yxb"]
+[gd_scene load_steps=4 format=3 uid="uid://bhf5u0afx8yxb"]
 
 [ext_resource type="Script" path="res://scripts/ui/Recipes_UI.gd" id="1_ph8c3"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_lop3v"]
+[ext_resource type="PackedScene" uid="uid://dovmicj0e2hfa" path="res://scenes/ui/Recipe_Slot2.tscn" id="3_fwed8"]
 
 [node name="RecipesUi" type="Control"]
 layout_mode = 3
@@ -33,3 +34,19 @@ text = "Recipes"
 custom_minimum_size = Vector2(440, 200)
 layout_mode = 2
 columns = 4
+
+[node name="RecipeSlot" parent="VBoxContainer/GridContainer" instance=ExtResource("3_fwed8")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RecipeSlot2" parent="VBoxContainer/GridContainer" instance=ExtResource("3_fwed8")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RecipeSlot3" parent="VBoxContainer/GridContainer" instance=ExtResource("3_fwed8")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RecipeSlot4" parent="VBoxContainer/GridContainer" instance=ExtResource("3_fwed8")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
