@@ -82,8 +82,36 @@ func add_item(new_item):
 	# Emit signal after adding/updating the item
 	inventory_updated.emit()
 	
-func remove_item():
+func remove_item(item):
+	for i in range(inventory_items.size()):
+		var inventory_item = inventory_items[i]
+
+		if inventory_item.name == item.name:
+			inventory_item.qty -= int(item.qty)
+			if inventory_item.qty <= 0:
+				# mark inventory item as empty
+				inventory_items[i] = null
+			break
+
 	inventory_updated.emit()
 
 func set_player_reference(player):
 	player_node = player
+	
+func has_required_items(requirements):
+	for requirement in requirements:
+		var found = false
+		# Check if the inventory contains the required item with sufficient quantity
+		for inventory_item in Inventory.inventory_items:
+			if inventory_item and inventory_item.name == requirement.name and int(inventory_item.qty) >= int(requirement.qty):
+				found = true
+				break
+		# If any requirement is not met, return false
+		if not found:
+			return false
+	return true
+
+func remove_items(items):
+	# Reduce the quantity of each required item from the inventory
+	for item in items:
+		Inventory.remove_item(item)

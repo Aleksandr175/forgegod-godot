@@ -7,12 +7,12 @@ var selected_recipe = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	selected_recipe = Inventory.recipes[0]
-	_on_selected_recipe_updated(selected_recipe)
+	_on_selected_recipe_updated(Inventory.recipes[0])
 
 func _on_selected_recipe_updated(item):
 	clear_grid_container()
 	recipe_name.text = item.name
+	selected_recipe = item
 
 	# add recipe main image
 	var slot = Inventory.inventory_slot_scene.instantiate()
@@ -51,3 +51,26 @@ func find_item_by_name(recipe_name):
 		if item.name == recipe_name:
 			return item
 	return null  # Return null if the item is not found
+
+func order(recipe):
+	if Inventory.has_required_items(recipe.requirements):
+		# Proceed with item creation
+		print("All requirements met. Creating item:", recipe.name)
+		
+		Inventory.remove_items(recipe.requirements)
+		
+		# Add the new item to the inventory
+		var new_item = {
+			"qty": int(recipe.qty),
+			"name": recipe.name,
+			"type": "resource",
+			"texture": recipe.texture,
+		}
+		
+		Inventory.add_item(new_item)
+	else:
+		print("Not enough resources to create:", recipe.name)
+
+func _on_button_pressed():
+	order(selected_recipe)
+	pass # Replace with function body.
