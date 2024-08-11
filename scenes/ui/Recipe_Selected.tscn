@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://baphtpay2atal"]
 
-[ext_resource type="PackedScene" uid="uid://diy2f44ffdnvb" path="res://scenes/ui/Inventory_Slot.tscn" id="1_qbhvp"]
 [ext_resource type="Script" path="res://scenes/ui/Recipe_Selected.gd" id="1_rtpl1"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_u0qec"]
 [ext_resource type="PackedScene" uid="uid://da05yq43vfk4f" path="res://scenes/ui/Inventory_Slot_Small.tscn" id="2_yjdlx"]
+[ext_resource type="PackedScene" uid="uid://dp6h2dbl4d8yc" path="res://scenes/ui/Recipe_Slot.tscn" id="3_n2355"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="3_u8req"]
 
 [node name="RecipeSelected" type="Control"]
@@ -19,8 +19,9 @@ script = ExtResource("1_rtpl1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 400.0
-offset_bottom = 140.0
+offset_right = 440.0
+offset_bottom = 224.0
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -35,11 +36,12 @@ layout_mode = 2
 [node name="RecipeImageContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="InventorySlot" parent="VBoxContainer/HBoxContainer/RecipeImageContainer" instance=ExtResource("1_qbhvp")]
+[node name="RecipeSlot" parent="VBoxContainer/HBoxContainer/RecipeImageContainer" instance=ExtResource("3_n2355")]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -64,8 +66,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(400, 2.08165e-12)
+custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-text = "Order"
+theme_override_fonts/font = ExtResource("1_u0qec")
+text = "ORDER"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_5jlxj"]
 [ext_resource type="Script" path="res://scripts/ui/Recipe_Slot.gd" id="1_6207k"]
-[ext_resource type="Texture2D" uid="uid://dk5i0ss6k1m4u" path="res://assets/sprites/objects/resources/resource-iron.png" id="2_layf7"]
+[ext_resource type="Texture2D" uid="uid://c7rjhpcrj71v0" path="res://assets/sprites/objects/goods/swordIron.png" id="3_r10c3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7vc2"]
 
@@ -48,8 +48,8 @@ text = "1"
 
 [node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
 position = Vector2(44, 48)
-scale = Vector2(4, 4)
-texture = ExtResource("2_layf7")
+scale = Vector2(2, 2)
+texture = ExtResource("3_r10c3")
 
 [node name="ItemButton" type="Button" parent="."]
 layout_mode = 1

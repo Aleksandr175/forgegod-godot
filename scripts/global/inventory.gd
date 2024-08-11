@@ -1,46 +1,77 @@
 extends Node2D
 
-var inventory_items = [{ 
+var inventory_size = 20
+
+var inventory_dictionary = {
+	"coin": {
+		"id": 1,
+		"name": "Coin",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/coin.png"),
+		"value": 1,
+	},
+	"iron": {
+		"id": 2,
+		"name": "Iron Sword",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
+		"value": 3,
+	},
+	"copper": {
+		"id": 3,
+		"name": "Copper Sword",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
+		"value": 5
+	},
+}
+
+var inventory_items = [{
+	"qty": 50, 
+	"name": inventory_dictionary["coin"]["name"], 
+	"type": inventory_dictionary["coin"]["type"], 
+	"texture": inventory_dictionary["coin"]["texture"],
+	"scene_path": "res://scenes/objects/inventory_item.tscn" 
+}, { 
 	"qty": 5, 
-	"name": "Iron", 
-	"type": "Resource", 
-	"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
+	"name": inventory_dictionary["iron"]["name"], 
+	"type": inventory_dictionary["iron"]["type"], 
+	"texture": inventory_dictionary["iron"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 },{ 
 	"qty": 20, 
-	"name": "Copper", 
-	"type": "Resource", 
-	"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
+	"name": inventory_dictionary["copper"]["name"], 
+	"type": inventory_dictionary["copper"]["type"], 
+	"texture": inventory_dictionary["copper"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }]
 
-var inventory_size = 8
 var recipes = [{
-	"id": "sword",
-	"name": "Sword",
-	"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
-	"qty": "1",
+	"id": 1,
+	"name": "Iron Sword",
+	"texture": load("res://assets/sprites/objects/goods/swordIron.png"),
+	"qty": 1,
+	"type": "recipe",
 	"requirements": [{
-		"id": "iron",
-		"name": "Iron",
-		"qty": "5",
-		"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
-		"type": "resource",
+		"id": inventory_dictionary["iron"]["id"], 
+		"name": inventory_dictionary["iron"]["name"], 
+		"type": inventory_dictionary["iron"]["type"], 
+		"texture": inventory_dictionary["iron"]["texture"],
+		"qty": 5,
 	}],
-	"type": "recipe"
 }, {
-	"id": "sword2",
+	"id": 2,
 	"name": "Sword Copper",
-	"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
-	"qty": "1",
+	"texture": load("res://assets/sprites/objects/goods/swordCopper.png"),
+	"qty": 1,
+	"type": "recipe",
 	"requirements": [{
-		"id": "copper",
-		"name": "Copper",
-		"qty": "3",
-		"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
-		"type": "resource",
+		"id": inventory_dictionary["copper"]["id"], 
+		"name": inventory_dictionary["copper"]["name"], 
+		"type": inventory_dictionary["copper"]["type"], 
+		"texture": inventory_dictionary["copper"]["texture"],
+		"qty": 3,
 	}],
-	"type": "recipe"
 }]
 
 signal inventory_updated
@@ -58,7 +89,7 @@ func _ready():
 	pass # Replace with function body.
 
 func add_item(new_item):
-	var item_found = false	
+	var item_found = false
 
 	# Check if the item already exists in the inventory
 	for i in range(inventory_items.size()):

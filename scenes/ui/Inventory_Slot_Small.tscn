@@ -26,6 +26,7 @@ grow_vertical = 2
 color = Color(0.105614, 0.105614, 0.105614, 1)
 
 [node name="InnerBorder" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 45.0

@@ -15,7 +15,7 @@ func _on_selected_recipe_updated(item):
 	selected_recipe = item
 
 	# add recipe main image
-	var slot = Inventory.inventory_slot_scene.instantiate()
+	var slot = Inventory.recipe_slot_scene.instantiate()
 	recipe_image_container.add_child(slot)
 	if item != null:
 		slot.set_item(item)

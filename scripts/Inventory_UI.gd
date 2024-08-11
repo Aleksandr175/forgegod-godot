@@ -1,6 +1,6 @@
 extends Control
 
-@onready var inventory_container = $VBoxContainer/inventory
+@onready var inventory_container = $VBoxContainer/HBoxContainer/ScrollContainer/inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

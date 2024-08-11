@@ -22,6 +22,7 @@ offset_left = -220.0
 offset_right = 220.0
 offset_bottom = 228.0
 grow_horizontal = 2
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -30,16 +31,21 @@ theme_override_fonts/font = ExtResource("2_lop3v")
 theme_override_font_sizes/font_size = 24
 text = "Recipes"
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 220)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(440, 200)
 layout_mode = 2
 columns = 4
 
-[node name="RecipeSlot" parent="VBoxContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+[node name="RecipeSlot" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
 layout_mode = 2
 
-[node name="RecipeSlot2" parent="VBoxContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+[node name="RecipeSlot2" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
 layout_mode = 2
 
-[node name="RecipeSlot3" parent="VBoxContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+[node name="RecipeSlot3" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
 layout_mode = 2

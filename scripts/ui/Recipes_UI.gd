@@ -1,7 +1,7 @@
 extends Control
 class_name RecipesUI
 
-@onready var recipes_container = $VBoxContainer/GridContainer
+@onready var recipes_container = $VBoxContainer/ScrollContainer/GridContainer
 
 signal recipe_ui_slot_selected(recipe)
 

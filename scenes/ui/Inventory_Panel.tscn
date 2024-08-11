@@ -46,20 +46,20 @@ custom_minimum_size = Vector2(440, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 100
+theme_override_constants/separation = 40
 
 [node name="RecipeSelected" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_8hw5d")]
-custom_minimum_size = Vector2(440, 200)
+custom_minimum_size = Vector2(440, 220)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="RecipesUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_r1uj4")]
-custom_minimum_size = Vector2(440, 200)
+custom_minimum_size = Vector2(440, 300)
 layout_mode = 2
 
 [node name="InventoryUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_8vcnw")]
-custom_minimum_size = Vector2(440, 200)
+custom_minimum_size = Vector2(440, 300)
 layout_mode = 2
 size_flags_horizontal = 0
 
