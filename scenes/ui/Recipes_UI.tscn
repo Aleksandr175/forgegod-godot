@@ -32,13 +32,15 @@ theme_override_font_sizes/font_size = 24
 text = "Recipes"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 220)
+custom_minimum_size = Vector2(2.08165e-12, 240)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
-custom_minimum_size = Vector2(440, 200)
+custom_minimum_size = Vector2(440, 220)
 layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 4
 
 [node name="RecipeSlot" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
@@ -48,4 +50,31 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="RecipeSlot3" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot4" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot5" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot6" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot7" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot8" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot9" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot10" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot11" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
+layout_mode = 2
+
+[node name="RecipeSlot12" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_3w7ok")]
 layout_mode = 2

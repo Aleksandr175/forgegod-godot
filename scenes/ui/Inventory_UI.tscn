@@ -43,12 +43,12 @@ text = "Inventory"
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(440, 220)
+custom_minimum_size = Vector2(440, 240)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
 [node name="inventory" type="GridContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer"]
-custom_minimum_size = Vector2(440, 200)
+custom_minimum_size = Vector2(440, 320)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 10
@@ -68,4 +68,25 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="InventorySlot5" parent="VBoxContainer/HBoxContainer/ScrollContainer/inventory" instance=ExtResource("3_dq068")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="VBoxContainer/HBoxContainer/ScrollContainer/inventory" instance=ExtResource("3_dq068")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="VBoxContainer/HBoxContainer/ScrollContainer/inventory" instance=ExtResource("3_dq068")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="VBoxContainer/HBoxContainer/ScrollContainer/inventory" instance=ExtResource("3_dq068")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="VBoxContainer/HBoxContainer/ScrollContainer/inventory" instance=ExtResource("3_dq068")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="VBoxContainer/HBoxContainer/ScrollContainer/inventory" instance=ExtResource("3_dq068")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="VBoxContainer/HBoxContainer/ScrollContainer/inventory" instance=ExtResource("3_dq068")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="VBoxContainer/HBoxContainer/ScrollContainer/inventory" instance=ExtResource("3_dq068")]
 layout_mode = 2
