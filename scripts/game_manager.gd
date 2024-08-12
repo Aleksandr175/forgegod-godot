@@ -18,10 +18,10 @@ func add_point(inceased_coins: int):
 	gained_coins.emit()
 	#emit_signal("gained_coins", gained_coins)
 
-func add_resource(resource_type: String, qty: int):
-	resources[resource_type] += qty
-	if (resource_type == 'iron'):
-		gained_resource_iron.emit()
+#func add_resource(resource_type: String, qty: int):
+#	resources[resource_type] += qty
+#	if (resource_type == 'iron'):
+#		gained_resource_iron.emit()
 		#emit_signal("gained_resource_iron")
 
 func play_pause():

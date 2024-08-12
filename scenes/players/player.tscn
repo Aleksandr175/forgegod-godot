@@ -238,8 +238,7 @@ zoom = Vector2(5, 5)
 limit_top = -240
 limit_bottom = 160
 limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 20.0
+position_smoothing_speed = 50.0
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 visible = false

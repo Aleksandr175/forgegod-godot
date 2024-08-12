@@ -135,13 +135,13 @@ position = Vector2(728, 72)
 position = Vector2(632, 56)
 
 [node name="Coin21" parent="Coins" instance=ExtResource("7_djagn")]
-position = Vector2(621, 22)
+position = Vector2(597, 9)
 
 [node name="Coin22" parent="Coins" instance=ExtResource("7_djagn")]
-position = Vector2(609, 10)
+position = Vector2(552, -42)
 
 [node name="Coin23" parent="Coins" instance=ExtResource("7_djagn")]
-position = Vector2(592, 6)
+position = Vector2(569, -34)
 
 [node name="Coin24" parent="Coins" instance=ExtResource("7_djagn")]
 position = Vector2(471, -153)
@@ -254,7 +254,7 @@ libraries = {
 autoplay = "move"
 
 [node name="Slime" parent="." instance=ExtResource("9_olydp")]
-position = Vector2(529, 80)
+position = Vector2(563, 16)
 
 [node name="Labels" type="Node" parent="."]
 
@@ -278,21 +278,11 @@ theme_override_fonts/font = ExtResource("10_t1ux7")
 theme_override_font_sizes/font_size = 8
 text = "Falling hurts..."
 
-[node name="Label3" type="Label" parent="Labels"]
-offset_left = 704.0
-offset_top = -48.0
-offset_right = 800.0
-offset_bottom = -30.0
-theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
-theme_override_fonts/font = ExtResource("10_t1ux7")
-theme_override_font_sizes/font_size = 8
-text = "Almost there..."
-
 [node name="Label4" type="Label" parent="Labels"]
-offset_left = 328.0
-offset_top = -105.0
-offset_right = 430.0
-offset_bottom = -87.0
+offset_left = 365.0
+offset_top = 19.0
+offset_right = 467.0
+offset_bottom = 37.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("10_t1ux7")
 theme_override_font_sizes/font_size = 8
@@ -400,10 +390,10 @@ position = Vector2(-47, -32)
 position = Vector2(-120, 48)
 
 [node name="Cave-enter" parent="." instance=ExtResource("18_7887p")]
-position = Vector2(420, -64)
+position = Vector2(577, 79)
 
 [node name="Ladder2" parent="." instance=ExtResource("17_1qxey")]
-position = Vector2(344, 48)
+position = Vector2(616, 79)
 
 [node name="IronResource" parent="." instance=ExtResource("21_qaady")]
 offset_left = 184.0
