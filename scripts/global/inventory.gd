@@ -146,3 +146,9 @@ func remove_items(items):
 	# Reduce the quantity of each required item from the inventory
 	for item in items:
 		Inventory.remove_item(item)
+
+func find_item_by_id(item):
+	for inventory_item in Inventory.inventory_dictionary:
+		if inventory_item.id == item.id:
+			return inventory_item
+	return null
