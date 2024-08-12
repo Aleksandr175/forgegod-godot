@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca0eodaibq7gn"]
+
+[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_2wipf"]
+[ext_resource type="Script" path="res://scripts/ui/Levels_UI.gd" id="1_ruyv2"]
+
+[node name="LevelsUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ruyv2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = -100.0
+offset_right = 135.5
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VillageButton" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2wipf")
+theme_override_font_sizes/font_size = 24
+text = "Village"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 200)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 40
+
+[node name="Level1Button" type="Button" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2wipf")
+theme_override_font_sizes/font_size = 24
+text = "Mine Level 1"
+
+[node name="Level2Button" type="Button" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2wipf")
+theme_override_font_sizes/font_size = 24
+text = "Mine Level 2"
+
+[node name="Level3Button" type="Button" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2wipf")
+theme_override_font_sizes/font_size = 24
+text = "Mine Level 3"
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_top = 57.0
+offset_right = 33.5
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_2wipf")
+theme_override_font_sizes/font_size = 32
+text = "Move to:"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/VillageButton" to="." method="_on_village_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ScrollContainer/GridContainer/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ScrollContainer/GridContainer/Level2Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ScrollContainer/GridContainer/Level3Button" to="." method="_on_level_3_button_pressed"]

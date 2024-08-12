@@ -68,7 +68,7 @@ func _physics_process(delta):
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 
-	if !dying:
+	if !dying and !get_tree().paused:
 		update_animations(direction, is_climbing)
 		move_and_slide()
 	
