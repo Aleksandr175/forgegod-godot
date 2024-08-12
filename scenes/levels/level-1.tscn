@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://3e43oykb2evy"]
+[gd_scene load_steps=6 format=3 uid="uid://3e43oykb2evy"]
 
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="1_n88j0"]
 [ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://scenes/HUD.tscn" id="1_okd3i"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/players/player.tscn" id="2_rpr4n"]
 [ext_resource type="PackedScene" uid="uid://cw6jy6mcv68bh" path="res://scenes/objects/resources/resource_iron.tscn" id="4_tpuee"]
+[ext_resource type="PackedScene" uid="uid://cjrth4mg58yfy" path="res://scenes/objects/Cave_Exit.tscn" id="5_eyk5d"]
 
 [node name="Level-1" type="Node2D"]
 
@@ -61,4 +62,7 @@ position = Vector2(202, -16)
 position = Vector2(399, -17)
 
 [node name="ResourceIron4" parent="." instance=ExtResource("4_tpuee")]
-position = Vector2(446, -79)
+position = Vector2(504, -48)
+
+[node name="Cave_Exit" parent="." instance=ExtResource("5_eyk5d")]
+position = Vector2(433, -80)
