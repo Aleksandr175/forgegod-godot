@@ -33,6 +33,20 @@ func clear_grid_container():
 
 # Callback function that handles we buy shop item
 func _on_shop_item_bought(item):
-	print("Shop item selected!", item)
-	# Emit the signal to notify other parts of your game
-	emit_signal("good_bought", item)
+	if Inventory.has_enought_coins(item.price):
+		print("Shop item bought!", item)
+		var bought_item = {
+			"id": item["id"],
+			"name": item["name"],
+			"texture": item["texture"],
+			"qty": 1,
+		}
+		# we should remove coins from inventory
+		var coins_item = {
+			"id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": item["price"],
+		}
+		print(coins_item)
+		
+		Inventory.add_item(bought_item)
+		Inventory.remove_item(coins_item)

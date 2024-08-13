@@ -27,18 +27,21 @@ var inventory_dictionary = {
 }
 
 var inventory_items = [{
+	"id": inventory_dictionary["coin"]["id"], 
 	"qty": 50, 
 	"name": inventory_dictionary["coin"]["name"], 
 	"type": inventory_dictionary["coin"]["type"], 
 	"texture": inventory_dictionary["coin"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }, { 
+	"id": inventory_dictionary["iron"]["id"], 
 	"qty": 5, 
 	"name": inventory_dictionary["iron"]["name"], 
 	"type": inventory_dictionary["iron"]["type"], 
 	"texture": inventory_dictionary["iron"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 },{ 
+	"id": inventory_dictionary["copper"]["id"], 
 	"qty": 20, 
 	"name": inventory_dictionary["copper"]["name"], 
 	"type": inventory_dictionary["copper"]["type"], 
@@ -132,7 +135,7 @@ func remove_item(item):
 	for i in range(inventory_items.size()):
 		var inventory_item = inventory_items[i]
 
-		if inventory_item.name == item.name:
+		if inventory_item.id == item.id:
 			inventory_item.qty -= int(item.qty)
 			if inventory_item.qty <= 0:
 				# mark inventory item as empty
@@ -167,3 +170,13 @@ func find_item_by_id(item):
 		if inventory_item.id == item.id:
 			return inventory_item
 	return null
+	
+func find_item_in_inventory(item):
+	for inventory_item in Inventory.inventory_items:
+		if inventory_item and inventory_item.id == item.id:
+			return inventory_item
+	return null
+	
+func has_enought_coins(needed: int):
+	var coins = find_item_in_inventory(Inventory.inventory_dictionary["coin"])
+	return coins and coins.qty >= needed
