@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://w86l6k5r12vs"]
+
+[ext_resource type="Texture2D" uid="uid://lykr07dhm005" path="res://assets/sprites/buildings/shop/shop1.png" id="1_wkaqw"]
+[ext_resource type="Texture2D" uid="uid://dk07mhpexfa31" path="res://assets/sprites/buildings/shop/shop1_decor.png" id="2_57k81"]
+
+[node name="Shop" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
+texture = ExtResource("1_wkaqw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("2_57k81")

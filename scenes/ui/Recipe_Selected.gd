@@ -38,8 +38,8 @@ func clear_grid_container():
 		child.queue_free()
 
 	# remove recipe main image
-	var child = recipe_image_container.get_child(0)
-	recipe_image_container.remove_child(child)
+	var child_image = recipe_image_container.get_child(0)
+	recipe_image_container.remove_child(child_image)
 
 
 func _on_recipes_ui_recipe_ui_slot_selected(recipe):

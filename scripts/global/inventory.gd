@@ -46,6 +46,20 @@ var inventory_items = [{
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }]
 
+var shop_items = [{
+	"id": inventory_dictionary["iron"]["id"],
+	"name": inventory_dictionary["iron"]["name"],
+	"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
+	"price": 10,
+	"type": "Resource"
+}, {
+	"id": inventory_dictionary["copper"]["id"],
+	"name": inventory_dictionary["copper"]["name"],
+	"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
+	"price": 15,
+	"type": "Resource",
+}]
+
 var recipes = [{
 	"id": 1,
 	"name": "Iron Sword",
@@ -81,6 +95,7 @@ var player_node: Node = null
 
 @onready var inventory_slot_scene = preload("res://scenes/ui/Inventory_Slot.tscn")
 @onready var recipe_slot_scene = preload("res://scenes/ui/Recipe_Slot.tscn")
+@onready var shop_slot_scene = preload("res://scenes/ui/Shop_Slot.tscn")
 @onready var inventory_slot_small_scene = preload("res://scenes/ui/Inventory_Slot_Small.tscn")
 
 # Called when the node enters the scene tree for the first time.

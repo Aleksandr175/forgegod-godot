@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://46cqw8xalq6v"]
+
+[ext_resource type="Script" path="res://scripts/characters/Dealer.gd" id="1_6g84u"]
+[ext_resource type="Texture2D" uid="uid://5tn8k7phre3a" path="res://assets/sprites/characters/seller.png" id="2_8thyt"]
+[ext_resource type="PackedScene" uid="uid://bitkk2rofc8yf" path="res://scenes/ui/Shop_Panel.tscn" id="3_v1qyj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvapl"]
+atlas = ExtResource("2_8thyt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2hll"]
+atlas = ExtResource("2_8thyt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7yth"]
+atlas = ExtResource("2_8thyt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0it43"]
+atlas = ExtResource("2_8thyt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rnb8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvapl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2hll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7yth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0it43")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6dkcd"]
+radius = 6.0
+height = 16.0
+
+[node name="Dealer" type="Node2D"]
+script = ExtResource("1_6g84u")
+
+[node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_rnb8g")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.782634
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_6dkcd")
+
+[node name="ShopUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ShopPanel" parent="ShopUI" instance=ExtResource("3_v1qyj")]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

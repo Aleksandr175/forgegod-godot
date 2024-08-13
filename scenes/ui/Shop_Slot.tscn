@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwx0dn740n5uu"]
+
+[ext_resource type="Script" path="res://scripts/ui/Shop_Slot.gd" id="1_4othy"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="2_0jost"]
+[ext_resource type="Texture2D" uid="uid://c7rjhpcrj71v0" path="res://assets/sprites/objects/goods/swordIron.png" id="3_cy40r"]
+[ext_resource type="Texture2D" uid="uid://bx5d7m7v6nil1" path="res://assets/sprites/objects/resources/coin.png" id="4_f5wv0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7vc2"]
+
+[node name="ShopSlot" type="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -1060.0
+offset_bottom = -2422.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4othy")
+
+[node name="OuterBorder" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105614, 0.105614, 0.105614, 1)
+
+[node name="InnerBorder" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 95.0
+offset_bottom = 95.0
+color = Color(0.135012, 0.135012, 0.135012, 1)
+
+[node name="Price" type="Label" parent="InnerBorder"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 5.0
+offset_right = 63.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("2_0jost")
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
+position = Vector2(44, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("3_cy40r")
+
+[node name="Sprite2D" type="Sprite2D" parent="InnerBorder"]
+position = Vector2(15.5, 15.5)
+scale = Vector2(1.9375, 1.9375)
+texture = ExtResource("4_f5wv0")
+
+[node name="ItemButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t7vc2")
+
+[connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]
+[connection signal="mouse_exited" from="ItemButton" to="." method="_on_item_button_mouse_exited"]
+[connection signal="pressed" from="ItemButton" to="." method="_on_item_button_pressed"]

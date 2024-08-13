@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://chaeekc608x4t"]
+[gd_scene load_steps=10 format=3 uid="uid://di67g3p0nyacr"]
 
-[ext_resource type="Script" path="res://scripts/characters/Seller.gd" id="1_i3pvx"]
+[ext_resource type="Script" path="res://scripts/characters/Dealer.gd" id="1_i3pvx"]
 [ext_resource type="Texture2D" uid="uid://5tn8k7phre3a" path="res://assets/sprites/characters/seller.png" id="1_o04gd"]
+[ext_resource type="PackedScene" uid="uid://bitkk2rofc8yf" path="res://scenes/ui/Shop_Panel.tscn" id="3_qsnva"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvapl"]
 atlas = ExtResource("1_o04gd")
@@ -43,11 +44,7 @@ animations = [{
 radius = 6.0
 height = 16.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtwbq"]
-radius = 6.0
-height = 16.0
-
-[node name="Seller" type="CharacterBody2D"]
+[node name="Seller" type="Node2D"]
 script = ExtResource("1_i3pvx")
 
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="."]
@@ -64,6 +61,10 @@ frame_progress = 0.782634
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_6dkcd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_xtwbq")
+[node name="ShopUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ShopPanel" parent="ShopUI" instance=ExtResource("3_qsnva")]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="shop_ui_closed" from="ShopUI/ShopPanel" to="." method="_on_shop_panel_shop_ui_closed"]
