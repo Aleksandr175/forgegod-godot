@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca0eodaibq7gn"]
 
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_2wipf"]
-[ext_resource type="Script" path="res://scripts/ui/Levels_UI.gd" id="1_ruyv2"]
+[ext_resource type="Script" path="res://UI/LevelsUI/Levels_UI.gd" id="1_ruyv2"]
 
 [node name="LevelsUi" type="Control"]
 layout_mode = 3

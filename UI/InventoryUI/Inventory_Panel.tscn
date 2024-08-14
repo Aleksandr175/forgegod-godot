@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://6b07cvgy8iqh"]
 
-[ext_resource type="PackedScene" uid="uid://baphtpay2atal" path="res://scenes/ui/Recipe_Selected.tscn" id="1_8hw5d"]
-[ext_resource type="PackedScene" uid="uid://dutum2bfx4x6o" path="res://scenes/ui/Inventory_UI.tscn" id="1_8vcnw"]
-[ext_resource type="Script" path="res://scripts/ui/Inventory_Panel.gd" id="1_caafm"]
-[ext_resource type="PackedScene" uid="uid://bhf5u0afx8yxb" path="res://scenes/ui/Recipes_UI.tscn" id="2_r1uj4"]
+[ext_resource type="PackedScene" uid="uid://baphtpay2atal" path="res://UI/RecipesUI/Recipe_Selected.tscn" id="1_8hw5d"]
+[ext_resource type="PackedScene" uid="uid://dutum2bfx4x6o" path="res://UI/InventoryUI/Inventory_UI.tscn" id="1_8vcnw"]
+[ext_resource type="Script" path="res://UI/InventoryUI/Inventory_Panel.gd" id="1_caafm"]
+[ext_resource type="PackedScene" uid="uid://bhf5u0afx8yxb" path="res://UI/RecipesUI/Recipes_UI.tscn" id="2_r1uj4"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_864gm"]
 
 [node name="InventoryPanel" type="Control"]

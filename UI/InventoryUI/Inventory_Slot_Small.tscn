@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://da05yq43vfk4f"]
 
-[ext_resource type="Script" path="res://scripts/ui/Inventory_Slot_Small.gd" id="1_eaxpb"]
+[ext_resource type="Script" path="res://UI/InventoryUI/Inventory_Slot_Small.gd" id="1_eaxpb"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_tufhb"]
 [ext_resource type="Texture2D" uid="uid://dk5i0ss6k1m4u" path="res://assets/sprites/objects/resources/resource-iron.png" id="2_1d0kg"]
 

@@ -96,10 +96,10 @@ signal inventory_updated
 # Scene and node references
 var player_node: Node = null
 
-@onready var inventory_slot_scene = preload("res://scenes/ui/Inventory_Slot.tscn")
-@onready var recipe_slot_scene = preload("res://scenes/ui/Recipe_Slot.tscn")
-@onready var shop_slot_scene = preload("res://scenes/ui/Shop_Slot.tscn")
-@onready var inventory_slot_small_scene = preload("res://scenes/ui/Inventory_Slot_Small.tscn")
+@onready var inventory_slot_scene = preload("res://UI/InventoryUI/Inventory_Slot.tscn")
+@onready var recipe_slot_scene = preload("res://UI/RecipesUI/Recipe_Slot.tscn")
+@onready var shop_slot_scene = preload("res://UI/ShopUI/Shop_Slot.tscn")
+@onready var inventory_slot_small_scene = preload("res://UI/InventoryUI/Inventory_Slot_Small.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dj53b06sf4sxy" path="res://Entities/players/player_house.tscn" id="1_yo7ni"]
 [ext_resource type="PackedScene" uid="uid://bcklgjr2v6qjr" path="res://scripts/INteractable/Furnace.tscn" id="4_478m1"]
 [ext_resource type="TileSet" uid="uid://b2vrrmbvihc3b" path="res://tilesets/house.tres" id="4_tjgdf"]
-[ext_resource type="PackedScene" uid="uid://6b07cvgy8iqh" path="res://scenes/ui/Inventory_Panel.tscn" id="5_bxxio"]
+[ext_resource type="PackedScene" uid="uid://6b07cvgy8iqh" path="res://UI/InventoryUI/Inventory_Panel.tscn" id="5_bxxio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lipq7"]
 size = Vector2(30, 9)
