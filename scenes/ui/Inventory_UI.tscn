@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dutum2bfx4x6o"]
 
-[ext_resource type="Script" path="res://scripts/Inventory_UI.gd" id="1_mxafj"]
+[ext_resource type="Script" path="res://UI/Inventory_UI.gd" id="1_mxafj"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_lsje7"]
 [ext_resource type="PackedScene" uid="uid://diy2f44ffdnvb" path="res://scenes/ui/Inventory_Slot.tscn" id="3_dq068"]
 
