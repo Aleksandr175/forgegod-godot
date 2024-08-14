@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcklgjr2v6qjr"]
 
 [ext_resource type="Texture2D" uid="uid://suitv8sml7v1" path="res://assets/sprites/objects/furnace/on.png" id="1_glpfn"]
-[ext_resource type="Script" path="res://scripts/INteractable/Furnace.gd" id="1_nnp1k"]
+[ext_resource type="Script" path="res://Entities/objects/Furnace/Furnace.gd" id="1_nnp1k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yurw5"]
 radius = 16.0

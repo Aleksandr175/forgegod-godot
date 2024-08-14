@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://46cqw8xalq6v"]
 
-[ext_resource type="Script" path="res://scripts/characters/Dealer.gd" id="1_6g84u"]
+[ext_resource type="Script" path="res://Entities/characters/Dealer/Dealer.gd" id="1_6g84u"]
 [ext_resource type="Texture2D" uid="uid://5tn8k7phre3a" path="res://assets/sprites/characters/seller.png" id="2_8thyt"]
 [ext_resource type="PackedScene" uid="uid://bitkk2rofc8yf" path="res://UI/ShopUI/Shop_Panel.tscn" id="3_v1qyj"]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
+[ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
 [ext_resource type="PackedScene" uid="uid://r0t1t1640nx4" path="res://Entities/Buildings/House/Building.tscn" id="2_40gdy"]
-[ext_resource type="PackedScene" uid="uid://di67g3p0nyacr" path="res://Entities/characters/Merchant.tscn" id="3_d7x33"]
 [ext_resource type="PackedScene" uid="uid://w86l6k5r12vs" path="res://Entities/Buildings/Shop/Shop.tscn" id="4_lghs7"]
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="5_opfq2"]
 [ext_resource type="PackedScene" uid="uid://csinli4ootbiv" path="res://Entities/objects/Cave/cave-enter.tscn" id="6_hn36e"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c6c4g11sipqif" path="res://Entities/characters/villager1.tscn" id="9_o5hxk"]
 
 [node name="Vilage" type="Node2D"]
+
+[node name="Dealer" parent="." instance=ExtResource("1_fkvx4")]
+position = Vector2(49, -104)
 
 [node name="Player" parent="." instance=ExtResource("1_6e2qq")]
 position = Vector2(0, -4)
@@ -23,9 +26,6 @@ position = Vector2(-193, -96)
 
 [node name="Building3" parent="." instance=ExtResource("2_40gdy")]
 position = Vector2(353, -48)
-
-[node name="Seller" parent="." instance=ExtResource("3_d7x33")]
-position = Vector2(50, -103)
 
 [node name="Shop" parent="." instance=ExtResource("4_lghs7")]
 position = Vector2(50, -96)
@@ -58,4 +58,4 @@ position = Vector2(-104, 7)
 position = Vector2(-87, -89)
 
 [node name="Villager1" parent="." instance=ExtResource("9_o5hxk")]
-position = Vector2(147, 0)
+position = Vector2(11, -96)

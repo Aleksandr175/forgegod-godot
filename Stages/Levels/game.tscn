@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bhvmtffufxoc2" path="res://Entities/objects/Checkpoint/Checkpoint.tscn" id="14_hh5b0"]
 [ext_resource type="PackedScene" uid="uid://ca4e1jm0gkcs2" path="res://Entities/objects/Spikes/Spikes.tscn" id="15_u5fud"]
 [ext_resource type="PackedScene" uid="uid://r0t1t1640nx4" path="res://Entities/Buildings/House/Building.tscn" id="16_gx6gd"]
-[ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://UI/HUD.tscn" id="16_gxmfn"]
+[ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://UI/HUD/HUD.tscn" id="16_gxmfn"]
 [ext_resource type="PackedScene" uid="uid://x65w1om52k6m" path="res://Entities/objects/Ladder/ladder.tscn" id="17_1qxey"]
 [ext_resource type="PackedScene" uid="uid://csinli4ootbiv" path="res://Entities/objects/Cave/cave-enter.tscn" id="18_7887p"]
-[ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer.tscn" id="18_no2wp"]
+[ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="18_no2wp"]
 [ext_resource type="PackedScene" uid="uid://w86l6k5r12vs" path="res://Entities/Buildings/Shop/Shop.tscn" id="19_3kknm"]
 [ext_resource type="PackedScene" uid="uid://42hj01mllpe1" path="res://Entities/objects/resources/iron_resource.tscn" id="21_qaady"]
 
