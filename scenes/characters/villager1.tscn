@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6c4g11sipqif"]
+
+[ext_resource type="Texture2D" uid="uid://bjtkhcqcaqubh" path="res://assets/sprites/characters/fHero_.png" id="1_l8wdb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdxpf"]
+atlas = ExtResource("1_l8wdb")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0r68"]
+atlas = ExtResource("1_l8wdb")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq54u"]
+atlas = ExtResource("1_l8wdb")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef3uq"]
+atlas = ExtResource("1_l8wdb")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hx3d1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdxpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0r68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq54u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef3uq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Villager1" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_hx3d1")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.212669
