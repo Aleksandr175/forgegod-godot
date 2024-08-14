@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
-[ext_resource type="PackedScene" uid="uid://r0t1t1640nx4" path="res://scenes/Building.tscn" id="2_40gdy"]
+[ext_resource type="PackedScene" uid="uid://r0t1t1640nx4" path="res://Entities/Buildings/House/Building.tscn" id="2_40gdy"]
 [ext_resource type="PackedScene" uid="uid://di67g3p0nyacr" path="res://Entities/characters/Merchant.tscn" id="3_d7x33"]
-[ext_resource type="PackedScene" uid="uid://w86l6k5r12vs" path="res://scripts/Buildings/Shop.tscn" id="4_lghs7"]
+[ext_resource type="PackedScene" uid="uid://w86l6k5r12vs" path="res://Entities/Buildings/Shop/Shop.tscn" id="4_lghs7"]
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="5_opfq2"]
-[ext_resource type="PackedScene" uid="uid://csinli4ootbiv" path="res://Entities/objects/cave-enter.tscn" id="6_hn36e"]
-[ext_resource type="PackedScene" uid="uid://x65w1om52k6m" path="res://Entities/objects/ladder.tscn" id="7_cjap8"]
-[ext_resource type="PackedScene" uid="uid://dibq7mfdev0iv" path="res://Entities/objects/bridge.tscn" id="8_soblm"]
+[ext_resource type="PackedScene" uid="uid://csinli4ootbiv" path="res://Entities/objects/Cave/cave-enter.tscn" id="6_hn36e"]
+[ext_resource type="PackedScene" uid="uid://x65w1om52k6m" path="res://Entities/objects/Ladder/ladder.tscn" id="7_cjap8"]
+[ext_resource type="PackedScene" uid="uid://dibq7mfdev0iv" path="res://Entities/objects/Bridge/bridge.tscn" id="8_soblm"]
 [ext_resource type="PackedScene" uid="uid://c6c4g11sipqif" path="res://Entities/characters/villager1.tscn" id="9_o5hxk"]
 
 [node name="Vilage" type="Node2D"]

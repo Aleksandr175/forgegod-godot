@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://csinli4ootbiv"]
 
-[ext_resource type="Script" path="res://Entities/objects/cave-enter.gd" id="1_abpao"]
+[ext_resource type="Script" path="res://Entities/objects/Cave/cave-enter.gd" id="1_abpao"]
 [ext_resource type="Texture2D" uid="uid://cjmx3ttaa73xt" path="res://assets/sprites/objects/caveEnter/cave-enter.png" id="1_dcqm4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1xu3"]

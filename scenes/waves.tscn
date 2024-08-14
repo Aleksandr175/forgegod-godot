@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn0isr7nxs152"]
+[gd_scene load_steps=5 format=3 uid="uid://b72kl742oyr8j"]
 
 [ext_resource type="Texture2D" uid="uid://c427q22krxfmm" path="res://assets/sprites/world/foreground_/foreground_.png" id="1_7inpk"]
-[ext_resource type="Script" path="res://scenes/waves.gd" id="1_8qpun"]
+
+[sub_resource type="GDScript" id="GDScript_i7cdq"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8es3"]
 texture = ExtResource("1_7inpk")
@@ -27,7 +34,7 @@ texture = ExtResource("1_7inpk")
 sources/0 = SubResource("TileSetAtlasSource_d8es3")
 
 [node name="Waves" type="Node2D"]
-script = ExtResource("1_8qpun")
+script = SubResource("GDScript_i7cdq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

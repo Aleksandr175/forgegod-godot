@@ -135,7 +135,7 @@ func remove_item(item):
 	for i in range(inventory_items.size()):
 		var inventory_item = inventory_items[i]
 
-		if inventory_item.id == item.id:
+		if inventory_item and inventory_item.id == item.id:
 			inventory_item.qty -= int(item.qty)
 			if inventory_item.qty <= 0:
 				# mark inventory item as empty

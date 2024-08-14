@@ -73,4 +73,3 @@ func order(recipe):
 
 func _on_button_pressed():
 	order(selected_recipe)
-	pass # Replace with function body.

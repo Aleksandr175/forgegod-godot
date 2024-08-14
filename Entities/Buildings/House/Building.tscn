@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://r0t1t1640nx4"]
 
-[ext_resource type="Script" path="res://scripts/Building.gd" id="1_gq0d1"]
+[ext_resource type="Script" path="res://Entities/Buildings/House/Building.gd" id="1_gq0d1"]
 [ext_resource type="Texture2D" uid="uid://vxaak3f2fca2" path="res://assets/sprites/buildings/blueHouse_0_0.png" id="1_hodew"]
 [ext_resource type="Texture2D" uid="uid://bkr6b0488iy8" path="res://assets/sprites/buildings/greenHouse.png" id="2_yk6dq"]
 
