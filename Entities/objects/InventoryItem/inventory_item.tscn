@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxo2qlfvpvxms"]
 
-[ext_resource type="Script" path="res://scripts/objects/inventory_item.gd" id="1_i00co"]
+[ext_resource type="Script" path="res://Entities/objects/InventoryItem/inventory_item.gd" id="1_0dlyu"]
 [ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="2_wbkmu"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="3_770xc"]
 
@@ -8,7 +8,7 @@
 radius = 7.0
 
 [node name="InventoryItem" type="Node2D" groups=["resources"]]
-script = ExtResource("1_i00co")
+script = ExtResource("1_0dlyu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
