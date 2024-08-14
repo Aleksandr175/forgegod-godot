@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://0ynvps0y58wh"]
 
 [ext_resource type="TileSet" uid="uid://dtyejycjlf6te" path="res://tilesets/winter.tres" id="1_r7vum"]
-[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/players/player.tscn" id="2_bb4oy"]
-[ext_resource type="PackedScene" uid="uid://dibq7mfdev0iv" path="res://scenes/objects/bridge.tscn" id="3_tp420"]
+[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="2_bb4oy"]
+[ext_resource type="PackedScene" uid="uid://dibq7mfdev0iv" path="res://Entities/objects/bridge.tscn" id="3_tp420"]
 [ext_resource type="PackedScene" uid="uid://bhvmtffufxoc2" path="res://scenes/Checkpoint.tscn" id="4_2jt45"]
 
 [node name="Level-3" type="Node2D"]

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/levels/levels.gd" id="1_hp623"]
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="1_n88j0"]
-[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/players/player.tscn" id="2_rpr4n"]
-[ext_resource type="PackedScene" uid="uid://cw6jy6mcv68bh" path="res://scenes/objects/resources/resource_iron.tscn" id="4_tpuee"]
-[ext_resource type="PackedScene" uid="uid://cjrth4mg58yfy" path="res://scenes/objects/Cave_Exit.tscn" id="5_eyk5d"]
+[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="2_rpr4n"]
+[ext_resource type="PackedScene" uid="uid://cw6jy6mcv68bh" path="res://Entities/objects/resources/resource_iron.tscn" id="4_tpuee"]
+[ext_resource type="PackedScene" uid="uid://cjrth4mg58yfy" path="res://Entities/objects/Cave_Exit.tscn" id="5_eyk5d"]
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://scenes/ui/Levels_UI.tscn" id="6_ihmbi"]
 
 [node name="Level-1" type="Node2D"]

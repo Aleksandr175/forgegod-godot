@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw6jy6mcv68bh"]
 
-[ext_resource type="Script" path="res://scenes/objects/resources/resource_iron.gd" id="1_cmsnj"]
+[ext_resource type="Script" path="res://Entities/objects/resources/resource_iron.gd" id="1_cmsnj"]
 [ext_resource type="Texture2D" uid="uid://dk5i0ss6k1m4u" path="res://assets/sprites/objects/resources/resource-iron.png" id="1_eqb5l"]
 [ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="3_87t5x"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="4_a1bqn"]
