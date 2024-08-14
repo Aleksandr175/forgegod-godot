@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bitkk2rofc8yf"]
 
-[ext_resource type="Script" path="res://scripts/ui/Inventory_Panel.gd" id="1_lljx8"]
+[ext_resource type="Script" path="res://UI/Shop_Panel.gd" id="1_i0af0"]
 [ext_resource type="PackedScene" uid="uid://ojev0t2qyvbn" path="res://scenes/ui/Goods_UI.tscn" id="2_r2wjx"]
 [ext_resource type="PackedScene" uid="uid://dutum2bfx4x6o" path="res://scenes/ui/Inventory_UI.tscn" id="4_v4rdj"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_rdr3k"]
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_lljx8")
+script = ExtResource("1_i0af0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
