@@ -29,7 +29,7 @@ func clear_grid_container():
 		var child = recipes_container.get_child(0)
 		recipes_container.remove_child(child)
 		child.queue_free()
-		print('clear_grid_container', recipes_container.get_child_count())
+		#print('clear_grid_container', recipes_container.get_child_count())
 
 # Callback function that handles the slot selection
 func _on_recipe_slot_selected(recipe):

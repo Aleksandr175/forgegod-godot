@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6sk1n14ctis6"]
+
+[ext_resource type="Texture2D" uid="uid://bjtkhcqcaqubh" path="res://assets/sprites/characters/fHero_.png" id="1_3fesg"]
+[ext_resource type="Script" path="res://Entities/characters/Villager/Villager.gd" id="1_dtxm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7pq4"]
+atlas = ExtResource("1_3fesg")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkw6d"]
+atlas = ExtResource("1_3fesg")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c16r5"]
+atlas = ExtResource("1_3fesg")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lpg6"]
+atlas = ExtResource("1_3fesg")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt6wn"]
+atlas = ExtResource("1_3fesg")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kf85"]
+atlas = ExtResource("1_3fesg")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfjlv"]
+atlas = ExtResource("1_3fesg")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20wcj"]
+atlas = ExtResource("1_3fesg")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slixi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7pq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkw6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c16r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lpg6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt6wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kf85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfjlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20wcj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Villager" type="Node2D"]
+script = ExtResource("1_dtxm6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_slixi")
+animation = &"idle"
+autoplay = "idle"

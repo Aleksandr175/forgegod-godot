@@ -29,7 +29,7 @@ func clear_grid_container():
 		var child = shop_slots_container.get_child(0)
 		shop_slots_container.remove_child(child)
 		child.queue_free()
-		print('clear_grid_container shop slots', shop_slots_container.get_child_count())
+		#print('clear_grid_container shop slots', shop_slots_container.get_child_count())
 
 # Callback function that handles we buy shop item
 func _on_shop_item_bought(item):
