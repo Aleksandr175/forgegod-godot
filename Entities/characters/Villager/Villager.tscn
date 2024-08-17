@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6sk1n14ctis6"]
+[gd_scene load_steps=14 format=3 uid="uid://b6sk1n14ctis6"]
 
 [ext_resource type="Texture2D" uid="uid://bjtkhcqcaqubh" path="res://assets/sprites/characters/fHero_.png" id="1_3fesg"]
 [ext_resource type="Script" path="res://Entities/characters/Villager/Villager.gd" id="1_dtxm6"]
+[ext_resource type="PackedScene" uid="uid://0yw8v8u4pwac" path="res://UI/VillagerUI/Villager_UI.tscn" id="2_64nwp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7pq4"]
 atlas = ExtResource("1_3fesg")
@@ -72,11 +73,30 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2wsq"]
+radius = 7.0
+
 [node name="Villager" type="Node2D"]
 script = ExtResource("1_dtxm6")
+
+[node name="VillagerUi" parent="." instance=ExtResource("2_64nwp")]
+offset_left = -37.0
+offset_top = -74.0
+offset_right = -37.0
+offset_bottom = -74.0
+scale = Vector2(0.25, 0.25)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_slixi")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_m2wsq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -12,17 +12,31 @@ var inventory_dictionary = {
 	},
 	"iron": {
 		"id": 2,
-		"name": "Iron Sword",
+		"name": "Iron",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
 		"value": 3,
 	},
 	"copper": {
 		"id": 3,
-		"name": "Copper Sword",
+		"name": "Copper",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
 		"value": 5
+	},
+	"swordIron": {
+		"id": 4,
+		"name": "Iron Sword",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/swordIron.png"),
+		"value": 10,
+	},
+	"swordCopper": {
+		"id": 5,
+		"name": "Copper Sword",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/swordCopper.png"),
+		"value": 15
 	},
 }
 
@@ -64,9 +78,9 @@ var shop_items = [{
 }]
 
 var recipes = [{
-	"id": 1,
-	"name": "Iron Sword",
-	"texture": load("res://assets/sprites/objects/goods/swordIron.png"),
+	"id": inventory_dictionary["swordIron"]["id"],
+	"name": inventory_dictionary["swordIron"]["name"],
+	"texture": inventory_dictionary["swordIron"]["texture"],
 	"qty": 1,
 	"type": "recipe",
 	"requirements": [{
@@ -77,9 +91,9 @@ var recipes = [{
 		"qty": 5,
 	}],
 }, {
-	"id": 2,
-	"name": "Sword Copper",
-	"texture": load("res://assets/sprites/objects/goods/swordCopper.png"),
+	"id": inventory_dictionary["swordCopper"]["id"],
+	"name": inventory_dictionary["swordCopper"]["name"],
+	"texture": inventory_dictionary["swordCopper"]["texture"],
 	"qty": 1,
 	"type": "recipe",
 	"requirements": [{
@@ -165,10 +179,11 @@ func remove_items(items):
 	for item in items:
 		Inventory.remove_item(item)
 
-func find_item_by_id(item):
+func find_item_by_id(itemId):
 	for inventory_item in Inventory.inventory_dictionary:
-		if inventory_item.id == item.id:
-			return inventory_item
+		print(inventory_item, Inventory.inventory_dictionary[inventory_item], itemId)
+		if Inventory.inventory_dictionary[inventory_item]["id"] == itemId:
+			return Inventory.inventory_dictionary[inventory_item]
 	return null
 	
 func find_item_in_inventory(item):
