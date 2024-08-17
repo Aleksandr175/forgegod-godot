@@ -68,11 +68,9 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent() is Player and wish:
 		villager_panel.visible = true
 
-
 func _on_area_2d_area_exited(area):
 	if area.get_parent() is Player:
 		villager_panel.visible = false
-
 
 func update_wish_panel(wishData, rewardData):
 	var wish_slot = villager_panel.get_node("ColorRect/MarginContainer/VBoxContainer/HBoxContainer/InventorySlotWanted")
@@ -94,8 +92,10 @@ func update_wish_panel(wishData, rewardData):
 
 
 func _on_villager_ui_button_pressed():
-	if Inventory.has_enough_resources([wish]):
+	if wish and Inventory.has_enough_resources([wish]):
 		print('enough resources')
-		# TODO: check inventory items
-		# send signal about buying to send villager away and remove his wish
-		pass # Replace with function body.
+		Inventory.add_item(reward)
+		Inventory.remove_items([wish])
+		
+		wish = null
+		villager_panel.visible = false
