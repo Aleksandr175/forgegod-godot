@@ -66,11 +66,11 @@ func leave_queue():
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent() is Player and wish:
-		villager_panel.visible = true
+		open_wish_panel()
 
 func _on_area_2d_area_exited(area):
 	if area.get_parent() is Player:
-		villager_panel.visible = false
+		close_wish_panel()
 
 func update_wish_panel(wishData, rewardData):
 	var wish_slot = villager_panel.get_node("ColorRect/MarginContainer/VBoxContainer/HBoxContainer/InventorySlotWanted")
@@ -93,9 +93,14 @@ func update_wish_panel(wishData, rewardData):
 
 func _on_villager_ui_button_pressed():
 	if wish and Inventory.has_enough_resources([wish]):
-		print('enough resources')
 		Inventory.add_item(reward)
 		Inventory.remove_items([wish])
 		
 		wish = null
-		villager_panel.visible = false
+		close_wish_panel()
+		
+func open_wish_panel():
+	villager_panel.visible = true
+
+func close_wish_panel():
+	villager_panel.visible = false
