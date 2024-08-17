@@ -2,7 +2,7 @@ extends Node2D
 
 var inventory_size = 20
 
-var inventory_dictionary = {
+var inventory_dictionary: Dictionary = {
 	"coin": {
 		"id": 1,
 		"name": "Coin",
@@ -40,12 +40,19 @@ var inventory_dictionary = {
 	},
 }
 
-var inventory_items = [{
+var inventory_items: Array = [{
 	"id": inventory_dictionary["coin"]["id"], 
 	"qty": 50, 
 	"name": inventory_dictionary["coin"]["name"], 
 	"type": inventory_dictionary["coin"]["type"], 
 	"texture": inventory_dictionary["coin"]["texture"],
+	"scene_path": "res://scenes/objects/inventory_item.tscn" 
+}, {
+	"id": inventory_dictionary["swordIron"]["id"], 
+	"qty": 50, 
+	"name": inventory_dictionary["swordIron"]["name"], 
+	"type": inventory_dictionary["swordIron"]["type"], 
+	"texture": inventory_dictionary["swordIron"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }, { 
 	"id": inventory_dictionary["iron"]["id"], 
@@ -63,7 +70,7 @@ var inventory_items = [{
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }]
 
-var shop_items = [{
+var shop_items: Array = [{
 	"id": inventory_dictionary["iron"]["id"],
 	"name": inventory_dictionary["iron"]["name"],
 	"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
@@ -77,7 +84,7 @@ var shop_items = [{
 	"type": "Resource",
 }]
 
-var recipes = [{
+var recipes: Array = [{
 	"id": inventory_dictionary["swordIron"]["id"],
 	"name": inventory_dictionary["swordIron"]["name"],
 	"texture": inventory_dictionary["swordIron"]["texture"],
@@ -110,17 +117,17 @@ signal inventory_updated
 # Scene and node references
 var player_node: Node = null
 
-@onready var inventory_slot_scene = preload("res://UI/InventoryUI/Inventory_Slot.tscn")
-@onready var recipe_slot_scene = preload("res://UI/RecipesUI/Recipe_Slot.tscn")
-@onready var shop_slot_scene = preload("res://UI/ShopUI/Shop_Slot.tscn")
-@onready var inventory_slot_small_scene = preload("res://UI/InventoryUI/Inventory_Slot_Small.tscn")
+@onready var inventory_slot_scene: PackedScene = preload("res://UI/InventoryUI/Inventory_Slot.tscn")
+@onready var recipe_slot_scene: PackedScene = preload("res://UI/RecipesUI/Recipe_Slot.tscn")
+@onready var shop_slot_scene: PackedScene = preload("res://UI/ShopUI/Shop_Slot.tscn")
+@onready var inventory_slot_small_scene: PackedScene = preload("res://UI/InventoryUI/Inventory_Slot_Small.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	inventory_items.resize(inventory_size)
 	pass # Replace with function body.
 
-func add_item(new_item):
+func add_item(new_item: Dictionary) -> void:
 	var item_found = false
 
 	# Check if the item already exists in the inventory
@@ -145,10 +152,11 @@ func add_item(new_item):
 	# Emit signal after adding/updating the item
 	inventory_updated.emit()
 	
-func remove_item(item):
+func remove_item(item: Dictionary) -> void:
 	for i in range(inventory_items.size()):
 		var inventory_item = inventory_items[i]
 
+		print('-------', inventory_item, item)
 		if inventory_item and inventory_item.id == item.id:
 			inventory_item.qty -= int(item.qty)
 			if inventory_item.qty <= 0:
@@ -158,10 +166,10 @@ func remove_item(item):
 
 	inventory_updated.emit()
 
-func set_player_reference(player):
+func set_player_reference(player: Node) -> void:
 	player_node = player
 	
-func has_required_items(requirements):
+func has_required_items(requirements: Array) -> bool:
 	for requirement in requirements:
 		var found = false
 		# Check if the inventory contains the required item with sufficient quantity
@@ -174,12 +182,12 @@ func has_required_items(requirements):
 			return false
 	return true
 
-func remove_items(items):
+func remove_items(items: Array) -> void:
 	# Reduce the quantity of each required item from the inventory
 	for item in items:
 		Inventory.remove_item(item)
 
-func find_item_by_id(itemId):
+func find_dictionary_item_by_id(itemId: int):
 	for inventory_item in Inventory.inventory_dictionary:
 		print(inventory_item, Inventory.inventory_dictionary[inventory_item], itemId)
 		if Inventory.inventory_dictionary[inventory_item]["id"] == itemId:
@@ -191,7 +199,23 @@ func find_item_in_inventory(item):
 		if inventory_item and inventory_item.id == item.id:
 			return inventory_item
 	return null
-	
-func has_enought_coins(needed: int):
+
+func has_enought_coins(needed: int) -> bool:
 	var coins = find_item_in_inventory(Inventory.inventory_dictionary["coin"])
 	return coins and coins.qty >= needed
+
+func has_enough_resources(resources: Array) -> bool:
+	var enough_resources = true
+
+	for resource in resources:
+		var resource_in_inventory = find_item_in_inventory(resource)
+		var qty = 0
+
+		if resource_in_inventory != null:
+			qty = resource_in_inventory.qty
+
+		if qty < resource.qty:
+			enough_resources = false
+			break
+
+	return enough_resources

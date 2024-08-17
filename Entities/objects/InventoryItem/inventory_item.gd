@@ -14,7 +14,7 @@ func _ready():
 		icon_sprite.texture = item_texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		icon_sprite.texture = item_texture
 

@@ -8,6 +8,7 @@ func _on_body_entered(body):
 		#GameManager.add_point(1)
 		var item = Inventory.inventory_dictionary["coin"]
 		Inventory.add_item({
+			"id": item.id,
 			"name": item.name,
 			"type": item.type,
 			"texture": item.texture,

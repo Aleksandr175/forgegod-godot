@@ -61,6 +61,7 @@ func order(recipe):
 		
 		# Add the new item to the inventory
 		var new_item = {
+			"id": recipe.id,
 			"qty": int(recipe.qty),
 			"name": recipe.name,
 			"type": "resource",

@@ -24,7 +24,7 @@ func generate_wish():
 	# villager wants to buy only 1 item
 	wish.qty = 1
 	
-	var wishItem = Inventory.find_item_by_id(wish.id)
+	var wishItem = Inventory.find_dictionary_item_by_id(wish.id)
 	
 	reward = {
 		"name": Inventory.inventory_dictionary["coin"]["name"],
@@ -91,3 +91,11 @@ func update_wish_panel(wishData, rewardData):
 		"name": rewardData['name'],
 		"type": rewardData['type']
 	})
+
+
+func _on_villager_ui_button_pressed():
+	if Inventory.has_enough_resources([wish]):
+		print('enough resources')
+		# TODO: check inventory items
+		# send signal about buying to send villager away and remove his wish
+		pass # Replace with function body.
