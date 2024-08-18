@@ -17,6 +17,7 @@ func _ready():
 
 func _process(delta):
 	sprite.play("run")
+
 	if returning_to_spawner:
 		move_to_spawner(delta)
 		sprite.flip_h = false
@@ -64,11 +65,11 @@ func set_queue_position(queue_pos):
 	target_position.x = queue_pos.x
 
 func leave_queue():
-	# This function could be called when a villager has finished their interaction
-	queue_free()  # Remove the villager from the scene
-
 	# Optionally, notify the spawner to update the queue
-	get_parent().call_deferred("free_queue_position", target_position)
+	get_parent().call_deferred("free_queue_position", self)
+	target_position = spawner_position
+	target_position.y = 0
+	returning_to_spawner = true
 
 
 func _on_area_2d_area_entered(area):
@@ -105,9 +106,7 @@ func _on_villager_ui_button_pressed():
 		
 		wish = null
 		close_wish_panel()
-		target_position = spawner_position
-		target_position.y = 0
-		returning_to_spawner = true
+		leave_queue()
 
 func open_wish_panel():
 	villager_panel.visible = true
@@ -120,5 +119,10 @@ func move_to_spawner(delta):
 		var direction = (target_position - position).normalized()
 		position += direction * speed * delta
 	else:
-		# TODO: player animation - exit, once
-		queue_free()  # Villager disappears after reaching the spawner
+		# Play exit animation, then queue free
+		play_exit_animation()
+
+func play_exit_animation():
+	sprite.play("disappear")
+	#yield(sprite, "animation_finished")
+	queue_free()
