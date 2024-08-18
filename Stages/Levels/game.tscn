@@ -391,11 +391,11 @@ position = Vector2(57, -16)
 [node name="Spawner" parent="." instance=ExtResource("21_ooben")]
 position = Vector2(-1, -32)
 
+[node name="Signpost2" parent="." instance=ExtResource("21_7x031")]
+position = Vector2(137, -7)
+direction = "left"
+description = "Text 2"
+
 [node name="Signpost" parent="." instance=ExtResource("21_7x031")]
 position = Vector2(96, -32)
 description = "Text"
-
-[node name="Signpost" parent="Signpost" instance=ExtResource("21_7x031")]
-position = Vector2(41, 25)
-direction = "left"
-description = "Text 2"
