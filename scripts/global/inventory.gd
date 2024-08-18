@@ -54,6 +54,13 @@ var inventory_items: Array = [{
 	"type": inventory_dictionary["swordIron"]["type"], 
 	"texture": inventory_dictionary["swordIron"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
+}, {
+	"id": inventory_dictionary["swordCopper"]["id"], 
+	"qty": 10, 
+	"name": inventory_dictionary["swordCopper"]["name"], 
+	"type": inventory_dictionary["swordCopper"]["type"], 
+	"texture": inventory_dictionary["swordCopper"]["texture"],
+	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }, { 
 	"id": inventory_dictionary["iron"]["id"], 
 	"qty": 5, 

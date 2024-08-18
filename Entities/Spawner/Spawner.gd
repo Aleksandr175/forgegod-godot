@@ -1,7 +1,8 @@
-extends Node
+extends Node2D
 
 @onready var villager_scene = preload("res://Entities/characters/Villager/Villager.tscn")
 @onready var timer = $Timer
+@onready var spawner_position: Vector2 = position  # Use the spawner's position
 
 var queue_positions = [
 	Vector2(10, 0),  # First position (closest to the building)
@@ -25,6 +26,9 @@ func spawn_villager():
 
 		# Set the villager's initial position (spawn point)
 		#villager_instance.position = Vector2(rand_range(100, 400), rand_range(100, 300))
+
+		# Pass the spawner position to the villager
+		villager_instance.spawner_position = spawner_position
 
 		# Assign the next available queue position to the villager
 		var next_position_index = occupied_positions.size()
