@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://mo1pmf0yu3tx"]
+[gd_scene load_steps=9 format=3 uid="uid://mo1pmf0yu3tx"]
 
+[ext_resource type="Script" path="res://Stages/Levels/instruction.gd" id="1_s1m5q"]
 [ext_resource type="TileSet" uid="uid://b2l4domhq4vs6" path="res://tilesets/decorations.tres" id="2_7htqh"]
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="2_vu2k2"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="3_2wbmq"]
@@ -7,7 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://b1bjmfy8vuu2n" path="res://Entities/objects/Signpost/Signpost.tscn" id="4_bmjcx"]
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://Entities/objects/Coin/coin.tscn" id="5_pr2g8"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ejya"]
+radius = 18.0278
+
 [node name="Instruction" type="Node2D"]
+script = ExtResource("1_s1m5q")
 
 [node name="Tiles" type="Node" parent="."]
 
@@ -32,7 +37,7 @@ layer_4/tile_data = PackedInt32Array()
 [node name="Objects" type="TileMap" parent="Tiles"]
 tile_set = ExtResource("2_7htqh")
 format = 2
-layer_0/tile_data = PackedInt32Array(196612, 65536, 3, 196619, 65536, 3, 26, 65536, 3, -65524, 65536, 3, -131060, 65536, 1, 131083, 65536, 1, 131076, 65536, 1, 196605, 131072, 1, 196611, 131072, 1, 131073, 131072, 2, 131087, 131072, 2, 131086, 131072, 1, 131085, 131072, 3, 25, 131072, 3, -65510, 65536, 2, -131046, 65536, 1, 27, 131072, 5, 28, 65536, 5)
+layer_0/tile_data = PackedInt32Array(196612, 65536, 3, 196619, 65536, 3, 26, 65536, 3, -65524, 65536, 3, -131060, 65536, 1, 131083, 65536, 1, 131076, 65536, 1, 196605, 131072, 1, 196611, 131072, 1, 131073, 131072, 2, 131087, 131072, 2, 131086, 131072, 1, 131085, 131072, 3, 25, 131072, 3, -65510, 65536, 2, -131046, 65536, 1, 27, 131072, 5, 28, 65536, 5, 30, 65536, 6)
 
 [node name="Player" parent="." instance=ExtResource("3_2wbmq")]
 position = Vector2(-15, 32)
@@ -74,3 +79,21 @@ position = Vector2(380, 7)
 
 [node name="Coin9" parent="." instance=ExtResource("5_pr2g8")]
 position = Vector2(396, 7)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -41.0
+offset_top = -18.0
+offset_right = 83.0
+offset_bottom = 1.0
+theme_override_font_sizes/font_size = 8
+text = "Oh, it is late
+Lets go to village..."
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(494, 8)
+shape = SubResource("CircleShape2D_8ejya")
+debug_color = Color(0.907973, 0.000121274, 0.738267, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
