@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1ik4yb2glbfx"
-path="res://.godot/imported/swordCopper.png-a83da5a41ca0b1aeda01edab0f17b7e5.ctex"
+uid="uid://bd6q73fcclprn"
+path="res://.godot/imported/axIron.png-1b9a018402b4237a491e73055993031c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/goods/swordCopper.png"
-dest_files=["res://.godot/imported/swordCopper.png-a83da5a41ca0b1aeda01edab0f17b7e5.ctex"]
+source_file="res://assets/sprites/objects/goods/axIron.png"
+dest_files=["res://.godot/imported/axIron.png-1b9a018402b4237a491e73055993031c.ctex"]
 
 [params]
 

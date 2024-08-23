@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="3_87t5x"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="4_a1bqn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4igr"]
-size = Vector2(12, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_17xi6"]
+radius = 3.04138
 
 [node name="ResourceIron" type="Node2D"]
 script = ExtResource("1_cmsnj")
+resourceDictionaryId = "iron"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
@@ -21,5 +22,5 @@ texture = ExtResource("1_eqb5l")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -5)
-shape = SubResource("RectangleShape2D_h4igr")
+position = Vector2(0, -4.5)
+shape = SubResource("CircleShape2D_17xi6")

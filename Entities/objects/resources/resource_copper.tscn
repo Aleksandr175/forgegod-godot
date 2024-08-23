@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdrbfs8j0m7w8"]
+
+[ext_resource type="Script" path="res://Entities/objects/resources/resource_copper.gd" id="1_yrb7f"]
+[ext_resource type="Texture2D" uid="uid://b1vsfmnc5go5r" path="res://assets/sprites/objects/resources/resource-copper.png" id="2_slsir"]
+[ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="3_sruww"]
+[ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="4_h5xq1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17xi6"]
+radius = 3.04138
+
+[node name="ResourceCopper" type="Node2D"]
+script = ExtResource("1_yrb7f")
+resourceDictionaryId = "copper"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("2_slsir")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_sruww")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_h5xq1")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -4.5)
+shape = SubResource("CircleShape2D_17xi6")

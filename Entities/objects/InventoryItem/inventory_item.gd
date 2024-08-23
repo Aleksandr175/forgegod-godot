@@ -35,4 +35,5 @@ func die():
 	queue_free()
 
 func get_damage():
+	# TODO: play animation
 	pass
