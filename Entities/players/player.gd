@@ -13,7 +13,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSpritePlayer
 @onready var weapon_sprite = $WeaponSprite
-#@onready var weapon_area = $WeaponSprite/WeaponArea2D
 
 @onready var inventory_ui = $InventoryUI
 
@@ -27,6 +26,7 @@ var is_climbing = false
 func _ready():
 	GameManager.player = self
 	weapon_sprite.play("idle")
+	weapon_sprite.visible = false
 	change_weapon_position()
 	Inventory.set_player_reference(self)
 	
@@ -106,11 +106,13 @@ func update_animations(direction_value, is_climbing_value):
 func attack():
 	weapon_sprite.rotation = 0
 	attacking = true
+	weapon_sprite.visible = true
 	weapon_sprite.play("attack")
 
 func attack_end():
 	change_weapon_position()
 	attacking = false
+	weapon_sprite.visible = false
 	weapon_sprite.play("idle")
 
 func _on_weapon_sprite_animation_finished():
