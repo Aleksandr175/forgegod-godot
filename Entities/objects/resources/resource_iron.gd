@@ -11,6 +11,7 @@ func die():
 		"name": item.name,
 		"qty": increase_qty,
 		"texture": item.texture,
+		"type": item.type,
 	})
 	queue_free()
 

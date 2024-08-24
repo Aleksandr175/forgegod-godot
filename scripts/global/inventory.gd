@@ -12,7 +12,7 @@ var inventory_dictionary: Dictionary = {
 	},
 	"wood": {
 		"id": 2,
-		"name": "Iron",
+		"name": "Wood",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-wood.png"),
 		"value": 3,
