@@ -50,7 +50,7 @@ layer_3/tile_data = PackedInt32Array(-589840, 4, 2, -524304, 4, 2, -458768, 4, 2
 position = Vector2(0, -34)
 
 [node name="ResourceIron" parent="." instance=ExtResource("4_tpuee")]
-position = Vector2(79, 0)
+position = Vector2(126, 0)
 
 [node name="ResourceIron5" parent="." instance=ExtResource("4_tpuee")]
 position = Vector2(100, -64)
@@ -90,6 +90,6 @@ position = Vector2(378, -15)
 position = Vector2(343, 1)
 
 [node name="ResourceWoodBig3" parent="." instance=ExtResource("9_tjefp")]
-position = Vector2(55, 17)
+position = Vector2(72, 1)
 
 [connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdrbfs8j0m7w8"]
 
-[ext_resource type="Script" path="res://Entities/objects/resources/resource_copper.gd" id="1_yrb7f"]
+[ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_gcsun"]
 [ext_resource type="Texture2D" uid="uid://b1vsfmnc5go5r" path="res://assets/sprites/objects/resources/resource-copper.png" id="2_slsir"]
 [ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="3_sruww"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="4_h5xq1"]
@@ -9,7 +9,7 @@
 radius = 3.04138
 
 [node name="ResourceCopper" type="Node2D"]
-script = ExtResource("1_yrb7f")
+script = ExtResource("1_gcsun")
 resourceDictionaryId = "copper"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

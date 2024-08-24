@@ -1,22 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvmjw85or2k2f"]
+[gd_scene load_steps=8 format=3 uid="uid://cvmjw85or2k2f"]
 
 [ext_resource type="Texture2D" uid="uid://dx1goqf8yt4e" path="res://assets/sprites/objects/resources/tree-big.png" id="1_6b2yx"]
-[ext_resource type="Script" path="res://Entities/objects/resources/resource_wood_big.gd" id="1_h0ror"]
+[ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_hk0hw"]
+[ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="2_jadg7"]
 [ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="2_okppc"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="3_k7uv1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkfk2"]
+resource_local_to_scene = true
+shader = ExtResource("2_jadg7")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 2.08165e-12
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kw4aw"]
 radius = 3.04138
 
 [node name="ResourceWoodBig" type="Node2D"]
-script = ExtResource("1_h0ror")
+script = ExtResource("1_hk0hw")
 resourceDictionaryId = "wood"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wkfk2")
 position = Vector2(0, -24)
 texture = ExtResource("1_6b2yx")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_okppc")]
+MAX_HEALTH = 30.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_k7uv1")]
 health_component = NodePath("../HealthComponent")
