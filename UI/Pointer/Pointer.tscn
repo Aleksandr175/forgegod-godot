@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://kjtvqgpyeboy"]
+
+[ext_resource type="Texture2D" uid="uid://c11kj707wulnc" path="res://assets/sprites/ui/pointer.png" id="1_esob5"]
+[ext_resource type="Script" path="res://UI/Pointer/Pointer.gd" id="1_hu03h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hm65a"]
+radius = 30.0
+
+[node name="Pointer" type="Node2D"]
+z_index = 6
+script = ExtResource("1_hu03h")
+
+[node name="Pointer" type="Sprite2D" parent="."]
+position = Vector2(5, 5)
+rotation = -0.616101
+scale = Vector2(0.265957, 0.265957)
+texture = ExtResource("1_esob5")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource("CircleShape2D_hm65a")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

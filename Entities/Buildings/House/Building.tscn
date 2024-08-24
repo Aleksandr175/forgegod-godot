@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://r0t1t1640nx4"]
+[gd_scene load_steps=16 format=3 uid="uid://r0t1t1640nx4"]
 
 [ext_resource type="Script" path="res://Entities/Buildings/House/Building.gd" id="1_gq0d1"]
 [ext_resource type="Texture2D" uid="uid://vxaak3f2fca2" path="res://assets/sprites/buildings/blueHouse_0_0.png" id="1_hodew"]
 [ext_resource type="Texture2D" uid="uid://bkr6b0488iy8" path="res://assets/sprites/buildings/greenHouse.png" id="2_yk6dq"]
+[ext_resource type="PackedScene" uid="uid://kjtvqgpyeboy" path="res://UI/Pointer/Pointer.tscn" id="4_xrbpc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e67bn"]
 atlas = ExtResource("2_yk6dq")
@@ -86,7 +87,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0truk"]
-radius = 11.0454
+radius = 25.0799
 
 [node name="Building" type="Node2D"]
 script = ExtResource("1_gq0d1")
@@ -100,9 +101,12 @@ animation = &"idle"
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D2"]
-position = Vector2(-21, -10)
+position = Vector2(-17, -11)
 shape = SubResource("CircleShape2D_0truk")
 
+[node name="Pointer" parent="." instance=ExtResource("4_xrbpc")]
+position = Vector2(-19, -11)
+
 [connection signal="body_entered" from="DoorArea2D2" to="." method="_on_door_area_2d_2_body_entered"]
-[connection signal="body_entered" from="DoorArea2D2" to="." method="_on_roof_area_2d_body_entered"]
-[connection signal="body_entered" from="DoorArea2D2" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DoorArea2D2" to="." method="_on_door_area_2d_2_body_exited"]
+[connection signal="pointer_pressed" from="Pointer" to="." method="_on_pointer_pointer_pressed"]

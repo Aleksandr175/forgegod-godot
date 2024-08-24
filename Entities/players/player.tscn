@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=33 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://Entities/players/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://kwtn51cg7kbk" path="res://assets/sprites/player/knight_full.png" id="2_vhjuk"]
@@ -193,6 +193,9 @@ size = Vector2(10, 14)
 radius = 5.5
 height = 19.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x26y3"]
+radius = 50.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 process_mode = 3
 z_index = 5
@@ -241,6 +244,35 @@ limit_bottom = 160
 limit_smoothed = true
 position_smoothing_speed = 50.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -340.0
+offset_right = -1.0
+offset_bottom = -240.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/Control"]
+position = Vector2(47, 48)
+shape = SubResource("CircleShape2D_x26y3")
+action = "inventory_ui"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
+offset_left = -25.0
+offset_top = -26.0
+offset_right = 25.0
+offset_bottom = 24.0
+
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 visible = false
 
@@ -257,3 +289,4 @@ visible = false
 [connection signal="ready" from="WeaponSprite" to="." method="_on_weapon_sprite_ready"]
 [connection signal="area_entered" from="WeaponSprite/HitboxComponent" to="." method="_on_hitbox_component_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
