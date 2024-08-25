@@ -286,6 +286,24 @@ visible = false
 
 [node name="LevelsUi" parent="LevelMenuUI" instance=ExtResource("6_wavhk")]
 
+[node name="QuestsUi" type="CanvasLayer" parent="."]
+
+[node name="QuestUi" parent="QuestsUi" instance=ExtResource("5_6nexr")]
+
+[node name="XP" type="Label" parent="QuestsUi"]
+offset_left = 14.0
+offset_top = 25.0
+offset_right = 58.0
+offset_bottom = 41.0
+text = "XP:"
+
+[node name="XPValue" type="Label" parent="QuestsUi"]
+offset_left = 61.0
+offset_top = 25.0
+offset_right = 105.0
+offset_bottom = 41.0
+text = "0"
+
 [connection signal="animation_finished" from="AnimatedSpritePlayer" to="." method="_on_animated_sprite_player_animation_finished"]
 [connection signal="animation_finished" from="WeaponSprite" to="." method="_on_weapon_sprite_animation_finished"]
 [connection signal="frame_changed" from="WeaponSprite" to="." method="_on_weapon_sprite_frame_changed"]

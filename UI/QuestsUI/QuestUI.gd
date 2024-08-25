@@ -9,6 +9,7 @@ extends Control
 
 func _ready():
 	print('quest UI ready')
+	QuestManager.connect("update_quest_ui", _on_quest_manager_update_quest_ui)
 
 func clear_quests():
 	quest_name.text = ''
@@ -24,7 +25,7 @@ func add_quest(title: String, description: String, objectives: Array):
 	#quest_list.add_child(quest_label)
 
 	for objective in objectives:
-		print('objective', objective)
+		print('objective', objective.description)
 	#	pass
 		#var objective_label = Label.new()
 		#objective_label.text = objective.description + " (" + str(objective.current_amount) + "/" + str(objective.target_amount) + ")"
@@ -32,3 +33,11 @@ func add_quest(title: String, description: String, objectives: Array):
 		#quest_progress.text = '0/' + objective.qty
 	#	quest_requirement.text = objective.description
 
+
+
+func _on_quest_manager_update_quest_ui(active_quests):
+	print('get active_quests', active_quests)
+	clear_quests()
+	for quest in active_quests:
+		add_quest(quest.title, quest.description, quest.objectives)
+	pass # Replace with function body.

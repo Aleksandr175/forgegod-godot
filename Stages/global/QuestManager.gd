@@ -1,8 +1,9 @@
 extends Node
 
 var experience = 10
-@onready var XPValue = $CanvasLayer/XPValue
-@onready var quest_ui = $CanvasLayer/QuestUi
+#@onready var XPValue = $CanvasLayer/XPValue
+#@onready var quest_ui = $CanvasLayer/QuestUi
+#@onready var ui = $CanvasLayer;
 
 enum QuestStatus {
 	available,
@@ -10,6 +11,8 @@ enum QuestStatus {
 	in_progress,
 	finished
 }
+
+signal update_quest_ui
 
 @onready var quest_log_ui: Control = %QuestUI  # Reference to the UI element for the quest log
 var active_quests: Array = []
@@ -55,23 +58,19 @@ var quest_database = {
 	}
 }
 
-
 func _ready():
-	print(quest_ui)
+#	print(quest_ui)
+#	print('ui',ui)
+	var timer = Timer.new()
+	timer.one_shot = true
+	timer.wait_time = 0.5
+	add_child(timer)
+	timer.connect("timeout", _initialize_ui)
+	timer.start()
+
+func _initialize_ui():
 	start_quest('quest_1')
-	pass
 
-
-#func _initialize_quest_log_ui():
-#	quest_log_ui = get_tree().get_root().get_node("Entities/players/QuestUI")  # Adjust the path as necessary
-#	if QuestUI:
-#		update_quest_ui()
-#		#quest_log_ui = get_node("QuestUI")
-#		print('QuestUI', QuestUI)
-#		start_quest("quest_1")
-#		update_quest_ui()
-#	else:
-#		print("QuestLogUI not found, trying again...")
 	
 func start_quest(quest_id: String):	
 	var quest_data = quest_database[quest_id]
@@ -99,7 +98,7 @@ func start_quest(quest_id: String):
 		
 		active_quests.append(new_quest)
 		print("Quest started: ", new_quest.title)
-		update_quest_ui()
+		update_quest()
 
 func check_objectives(quest: Quest) -> bool:
 	for objective in quest.objectives:
@@ -125,17 +124,6 @@ func complete_quest(quest: Quest):
 		for next_quest_id in quest_database[quest.title]["next_quests"]:
 			start_quest(next_quest_id)
 
-func update_quest_ui():
-	if quest_ui:
-		quest_ui.clear_quests()
-		for quest in active_quests:
-			print('add quest', quest)
-			quest_ui.add_quest(quest.title, quest.description, quest.objectives)
-#func update_quest_log_ui():
-#	var quest_log = get_node("QuestUI")
-#	quest_log.clear()
-	
-#	for quest in active_quests:
-#		quest_log.add_text(quest.title + ": " + quest.description)
-#		for objective in quest.objectives:
-#			quest_log.add_text(" - " + objective.description + ": " + str(objective.current_amount) + "/" + str(objective.target_amount))
+func update_quest():
+	print('update_quest_ui', active_quests)
+	update_quest_ui.emit(active_quests)

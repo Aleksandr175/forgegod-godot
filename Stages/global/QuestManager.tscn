@@ -1,25 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://rhrrf6j8i0v1"]
+[gd_scene load_steps=2 format=3 uid="uid://rhrrf6j8i0v1"]
 
 [ext_resource type="Script" path="res://Stages/global/QuestManager.gd" id="1_ka18g"]
-[ext_resource type="PackedScene" uid="uid://bgh468rubynm0" path="res://UI/QuestsUI/QuestUI.tscn" id="2_kromn"]
 
 [node name="QuestManager" type="Node"]
 script = ExtResource("1_ka18g")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="QuestUi" parent="CanvasLayer" instance=ExtResource("2_kromn")]
-
-[node name="XP" type="Label" parent="CanvasLayer"]
-offset_left = 14.0
-offset_top = 25.0
-offset_right = 58.0
-offset_bottom = 41.0
-text = "XP:"
-
-[node name="XPValue" type="Label" parent="CanvasLayer"]
-offset_left = 61.0
-offset_top = 25.0
-offset_right = 105.0
-offset_bottom = 41.0
-text = "0"
