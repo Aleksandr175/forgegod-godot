@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=34 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://Entities/players/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://kwtn51cg7kbk" path="res://assets/sprites/player/knight_full.png" id="2_vhjuk"]
 [ext_resource type="Texture2D" uid="uid://delmnwiv40q4k" path="res://assets/sprites/excalibur.png" id="3_85lmk"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="4_cmd1b"]
+[ext_resource type="PackedScene" uid="uid://bgh468rubynm0" path="res://UI/QuestsUI/QuestUI.tscn" id="5_6nexr"]
 [ext_resource type="PackedScene" uid="uid://6b07cvgy8iqh" path="res://UI/InventoryUI/Inventory_Panel.tscn" id="5_pvdss"]
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="6_wavhk"]
 
@@ -272,6 +273,8 @@ offset_left = -25.0
 offset_top = -26.0
 offset_right = 25.0
 offset_bottom = 24.0
+
+[node name="QuestUi" parent="Camera2D/CanvasLayer" instance=ExtResource("5_6nexr")]
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 visible = false

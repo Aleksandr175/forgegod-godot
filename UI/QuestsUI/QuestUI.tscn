@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgh468rubynm0"]
+
+[ext_resource type="Script" path="res://UI/QuestsUI/QuestUI.gd" id="1_hblc4"]
+
+[node name="QuestUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hblc4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 91.0
+offset_right = 416.0
+offset_bottom = 191.0
+color = Color(0, 0, 0, 0.290196)
+
+[node name="quest_name" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 16.0
+text = "Name"
+
+[node name="quest_description" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 252.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 16
+text = "Quest description"
+
+[node name="quest_requirement" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 172.0
+offset_bottom = 67.0
+text = "Requirement"
+
+[node name="quest_progress" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 74.0
+offset_right = 94.0
+offset_bottom = 90.0
+text = "0/1"

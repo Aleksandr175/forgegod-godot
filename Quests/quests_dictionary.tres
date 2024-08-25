@@ -1,0 +1,54 @@
+[gd_resource type="JSON" format=3 uid="uid://cwmsw38drats2"]
+
+[resource]
+data = {
+"quest_1": {
+"description": "Collect 3 coins.",
+"next_quests": ["quest_2"],
+"objectives": [{
+"amount": 3.0,
+"resource": "coin",
+"type": "collect"
+}],
+"prerequisites": [],
+"rewards": {
+"coins": 50.0,
+"experience": 10.0
+},
+"title": "Need some money"
+},
+"quest_2": {
+"description": "Craft Copper Sword.",
+"next_quests": ["quest_3"],
+"objectives": [{
+"amount": 1.0,
+"item": "swordCopper",
+"type": "craft"
+}],
+"prerequisites": ["quest_1"],
+"rewards": {
+"coins": 100.0,
+"experience": 20.0
+},
+"title": "Sword time"
+},
+"quest_3": {
+"description": "Craft an Iron Sword and a Copper Shield.",
+"next_quests": [],
+"objectives": [{
+"amount": 1.0,
+"item": "swordIron",
+"type": "craft"
+}, {
+"amount": 1.0,
+"item": "shieldCopper",
+"type": "craft"
+}],
+"prerequisites": ["quest_1", "quest_2"],
+"rewards": {
+"coins": 150.0,
+"experience": 30.0
+},
+"title": "Advanced Blacksmithing"
+}
+}

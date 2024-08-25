@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Utilities/GameManager/game_manager.gd"
 Inventory="*res://scripts/global/inventory.gd"
+QuestManager="*res://Stages/global/QuestManager.gd"
 
 [display]
 
