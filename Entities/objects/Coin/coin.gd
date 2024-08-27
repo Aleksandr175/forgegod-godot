@@ -3,10 +3,10 @@ extends Area2D
 #@onready var game_manager = %GameManager
 @onready var animation_coin = $AnimationCoin
 
+var item = Inventory.inventory_dictionary["coin"]
+
 func _on_body_entered(body):
 	if body is Player:
-		#GameManager.add_point(1)
-		var item = Inventory.inventory_dictionary["coin"]
 		Inventory.add_item({
 			"id": item.id,
 			"name": item.name,
@@ -14,5 +14,9 @@ func _on_body_entered(body):
 			"texture": item.texture,
 			"qty": 1
 		})
-		animation_coin.play("pickup")
 
+		# Update quest objective for collecting coins
+		QuestManager.update_objective_progress(item.id, 1)
+
+		animation_coin.play("pickup")
+		

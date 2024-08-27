@@ -1,5 +1,6 @@
 class_name Quest
 
+var quest_id: String
 var title: String
 var description: String
 var objectives: Array = []
