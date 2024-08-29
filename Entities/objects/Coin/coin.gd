@@ -16,7 +16,7 @@ func _on_body_entered(body):
 		})
 
 		# Update quest objective for collecting coins
-		QuestManager.update_objective_progress(item.id, 1)
+		QuestManager.update_objective_progress("collect", str(item.id), 1)
 
 		animation_coin.play("pickup")
 		

@@ -57,6 +57,32 @@ var quest_database = {
 		}],
 		"rewards": {"coins": 150, "experience": 30},
 		"prerequisites": ["quest_1", "quest_2"],
+		"next_quests": ["quest_3"]
+	},
+	"quest_4": {
+		"quest_id": "quest_4",
+		"title": "Visit Village",
+		"description": "Visit Village Visit Blacksmith House Visit Blacksmith House Visit Blacksmith House.",
+		"objectives": [{
+			"type": "visit",
+			"item_id": "village",
+			"qty": 1
+		}],
+		"rewards": {"coins": 200, "experience": 30},
+		"prerequisites": ["quest_1", "quest_2"],
+		"next_quests": ["quest_5"]
+	},
+	"quest_5": {
+		"quest_id": "quest_5",
+		"title": "Visit Blacksmith House",
+		"description": "Visit Blacksmith House",
+		"objectives": [{
+			"type": "visit",
+			"item_id": "house",
+			"qty": 1
+		}],
+		"rewards": {"coins": 999, "experience": 30},
+		"prerequisites": ["quest_1", "quest_2"],
 		"next_quests": []
 	}
 }
@@ -95,9 +121,9 @@ func start_quest(quest_id: String):
 		
 		for objective_data in quest_data["objectives"]:
 			var objective = Objective.new()
-			objective.description = objective_data.description
-			objective.target_qty = objective_data.qty
-			objective.item_id = objective_data.item_id
+			objective.description = objective_data["description"] if objective_data.has("description") else ""
+			objective.target_qty = objective_data["qty"] if objective_data.has("qty") else 0
+			objective.item_id = str(objective_data.item_id)
 			objective.type = objective_data.type
 
 			new_quest.objectives.append(objective)
@@ -134,16 +160,24 @@ func update_quest():
 	print('update_quest_ui', active_quests)
 	update_quest_ui.emit(active_quests)
 
-func update_objective_progress(item_id: int, qty: int):
-	print('item_id', item_id, 'qty', qty)
+func update_objective_progress(type: String, item_id: String, qty: int):
+	print('type', type, 'item_id', item_id, 'qty', qty)
 	print('active_quests', active_quests)
 	for quest in active_quests:
 		for objective in quest.objectives:
-			print(objective.description, objective.target_qty, objective.current_qty, objective.type)
-			if objective.type == "collect" and objective.item_id == item_id:
+			var target_item_id = str(objective.item_id);
+			
+			if objective.type == "collect" and int(objective.item_id) == int(item_id):
 				objective.progress(qty)
 				update_quest()
 				if objective.is_completed():
-					print("Objective completed: ", objective.description)
+					#print("Objective completed: ", objective.description)
+					complete_quest(quest)
+				emit_signal("quest_updated", quest)
+			if objective.type == "visit" and target_item_id == item_id:
+				objective.progress(qty)
+				update_quest()
+				if objective.is_completed():
+					#print("Objective completed: ", objective.description)
 					complete_quest(quest)
 				emit_signal("quest_updated", quest)

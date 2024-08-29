@@ -2,10 +2,10 @@ extends Control
 
 @onready var quest_list = $QuestList  # A VBoxContainer or similar
 
-@onready var quest_name = $ColorRect/quest_name
-@onready var quest_description = $ColorRect/quest_description
-@onready var quest_progress = $ColorRect/quest_progress
-@onready var quest_requirement = $ColorRect/quest_requirement
+@onready var quest_name = $ColorRect/VBoxContainer/quest_name
+@onready var quest_description = $ColorRect/VBoxContainer/quest_description
+@onready var quest_progress = $ColorRect/VBoxContainer/quest_progress
+@onready var quest_requirement = $ColorRect/VBoxContainer/quest_requirement
 
 func _ready():
 	print('quest UI ready')
@@ -30,7 +30,10 @@ func add_quest(title: String, description: String, objectives: Array):
 		#var objective_label = Label.new()
 		#objective_label.text = objective.description + " (" + str(objective.current_amount) + "/" + str(objective.target_amount) + ")"
 		#quest_list.add_child(objective_label)
-		quest_progress.text = str(objective.current_qty) + '/' + str(objective.target_qty)
+		if objective.type == 'craft' or objective.type == 'collect':
+			quest_progress.text = str(objective.current_qty) + '/' + str(objective.target_qty)
+		else:
+			quest_progress.text = ''
 	#	quest_requirement.text = objective.description
 
 func _on_quest_manager_update_quest_ui(active_quests):

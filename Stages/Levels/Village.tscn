@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpsqn4et5qmh2"]
+[gd_scene load_steps=12 format=3 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
+[ext_resource type="Script" path="res://Stages/Levels/Village.gd" id="1_mrsg1"]
 [ext_resource type="PackedScene" uid="uid://r0t1t1640nx4" path="res://Entities/Buildings/House/Building.tscn" id="2_40gdy"]
 [ext_resource type="PackedScene" uid="uid://w86l6k5r12vs" path="res://Entities/Buildings/Shop/Shop.tscn" id="4_lghs7"]
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="5_opfq2"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b1bjmfy8vuu2n" path="res://Entities/objects/Signpost/Signpost.tscn" id="10_skl8q"]
 
 [node name="Vilage" type="Node2D"]
+script = ExtResource("1_mrsg1")
 
 [node name="Dealer" parent="." instance=ExtResource("1_fkvx4")]
 position = Vector2(81, -105)

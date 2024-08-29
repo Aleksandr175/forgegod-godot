@@ -19,31 +19,29 @@ offset_right = 416.0
 offset_bottom = 191.0
 color = Color(0, 0, 0, 0.290196)
 
-[node name="quest_name" type="Label" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 16.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="quest_name" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Name"
 
-[node name="quest_description" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_top = 21.0
-offset_right = 252.0
-offset_bottom = 37.0
-theme_override_font_sizes/font_size = 16
+[node name="quest_description" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Quest description"
+text_overrun_behavior = 2
 
-[node name="quest_requirement" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_top = 51.0
-offset_right = 172.0
-offset_bottom = 67.0
+[node name="quest_requirement" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Requirement"
 
-[node name="quest_progress" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 74.0
-offset_right = 94.0
-offset_bottom = 90.0
+[node name="quest_progress" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "0/1"

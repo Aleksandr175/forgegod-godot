@@ -1,7 +1,8 @@
 extends Control
 
 func _on_village_button_pressed():
-	get_tree().change_scene_to_file("res://Stages/Levels/game.tscn")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Stages/Levels/Village.tscn")
 
 func _on_level_1_button_pressed():
 	get_tree().paused = false
