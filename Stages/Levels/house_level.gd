@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var inventory_ui = $InventoryUI
 
+func _ready():
+	QuestManager.update_objective_progress("vitis", "house", 1)
+
 func _on_exit_area_2d_area_entered(area):
 	if area.get_parent() is PlayerHouse:
 		get_tree().change_scene_to_file("res://Stages/Levels/game.tscn")
