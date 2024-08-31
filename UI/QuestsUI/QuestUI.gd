@@ -25,12 +25,12 @@ func add_quest(title: String, description: String, objectives: Array):
 	#quest_list.add_child(quest_label)
 
 	for objective in objectives:
-		print('objective', objective.description, objective.target_qty)
+		#print('objective', objective.description, objective.target_qty)
 	#	pass
 		#var objective_label = Label.new()
 		#objective_label.text = objective.description + " (" + str(objective.current_amount) + "/" + str(objective.target_amount) + ")"
 		#quest_list.add_child(objective_label)
-		if objective.type == 'craft' or objective.type == 'collect':
+		if objective.type == 'craft' or objective.type == 'collect' or objective.type == 'buy':
 			quest_progress.text = str(objective.current_qty) + '/' + str(objective.target_qty)
 		else:
 			quest_progress.text = ''

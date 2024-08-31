@@ -132,6 +132,25 @@ var quest_database = {
 			"experience": 500
 		},
 		"prerequisites": [],
+		"next_quests": ["quest_7"]
+	},
+	"quest_7": {
+		"quest_id": "quest_7",
+		"title": "Buy Wood",
+		"description": "Visit Dealer and buy Wood",
+		"objectives": [{
+			"type": "buy",
+			"item_id": Inventory.inventory_dictionary["wood"]["id"],
+			"qty": 3
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 999
+			}],
+			"experience": 500
+		},
+		"prerequisites": [],
 		"next_quests": []
 	}
 }
@@ -147,7 +166,7 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_1')
+	start_quest('quest_7')
 
 	
 func start_quest(quest_id: String):
@@ -239,6 +258,10 @@ func update_objective_progress(type: String, item_id: String, qty: int):
 			if objective.type == "craft" and int(target_item_id) == int(item_id):
 				do_progress(objective, qty, quest)
 				
+			print("=====", objective.type, target_item_id, item_id)
+			if objective.type == "buy" and int(target_item_id) == int(item_id):
+				do_progress(objective, qty, quest)
+
 				#objective.progress(qty)
 				#update_quest()
 				#if objective.is_completed():

@@ -34,14 +34,15 @@ func clear_grid_container():
 # Callback function that handles we buy shop item
 func _on_shop_item_bought(item):
 	if Inventory.has_enought_coins(item.price):
-		print("Shop item bought!", item)
+		print("Shop item bought!", item.name)
 
 		# we should remove coins from inventory
 		var coins_item = {
 			"id": Inventory.inventory_dictionary["coin"]["id"],
 			"qty": item["price"],
 		}
-		print(coins_item)
+		#print(coins_item)
 		
 		Inventory.add_item(item["id"], 1)
-		Inventory.remove_item(coins_item)
+		Inventory.remove_items([coins_item])
+		QuestManager.update_objective_progress("buy", str(item["id"]), 1)
