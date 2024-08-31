@@ -295,11 +295,13 @@ offset_bottom = 41.0
 text = "0"
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
 
 [node name="InventoryPanel" parent="InventoryUI" instance=ExtResource("5_pvdss")]
 
 [node name="LevelMenuUI" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
 
 [node name="LevelsUi" parent="LevelMenuUI" instance=ExtResource("6_wavhk")]
