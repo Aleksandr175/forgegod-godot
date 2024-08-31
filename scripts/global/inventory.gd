@@ -230,15 +230,16 @@ func _ready() -> void:
 	inventory_items.resize(inventory_size)
 	pass # Replace with function body.
 
-func add_item(new_item: Dictionary) -> void:
+func add_item(item_id: int, qty: int) -> void:
+	var item_dictionary = find_dictionary_item_by_id(item_id)
 	var item_found = false
 
 	# Check if the item already exists in the inventory
 	for i in range(inventory_items.size()):
 		var item = inventory_items[i]
-		if item != null and item.name == new_item.name:
+		if item != null and item.id == item_dictionary.id:
 			# Item found, increase quantity
-			item.qty += new_item.qty
+			item.qty += qty
 			inventory_items[i] = item
 			item_found = true
 			break
@@ -247,7 +248,8 @@ func add_item(new_item: Dictionary) -> void:
 	if not item_found:
 		for i in range(inventory_items.size()):
 			if inventory_items[i] == null:
-				inventory_items[i] = new_item
+				inventory_items[i] = item_dictionary
+				inventory_items[i].qty = qty
 				item_found = true
 				break
 
@@ -294,6 +296,12 @@ func find_dictionary_item_by_id(itemId: int):
 	for inventory_item in Inventory.inventory_dictionary:
 		print(inventory_item, Inventory.inventory_dictionary[inventory_item], itemId)
 		if Inventory.inventory_dictionary[inventory_item]["id"] == itemId:
+			return Inventory.inventory_dictionary[inventory_item]
+	return null
+
+func find_dictionary_item_by_name(item_name: String):
+	for inventory_item in Inventory.inventory_dictionary:
+		if Inventory.inventory_dictionary[inventory_item]["name"] == item_name:
 			return Inventory.inventory_dictionary[inventory_item]
 	return null
 	

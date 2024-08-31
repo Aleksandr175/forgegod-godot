@@ -34,6 +34,7 @@ func generate_wish():
 	var wishItem = Inventory.find_dictionary_item_by_id(wish.id)
 	
 	reward = {
+		"id": Inventory.inventory_dictionary["coin"]["id"],
 		"name": Inventory.inventory_dictionary["coin"]["name"],
 		"texture": Inventory.inventory_dictionary["coin"]["texture"],
 		"type": Inventory.inventory_dictionary["coin"]["type"],
@@ -100,7 +101,7 @@ func update_wish_panel(wishData, rewardData):
 
 func _on_villager_ui_button_pressed():
 	if wish and Inventory.has_enough_resources([wish]):
-		Inventory.add_item(reward)
+		Inventory.add_item(reward.id, reward.qty)
 		Inventory.remove_items([wish])
 		
 		wish = null

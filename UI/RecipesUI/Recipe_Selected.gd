@@ -63,15 +63,8 @@ func order(recipe):
 		Inventory.remove_items(recipe.requirements)
 		
 		# Add the new item to the inventory
-		var new_item = {
-			"id": recipe.id,
-			"qty": int(recipe.qty),
-			"name": recipe.name,
-			"type": "resource",
-			"texture": recipe.texture,
-		}
-		
-		Inventory.add_item(new_item)
+		Inventory.add_item(recipe.id, int(recipe.qty))
+
 		QuestManager.update_objective_progress("craft", str(recipe.id), int(recipe.qty))
 		set_craft_button_available(recipe.requirements)
 	else:

@@ -35,12 +35,7 @@ func clear_grid_container():
 func _on_shop_item_bought(item):
 	if Inventory.has_enought_coins(item.price):
 		print("Shop item bought!", item)
-		var bought_item = {
-			"id": item["id"],
-			"name": item["name"],
-			"texture": item["texture"],
-			"qty": 1,
-		}
+
 		# we should remove coins from inventory
 		var coins_item = {
 			"id": Inventory.inventory_dictionary["coin"]["id"],
@@ -48,5 +43,5 @@ func _on_shop_item_bought(item):
 		}
 		print(coins_item)
 		
-		Inventory.add_item(bought_item)
+		Inventory.add_item(item["id"], 1)
 		Inventory.remove_item(coins_item)

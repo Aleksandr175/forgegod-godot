@@ -18,17 +18,11 @@ func _process(_delta):
 	if Engine.is_editor_hint():
 		icon_sprite.texture = item_texture
 
-func add_item(qty: int = 1):
-	var item = {
-		"qty": qty,
-		"name": item_name,
-		"type": item_type,
-		"texture": item_texture,
-		"scene_path": scene_path
-	}
+func add_item(qty: int = 1):	
+	var item = Inventory.find_dictionary_item_by_name(item_name)
 
 	if Inventory.player_node:
-		Inventory.add_item(item)
+		Inventory.add_item(item.id, qty)
 
 func die():
 	add_item(item_qty)

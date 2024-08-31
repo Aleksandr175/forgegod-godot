@@ -25,7 +25,17 @@ var quest_database = {
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
 			"qty": 3
 		}],
-		"rewards": {"coins": 50, "experience": 10},
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 50
+			},
+			{
+				"item_id": Inventory.inventory_dictionary["swordCopper"]["id"],
+				"qty": 10
+			}],
+			"experience": 10
+		},
 		"prerequisites": [],
 		"next_quests": ["quest_2"]
 	},
@@ -137,9 +147,17 @@ func check_objectives(quest: Quest) -> bool:
 func distribute_rewards(rewards: Dictionary):
 	# Handle giving the player their rewards, e.g., adding items to inventory
 	for key in rewards.keys():
+		if key == "goods":
+			# TODO: add rewards
+			for item in rewards["goods"]:
+				# Add the new item to the inventory
+				Inventory.add_item(item.id, int(item.qty))
+		
+		#if key == "experience":
+			# TODO: add experience
+			
 		# Add logic to give the player their reward
 		print("Received reward: ", key, "x", rewards[key])
-		# TODO: add rewards
 
 func complete_quest(quest: Quest):
 	if quest.status == "In Progress" and check_objectives(quest):

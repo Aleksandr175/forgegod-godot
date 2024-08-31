@@ -7,13 +7,7 @@ var item = Inventory.inventory_dictionary["coin"]
 
 func _on_body_entered(body):
 	if body is Player:
-		Inventory.add_item({
-			"id": item.id,
-			"name": item.name,
-			"type": item.type,
-			"texture": item.texture,
-			"qty": 1
-		})
+		Inventory.add_item(item.id, 1)
 
 		# Update quest objective for collecting coins
 		QuestManager.update_objective_progress("collect", str(item.id), 1)

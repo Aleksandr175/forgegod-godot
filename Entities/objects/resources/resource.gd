@@ -7,13 +7,7 @@ var item = null
 
 func die():
 	item = Inventory.inventory_dictionary[resourceDictionaryId]
-	Inventory.add_item({
-		"id": item.id,
-		"name": item.name,
-		"qty": increase_qty,
-		"texture": item.texture,
-		"type": item.type,
-	})
+	Inventory.add_item(item.id, increase_qty)
 	queue_free()
 
 func get_damage():
