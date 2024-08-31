@@ -4,6 +4,7 @@ var selected_recipe = null
 @onready var recipe_image_container = $VBoxContainer/HBoxContainer/RecipeImageContainer
 @onready var recipe_requirements_container = $VBoxContainer/HBoxContainer/VBoxContainer/GridRequirements
 @onready var recipe_name = $VBoxContainer/HBoxContainer/VBoxContainer/Label
+@onready var craft_button = $VBoxContainer/Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +31,8 @@ func _on_selected_recipe_updated(item):
 			small_slot.set_item(requirement)
 		else:
 			small_slot.set_empty()
+
+	set_craft_button_available(item['requirements'])
 
 func clear_grid_container():
 	while recipe_requirements_container.get_child_count() > 0:
@@ -69,8 +72,16 @@ func order(recipe):
 		}
 		
 		Inventory.add_item(new_item)
+		QuestManager.update_objective_progress("craft", str(recipe.id), int(recipe.qty))
+		set_craft_button_available(recipe.requirements)
 	else:
 		print("Not enough resources to create:", recipe.name)
 
 func _on_button_pressed():
 	order(selected_recipe)
+
+func set_craft_button_available(requirements):
+	if Inventory.has_required_items(requirements):
+		craft_button.disabled = false
+	else:
+		craft_button.disabled = true

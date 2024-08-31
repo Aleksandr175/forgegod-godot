@@ -69,6 +69,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_u0qec")
-text = "ORDER"
+text = "CRAFT"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

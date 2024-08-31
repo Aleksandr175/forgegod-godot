@@ -1,9 +1,6 @@
 extends Node
 
 var experience = 10
-#@onready var XPValue = $CanvasLayer/XPValue
-#@onready var quest_ui = $CanvasLayer/QuestUi
-#@onready var ui = $CanvasLayer;
 
 enum QuestStatus {
 	available,
@@ -35,28 +32,27 @@ var quest_database = {
 	"quest_2": {
 		"quest_id": "quest_2",
 		"title": "Sword time",
-		"description": "Craft Copper Sword.",
+		"description": "Craft a Copper Sword.",
 		"objectives": [{
-			"description": "Craft",
 			"type": "craft",
 			"item_id": Inventory.inventory_dictionary["swordCopper"]["id"],
-			"qty": 1
+			"qty": 2
 		}],
 		"rewards": {"coins": 100, "experience": 20},
-		"prerequisites": ["quest_1"],
+		"prerequisites": [],
 		"next_quests": ["quest_3"]
 	},
 	"quest_3": {
 		"quest_id": "quest_3",
 		"title": "Advanced Blacksmithing",
-		"description": "Craft an Iron Sword and a Copper Shield.",
+		"description": "Craft an Iron Sword.",
 		"objectives": [{
 			"type": "craft",
 			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
 			"qty": 1
 		}],
 		"rewards": {"coins": 150, "experience": 30},
-		"prerequisites": ["quest_1", "quest_2"],
+		"prerequisites": [],
 		"next_quests": ["quest_3"]
 	},
 	"quest_4": {
@@ -69,7 +65,7 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {"coins": 200, "experience": 30},
-		"prerequisites": ["quest_1", "quest_2"],
+		"prerequisites": [],
 		"next_quests": ["quest_5"]
 	},
 	"quest_5": {
@@ -82,7 +78,7 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {"coins": 999, "experience": 30},
-		"prerequisites": ["quest_1", "quest_2"],
+		"prerequisites": [],
 		"next_quests": []
 	}
 }
@@ -98,7 +94,7 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_1')
+	start_quest('quest_2')
 
 	
 func start_quest(quest_id: String):
@@ -167,17 +163,31 @@ func update_objective_progress(type: String, item_id: String, qty: int):
 		for objective in quest.objectives:
 			var target_item_id = str(objective.item_id);
 			
-			if objective.type == "collect" and int(objective.item_id) == int(item_id):
-				objective.progress(qty)
-				update_quest()
-				if objective.is_completed():
+			if objective.type == "collect" and int(target_item_id) == int(item_id):
+				do_progress(objective, qty, quest)
+				#objective.progress(qty)
+				#update_quest()
+				#if objective.is_completed():
 					#print("Objective completed: ", objective.description)
-					complete_quest(quest)
-				emit_signal("quest_updated", quest)
+				#	complete_quest(quest)
+				#emit_signal("quest_updated", quest)
 			if objective.type == "visit" and target_item_id == item_id:
-				objective.progress(qty)
-				update_quest()
-				if objective.is_completed():
+				do_progress(objective, qty, quest)
+
+			if objective.type == "craft" and int(target_item_id) == int(item_id):
+				do_progress(objective, qty, quest)
+				
+				#objective.progress(qty)
+				#update_quest()
+				#if objective.is_completed():
 					#print("Objective completed: ", objective.description)
-					complete_quest(quest)
-				emit_signal("quest_updated", quest)
+				#	complete_quest(quest)
+				#emit_signal("quest_updated", quest)
+
+func do_progress(objective, qty, quest):
+	objective.progress(qty)
+	update_quest()
+	if objective.is_completed():
+		#print("Objective completed: ", objective.description)
+		complete_quest(quest)
+	emit_signal("quest_updated", quest)

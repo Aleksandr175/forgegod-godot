@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dj53b06sf4sxy"]
+[gd_scene load_steps=22 format=3 uid="uid://dj53b06sf4sxy"]
 
 [ext_resource type="Texture2D" uid="uid://kwtn51cg7kbk" path="res://assets/sprites/player/knight_full.png" id="1_aqf5g"]
 [ext_resource type="Script" path="res://Entities/players/player_house.gd" id="1_mytfb"]
+[ext_resource type="PackedScene" uid="uid://bgh468rubynm0" path="res://UI/QuestsUI/QuestUI.tscn" id="3_mqr4x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7k8h"]
 atlas = ExtResource("1_aqf5g")
@@ -170,3 +171,21 @@ limit_top = -240
 limit_bottom = 160
 limit_smoothed = true
 position_smoothing_speed = 20.0
+
+[node name="QuestsUi" type="CanvasLayer" parent="."]
+
+[node name="QuestUi" parent="QuestsUi" instance=ExtResource("3_mqr4x")]
+
+[node name="XP" type="Label" parent="QuestsUi"]
+offset_left = 14.0
+offset_top = 25.0
+offset_right = 58.0
+offset_bottom = 41.0
+text = "XP:"
+
+[node name="XPValue" type="Label" parent="QuestsUi"]
+offset_left = 61.0
+offset_top = 25.0
+offset_right = 105.0
+offset_bottom = 41.0
+text = "0"
