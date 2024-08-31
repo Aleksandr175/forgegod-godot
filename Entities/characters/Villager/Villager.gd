@@ -47,7 +47,6 @@ func find_building():
 	# Assuming the building is a node in the same scene
 	var building = get_parent().get_node("MainBuilding")
 	if building:
-		print('building....', building.position)
 		target_position = building.position
 		#print(target_position)
 

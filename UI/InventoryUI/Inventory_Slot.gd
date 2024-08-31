@@ -26,7 +26,7 @@ func set_empty():
 	label_qty.text = ''
 
 func set_item(new_item):
-	print('new_item', new_item)
+	#print('new_item', new_item)
 	item = new_item
 	icon.texture = item['texture']
 	label_qty.text = str(item['qty'])

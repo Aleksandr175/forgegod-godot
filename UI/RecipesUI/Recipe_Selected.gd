@@ -58,7 +58,7 @@ func find_item_by_name(recipe_name):
 func order(recipe):
 	if Inventory.has_required_items(recipe.requirements):
 		# Proceed with item creation
-		print("All requirements met. Creating item:", recipe.name)
+		print("All requirements met. Creating item:", recipe.name, recipe.id)
 		
 		Inventory.remove_items(recipe.requirements)
 		

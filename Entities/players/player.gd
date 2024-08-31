@@ -135,7 +135,6 @@ func _on_timer_timeout():
 	Engine.time_scale = 1	
 
 func _on_animated_sprite_player_animation_finished():
-	print(animated_sprite.animation)
 	if animated_sprite.animation == 'die':
 		dying = false
 		GameManager.respawn_player()

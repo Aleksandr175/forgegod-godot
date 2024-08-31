@@ -53,7 +53,7 @@ var quest_database = {
 		}],
 		"rewards": {"coins": 150, "experience": 30},
 		"prerequisites": [],
-		"next_quests": ["quest_3"]
+		"next_quests": ["quest_4"]
 	},
 	"quest_4": {
 		"quest_id": "quest_4",
@@ -125,7 +125,7 @@ func start_quest(quest_id: String):
 			new_quest.objectives.append(objective)
 		
 		active_quests.append(new_quest)
-		print("Quest started: ", new_quest.title)
+		print("Quest started: ", new_quest.title, " - ", new_quest.quest_id)
 		update_quest()
 
 func check_objectives(quest: Quest) -> bool:
@@ -139,6 +139,7 @@ func distribute_rewards(rewards: Dictionary):
 	for key in rewards.keys():
 		# Add logic to give the player their reward
 		print("Received reward: ", key, "x", rewards[key])
+		# TODO: add rewards
 
 func complete_quest(quest: Quest):
 	if quest.status == "In Progress" and check_objectives(quest):

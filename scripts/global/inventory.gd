@@ -251,7 +251,7 @@ func add_item(new_item: Dictionary) -> void:
 				item_found = true
 				break
 
-	print('inventory_items', inventory_items)
+	#print('inventory_items', inventory_items)
 	# Emit signal after adding/updating the item
 	inventory_updated.emit()
 	
@@ -259,7 +259,7 @@ func remove_item(item: Dictionary) -> void:
 	for i in range(inventory_items.size()):
 		var inventory_item = inventory_items[i]
 
-		print('-------', inventory_item, item)
+		#print('-------', inventory_item, item)
 		if inventory_item and inventory_item.id == item.id:
 			inventory_item.qty -= int(item.qty)
 			if inventory_item.qty <= 0:
