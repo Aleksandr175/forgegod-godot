@@ -14,3 +14,4 @@ func _on_shop_panel_shop_ui_closed():
 
 func _on_pointer_pointer_pressed():
 	shop_ui.visible = true
+	QuestManager.update_objective_progress("visit", "dealer", 1)

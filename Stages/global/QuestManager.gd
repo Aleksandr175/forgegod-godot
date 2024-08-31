@@ -48,7 +48,13 @@ var quest_database = {
 			"item_id": Inventory.inventory_dictionary["swordCopper"]["id"],
 			"qty": 2
 		}],
-		"rewards": {"coins": 100, "experience": 20},
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 10
+			}],
+			"experience": 5
+		},
 		"prerequisites": [],
 		"next_quests": ["quest_3"]
 	},
@@ -61,7 +67,13 @@ var quest_database = {
 			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
 			"qty": 1
 		}],
-		"rewards": {"coins": 150, "experience": 30},
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 10
+			}],
+			"experience": 5
+		},
 		"prerequisites": [],
 		"next_quests": ["quest_4"]
 	},
@@ -74,7 +86,13 @@ var quest_database = {
 			"item_id": "village",
 			"qty": 1
 		}],
-		"rewards": {"coins": 200, "experience": 30},
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 10
+			}],
+			"experience": 5
+		},
 		"prerequisites": [],
 		"next_quests": ["quest_5"]
 	},
@@ -87,7 +105,32 @@ var quest_database = {
 			"item_id": "house",
 			"qty": 1
 		}],
-		"rewards": {"coins": 999, "experience": 30},
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 10
+			}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_6"]
+	},
+	"quest_6": {
+		"quest_id": "quest_6",
+		"title": "Visit Dealer",
+		"description": "Visit Dealer in Village",
+		"objectives": [{
+			"type": "visit",
+			"item_id": "dealer",
+			"qty": 1
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 999
+			}],
+			"experience": 500
+		},
 		"prerequisites": [],
 		"next_quests": []
 	}
@@ -104,7 +147,7 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_2')
+	start_quest('quest_1')
 
 	
 func start_quest(quest_id: String):
@@ -151,11 +194,11 @@ func distribute_rewards(rewards: Dictionary):
 			# TODO: add rewards
 			for item in rewards["goods"]:
 				# Add the new item to the inventory
-				Inventory.add_item(item.id, int(item.qty))
-		
+				Inventory.add_item(item["item_id"], int(item["qty"]))
+
 		#if key == "experience":
 			# TODO: add experience
-			
+
 		# Add logic to give the player their reward
 		print("Received reward: ", key, "x", rewards[key])
 
