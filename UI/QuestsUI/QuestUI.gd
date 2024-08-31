@@ -1,6 +1,6 @@
 extends Control
 
-@onready var quest_list = $QuestList  # A VBoxContainer or similar
+#@onready var quest_list = $QuestList  # A VBoxContainer or similar
 
 @onready var quest_name = $ColorRect/VBoxContainer/quest_name
 @onready var quest_description = $ColorRect/VBoxContainer/quest_description

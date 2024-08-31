@@ -9,7 +9,7 @@ func _on_door_area_2d_2_body_entered(_body):
 	print('pointer visible', _body)
 	pointer.visible = true
 
-func _on_door_area_2d_2_body_exited(body):
+func _on_door_area_2d_2_body_exited(_body):
 	pointer.visible = false
 
 func _on_pointer_pointer_pressed():
