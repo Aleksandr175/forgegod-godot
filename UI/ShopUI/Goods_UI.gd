@@ -16,7 +16,6 @@ func _on_goods_updated():
 		var slot = Inventory.shop_slot_scene.instantiate()
 		shop_slots_container.add_child(slot)
 		if item != null:
-			print(slot, item)
 			slot.set_item(item)
 			# Connect the recipe_slot_selected signal from each slot
 			slot.shop_slot_selected.connect(_on_shop_item_bought)

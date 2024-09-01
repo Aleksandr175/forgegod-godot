@@ -18,7 +18,7 @@ func _on_timer_timeout():
 	spawn_villager()
 
 func spawn_villager():
-	print('spawn', villagers_in_queue, queue_positions)
+	#print('spawn', villagers_in_queue, queue_positions)
 	if villagers_in_queue.size() < queue_positions.size():
 		var villager_instance = villager_scene.instantiate()
 		add_child(villager_instance)
@@ -38,7 +38,7 @@ func spawn_villager():
 		print("All queue positions are occupied.")
 
 func free_queue_position(villager):
-	print('completed wish _on_villager_wish_completed', villager)
+	#print('completed wish _on_villager_wish_completed', villager)
 	villagers_in_queue.erase(villager)
 	villager.queue_free()
 

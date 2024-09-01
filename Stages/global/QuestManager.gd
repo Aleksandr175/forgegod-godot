@@ -151,13 +151,29 @@ var quest_database = {
 			"experience": 500
 		},
 		"prerequisites": [],
+		"next_quests": ["quest_8"]
+	},
+	"quest_8": {
+		"quest_id": "quest_8",
+		"title": "Serve Customers",
+		"description": "Sell goods to customers",
+		"objectives": [{
+			"type": "sell",
+			"qty": 1
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 9
+			}],
+			"experience": 500
+		},
+		"prerequisites": [],
 		"next_quests": []
 	}
 }
 
 func _ready():
-#	print(quest_ui)
-#	print('ui',ui)
 	var timer = Timer.new()
 	timer.one_shot = true
 	timer.wait_time = 0.5
@@ -166,9 +182,8 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_7')
+	start_quest('quest_1')
 
-	
 func start_quest(quest_id: String):
 	var quest_data = quest_database[quest_id]
 	
@@ -191,7 +206,7 @@ func start_quest(quest_id: String):
 			var objective = Objective.new()
 			objective.description = objective_data["description"] if objective_data.has("description") else ""
 			objective.target_qty = objective_data["qty"] if objective_data.has("qty") else 0
-			objective.item_id = str(objective_data.item_id)
+			objective.item_id = str(objective_data["item_id"]) if objective_data.has("item_id") else "0"
 			objective.type = objective_data.type
 
 			new_quest.objectives.append(objective)
@@ -219,7 +234,7 @@ func distribute_rewards(rewards: Dictionary):
 			# TODO: add experience
 
 		# Add logic to give the player their reward
-		print("Received reward: ", key, "x", rewards[key])
+		#print("Received reward: ", key, "x", rewards[key])
 
 func complete_quest(quest: Quest):
 	if quest.status == "In Progress" and check_objectives(quest):
@@ -234,40 +249,28 @@ func complete_quest(quest: Quest):
 			start_quest(next_quest_id)
 
 func update_quest():
-	print('update_quest_ui', active_quests)
 	update_quest_ui.emit(active_quests)
 
 func update_objective_progress(type: String, item_id: String, qty: int):
 	print('type', type, 'item_id', item_id, 'qty', qty)
-	print('active_quests', active_quests)
 	for quest in active_quests:
 		for objective in quest.objectives:
 			var target_item_id = str(objective.item_id);
 			
-			if objective.type == "collect" and int(target_item_id) == int(item_id):
-				do_progress(objective, qty, quest)
-				#objective.progress(qty)
-				#update_quest()
-				#if objective.is_completed():
-					#print("Objective completed: ", objective.description)
-				#	complete_quest(quest)
-				#emit_signal("quest_updated", quest)
-			if objective.type == "visit" and target_item_id == item_id:
+			if type == "collect" and objective.type == "collect" and int(target_item_id) == int(item_id):
 				do_progress(objective, qty, quest)
 
-			if objective.type == "craft" and int(target_item_id) == int(item_id):
+			if type == "visit" and objective.type == "visit" and target_item_id == item_id:
+				do_progress(objective, qty, quest)
+
+			if type == "craft" and objective.type == "craft" and int(target_item_id) == int(item_id):
 				do_progress(objective, qty, quest)
 				
-			print("=====", objective.type, target_item_id, item_id)
-			if objective.type == "buy" and int(target_item_id) == int(item_id):
+			if type == "buy" and objective.type == "buy" and int(target_item_id) == int(item_id):
 				do_progress(objective, qty, quest)
 
-				#objective.progress(qty)
-				#update_quest()
-				#if objective.is_completed():
-					#print("Objective completed: ", objective.description)
-				#	complete_quest(quest)
-				#emit_signal("quest_updated", quest)
+			if type == "sell" and objective.type == "sell":
+				do_progress(objective, qty, quest)
 
 func do_progress(objective, qty, quest):
 	objective.progress(qty)

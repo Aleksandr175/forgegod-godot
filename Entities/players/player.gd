@@ -157,3 +157,8 @@ func _input(event):
 	if event.is_action_pressed("inventory_ui"):
 		inventory_ui.visible = !inventory_ui.visible
 		get_tree().paused = !get_tree().paused
+
+
+func _on_inventory_panel_inventory_closed():
+	inventory_ui.visible = !inventory_ui.visible
+	get_tree().paused = !get_tree().paused

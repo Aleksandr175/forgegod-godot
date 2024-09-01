@@ -281,17 +281,17 @@ offset_bottom = 24.0
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("5_6nexr")]
 
 [node name="XP" type="Label" parent="QuestsUi"]
-offset_left = 14.0
-offset_top = 25.0
-offset_right = 58.0
-offset_bottom = 41.0
+offset_left = 15.0
+offset_top = 143.0
+offset_right = 59.0
+offset_bottom = 159.0
 text = "XP:"
 
 [node name="XPValue" type="Label" parent="QuestsUi"]
-offset_left = 61.0
-offset_top = 25.0
-offset_right = 105.0
-offset_bottom = 41.0
+offset_left = 67.0
+offset_top = 143.0
+offset_right = 111.0
+offset_bottom = 159.0
 text = "0"
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
@@ -313,3 +313,4 @@ visible = false
 [connection signal="area_entered" from="WeaponSprite/HitboxComponent" to="." method="_on_hitbox_component_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="inventory_closed" from="InventoryUI/InventoryPanel" to="." method="_on_inventory_panel_inventory_closed"]

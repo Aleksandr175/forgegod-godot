@@ -93,6 +93,13 @@ var inventory_items: Array = [{
 	"texture": inventory_dictionary["coin"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }, {
+	"id": inventory_dictionary["axWooden"]["id"], 
+	"qty": 3, 
+	"name": inventory_dictionary["axWooden"]["name"], 
+	"type": inventory_dictionary["axWooden"]["type"], 
+	"texture": inventory_dictionary["axWooden"]["texture"],
+	"scene_path": "res://scenes/objects/inventory_item.tscn" 
+}, {
 	"id": inventory_dictionary["swordIron"]["id"], 
 	"qty": 50, 
 	"name": inventory_dictionary["swordIron"]["name"], 
@@ -294,7 +301,6 @@ func remove_items(items: Array) -> void:
 
 func find_dictionary_item_by_id(itemId: int):
 	for inventory_item in Inventory.inventory_dictionary:
-		print(inventory_item, Inventory.inventory_dictionary[inventory_item], itemId)
 		if Inventory.inventory_dictionary[inventory_item]["id"] == itemId:
 			return Inventory.inventory_dictionary[inventory_item]
 	return null

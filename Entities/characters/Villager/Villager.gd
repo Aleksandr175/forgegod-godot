@@ -49,7 +49,6 @@ func find_building():
 	var building = get_parent().get_node("MainBuilding")
 	if building:
 		target_position = building.position
-		#print(target_position)
 
 func move_to_queue_position(delta):
 	if position.distance_to(target_position) > 5:  # A small threshold to stop the villager at the queue position
@@ -103,6 +102,7 @@ func _on_villager_ui_button_pressed():
 	if wish and Inventory.has_enough_resources([wish]):
 		Inventory.add_item(reward.id, reward.qty)
 		Inventory.remove_items([wish])
+		QuestManager.update_objective_progress("sell", str(wish.id), 1)
 		
 		wish = null
 		close_wish_panel()
