@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpsqn4et5qmh2"]
+[gd_scene load_steps=14 format=3 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dibq7mfdev0iv" path="res://Entities/objects/Bridge/bridge.tscn" id="8_soblm"]
 [ext_resource type="PackedScene" uid="uid://c6c4g11sipqif" path="res://Entities/characters/villager1.tscn" id="9_o5hxk"]
 [ext_resource type="PackedScene" uid="uid://b1bjmfy8vuu2n" path="res://Entities/objects/Signpost/Signpost.tscn" id="10_skl8q"]
+[ext_resource type="PackedScene" uid="uid://cojkett73cey" path="res://Entities/characters/King/King.tscn" id="12_mskdh"]
+[ext_resource type="PackedScene" uid="uid://coo27gke4jvlb" path="res://Entities/characters/Knight/Knight.tscn" id="13_eou2t"]
 
 [node name="Vilage" type="Node2D"]
 script = ExtResource("1_mrsg1")
@@ -80,3 +82,9 @@ description = "Mines"
 [node name="Signpost2" parent="." instance=ExtResource("10_skl8q")]
 position = Vector2(-1, -96)
 description = "Shop"
+
+[node name="King" parent="." instance=ExtResource("12_mskdh")]
+position = Vector2(194, 0)
+
+[node name="Knight" parent="." instance=ExtResource("13_eou2t")]
+position = Vector2(213, 0)

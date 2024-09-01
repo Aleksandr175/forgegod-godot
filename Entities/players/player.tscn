@@ -208,6 +208,8 @@ position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_81gkq")
 animation = &"run"
 autoplay = "idle"
+frame = 2
+frame_progress = 0.708653
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)

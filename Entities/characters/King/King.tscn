@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://cojkett73cey"]
+
+[ext_resource type="Script" path="res://Entities/characters/King/King.gd" id="1_w7643"]
+[ext_resource type="Texture2D" uid="uid://u33h2e18j468" path="res://assets/sprites/characters/king.png" id="2_7agoi"]
+[ext_resource type="PackedScene" uid="uid://0yw8v8u4pwac" path="res://UI/VillagerUI/Villager_UI.tscn" id="2_e2d6t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc1ox"]
+atlas = ExtResource("2_7agoi")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miovb"]
+atlas = ExtResource("2_7agoi")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxi2m"]
+atlas = ExtResource("2_7agoi")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32ce1"]
+atlas = ExtResource("2_7agoi")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0nfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc1ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miovb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxi2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32ce1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"spawn",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d35jn"]
+radius = 4.0
+
+[node name="King" type="Node2D"]
+script = ExtResource("1_w7643")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_h0nfp")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.734
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_d35jn")
+
+[node name="VillagerUi" parent="." instance=ExtResource("2_e2d6t")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -38.0
+offset_top = -75.0
+offset_right = -38.0
+offset_bottom = -75.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.25, 0.25)
+
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_exited" from="Area2D2" to="." method="_on_area_2d_2_area_exited"]
+[connection signal="button_pressed" from="VillagerUi" to="." method="_on_villager_ui_2_button_pressed"]
