@@ -72,12 +72,28 @@ func close_wish_panel():
 
 
 func _on_villager_ui_2_button_pressed():
+	if wish and Inventory.has_enough_resources([wish]):
+		Inventory.add_item(reward.id, reward.qty)
+		Inventory.remove_items([wish])
+		QuestManager.update_objective_progress("king", str(wish.id), 1)
+		
+		wish = null
+		generate_next_wish()
+		close_wish_panel()
 	print('sell to king')
 	pass # Replace with function body.
 
+func generate_next_wish():
+	print('generate next wish')
+	pass
+
 func _on_area_2d_2_area_entered(area):
 	if area.get_parent() is Player and wish:
-		open_wish_panel()
+		var active_quests = QuestManager.active_quests
+		for quest in active_quests:
+			for objective in quest.objectives:
+				if objective.type == 'king':
+					open_wish_panel()
 
 
 func _on_area_2d_2_area_exited(area):

@@ -169,8 +169,44 @@ var quest_database = {
 			"experience": 500
 		},
 		"prerequisites": [],
-		"next_quests": []
-	}
+		"next_quests": ["quest_9"]
+	},
+	"quest_9": {
+		"quest_id": "quest_9",
+		"title": "Help King",
+		"description": "Sell goods to king",
+		"objectives": [{
+			"type": "king",
+			"qty": 1
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 9
+			}],
+			"experience": 500
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_10"]
+	},
+	"quest_10": {
+		"quest_id": "quest_10",
+		"title": "Serve Customers",
+		"description": "Sell goods to customers",
+		"objectives": [{
+			"type": "sell",
+			"qty": 1
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 9
+			}],
+			"experience": 500
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_9"]
+	},
 }
 
 func _ready():
@@ -182,7 +218,7 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_1')
+	start_quest('quest_9')
 
 func start_quest(quest_id: String):
 	var quest_data = quest_database[quest_id]
@@ -270,6 +306,9 @@ func update_objective_progress(type: String, item_id: String, qty: int):
 				do_progress(objective, qty, quest)
 
 			if type == "sell" and objective.type == "sell":
+				do_progress(objective, qty, quest)
+
+			if type == "king" and objective.type == "king":
 				do_progress(objective, qty, quest)
 
 func do_progress(objective, qty, quest):
