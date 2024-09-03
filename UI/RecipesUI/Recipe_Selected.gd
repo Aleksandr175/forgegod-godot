@@ -5,9 +5,11 @@ var selected_recipe = null
 @onready var recipe_requirements_container = $VBoxContainer/HBoxContainer/VBoxContainer/GridRequirements
 @onready var recipe_name = $VBoxContainer/HBoxContainer/VBoxContainer/Label
 @onready var craft_button = $VBoxContainer/Button
+@onready var particles = $VBoxContainer/CPUParticles2D  # Reference to the particle system
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	particles.emitting = false
 	_on_selected_recipe_updated(Inventory.recipes[0])
 
 func _on_selected_recipe_updated(item):
@@ -72,6 +74,11 @@ func order(recipe):
 
 func _on_button_pressed():
 	order(selected_recipe)
+	particles.emitting = true  # Start emitting particles
+	
+	# Optionally, you can stop emitting after a short delay
+	await get_tree().create_timer(0.5).timeout
+	particles.emitting = false
 
 func set_craft_button_available(requirements):
 	if Inventory.has_required_items(requirements):

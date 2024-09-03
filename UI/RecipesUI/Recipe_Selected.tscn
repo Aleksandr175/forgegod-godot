@@ -71,4 +71,17 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_u0qec")
 text = "CRAFT"
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="VBoxContainer"]
+position = Vector2(219, 201)
+emitting = false
+amount = 30
+one_shot = true
+speed_scale = 5.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(2.08165e-12, 50)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_max = 10.0
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
