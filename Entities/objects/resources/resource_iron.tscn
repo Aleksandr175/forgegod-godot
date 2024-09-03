@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw6jy6mcv68bh"]
+[gd_scene load_steps=9 format=3 uid="uid://cw6jy6mcv68bh"]
 
 [ext_resource type="Texture2D" uid="uid://dk5i0ss6k1m4u" path="res://assets/sprites/objects/resources/resource-iron.png" id="1_eqb5l"]
 [ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_h53mf"]
@@ -15,6 +15,9 @@ shader_parameter/blink_intensity = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_17xi6"]
 radius = 3.04138
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wib6g"]
+radius = 7.0
+
 [node name="ResourceIron" type="Node2D"]
 script = ExtResource("1_h53mf")
 resourceDictionaryId = "iron"
@@ -25,6 +28,7 @@ position = Vector2(0, -5)
 texture = ExtResource("1_eqb5l")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_87t5x")]
+MAX_HEALTH = 40.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_a1bqn")]
 health_component = NodePath("../HealthComponent")
@@ -32,3 +36,16 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -4.5)
 shape = SubResource("CircleShape2D_17xi6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11, -5)
+shape = SubResource("CircleShape2D_wib6g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11, -5)
+shape = SubResource("CircleShape2D_wib6g")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

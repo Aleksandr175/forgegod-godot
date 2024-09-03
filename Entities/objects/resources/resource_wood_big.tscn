@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvmjw85or2k2f"]
+[gd_scene load_steps=9 format=3 uid="uid://cvmjw85or2k2f"]
 
 [ext_resource type="Texture2D" uid="uid://dx1goqf8yt4e" path="res://assets/sprites/objects/resources/tree-big.png" id="1_6b2yx"]
 [ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_hk0hw"]
@@ -13,7 +13,10 @@ shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 2.08165e-12
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kw4aw"]
-radius = 3.04138
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pipj7"]
+radius = 7.0
 
 [node name="ResourceWoodBig" type="Node2D"]
 script = ExtResource("1_hk0hw")
@@ -25,11 +28,24 @@ position = Vector2(0, -24)
 texture = ExtResource("1_6b2yx")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_okppc")]
-MAX_HEALTH = 30.0
+MAX_HEALTH = 40.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_k7uv1")]
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -4.5)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_kw4aw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11, -5)
+shape = SubResource("CircleShape2D_pipj7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11, -5)
+shape = SubResource("CircleShape2D_pipj7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

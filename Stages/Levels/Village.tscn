@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpsqn4et5qmh2"]
+[gd_scene load_steps=17 format=3 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cojkett73cey" path="res://Entities/characters/King/King.tscn" id="12_mskdh"]
 [ext_resource type="PackedScene" uid="uid://coo27gke4jvlb" path="res://Entities/characters/Knight/Knight.tscn" id="13_eou2t"]
 [ext_resource type="PackedScene" uid="uid://cvmjw85or2k2f" path="res://Entities/objects/resources/resource_wood_big.tscn" id="14_ksj4c"]
+[ext_resource type="PackedScene" uid="uid://cw6jy6mcv68bh" path="res://Entities/objects/resources/resource_iron.tscn" id="15_7b86o"]
+[ext_resource type="PackedScene" uid="uid://cdrbfs8j0m7w8" path="res://Entities/objects/resources/resource_copper.tscn" id="16_yotce"]
 
 [node name="Vilage" type="Node2D"]
 script = ExtResource("1_mrsg1")
@@ -101,3 +103,12 @@ position = Vector2(346, -159)
 
 [node name="ResourceWoodBig6" parent="." instance=ExtResource("14_ksj4c")]
 position = Vector2(295, -47)
+
+[node name="ResourceWoodBig" parent="." instance=ExtResource("14_ksj4c")]
+position = Vector2(169, 0)
+
+[node name="ResourceIron" parent="." instance=ExtResource("15_7b86o")]
+position = Vector2(230, -16)
+
+[node name="ResourceCopper" parent="." instance=ExtResource("16_yotce")]
+position = Vector2(246, -32)

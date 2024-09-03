@@ -16,7 +16,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var inventory_ui = $InventoryUI
 
-var attacking = false
+@export var attacking = false
+@export var auto_attacking = false
 var dying = false;
 var direction = 0;
 var direction_vertical = 0;
@@ -117,6 +118,9 @@ func attack_end():
 
 func _on_weapon_sprite_animation_finished():
 	attack_end()
+
+	if auto_attacking:
+		attack()
 	
 func _on_weapon_sprite_frame_changed():
 	# Calculate the rotation based on the remaining attack time
@@ -162,3 +166,10 @@ func _input(event):
 func _on_inventory_panel_inventory_closed():
 	inventory_ui.visible = !inventory_ui.visible
 	get_tree().paused = !get_tree().paused
+
+func auto_attack():
+	attack()
+	auto_attacking = true
+	
+func auto_attack_stop():
+	auto_attacking = false

@@ -1,22 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdrbfs8j0m7w8"]
+[gd_scene load_steps=9 format=3 uid="uid://cdrbfs8j0m7w8"]
 
 [ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_gcsun"]
 [ext_resource type="Texture2D" uid="uid://b1vsfmnc5go5r" path="res://assets/sprites/objects/resources/resource-copper.png" id="2_slsir"]
 [ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="3_sruww"]
+[ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="4_bdbmd"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="4_h5xq1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_es46p"]
+resource_local_to_scene = true
+shader = ExtResource("4_bdbmd")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_17xi6"]
 radius = 3.04138
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbxn3"]
+radius = 7.0
 
 [node name="ResourceCopper" type="Node2D"]
 script = ExtResource("1_gcsun")
 resourceDictionaryId = "copper"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_es46p")
 position = Vector2(0, -5)
 texture = ExtResource("2_slsir")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_sruww")]
+MAX_HEALTH = 40.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_h5xq1")]
 health_component = NodePath("../HealthComponent")
@@ -24,3 +36,16 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -4.5)
 shape = SubResource("CircleShape2D_17xi6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11, -5)
+shape = SubResource("CircleShape2D_kbxn3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11, -5)
+shape = SubResource("CircleShape2D_kbxn3")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
