@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bujjxmdkf25w0"]
+
+[ext_resource type="Texture2D" uid="uid://dinhg1pdlfsds" path="res://assets/sprites/objects/anvil/anvil.png" id="1_0f0sd"]
+
+[node name="Anvil" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_0f0sd")

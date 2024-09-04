@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtgs35jdc2rnk"
-path="res://.godot/imported/redHouse_4_0.png-bfaaeedf68a951a6c5fbf04a346837f2.ctex"
+uid="uid://dinhg1pdlfsds"
+path="res://.godot/imported/anvil.png-010e37dc0aef71ee4ce4d6e24cc19eb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/buildings/redHouse_4_0.png"
-dest_files=["res://.godot/imported/redHouse_4_0.png-bfaaeedf68a951a6c5fbf04a346837f2.ctex"]
+source_file="res://assets/sprites/objects/anvil/anvil.png"
+dest_files=["res://.godot/imported/anvil.png-010e37dc0aef71ee4ce4d6e24cc19eb4.ctex"]
 
 [params]
 

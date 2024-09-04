@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tepccyblxu8o"
-path="res://.godot/imported/redHouse_1_1.png-2457d1cf6101674c7e604c00842a9d90.ctex"
+uid="uid://dnvokirnxqi2r"
+path="res://.godot/imported/red-building.png-83f5c2b55486eff0e910973ccc33946f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/buildings/redHouse_1_1.png"
-dest_files=["res://.godot/imported/redHouse_1_1.png-2457d1cf6101674c7e604c00842a9d90.ctex"]
+source_file="res://assets/sprites/buildings/red-building.png"
+dest_files=["res://.godot/imported/red-building.png-83f5c2b55486eff0e910973ccc33946f.ctex"]
 
 [params]
 

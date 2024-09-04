@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgvgcqaqgxvth"]
+
+[ext_resource type="Script" path="res://Entities/Buildings/House/Building.gd" id="1_d2al0"]
+[ext_resource type="Texture2D" uid="uid://dnvokirnxqi2r" path="res://assets/sprites/buildings/red-building.png" id="2_0ufb1"]
+
+[node name="House3" type="Node2D"]
+script = ExtResource("1_d2al0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -29)
+texture = ExtResource("2_0ufb1")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cij0ahammcj6r"
-path="res://.godot/imported/blueShop_0.png-5a6301ceb6b7f72fbf53fd61c30956e3.ctex"
+uid="uid://cvitdxa80bpav"
+path="res://.godot/imported/blueHouse_0_1.png-45011d2ad9fccee41af032afe43aaf24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/buildings/blueShop_0.png"
-dest_files=["res://.godot/imported/blueShop_0.png-5a6301ceb6b7f72fbf53fd61c30956e3.ctex"]
+source_file="res://assets/sprites/buildings/not_used/blueHouse_0_1.png"
+dest_files=["res://.godot/imported/blueHouse_0_1.png-45011d2ad9fccee41af032afe43aaf24.ctex"]
 
 [params]
 
