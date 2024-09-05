@@ -11,15 +11,6 @@ var target_zoom = Vector2(7, 7)  # Desired zoom level
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-#func _on_area_2d_body_entered(body):
-#	print('body')
-#	if body is Player:
-#		zoom_in_to_portal()
-
 func _on_area_2d_area_entered(area):
 	var body = area.get_parent()
 	print('fdsfsffsfs')

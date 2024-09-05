@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://suitv8sml7v1" path="res://assets/sprites/objects/furnace/on.png" id="1_glpfn"]
 [ext_resource type="Script" path="res://Entities/objects/Furnace/Furnace.gd" id="1_nnp1k"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yurw5"]
-radius = 16.0
+[ext_resource type="PackedScene" uid="uid://kjtvqgpyeboy" path="res://UI/Pointer/Pointer.tscn" id="3_aq84t"]
 
 [node name="Furnace" type="Node2D"]
 script = ExtResource("1_nnp1k")
@@ -13,10 +11,7 @@ script = ExtResource("1_nnp1k")
 position = Vector2(0, -21)
 texture = ExtResource("1_glpfn")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Pointer" parent="." instance=ExtResource("3_aq84t")]
+position = Vector2(0, -6)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -1)
-shape = SubResource("CircleShape2D_yurw5")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="pointer_pressed" from="Pointer" to="." method="_on_pointer_pointer_pressed"]

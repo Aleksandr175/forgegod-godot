@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://r0t1t1640nx4"]
+[gd_scene load_steps=15 format=3 uid="uid://r0t1t1640nx4"]
 
 [ext_resource type="Script" path="res://Entities/Buildings/House/Building.gd" id="1_gq0d1"]
 [ext_resource type="Texture2D" uid="uid://vxaak3f2fca2" path="res://assets/sprites/buildings/not_used/blueHouse_0_0.png" id="1_hodew"]
@@ -86,9 +86,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0truk"]
-radius = 25.0799
-
 [node name="Building" type="Node2D"]
 script = ExtResource("1_gq0d1")
 
@@ -97,16 +94,7 @@ position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_p7vrp")
 animation = &"idle"
 
-[node name="DoorArea2D2" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D2"]
-position = Vector2(-17, -11)
-shape = SubResource("CircleShape2D_0truk")
-
 [node name="Pointer" parent="." instance=ExtResource("4_xrbpc")]
 position = Vector2(-19, -11)
 
-[connection signal="body_entered" from="DoorArea2D2" to="." method="_on_door_area_2d_2_body_entered"]
-[connection signal="body_exited" from="DoorArea2D2" to="." method="_on_door_area_2d_2_body_exited"]
 [connection signal="pointer_pressed" from="Pointer" to="." method="_on_pointer_pointer_pressed"]

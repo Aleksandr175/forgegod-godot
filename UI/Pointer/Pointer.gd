@@ -12,3 +12,17 @@ func _ready():
 func _on_touch_screen_button_pressed():
 	if pointer.visible:
 		pointer_pressed.emit()
+
+
+func _on_area_2d_area_entered(area):
+	var body = area.get_parent()
+
+	if body is Player or body is PlayerHouse:
+		pointer.visible = true
+
+
+func _on_area_2d_area_exited(area):
+	var body = area.get_parent()
+	
+	if body is Player or body is PlayerHouse:
+		pointer.visible = false

@@ -36,22 +36,14 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.5
-offset_top = -8.0
-offset_right = 41.5
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -4.0
+offset_right = 252.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 8
-text = "Description"
+text = "Description long text bla bla"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
