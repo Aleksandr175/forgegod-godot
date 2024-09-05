@@ -239,7 +239,7 @@ shape = SubResource("CapsuleShape2D_p2cx8")
 wait_time = 0.3
 one_shot = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["cameras"]]
 position = Vector2(0, -7)
 zoom = Vector2(5, 5)
 limit_top = -240

@@ -37,7 +37,12 @@ var quest_database = {
 			"experience": 10
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_2"]
+		"next_quests": ["quest_2"],
+		"completion_actions": [{
+			"type": "open_portal",
+			"path_node": "/root/Instruction/Portal", 
+			"name": "Portal"
+		}]
 	},
 	"quest_2": {
 		"quest_id": "quest_2",
@@ -218,7 +223,7 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_9')
+	start_quest('quest_1')
 
 func start_quest(quest_id: String):
 	var quest_data = quest_database[quest_id]
@@ -280,6 +285,9 @@ func complete_quest(quest: Quest):
 		completed_quests.append(quest)
 		print("Quest completed: ", quest.title, quest.quest_id)
 		
+		# Handle post-completion actions
+		process_completion_actions(quest)
+
 		# Start next quests
 		for next_quest_id in quest_database[quest.quest_id]["next_quests"]:
 			start_quest(next_quest_id)
@@ -318,3 +326,31 @@ func do_progress(objective, qty, quest):
 		#print("Objective completed: ", objective.description)
 		complete_quest(quest)
 	emit_signal("quest_updated", quest)
+
+func process_completion_actions(quest: Quest):
+	var quest_data = quest_database[quest.quest_id]
+	if quest_data.has("completion_actions"):
+		for action in quest_data["completion_actions"]:
+			match action["type"]:
+				"open_portal":
+					open_portal(action["path_node"])
+				_:
+					print("Unknown action type: ", action["type"])
+
+func open_portal(portal_node_path: String):
+	#print_node_tree(get_tree().root)
+	
+	#print(get_node('/root/Instruction/Portal'))
+	
+	var portal = get_node(portal_node_path)
+	print('portal name ', portal_node_path)
+	if portal:
+		portal.visible = true
+		print("Portal is now visible.")
+	else:
+		print("Portal node not found: ", portal_node_path)
+
+func print_node_tree(node: Node, indent: int = 0):
+	print(String(" ").repeat(indent) + node.name)
+	for child in node.get_children():
+		print_node_tree(child, indent + 2)
