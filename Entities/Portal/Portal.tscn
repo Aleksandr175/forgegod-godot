@@ -55,7 +55,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvqdy"]
-radius = 9.05539
+radius = 3.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_li0fd"]
 texture = ExtResource("3_jnq6t")
@@ -345,7 +345,7 @@ frame_progress = 0.128957
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, -13)
+position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_cvqdy")
 
 [node name="TileMap" type="TileMap" parent="."]

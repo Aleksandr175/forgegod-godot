@@ -1,0 +1,4 @@
+extends Node
+
+signal player_entered_portal
+signal player_exited_portal

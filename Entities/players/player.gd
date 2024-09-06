@@ -23,6 +23,7 @@ var direction = 0;
 var direction_vertical = 0;
 var last_direction = 1
 var is_climbing = false
+var can_move = true
 
 func _ready():
 	GameManager.player = self
@@ -71,7 +72,8 @@ func _physics_process(delta):
 
 	if !dying and !get_tree().paused:
 		update_animations(direction, is_climbing)
-		move_and_slide()
+		if can_move:
+			move_and_slide()
 	
 	if position.y > 300 && !dying:
 		die()
@@ -91,6 +93,9 @@ func update_animations(direction_value, is_climbing_value):
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
+		
+	if !can_move:
+		animated_sprite.play("idle")
 
 	# Flip the Sprite
 	if direction_value > 0:
@@ -173,3 +178,18 @@ func auto_attack():
 	
 func auto_attack_stop():
 	auto_attacking = false
+
+func move_stop():
+	can_move = false
+
+func move_start():
+	can_move = true
+
+func _on_tree_entered():
+	GlobalSignals.player_entered_portal.connect(move_stop)
+	pass # Replace with function body.
+
+
+func _on_tree_exited():
+	GlobalSignals.player_entered_portal.disconnect(move_stop)
+	pass # Replace with function body.

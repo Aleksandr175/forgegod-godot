@@ -88,7 +88,7 @@ text = "Oh, it is late
 Lets go to village..."
 
 [node name="Player" parent="." instance=ExtResource("3_2wbmq")]
-position = Vector2(-15, 33)
+position = Vector2(-15, 34)
 
 [node name="Portal" parent="." instance=ExtResource("8_x4ylm")]
 position = Vector2(486, 16)
