@@ -240,7 +240,7 @@ func _ready() -> void:
 func add_item(item_id: int, qty: int) -> void:
 	var item_dictionary = find_dictionary_item_by_id(item_id)
 	var item_found = false
-
+	
 	# Check if the item already exists in the inventory
 	for i in range(inventory_items.size()):
 		var item = inventory_items[i]
@@ -260,7 +260,6 @@ func add_item(item_id: int, qty: int) -> void:
 				item_found = true
 				break
 
-	#print('inventory_items', inventory_items)
 	# Emit signal after adding/updating the item
 	inventory_updated.emit()
 	
@@ -268,7 +267,6 @@ func remove_item(item: Dictionary) -> void:
 	for i in range(inventory_items.size()):
 		var inventory_item = inventory_items[i]
 
-		#print('-------', inventory_item, item)
 		if inventory_item and inventory_item.id == item.id:
 			inventory_item.qty -= int(item.qty)
 			if inventory_item.qty <= 0:
@@ -302,19 +300,19 @@ func remove_items(items: Array) -> void:
 func find_dictionary_item_by_id(itemId: int):
 	for inventory_item in Inventory.inventory_dictionary:
 		if Inventory.inventory_dictionary[inventory_item]["id"] == itemId:
-			return Inventory.inventory_dictionary[inventory_item]
+			return Inventory.inventory_dictionary[inventory_item].duplicate(true)  # Return a deep copy of the item
 	return null
 
 func find_dictionary_item_by_name(item_name: String):
 	for inventory_item in Inventory.inventory_dictionary:
 		if Inventory.inventory_dictionary[inventory_item]["name"] == item_name:
-			return Inventory.inventory_dictionary[inventory_item]
+			return Inventory.inventory_dictionary[inventory_item].duplicate(true)  # Return a deep copy of the item
 	return null
 	
 func find_item_in_inventory(item):
 	for inventory_item in Inventory.inventory_items:
 		if inventory_item and inventory_item.id == item.id:
-			return inventory_item
+			return inventory_item.duplicate(true)  # Return a deep copy of the item
 	return null
 
 func has_enought_coins(needed: int) -> bool:

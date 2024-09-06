@@ -3,13 +3,12 @@ extends Node2D
 var speed: int = 20  # Speed at which the villager moves
 @onready var panel = $VillagerUi
 @onready var sprite = $AnimatedSprite2D
-var wish = null
+var wishFromQuest = null
 var reward = null
 @export var direction: int = 1
 
 func _ready():
 	panel.visible = false
-	generate_wish()
 	
 	if direction == 1:
 		sprite.flip_h = true
@@ -19,24 +18,23 @@ func _ready():
 	sprite.play("idle")
 
 func generate_wish():
-	var possible_wishes = Inventory.recipes
-	wish = possible_wishes[randi() % possible_wishes.size()]
-	# villager wants to buy only 1 item
-	wish.qty = 1
+	wishFromQuest = null;
 	
-	var wishItem = Inventory.find_dictionary_item_by_id(wish.id)
-	
-	reward = {
-		"id": Inventory.inventory_dictionary["coin"]["id"],
-		"name": Inventory.inventory_dictionary["coin"]["name"],
-		"texture": Inventory.inventory_dictionary["coin"]["texture"],
-		"type": Inventory.inventory_dictionary["coin"]["type"],
-		"qty": wishItem.value,
-	}
+	for quest in QuestManager.active_quests:
+		for objective in quest.objectives:
+			if objective.type == 'king':
+				print('objective ', objective)
+				wishFromQuest = Inventory.find_dictionary_item_by_id(int(objective["item_id"]))
+				wishFromQuest["qty"] = objective.target_qty
+				
+				reward = Inventory.find_dictionary_item_by_id(quest["rewards"]["goods"][0]["item_id"])
+				reward["qty"] = quest["rewards"]["goods"][0]["qty"]
+				break
 
-	update_wish_panel(wish, reward)
+	if wishFromQuest:
+		update_wish_panel(wishFromQuest, reward)
 
-func update_wish_panel(wishData, rewardData):
+func update_wish_panel(wishData, rewardData) -> void:
 	var wish_slot = panel.get_node("ColorRect/MarginContainer/VBoxContainer/HBoxContainer/InventorySlotWanted")
 	var reward_slot = panel.get_node("ColorRect/MarginContainer/VBoxContainer/HBoxContainer/InventorySlotReward")
 
@@ -56,12 +54,13 @@ func update_wish_panel(wishData, rewardData):
 
 
 func _on_villager_ui_button_pressed():
-	if wish and Inventory.has_enough_resources([wish]):
+	if wishFromQuest and Inventory.has_enough_resources([wishFromQuest]):
+		print('sell to king')
 		Inventory.add_item(reward.id, reward.qty)
-		Inventory.remove_items([wish])
-		QuestManager.update_objective_progress("sell", str(wish.id), 1)
+		Inventory.remove_items([wishFromQuest])
+		QuestManager.update_objective_progress("king", str(wishFromQuest.id), wishFromQuest.qty)
 		
-		wish = null
+		wishFromQuest = null
 		close_wish_panel()
 
 func open_wish_panel():
@@ -70,30 +69,18 @@ func open_wish_panel():
 func close_wish_panel():
 	panel.visible = false
 
-
-func _on_villager_ui_2_button_pressed():
-	if wish and Inventory.has_enough_resources([wish]):
-		Inventory.add_item(reward.id, reward.qty)
-		Inventory.remove_items([wish])
-		QuestManager.update_objective_progress("king", str(wish.id), 1)
-		
-		wish = null
-		generate_next_wish()
-		close_wish_panel()
-	print('sell to king')
-	pass # Replace with function body.
-
-func generate_next_wish():
-	print('generate next wish')
-	pass
-
 func _on_area_2d_2_area_entered(area):
-	if area.get_parent() is Player and wish:
-		var active_quests = QuestManager.active_quests
-		for quest in active_quests:
-			for objective in quest.objectives:
-				if objective.type == 'king':
-					open_wish_panel()
+	generate_wish()
+	
+	var panelButton = panel.find_child('Button')
+
+	panelButton.disabled = true
+
+	if wishFromQuest and Inventory.has_enough_resources([wishFromQuest]):
+		panelButton.disabled = false
+
+	if area.get_parent() is Player and wishFromQuest:
+		open_wish_panel()
 
 
 func _on_area_2d_2_area_exited(area):

@@ -182,7 +182,8 @@ var quest_database = {
 		"description": "Sell goods to king",
 		"objectives": [{
 			"type": "king",
-			"qty": 1
+			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
+			"qty": 5
 		}],
 		"rewards": {
 			"goods": [{
@@ -223,7 +224,7 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_1')
+	start_quest('quest_9')
 
 func start_quest(quest_id: String):
 	var quest_data = quest_database[quest_id]
@@ -296,7 +297,7 @@ func update_quest():
 	update_quest_ui.emit(active_quests)
 
 func update_objective_progress(type: String, item_id: String, qty: int):
-	print('type', type, 'item_id', item_id, 'qty', qty)
+	print('type ', type, 'item_id ', item_id, 'qty ', qty)
 	for quest in active_quests:
 		for objective in quest.objectives:
 			var target_item_id = str(objective.item_id);
@@ -317,6 +318,7 @@ func update_objective_progress(type: String, item_id: String, qty: int):
 				do_progress(objective, qty, quest)
 
 			if type == "king" and objective.type == "king":
+				print('ffffffff', objective, qty, quest)
 				do_progress(objective, qty, quest)
 
 func do_progress(objective, qty, quest):
