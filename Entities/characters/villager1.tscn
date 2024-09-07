@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6c4g11sipqif"]
+[gd_scene load_steps=8 format=3 uid="uid://c6c4g11sipqif"]
 
 [ext_resource type="Texture2D" uid="uid://bjtkhcqcaqubh" path="res://assets/sprites/characters/fHero_.png" id="1_l8wdb"]
+[ext_resource type="Script" path="res://Entities/characters/villager1.gd" id="1_vdjvj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdxpf"]
 atlas = ExtResource("1_l8wdb")
@@ -39,6 +40,7 @@ animations = [{
 }]
 
 [node name="Villager1" type="Node2D"]
+script = ExtResource("1_vdjvj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
