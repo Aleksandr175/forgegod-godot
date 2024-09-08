@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dj53b06sf4sxy"]
+[gd_scene load_steps=23 format=3 uid="uid://dj53b06sf4sxy"]
 
 [ext_resource type="Texture2D" uid="uid://kwtn51cg7kbk" path="res://assets/sprites/player/knight_full.png" id="1_aqf5g"]
 [ext_resource type="Script" path="res://Entities/players/player_house.gd" id="1_mytfb"]
 [ext_resource type="PackedScene" uid="uid://bgh468rubynm0" path="res://UI/QuestsUI/QuestUI.tscn" id="3_mqr4x"]
+[ext_resource type="PackedScene" uid="uid://ges3fmqdhvsf" path="res://UI/Dialog/Dialog.tscn" id="4_3yuht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7k8h"]
 atlas = ExtResource("1_aqf5g")
@@ -189,3 +190,5 @@ offset_top = 25.0
 offset_right = 105.0
 offset_bottom = 41.0
 text = "0"
+
+[node name="Dialog" parent="QuestsUi" instance=ExtResource("4_3yuht")]

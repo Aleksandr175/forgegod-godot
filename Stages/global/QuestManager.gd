@@ -15,12 +15,12 @@ signal update_quest_ui
 var active_quests: Array = []
 var completed_quests: Array = []
 var quest_database = {
-	"quest_1": {
-		"quest_id": "quest_1",
+	"quest_10": {
+		"quest_id": "quest_10",
 		"title": "Need some money",
-		"description": "Collect coins.",
+		"description": "Collect 5 coins.",
 		"objectives": [{
-			"description": "Collect 3 coins",
+			"description": "Collect 5 coins",
 			"type": "collect",
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
 			"qty": 3
@@ -37,22 +37,44 @@ var quest_database = {
 			"experience": 10
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_2"],
+		"next_quests": ["quest_20"],
 		"completion_actions": [{
 			"type": "open_portal",
 			"path_node": "/root/Instruction/Portal", 
 			"name": "Portal"
 		}],
 		"dialog_data": [
-			{"character": "player", "text": "I need to find the dealer."},
-			{"character": "dealer", "text": "What do you want to buy?"},
-			{"character": "player", "text": "I need some weapons."}
+			{"character": "player", "text": "Oh, right, I have no time..."},
+			{"character": "player", "text": "But I need collect some money."},
 		]
 	},
-	"quest_2": {
-		"quest_id": "quest_2",
-		"title": "Sword time",
-		"description": "Craft a Copper Sword.",
+	"quest_20": {
+		"quest_id": "quest_20",
+		"title": "Visit Village",
+		"description": "Visit Village Visit Blacksmith House Visit Blacksmith House Visit Blacksmith House.",
+		"objectives": [{
+			"type": "visit",
+			"item_id": "village",
+			"qty": 1
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 10
+			}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_30"],
+		"dialog_data": [
+			{"character": "player", "text": "Good! Portal opened!"},
+			{"character": "player", "text": "Let's go to village. I have some deals there."},
+		]
+	},
+	"quest_30": {
+		"quest_id": "quest_30",
+		"title": "Go to Home",
+		"description": "Go back to home.",
 		"objectives": [{
 			"type": "craft",
 			"item_id": Inventory.inventory_dictionary["swordCopper"]["id"],
@@ -66,14 +88,38 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_3"],
+		"next_quests": ["quest_40"],
 		"dialog_data": [
-			{"character": "player", "text": "Super."},
-			{"character": "dealer", "text": "Bla bla"}
+			{"character": "player", "text": "Oh, I forgot to turn off iron in the house!"},
+			{"character": "player", "text": "Or no? Let's check it."},
 		]
 	},
-	"quest_3": {
-		"quest_id": "quest_3",
+	"quest_40": {
+		"quest_id": "quest_40",
+		"title": "Go to Forest",
+		"description": "Go to Forest.",
+		"objectives": [{
+			"type": "craft",
+			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
+			"qty": 1
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 10
+			}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_41"],
+		"dialog_data": [
+			{"character": "player", "text": "Hm, I turned off the iron!"},
+			{"character": "player", "text": "But I forgot to collect woods for crafting."},
+			{"character": "player", "text": "Hurry, I need to do it before sunset."},
+		]
+	},
+	"quest_41": {
+		"quest_id": "quest_41",
 		"title": "Advanced Blacksmithing",
 		"description": "Craft an Iron Sword.",
 		"objectives": [{
@@ -89,10 +135,14 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_4"]
+		"next_quests": ["quest_50"],
+		"dialog_data": [
+			{"character": "player", "text": "Good! Portal opened!"},
+			{"character": "player", "text": "Let's go to village. I have some deals there."},
+		]
 	},
-	"quest_4": {
-		"quest_id": "quest_4",
+	"quest_50": {
+		"quest_id": "quest_50",
 		"title": "Visit Village",
 		"description": "Visit Village Visit Blacksmith House Visit Blacksmith House Visit Blacksmith House.",
 		"objectives": [{
@@ -110,6 +160,7 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_5"]
 	},
+
 	"quest_5": {
 		"quest_id": "quest_5",
 		"title": "Visit Blacksmith House",
@@ -202,10 +253,10 @@ var quest_database = {
 			"experience": 500
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_10"]
+		"next_quests": ["quest_11"]
 	},
-	"quest_10": {
-		"quest_id": "quest_10",
+	"quest_11": {
+		"quest_id": "quest_11",
 		"title": "Serve Customers",
 		"description": "Sell goods to customers",
 		"objectives": [{
@@ -220,7 +271,7 @@ var quest_database = {
 			"experience": 500
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_9"]
+		"next_quests": ["quest_12"]
 	},
 }
 
@@ -233,7 +284,7 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_1')
+	start_quest('quest_10')
 
 func start_quest(quest_id: String):
 	var quest_data = quest_database[quest_id]
