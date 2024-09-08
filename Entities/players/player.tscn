@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=32 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://Entities/players/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://bvk5lgy0kkxgh" path="res://assets/sprites/player/main_hero.png" id="2_w7ppk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgh468rubynm0" path="res://UI/QuestsUI/QuestUI.tscn" id="5_6nexr"]
 [ext_resource type="PackedScene" uid="uid://6b07cvgy8iqh" path="res://UI/InventoryUI/Inventory_Panel.tscn" id="5_pvdss"]
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="6_wavhk"]
+[ext_resource type="PackedScene" uid="uid://ges3fmqdhvsf" path="res://UI/Dialog/Dialog.tscn" id="6_yi45e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mte1a"]
 atlas = ExtResource("2_w7ppk")
@@ -298,6 +299,8 @@ offset_top = 143.0
 offset_right = 111.0
 offset_bottom = 159.0
 text = "0"
+
+[node name="Dialog" parent="QuestsUi" instance=ExtResource("6_yi45e")]
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 layer = 2

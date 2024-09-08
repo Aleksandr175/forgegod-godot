@@ -42,7 +42,12 @@ var quest_database = {
 			"type": "open_portal",
 			"path_node": "/root/Instruction/Portal", 
 			"name": "Portal"
-		}]
+		}],
+		"dialog_data": [
+			{"character": "player", "text": "I need to find the dealer."},
+			{"character": "dealer", "text": "What do you want to buy?"},
+			{"character": "player", "text": "I need some weapons."}
+		]
 	},
 	"quest_2": {
 		"quest_id": "quest_2",
@@ -61,7 +66,11 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_3"]
+		"next_quests": ["quest_3"],
+		"dialog_data": [
+			{"character": "player", "text": "Super."},
+			{"character": "dealer", "text": "Bla bla"}
+		]
 	},
 	"quest_3": {
 		"quest_id": "quest_3",
@@ -224,7 +233,7 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_9')
+	start_quest('quest_1')
 
 func start_quest(quest_id: String):
 	var quest_data = quest_database[quest_id]
@@ -235,6 +244,9 @@ func start_quest(quest_id: String):
 		#	if !completed_quests.has(prereq):
 		#		print("Cannot start quest: ", quest_id, ". Prerequisite quest not completed: ", prereq)
 		#		return
+		
+		if quest_data.has("dialog_data"):
+			GlobalSignals.start_dialog.emit(quest_data["dialog_data"])
 		
 		# If all prerequisites are completed, start the quest
 		var new_quest = Quest.new()
