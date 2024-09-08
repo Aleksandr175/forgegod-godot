@@ -1,9 +1,9 @@
 extends Control
 
 var current_dialog_index = 0
-@onready var rich_text_label = $Panel/RichTextLabel
+@onready var rich_text_label = $ColorRect/RichTextLabel
 @onready var dialog_ui = $"."
-@onready var character_image = $Panel/TextureRect
+@onready var character_image = $ColorRect/TextureRect
 
 var char_index = 0
 var current_text = ""
