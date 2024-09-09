@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cviakntj1q8fk"]
+[gd_scene load_steps=14 format=3 uid="uid://cviakntj1q8fk"]
 
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="1_1utdn"]
 [ext_resource type="Script" path="res://Stages/Levels/level-4.gd" id="1_b7h8b"]
+[ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="2_75pm2"]
 [ext_resource type="PackedScene" uid="uid://x65w1om52k6m" path="res://Entities/objects/Ladder/ladder.tscn" id="2_ueju8"]
 [ext_resource type="PackedScene" uid="uid://ca4e1jm0gkcs2" path="res://Entities/objects/Spikes/Spikes.tscn" id="3_50lco"]
 [ext_resource type="TileSet" uid="uid://b2l4domhq4vs6" path="res://tilesets/decorations.tres" id="3_bbsfp"]
@@ -10,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cw6jy6mcv68bh" path="res://Entities/objects/resources/resource_iron.tscn" id="7_i88jq"]
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://Entities/objects/Coin/coin.tscn" id="8_82g22"]
 [ext_resource type="PackedScene" uid="uid://bhvmtffufxoc2" path="res://Entities/objects/Checkpoint/Checkpoint.tscn" id="9_o00v4"]
+[ext_resource type="PackedScene" uid="uid://cdwio8e7l8x4s" path="res://Entities/objects/Torch/Torch.tscn" id="11_wvsc2"]
+[ext_resource type="PackedScene" uid="uid://cjrth4mg58yfy" path="res://Entities/objects/Cave/Cave_Exit.tscn" id="12_jx51t"]
 
 [node name="Level-4" type="Node2D"]
 script = ExtResource("1_b7h8b")
@@ -53,9 +56,6 @@ position = Vector2(152, 224)
 
 [node name="Spikes3" parent="." instance=ExtResource("3_50lco")]
 position = Vector2(72, 224)
-
-[node name="Player" parent="." instance=ExtResource("4_j1m0x")]
-position = Vector2(-31, -13)
 
 [node name="Villager1" parent="." instance=ExtResource("6_iix78")]
 position = Vector2(359, 144)
@@ -120,3 +120,42 @@ position = Vector2(408, 135)
 
 [node name="Checkpoint" parent="." instance=ExtResource("9_o00v4")]
 position = Vector2(-31, 0)
+
+[node name="Torch" parent="." instance=ExtResource("11_wvsc2")]
+position = Vector2(-11, -11)
+
+[node name="Torch2" parent="." instance=ExtResource("11_wvsc2")]
+position = Vector2(87, -11)
+
+[node name="Torch3" parent="." instance=ExtResource("11_wvsc2")]
+position = Vector2(187, -11)
+
+[node name="Torch4" parent="." instance=ExtResource("11_wvsc2")]
+position = Vector2(237, 70)
+
+[node name="Torch5" parent="." instance=ExtResource("11_wvsc2")]
+position = Vector2(347, 133)
+
+[node name="Torch6" parent="." instance=ExtResource("11_wvsc2")]
+position = Vector2(134, 210)
+
+[node name="Torch7" parent="." instance=ExtResource("11_wvsc2")]
+position = Vector2(-15, 210)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.2
+blend_mode = 1
+
+[node name="Cave_Exit" parent="." instance=ExtResource("12_jx51t")]
+position = Vector2(-47, 225)
+
+[node name="Player" parent="." instance=ExtResource("4_j1m0x")]
+position = Vector2(-25, 222)
+
+[node name="LevelsMenuUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LevelsUi" parent="LevelsMenuUI" instance=ExtResource("2_75pm2")]
+process_mode = 3
+
+[connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjrth4mg58yfy"]
 
 [ext_resource type="Script" path="res://Entities/objects/Cave/Cave_Exit.gd" id="1_jiyq2"]
-[ext_resource type="Texture2D" uid="uid://ckc2ldpdnkf41" path="res://assets/sprites/world/objects_/door.png" id="1_q2mdv"]
+[ext_resource type="Texture2D" uid="uid://drbgca377vphe" path="res://assets/sprites/objects/caveDoor/cave-door.png" id="2_fcrnn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fi335"]
 radius = 11.0
@@ -11,7 +11,7 @@ script = ExtResource("1_jiyq2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
-texture = ExtResource("1_q2mdv")
+texture = ExtResource("2_fcrnn")
 
 [node name="Area2D" type="Area2D" parent="."]
 
