@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8642dl7yrw1e"
-path="res://.godot/imported/axWooden.png-b9980d12372184ebf07d5d0ab1168334.ctex"
+uid="uid://biyxexuaallwi"
+path="res://.godot/imported/resource-copper-ingot.png-b7771acb12e4ebeefc46f1a1e2c942dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/goods/axWooden.png"
-dest_files=["res://.godot/imported/axWooden.png-b9980d12372184ebf07d5d0ab1168334.ctex"]
+source_file="res://assets/sprites/objects/resources/resource-copper-ingot.png"
+dest_files=["res://.godot/imported/resource-copper-ingot.png-b7771acb12e4ebeefc46f1a1e2c942dd.ctex"]
 
 [params]
 

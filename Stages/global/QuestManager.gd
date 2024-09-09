@@ -31,7 +31,7 @@ var quest_database = {
 				"qty": 50
 			},
 			{
-				"item_id": Inventory.inventory_dictionary["swordCopper"]["id"],
+				"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
 				"qty": 10
 			}],
 			"experience": 10
@@ -77,7 +77,7 @@ var quest_database = {
 		"description": "Go back to home.",
 		"objectives": [{
 			"type": "craft",
-			"item_id": Inventory.inventory_dictionary["swordCopper"]["id"],
+			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
 			"qty": 2
 		}],
 		"rewards": {

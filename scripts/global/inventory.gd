@@ -3,6 +3,7 @@ extends Node2D
 var inventory_size = 20
 
 var inventory_dictionary: Dictionary = {
+	# Resources id from 1
 	"coin": {
 		"id": 1,
 		"name": "Coin",
@@ -32,57 +33,124 @@ var inventory_dictionary: Dictionary = {
 		"value": 5
 	},
 
+	"copperIngot": {
+		"id": 5,
+		"name": "Copper Ingot",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/resource-copper-ingot.png"),
+		"value": 10
+	},
+
+	"ironIngot": {
+		"id": 6,
+		"name": "Iron Ingot",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/resource-iron-ingot.png"),
+		"value": 15
+	},
+
+	"emeraldIngot": {
+		"id": 6,
+		"name": "Emerald Ingot",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/resource-emerald-ingot.png"),
+		"value": 25
+	},
+
+	# Iron id from 100
 	"swordWooden": {
 		"id": 100,
 		"name": "Wooden Sword",
 		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/swordWooden.png"),
+		"texture": load("res://assets/sprites/objects/goods/swordWood.png"),
 		"value": 15
 	},
-	"swordIron": {
+	"axeWooden": {
 		"id": 101,
+		"name": "Wooden Axe",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/axeWood.png"),
+		"value": 15
+	},
+	"spearWooden": {
+		"id": 102,
+		"name": "Wooden Spear",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/spearWood.png"),
+		"value": 15
+	},
+
+	# Iron id from 200
+	"swordIron": {
+		"id": 201,
 		"name": "Iron Sword",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/swordIron.png"),
 		"value": 10,
 	},
-	"swordCopper": {
-		"id": 102,
-		"name": "Copper Sword",
+	"axeIron": {
+		"id": 202,
+		"name": "Iron Axe",
 		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/swordCopper.png"),
+		"texture": load("res://assets/sprites/objects/goods/axeIron.png"),
 		"value": 10,
-	},
-
-	"axWooden": {
-		"id": 110,
-		"name": "Wooden Ax",
-		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/axWooden.png"),
-		"value": 15
-	},
-	"axIron": {
-		"id": 111,
-		"name": "Iron Ax",
-		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/axIron.png"),
-		"value": 10,
-	},
-
-	"spearWooden": {
-		"id": 120,
-		"name": "Wooden Spear",
-		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/spearWooden.png"),
-		"value": 15
 	},
 	"spearIron": {
-		"id": 121,
+		"id": 203,
 		"name": "Iron Spear",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/spearIron.png"),
 		"value": 10,
 	},
+	"broadswordIron": {
+		"id": 204,
+		"name": "Iron Broadsword",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/broadswordIron.png"),
+		"value": 100,
+	},
+	"doubleBitAxeIron": {
+		"id": 205,
+		"name": "Iron Double Bit Axe",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/doubleBitAxeIron.png"),
+		"value": 150,
+	},
+	
+	# Steel id from 300
+	
+	# Emerald id from 400
+	"spearEmerald": {
+		"id": 401,
+		"name": "Emerald Spear",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/spearEmerald.png"),
+		"value": 200,
+	},
+	"maceEmerald": {
+		"id": 402,
+		"name": "Emerald Mace",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/spearEmerald.png"),
+		"value": 250,
+	},
+	"staffEmerald": {
+		"id": 403,
+		"name": "Emerald Staff",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/staffEmerald.png"),
+		"value": 300,
+	},
+
+
+
+	#"swordCopper": {
+	#	"id": 102,
+	#	"name": "Copper Sword",
+	#	"type": "item",
+	#	"texture": load("res://assets/sprites/objects/goods/swordCopper.png"),
+	#	"value": 10,
+	#},
 }
 
 var inventory_items: Array = [{
@@ -93,11 +161,11 @@ var inventory_items: Array = [{
 	"texture": inventory_dictionary["coin"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }, {
-	"id": inventory_dictionary["axWooden"]["id"], 
+	"id": inventory_dictionary["axeWooden"]["id"], 
 	"qty": 3, 
-	"name": inventory_dictionary["axWooden"]["name"], 
-	"type": inventory_dictionary["axWooden"]["type"], 
-	"texture": inventory_dictionary["axWooden"]["texture"],
+	"name": inventory_dictionary["axeWooden"]["name"], 
+	"type": inventory_dictionary["axeWooden"]["type"], 
+	"texture": inventory_dictionary["axeWooden"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }, {
 	"id": inventory_dictionary["swordIron"]["id"], 
@@ -176,9 +244,9 @@ var recipes: Array = [{
 		"qty": 3,
 	}],
 }, {
-	"id": inventory_dictionary["swordCopper"]["id"],
-	"name": inventory_dictionary["swordCopper"]["name"],
-	"texture": inventory_dictionary["swordCopper"]["texture"],
+	"id": inventory_dictionary["broadswordIron"]["id"],
+	"name": inventory_dictionary["broadswordIron"]["name"],
+	"texture": inventory_dictionary["broadswordIron"]["texture"],
 	"qty": 1,
 	"type": "recipe",
 	"requirements": [{
@@ -189,9 +257,9 @@ var recipes: Array = [{
 		"qty": 3,
 	}],
 }, {
-	"id": inventory_dictionary["axWooden"]["id"],
-	"name": inventory_dictionary["axWooden"]["name"],
-	"texture": inventory_dictionary["axWooden"]["texture"],
+	"id": inventory_dictionary["axeWooden"]["id"],
+	"name": inventory_dictionary["axeWooden"]["name"],
+	"texture": inventory_dictionary["axeWooden"]["texture"],
 	"qty": 1,
 	"type": "recipe",
 	"requirements": [{
@@ -202,9 +270,9 @@ var recipes: Array = [{
 		"qty": 3,
 	}],
 }, {
-	"id": inventory_dictionary["axIron"]["id"],
-	"name": inventory_dictionary["axIron"]["name"],
-	"texture": inventory_dictionary["axIron"]["texture"],
+	"id": inventory_dictionary["axeIron"]["id"],
+	"name": inventory_dictionary["axeIron"]["name"],
+	"texture": inventory_dictionary["axeIron"]["texture"],
 	"qty": 1,
 	"type": "recipe",
 	"requirements": [{

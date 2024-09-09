@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd6q73fcclprn"
-path="res://.godot/imported/axIron.png-1b9a018402b4237a491e73055993031c.ctex"
+uid="uid://b8142x7qmpdqr"
+path="res://.godot/imported/doubleBitAxeIron.png-ea0dea5cab47fc956bad2adabda1c98a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/goods/axIron.png"
-dest_files=["res://.godot/imported/axIron.png-1b9a018402b4237a491e73055993031c.ctex"]
+source_file="res://assets/sprites/objects/goods/doubleBitAxeIron.png"
+dest_files=["res://.godot/imported/doubleBitAxeIron.png-ea0dea5cab47fc956bad2adabda1c98a.ctex"]
 
 [params]
 

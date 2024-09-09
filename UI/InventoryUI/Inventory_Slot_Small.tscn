@@ -35,9 +35,9 @@ color = Color(0.135012, 0.135012, 0.135012, 1)
 
 [node name="ItemQty" type="Label" parent="InnerBorder"]
 layout_mode = 0
-offset_top = 5.0
+offset_top = 2.0
 offset_right = 40.0
-offset_bottom = 37.0
+offset_bottom = 34.0
 theme_override_fonts/font = ExtResource("1_tufhb")
 theme_override_font_sizes/font_size = 16
 text = "1"

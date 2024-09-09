@@ -48,7 +48,7 @@ text = "1"
 
 [node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
 position = Vector2(44, 48)
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
 texture = ExtResource("3_r10c3")
 
 [node name="ItemButton" type="Button" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl1nyntnhh1ww"
-path="res://.godot/imported/swordWooden.png-29da4f0edda423d0004e3c0300616dad.ctex"
+uid="uid://dsie01mqkjaw3"
+path="res://.godot/imported/swordSteel.png-1b0a800ef8d4ffe941534c30fece65c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/goods/swordWooden.png"
-dest_files=["res://.godot/imported/swordWooden.png-29da4f0edda423d0004e3c0300616dad.ctex"]
+source_file="res://assets/sprites/objects/goods/swordSteel.png"
+dest_files=["res://.godot/imported/swordSteel.png-1b0a800ef8d4ffe941534c30fece65c0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxmqrwthbjmdq"
-path="res://.godot/imported/spearWooden.png-86b86ebf1f631ef21226adc7865da1c8.ctex"
+uid="uid://g54m0luo06p2"
+path="res://.godot/imported/broadswordSteel.png-75d2cb04aee4d004f8c701956a0348ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/goods/spearWooden.png"
-dest_files=["res://.godot/imported/spearWooden.png-86b86ebf1f631ef21226adc7865da1c8.ctex"]
+source_file="res://assets/sprites/objects/goods/broadswordSteel.png"
+dest_files=["res://.godot/imported/broadswordSteel.png-75d2cb04aee4d004f8c701956a0348ee.ctex"]
 
 [params]
 
