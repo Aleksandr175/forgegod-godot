@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Utilities/GameManager/game_manager.gd"
+GameState="*res://scripts/global/GameState.gd"
 Inventory="*res://scripts/global/inventory.gd"
 QuestManager="*res://Stages/global/QuestManager.gd"
 GlobalSignals="*res://scripts/global/GlobalSignals.gd"

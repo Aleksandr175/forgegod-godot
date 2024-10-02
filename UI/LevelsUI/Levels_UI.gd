@@ -1,19 +1,64 @@
 extends Control
 
-func _on_village_button_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Stages/Levels/Village.tscn")
+@onready var levels_container = $ColorRect/VBoxContainer/ScrollContainer/GridContainer
+var level_buttons = {}
 
-func _on_level_1_button_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Stages/Levels/level-1.tscn")
+func _ready():
+	populate_level_buttons()
 
+func populate_level_buttons():
+	# Remove existing buttons from the levels_container
+	for child in levels_container.get_children():
+		child.queue_free()  # Schedules the child node for deletion
 
-func _on_level_2_button_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Stages/Levels/level-2.tscn")
+	level_buttons.clear()
 
+	for level_name in GameState.level_order:
+		var level_info = GameState.levels[level_name]
+		var button = create_level_button(level_name, level_info)
+		levels_container.add_child(button)
+		level_buttons[level_name] = button
 
-func _on_level_3_button_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/levels/level-3.tscn")
+func create_level_button(level_name, level_info):
+	var button = Button.new()
+	button.text = level_name.capitalize()
+
+	# Display resource icons
+	#var resource_icons = get_resource_icons_for_level(level_name)
+	#if resource_icons.size() > 0:
+	#	var hbox = HBoxContainer.new()
+	#	hbox.alignment = BoxContainer.ALIGN_CENTER
+
+	#	for icon_path in resource_icons:
+	#		var icon_texture = load(icon_path)
+	#		var icon = TextureRect.new()
+	#		icon.texture = icon_texture
+	#		icon.rect_min_size = Vector2(32, 32)  # Adjust size as needed
+	#		hbox.add_child(icon)
+
+	#	button.add_child(hbox)
+	#	hbox.anchor_right = 1
+	#	hbox.margin_left = button.rect_size.x - (resource_icons.size() * 36)
+	#	hbox.margin_top = (button.rect_size.y - 32) / 2
+
+	# Disable button if level is locked
+	print(level_info)
+	if not level_info["unlocked"]:
+		button.disabled = true
+		#add_lock_icon_to_button(button)
+
+	# Connect the button press signal
+	#button.connect("pressed", self, _on_level_button_pressed, [level_name])
+	button.pressed.connect(func():
+		_on_level_button_pressed(level_name)
+	)
+
+	return button
+
+func _on_level_button_pressed(level_name):
+	if GameState.levels[level_name]["unlocked"]:
+		GameState.current_level_name = level_name
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://Stages/Levels/" + level_name + ".tscn")
+	else:
+		print("Level is locked!")
