@@ -3,6 +3,9 @@ extends Control
 @onready var levels_container = $ColorRect/VBoxContainer/ScrollContainer/GridContainer
 var level_buttons = {}
 
+# Preload the LevelButton scene
+var LevelButtonScene = preload("res://Stages/Levels/LevelButton.tscn")  # Adjust the path as needed
+
 func _ready():
 	populate_level_buttons()
 
@@ -15,9 +18,16 @@ func populate_level_buttons():
 
 	for level_name in GameState.level_order:
 		var level_info = GameState.levels[level_name]
-		var button = create_level_button(level_name, level_info)
-		levels_container.add_child(button)
-		level_buttons[level_name] = button
+		var level_button = LevelButtonScene.instantiate()
+
+		# Set properties
+		level_button.level_name = level_name
+		level_button.level_info = level_info
+		#level_button.resource_icons = get_resource_icons_for_level(level_name)
+
+		# Add the level button to the container
+		levels_container.add_child(level_button)
+		level_buttons[level_name] = level_button
 
 func create_level_button(level_name, level_info):
 	var button = Button.new()
@@ -62,3 +72,7 @@ func _on_level_button_pressed(level_name):
 		get_tree().change_scene_to_file("res://Stages/Levels/" + level_name + ".tscn")
 	else:
 		print("Level is locked!")
+
+func _on_village_button_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Stages/Levels/Village.tscn")

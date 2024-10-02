@@ -59,6 +59,7 @@ horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/v_separation = 40
 
 [node name="Level1Button" type="Button" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer"]
@@ -94,6 +95,3 @@ theme_override_font_sizes/font_size = 32
 text = "Move to:"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/VillageButton" to="." method="_on_village_button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/ScrollContainer/GridContainer/Level1Button" to="." method="_on_level_1_button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/ScrollContainer/GridContainer/Level2Button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/ScrollContainer/GridContainer/Level3Button" to="." method="_on_level_3_button_pressed"]
