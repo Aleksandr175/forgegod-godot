@@ -13,6 +13,14 @@ size = Vector2(30, 9)
 process_mode = 3
 script = ExtResource("1_jxpk6")
 
+[node name="InventoryUI" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="InventoryPanel" parent="InventoryUI" instance=ExtResource("5_bxxio")]
+z_index = 6
+mouse_force_pass_scroll_events = false
+
 [node name="PlayerHouse" parent="." instance=ExtResource("1_yo7ni")]
 z_index = 5
 position = Vector2(40, 8)
@@ -44,12 +52,7 @@ shape = SubResource("RectangleShape2D_lipq7")
 [node name="Furnace" parent="." instance=ExtResource("4_478m1")]
 position = Vector2(66, -28)
 
-[node name="InventoryUI" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="InventoryPanel" parent="InventoryUI" instance=ExtResource("5_bxxio")]
-
+[connection signal="inventory_closed" from="InventoryUI/InventoryPanel" to="." method="_on_inventory_panel_inventory_closed"]
 [connection signal="area_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_area_entered"]
 [connection signal="body_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]
 [connection signal="inventory_opened" from="Furnace" to="." method="_on_furnace_inventory_opened"]
-[connection signal="inventory_closed" from="InventoryUI/InventoryPanel" to="." method="_on_inventory_panel_inventory_closed"]

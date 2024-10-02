@@ -43,7 +43,7 @@ offset_top = 5.0
 offset_right = 40.0
 offset_bottom = 37.0
 theme_override_fonts/font = ExtResource("1_5jlxj")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "1"
 
 [node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
