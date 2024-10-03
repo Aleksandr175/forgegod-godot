@@ -198,21 +198,6 @@ sprite_frames = SubResource("SpriteFrames_81gkq")
 animation = &"die"
 autoplay = "idle"
 
-[node name="WeaponSprite222" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(0, -6)
-sprite_frames = SubResource("SpriteFrames_hxe5v")
-animation = &"idle"
-centered = false
-offset = Vector2(-16, -22)
-
-[node name="HitboxComponent" parent="WeaponSprite222" instance=ExtResource("4_cmd1b")]
-position = Vector2(0, 6)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WeaponSprite222/HitboxComponent"]
-position = Vector2(4.76837e-07, -16)
-shape = SubResource("RectangleShape2D_o0qct")
-
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(10, -6)
 sprite_frames = SubResource("SpriteFrames_hxe5v")
@@ -280,8 +265,6 @@ offset_top = -26.0
 offset_right = 25.0
 offset_bottom = 24.0
 
-[node name="QuestUi" parent="Camera2D/CanvasLayer" instance=ExtResource("5_6nexr")]
-
 [node name="QuestsUi" type="CanvasLayer" parent="."]
 
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("5_6nexr")]
@@ -318,10 +301,6 @@ visible = false
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="animation_finished" from="AnimatedSpritePlayer222" to="." method="_on_animated_sprite_player_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSpritePlayer" to="." method="_on_animated_sprite_player_animation_finished"]
-[connection signal="animation_finished" from="WeaponSprite222" to="." method="_on_weapon_sprite_animation_finished"]
-[connection signal="frame_changed" from="WeaponSprite222" to="." method="_on_weapon_sprite_frame_changed"]
-[connection signal="ready" from="WeaponSprite222" to="." method="_on_weapon_sprite_ready"]
-[connection signal="area_entered" from="WeaponSprite222/HitboxComponent" to="." method="_on_hitbox_component_area_entered"]
 [connection signal="animation_finished" from="WeaponSprite" to="." method="_on_weapon_sprite_animation_finished"]
 [connection signal="frame_changed" from="WeaponSprite" to="." method="_on_weapon_sprite_frame_changed"]
 [connection signal="ready" from="WeaponSprite" to="." method="_on_weapon_sprite_ready"]
