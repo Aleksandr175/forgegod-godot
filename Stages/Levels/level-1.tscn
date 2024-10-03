@@ -49,9 +49,6 @@ layer_3/tile_data = PackedInt32Array(-589840, 4, 2, -524304, 4, 2, -458768, 4, 2
 
 [node name="Player" parent="." instance=ExtResource("2_rpr4n")]
 position = Vector2(404, -84)
-DAMAGE = null
-attacking = null
-auto_attacking = null
 
 [node name="ResourceIron" parent="." instance=ExtResource("4_tpuee")]
 position = Vector2(126, 0)

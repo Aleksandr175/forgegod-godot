@@ -24,9 +24,6 @@ layer_3/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("2_icfig")]
 position = Vector2(-1, -9)
-DAMAGE = null
-attacking = null
-auto_attacking = null
 
 [node name="World Tiles Blocks2" type="TileMap" parent="."]
 tile_set = ExtResource("1_lq127")

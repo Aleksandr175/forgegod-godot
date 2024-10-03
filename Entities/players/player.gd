@@ -153,7 +153,6 @@ func _on_hitbox_component_area_entered(area):
 		var attack_data = Attack.new()
 		attack_data.attack_force = DAMAGE
 
-		print('damage', attack_data)
 		area.damage(attack_data)
 
 func start_climbing():
