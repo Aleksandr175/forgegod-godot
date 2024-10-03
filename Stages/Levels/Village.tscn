@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dpsqn4et5qmh2"]
+[gd_scene load_steps=21 format=3 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://d1m4vkbuwehwi" path="res://Entities/Portal/Portal.tscn" id="17_n0ils"]
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="18_o8siw"]
 [ext_resource type="TileSet" uid="uid://b2l4domhq4vs6" path="res://tilesets/decorations.tres" id="19_d3ikv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru3oh"]
+size = Vector2(20, 247)
 
 [node name="Vilage" type="Node2D"]
 script = ExtResource("1_mrsg1")
@@ -124,5 +127,11 @@ layer_0/z_index = 1
 layer_0/tile_data = PackedInt32Array(-393232, 131072, 4, -393231, 131072, 4, -393230, 196608, 4, -393233, 65536, 4)
 layer_1/name = "Back"
 layer_1/tile_data = PackedInt32Array(-655365, 131072, 5, -720901, 65536, 5, -655364, 131072, 5, -655363, 65536, 5, -458746, 65536, 5, -720900, 131072, 5, -786436, 65536, 5, -12, 65536, 5, -13, 131072, 5, -262123, 131072, 2, -262122, 131072, 1, -720877, 131072, 1, -655345, 131072, 3)
+
+[node name="Node2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(470, -155.5)
+shape = SubResource("RectangleShape2D_ru3oh")
 
 [connection signal="portal_entered" from="PortalToCave" to="." method="_on_portal_to_cave_portal_entered"]
