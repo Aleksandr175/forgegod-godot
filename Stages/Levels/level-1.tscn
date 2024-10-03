@@ -60,7 +60,7 @@ position = Vector2(100, -64)
 position = Vector2(325, -63)
 
 [node name="ResourceIron2" parent="." instance=ExtResource("4_tpuee")]
-position = Vector2(202, -16)
+position = Vector2(135, -79)
 
 [node name="ResourceIron3" parent="." instance=ExtResource("4_tpuee")]
 position = Vector2(399, -17)
@@ -81,17 +81,14 @@ process_mode = 3
 position = Vector2(0, -15)
 
 [node name="Signpost" parent="." instance=ExtResource("8_kkykl")]
-position = Vector2(220, -16)
+position = Vector2(234, -16)
 description = "Exit"
-
-[node name="ResourceWoodBig" parent="." instance=ExtResource("9_tjefp")]
-position = Vector2(378, -15)
 
 [node name="ResourceWoodBig2" parent="." instance=ExtResource("9_tjefp")]
 position = Vector2(343, 1)
 
 [node name="ResourceWoodBig3" parent="." instance=ExtResource("9_tjefp")]
-position = Vector2(72, 1)
+position = Vector2(211, -15)
 
 [node name="Coin" parent="." instance=ExtResource("10_gden1")]
 position = Vector2(25, -7)
