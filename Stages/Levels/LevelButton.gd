@@ -37,7 +37,7 @@ func _ready():
 #		icon_container.add_child(icon)
 
 func update_lock_status():
-	if GameState.levels[level_name]["unlocked"]:
+	if level_name and GameState.levels[level_name]["unlocked"]:
 		disabled = false
 #		lock_icon.visible = false
 	else:

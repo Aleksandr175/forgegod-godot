@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca0eodaibq7gn"]
+[gd_scene load_steps=4 format=3 uid="uid://ca0eodaibq7gn"]
 
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_2wipf"]
 [ext_resource type="Script" path="res://UI/LevelsUI/Levels_UI.gd" id="1_ruyv2"]
+[ext_resource type="PackedScene" uid="uid://i2lsmi0eoplk" path="res://Stages/Levels/LevelButton.tscn" id="3_1uait"]
 
 [node name="LevelsUi" type="Control"]
 layout_mode = 3
@@ -47,9 +48,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="VillageButton" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_2wipf")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "Village"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/VBoxContainer"]
@@ -59,26 +61,21 @@ horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/ScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
+size_flags_vertical = 0
 theme_override_constants/v_separation = 40
 
-[node name="Level1Button" type="Button" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer"]
+[node name="LevelButton" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_1uait")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_2wipf")
-theme_override_font_sizes/font_size = 24
-text = "Mine Level 1"
 
-[node name="Level2Button" type="Button" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer"]
+[node name="LevelButton2" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_1uait")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_2wipf")
-theme_override_font_sizes/font_size = 24
-text = "Mine Level 2"
 
-[node name="Level3Button" type="Button" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer"]
+[node name="LevelButton3" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_1uait")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_2wipf")
-theme_override_font_sizes/font_size = 24
-text = "Mine Level 3"
+
+[node name="LevelButton4" parent="ColorRect/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_1uait")]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
@@ -94,4 +91,6 @@ theme_override_fonts/font = ExtResource("1_2wipf")
 theme_override_font_sizes/font_size = 32
 text = "Move to:"
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/VillageButton" to="." method="_on_village_button_pressed"]

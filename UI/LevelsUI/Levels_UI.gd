@@ -51,12 +51,6 @@ func create_level_button(level_name, level_info):
 	#	hbox.margin_left = button.rect_size.x - (resource_icons.size() * 36)
 	#	hbox.margin_top = (button.rect_size.y - 32) / 2
 
-	# Disable button if level is locked
-	print(level_info)
-	if not level_info["unlocked"]:
-		button.disabled = true
-		#add_lock_icon_to_button(button)
-
 	# Connect the button press signal
 	#button.connect("pressed", self, _on_level_button_pressed, [level_name])
 	button.pressed.connect(func():
@@ -76,3 +70,12 @@ func _on_level_button_pressed(level_name):
 func _on_village_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Stages/Levels/Village.tscn")
+
+func on_level_completed(lvl_name):
+	populate_level_buttons()
+
+func _on_tree_entered():
+	GlobalSignals.level_completed.connect(on_level_completed)
+
+func _on_tree_exited():
+	GlobalSignals.level_completed.disconnect(on_level_completed)
