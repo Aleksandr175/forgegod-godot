@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=33 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://Entities/players/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://bvk5lgy0kkxgh" path="res://assets/sprites/player/main_hero.png" id="2_w7ppk"]
@@ -175,7 +175,10 @@ radius = 6.0
 height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x26y3"]
-radius = 50.0
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8nfp5"]
+radius = 30.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 process_mode = 3
@@ -228,43 +231,6 @@ shape = SubResource("CapsuleShape2D_p2cx8")
 wait_time = 0.3
 one_shot = true
 
-[node name="Camera2D" type="Camera2D" parent="." groups=["cameras"]]
-position = Vector2(0, -7)
-zoom = Vector2(5, 5)
-limit_top = -240
-limit_bottom = 160
-limit_smoothed = true
-position_smoothing_speed = 50.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -101.0
-offset_top = -340.0
-offset_right = -1.0
-offset_bottom = -240.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/Control"]
-position = Vector2(47, 48)
-shape = SubResource("CircleShape2D_x26y3")
-action = "inventory_ui"
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
-offset_left = -25.0
-offset_top = -26.0
-offset_right = 25.0
-offset_bottom = 24.0
-
 [node name="QuestsUi" type="CanvasLayer" parent="."]
 
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("5_6nexr")]
@@ -284,6 +250,148 @@ offset_bottom = 159.0
 text = "0"
 
 [node name="Dialog" parent="QuestsUi" instance=ExtResource("6_yi45e")]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["cameras"]]
+position = Vector2(0, -7)
+zoom = Vector2(5, 5)
+limit_top = -240
+limit_bottom = 160
+limit_smoothed = true
+position_smoothing_speed = 50.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -332.0
+offset_right = -10.0
+offset_bottom = -232.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/Control"]
+position = Vector2(47, 48)
+shape = SubResource("CircleShape2D_x26y3")
+action = "inventory_ui"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
+offset_left = -25.0
+offset_top = -26.0
+offset_right = 25.0
+offset_bottom = 24.0
+
+[node name="MoveControls" type="Control" parent="Camera2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -232.0
+offset_right = 10.0
+offset_bottom = -232.0
+grow_vertical = 0
+
+[node name="Control2" type="Control" parent="Camera2D/CanvasLayer/MoveControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_vertical = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control2"]
+position = Vector2(47, 48)
+shape = SubResource("CircleShape2D_x26y3")
+action = "move_left"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control2/TouchScreenButton"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer/MoveControls/Control2/TouchScreenButton"]
+offset_left = -25.0
+offset_top = -26.0
+offset_right = 25.0
+offset_bottom = 24.0
+
+[node name="Control3" type="Control" parent="Camera2D/CanvasLayer/MoveControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_right = 212.0
+offset_bottom = 100.0
+grow_vertical = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control3"]
+position = Vector2(47, 48)
+shape = SubResource("CircleShape2D_x26y3")
+action = "move_right"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control3/TouchScreenButton"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer/MoveControls/Control3/TouchScreenButton"]
+offset_left = -25.0
+offset_top = -26.0
+offset_right = 25.0
+offset_bottom = 24.0
+
+[node name="Control4" type="Control" parent="Camera2D/CanvasLayer/MoveControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = -62.0
+offset_right = 156.0
+offset_bottom = 38.0
+grow_vertical = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control4"]
+position = Vector2(47, 48)
+shape = SubResource("CircleShape2D_x26y3")
+action = "move_up"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control4/TouchScreenButton"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer/MoveControls/Control4/TouchScreenButton"]
+offset_left = -25.0
+offset_top = -26.0
+offset_right = 25.0
+offset_bottom = 24.0
+
+[node name="Control5" type="Control" parent="Camera2D/CanvasLayer/MoveControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 60.0
+offset_right = 154.0
+offset_bottom = 160.0
+grow_vertical = 0
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control5"]
+position = Vector2(47, 46)
+shape = SubResource("CircleShape2D_8nfp5")
+action = "move_down"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control5/TouchScreenButton2"]
+position = Vector2(0, 2)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer/MoveControls/Control5/TouchScreenButton2"]
+offset_left = -25.0
+offset_top = -24.0
+offset_right = 25.0
+offset_bottom = 26.0
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 layer = 2
@@ -307,4 +415,7 @@ visible = false
 [connection signal="area_entered" from="WeaponSprite/HitboxComponent" to="." method="_on_hitbox_component_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/MoveControls/Control2/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/MoveControls/Control3/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/MoveControls/Control4/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="inventory_closed" from="InventoryUI/InventoryPanel" to="." method="_on_inventory_panel_inventory_closed"]
