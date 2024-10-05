@@ -388,9 +388,10 @@ var player_node: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Initialize the inventory with the starting items
+	inventory_items = inventory_items.filter(func(item): return item != null)
 	inventory_items.resize(inventory_size)
-	pass # Replace with function body.
-
+	
 func add_item(item_id: int, qty: int) -> void:
 	var item_dictionary = find_dictionary_item_by_id(item_id)
 	var item_found = false
@@ -414,6 +415,9 @@ func add_item(item_id: int, qty: int) -> void:
 				item_found = true
 				break
 
+	# Sort inventory to remove empty slots
+	sort_inventory_items()
+	
 	# Emit signal after adding/updating the item
 	inventory_updated.emit()
 	
@@ -428,6 +432,9 @@ func remove_item(item: Dictionary) -> void:
 				inventory_items[i] = null
 			break
 
+	# Sort inventory to remove empty slots
+	sort_inventory_items()
+	
 	inventory_updated.emit()
 
 func set_player_reference(player: Node) -> void:
@@ -488,3 +495,13 @@ func has_enough_resources(resources: Array) -> bool:
 			break
 
 	return enough_resources
+
+func sort_inventory_items() -> void:
+	# Remove null entries
+	var compacted_items = []
+	for item in inventory_items:
+		if item != null:
+			compacted_items.append(item)
+	# Resize to inventory_size, filling with nulls if necessary
+	compacted_items.resize(inventory_size)
+	inventory_items = compacted_items
