@@ -16,7 +16,7 @@ var inventory_dictionary: Dictionary = {
 		"name": "Wood",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-wood.png"),
-		"value": 3,
+		"value": 1,
 	},
 	"iron": {
 		"id": 3,
@@ -30,7 +30,7 @@ var inventory_dictionary: Dictionary = {
 		"name": "Copper",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
-		"value": 5
+		"value": 2
 	},
 
 	"copperIngot": {
@@ -38,7 +38,7 @@ var inventory_dictionary: Dictionary = {
 		"name": "Copper Ingot",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-copper-ingot.png"),
-		"value": 10
+		"value": 5
 	},
 
 	"ironIngot": {
@@ -46,7 +46,7 @@ var inventory_dictionary: Dictionary = {
 		"name": "Iron Ingot",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-iron-ingot.png"),
-		"value": 15
+		"value": 7
 	},
 
 	"emeraldIngot": {
@@ -63,21 +63,21 @@ var inventory_dictionary: Dictionary = {
 		"name": "Wooden Sword",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/swordWood.png"),
-		"value": 15
+		"value": 8
 	},
 	"axeWooden": {
 		"id": 101,
 		"name": "Wooden Axe",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/axeWood.png"),
-		"value": 15
+		"value": 7
 	},
 	"spearWooden": {
 		"id": 102,
 		"name": "Wooden Spear",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/spearWood.png"),
-		"value": 15
+		"value": 5
 	},
 
 	# Iron id from 200
@@ -86,28 +86,28 @@ var inventory_dictionary: Dictionary = {
 		"name": "Iron Sword",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/swordIron.png"),
-		"value": 10,
+		"value": 30,
 	},
 	"axeIron": {
 		"id": 202,
 		"name": "Iron Axe",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/axeIron.png"),
-		"value": 10,
+		"value": 25,
 	},
 	"spearIron": {
 		"id": 203,
 		"name": "Iron Spear",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/spearIron.png"),
-		"value": 10,
+		"value": 15,
 	},
 	"broadswordIron": {
 		"id": 204,
 		"name": "Iron Broadsword",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/broadswordIron.png"),
-		"value": 100,
+		"value": 40,
 	},
 	"doubleBitAxeIron": {
 		"id": 205,
@@ -195,6 +195,13 @@ var inventory_items: Array = [{
 	"type": inventory_dictionary["copper"]["type"], 
 	"texture": inventory_dictionary["copper"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
+}, { 
+	"id": inventory_dictionary["wood"]["id"], 
+	"qty": 20, 
+	"name": inventory_dictionary["wood"]["name"], 
+	"type": inventory_dictionary["wood"]["type"], 
+	"texture": inventory_dictionary["wood"]["texture"],
+	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }]
 
 var shop_items: Array = [{
@@ -217,18 +224,61 @@ var shop_items: Array = [{
 	"type": "Resource",
 }]
 
+
+
 var recipes: Array = [{
-	"id": inventory_dictionary["swordIron"]["id"],
-	"name": inventory_dictionary["swordIron"]["name"],
-	"texture": inventory_dictionary["swordIron"]["texture"],
+	"id": inventory_dictionary["copperIngot"]["id"],
+	"name": inventory_dictionary["copperIngot"]["name"],
+	"texture": inventory_dictionary["copperIngot"]["texture"],
 	"qty": 1,
 	"type": "recipe",
 	"requirements": [{
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 1,
+	}, {
+		"id": inventory_dictionary["copper"]["id"], 
+		"name": inventory_dictionary["copper"]["name"], 
+		"type": inventory_dictionary["copper"]["type"], 
+		"texture": inventory_dictionary["copper"]["texture"],
+		"qty": 1,
+	}],
+}, {
+	"id": inventory_dictionary["ironIngot"]["id"],
+	"name": inventory_dictionary["ironIngot"]["name"],
+	"texture": inventory_dictionary["ironIngot"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"requirements": [{
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 1,
+	}, {
 		"id": inventory_dictionary["iron"]["id"], 
 		"name": inventory_dictionary["iron"]["name"], 
 		"type": inventory_dictionary["iron"]["type"], 
 		"texture": inventory_dictionary["iron"]["texture"],
-		"qty": 5,
+		"qty": 1,
+	}],
+}, 
+
+# WOODEN WEAPONS
+{
+	"id": inventory_dictionary["spearWooden"]["id"],
+	"name": inventory_dictionary["spearWooden"]["name"],
+	"texture": inventory_dictionary["spearWooden"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"requirements": [{
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 2,
 	}],
 }, {
 	"id": inventory_dictionary["swordWooden"]["id"],
@@ -241,20 +291,7 @@ var recipes: Array = [{
 		"name": inventory_dictionary["wood"]["name"], 
 		"type": inventory_dictionary["wood"]["type"], 
 		"texture": inventory_dictionary["wood"]["texture"],
-		"qty": 3,
-	}],
-}, {
-	"id": inventory_dictionary["broadswordIron"]["id"],
-	"name": inventory_dictionary["broadswordIron"]["name"],
-	"texture": inventory_dictionary["broadswordIron"]["texture"],
-	"qty": 1,
-	"type": "recipe",
-	"requirements": [{
-		"id": inventory_dictionary["copper"]["id"], 
-		"name": inventory_dictionary["copper"]["name"], 
-		"type": inventory_dictionary["copper"]["type"], 
-		"texture": inventory_dictionary["copper"]["texture"],
-		"qty": 3,
+		"qty": 4,
 	}],
 }, {
 	"id": inventory_dictionary["axeWooden"]["id"],
@@ -269,6 +306,29 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 3,
 	}],
+}, 
+
+
+# IRON WEAPONS
+{
+	"id": inventory_dictionary["spearIron"]["id"],
+	"name": inventory_dictionary["spearIron"]["name"],
+	"texture": inventory_dictionary["spearIron"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"requirements": [{
+		"id": inventory_dictionary["ironIngot"]["id"], 
+		"name": inventory_dictionary["ironIngot"]["name"], 
+		"type": inventory_dictionary["ironIngot"]["type"], 
+		"texture": inventory_dictionary["ironIngot"]["texture"],
+		"qty": 1,
+	}, {
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 1,
+	}],
 }, {
 	"id": inventory_dictionary["axeIron"]["id"],
 	"name": inventory_dictionary["axeIron"]["name"],
@@ -276,17 +336,43 @@ var recipes: Array = [{
 	"qty": 1,
 	"type": "recipe",
 	"requirements": [{
+		"id": inventory_dictionary["ironIngot"]["id"], 
+		"name": inventory_dictionary["ironIngot"]["name"], 
+		"type": inventory_dictionary["ironIngot"]["type"], 
+		"texture": inventory_dictionary["ironIngot"]["texture"],
+		"qty": 2,
+	}, {
 		"id": inventory_dictionary["wood"]["id"], 
 		"name": inventory_dictionary["wood"]["name"], 
 		"type": inventory_dictionary["wood"]["type"], 
 		"texture": inventory_dictionary["wood"]["texture"],
-		"qty": 3,
-	}, {
-		"id": inventory_dictionary["iron"]["id"], 
-		"name": inventory_dictionary["iron"]["name"], 
-		"type": inventory_dictionary["iron"]["type"], 
-		"texture": inventory_dictionary["iron"]["texture"],
 		"qty": 1,
+	}],
+}, {
+	"id": inventory_dictionary["swordIron"]["id"],
+	"name": inventory_dictionary["swordIron"]["name"],
+	"texture": inventory_dictionary["swordIron"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"requirements": [{
+		"id": inventory_dictionary["ironIngot"]["id"], 
+		"name": inventory_dictionary["ironIngot"]["name"], 
+		"type": inventory_dictionary["ironIngot"]["type"], 
+		"texture": inventory_dictionary["ironIngot"]["texture"],
+		"qty": 3,
+	}],
+}, {
+	"id": inventory_dictionary["broadswordIron"]["id"],
+	"name": inventory_dictionary["broadswordIron"]["name"],
+	"texture": inventory_dictionary["broadswordIron"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"requirements": [{
+		"id": inventory_dictionary["ironIngot"]["id"], 
+		"name": inventory_dictionary["ironIngot"]["name"], 
+		"type": inventory_dictionary["ironIngot"]["type"], 
+		"texture": inventory_dictionary["ironIngot"]["texture"],
+		"qty": 5,
 	}],
 },]
 
