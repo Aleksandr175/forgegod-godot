@@ -72,6 +72,7 @@ func _on_village_button_pressed():
 	get_tree().change_scene_to_file("res://Stages/Levels/Village.tscn")
 
 func on_level_completed(lvl_name):
+	print('on_level_completed', lvl_name)
 	populate_level_buttons()
 
 func _on_tree_entered():

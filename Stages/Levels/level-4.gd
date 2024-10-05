@@ -9,16 +9,9 @@ extends Node2D
 func _ready():
 	var camera = player.find_child("Camera2D")
 	camera.limit_bottom = 1000000
-	print(camera)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_cave_exit_level_menu_opened():
+	GameState.complete_level(level_name)
+	GlobalSignals.level_completed.emit(level_name)
 	levels_menu_ui.visible = !levels_menu_ui.visible
 	get_tree().paused = !get_tree().paused
-	GameState.complete_level(level_name)
