@@ -41,4 +41,6 @@ func _on_quest_manager_update_quest_ui(active_quests):
 	clear_quests()
 	for quest in active_quests:
 		add_quest(quest.title, quest.description, quest.objectives)
-	pass # Replace with function body.
+
+func _on_tree_exited():
+	QuestManager.disconnect("update_quest_ui", _on_quest_manager_update_quest_ui)

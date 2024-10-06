@@ -32,3 +32,4 @@ func _on_exit_pressed():
 
 func _on_new_game_pressed():
 	GameState.start_new_game()
+	GameManager.resume()

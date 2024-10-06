@@ -276,16 +276,19 @@ var quest_database = {
 }
 
 func _ready():
+	GlobalSignals.new_game_started.connect(start_timer)
+	start_timer()
+
+func start_timer():
 	var timer = Timer.new()
 	timer.one_shot = true
 	timer.wait_time = 0.5
 	add_child(timer)
 	timer.connect("timeout", _initialize_ui)
-	timer.start()
+	timer.start()	
 
 func _initialize_ui():
 	load_quests()
-	#start_quest('quest_default')
 
 func start_quest(quest_id: String):
 	var quest_data = quest_database[quest_id]

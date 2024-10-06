@@ -45,3 +45,5 @@ text = "Requirement"
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "0/1"
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

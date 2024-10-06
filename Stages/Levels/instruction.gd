@@ -12,4 +12,4 @@ func _process(delta):
 	pass
 
 func _on_portal_portal_entered():
-	get_tree().change_scene_to_file("res://Stages/Levels/Village.tscn")
+	SceneManager.change_scene("res://Stages/Levels/Village.tscn")

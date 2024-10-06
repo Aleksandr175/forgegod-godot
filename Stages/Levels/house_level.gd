@@ -7,7 +7,7 @@ func _ready():
 
 func _on_exit_area_2d_area_entered(area):
 	if area.get_parent() is PlayerHouse:
-		get_tree().change_scene_to_file("res://Stages/Levels/game.tscn")
+		SceneManager.change_scene("res://Stages/Levels/Village.tscn")
 
 func _on_inventory_panel_inventory_closed():
 	inventory_ui.visible = false

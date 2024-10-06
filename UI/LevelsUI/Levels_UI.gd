@@ -53,23 +53,15 @@ func create_level_button(level_name, level_info):
 
 	# Connect the button press signal
 	#button.connect("pressed", self, _on_level_button_pressed, [level_name])
-	button.pressed.connect(func():
-		_on_level_button_pressed(level_name)
-	)
+	#button.pressed.connect(func():
+	#	_on_level_button_pressed(level_name)
+	#)
 
 	return button
 
-func _on_level_button_pressed(level_name):
-	if GameState.levels[level_name]["unlocked"]:
-		GameState.current_level_name = level_name
-		get_tree().paused = false
-		get_tree().change_scene_to_file("res://Stages/Levels/" + level_name + ".tscn")
-	else:
-		print("Level is locked!")
-
 func _on_village_button_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Stages/Levels/Village.tscn")
+	SceneManager.change_scene("res://Stages/Levels/Village.tscn")
 
 func on_level_completed(lvl_name):
 	print('on_level_completed', lvl_name)

@@ -101,17 +101,20 @@ func load_game():
 		start_new_game()
 
 func _change_to_saved_scene():
-	get_tree().change_scene_to_file(player_scene)
+	SceneManager.change_scene(player_scene)
 
 func start_new_game():
-	#player_scene = "res://scenes/village.tscn"
+	# started location
+	player_scene = "res://Stages/Levels/instruction.tscn"
+
 	player_inventory = []
 	quest_progress = {}
 	level_progress = {}
 	completed_quest_ids = []
 	#other_data = {}
 	save_game()
-	get_tree().change_scene_to_file(player_scene)
+	SceneManager.change_scene(player_scene)
+	GlobalSignals.new_game_started.emit()
 
 func is_game_started() -> bool:
 	return FileAccess.file_exists("user://save_game.json")
@@ -133,4 +136,8 @@ func remove_corrupted_save():
 
 func save_quests(completed_quest_ids_data) -> void:
 	completed_quest_ids = completed_quest_ids_data
+	save_game()
+
+func save_scene(scene_path) -> void:
+	player_scene = scene_path
 	save_game()

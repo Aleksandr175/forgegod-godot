@@ -22,6 +22,7 @@ GameState="*res://scripts/global/GameState.gd"
 Inventory="*res://scripts/global/inventory.gd"
 QuestManager="*res://Stages/global/QuestManager.gd"
 GlobalSignals="*res://scripts/global/GlobalSignals.gd"
+SceneManager="*res://scripts/global/SceneManager.gd"
 
 [display]
 
