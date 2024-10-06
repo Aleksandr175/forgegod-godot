@@ -138,6 +138,6 @@ func save_quests(completed_quest_ids_data) -> void:
 	completed_quest_ids = completed_quest_ids_data
 	save_game()
 
-func save_scene(scene_path) -> void:
+func save_scene(scene_path: String) -> void:
 	player_scene = scene_path
 	save_game()

@@ -61,6 +61,9 @@ func _replace_current_scene(scene_path: String):
 	# Set the new scene as the current scene
 	get_tree().current_scene = new_scene
 	current_scene = new_scene
+	
+	# save scene
+	GameState.save_scene(scene_path)
 
 func _show_loading_screen():
 	loading_screen.visible = true
