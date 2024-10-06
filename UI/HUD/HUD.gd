@@ -26,7 +26,9 @@ func update_iron_display():
 
 func _on_resume_pressed():
 	GameManager.resume()
-	pass
 
 func _on_exit_pressed():
 	GameManager.exit()
+
+func _on_new_game_pressed():
+	GameState.start_new_game()

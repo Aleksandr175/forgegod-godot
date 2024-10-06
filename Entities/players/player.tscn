@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=37 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://Entities/players/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://bvk5lgy0kkxgh" path="res://assets/sprites/player/main_hero.png" id="2_w7ppk"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ges3fmqdhvsf" path="res://UI/Dialog/Dialog.tscn" id="6_yi45e"]
 [ext_resource type="Texture2D" uid="uid://ce6ayhor22a6t" path="res://assets/sprites/ui/arrow.png" id="7_c8q7n"]
 [ext_resource type="Texture2D" uid="uid://fsexdr8v3fkh" path="res://assets/sprites/ui/jump.png" id="8_sc1od"]
+[ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://UI/HUD/HUD.tscn" id="11_7olqj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mte1a"]
 atlas = ExtResource("2_w7ppk")
@@ -421,6 +422,8 @@ layer = 2
 visible = false
 
 [node name="LevelsUi" parent="LevelMenuUI" instance=ExtResource("6_wavhk")]
+
+[node name="Hud" parent="." instance=ExtResource("11_7olqj")]
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

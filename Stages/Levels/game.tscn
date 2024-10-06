@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=23 format=3 uid="uid://cuv4vme4rwno0"]
 
 [ext_resource type="Script" path="res://Stages/Levels/game.gd" id="1_a1mxs"]
 [ext_resource type="Script" path="res://Utilities/GameManager/game_manager.gd" id="3_jn5h5"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bhvmtffufxoc2" path="res://Entities/objects/Checkpoint/Checkpoint.tscn" id="14_hh5b0"]
 [ext_resource type="PackedScene" uid="uid://ca4e1jm0gkcs2" path="res://Entities/objects/Spikes/Spikes.tscn" id="15_u5fud"]
 [ext_resource type="PackedScene" uid="uid://r0t1t1640nx4" path="res://Entities/Buildings/House/Building.tscn" id="16_gx6gd"]
-[ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://UI/HUD/HUD.tscn" id="16_gxmfn"]
 [ext_resource type="PackedScene" uid="uid://x65w1om52k6m" path="res://Entities/objects/Ladder/ladder.tscn" id="17_1qxey"]
 [ext_resource type="PackedScene" uid="uid://csinli4ootbiv" path="res://Entities/objects/Cave/cave-enter.tscn" id="18_7887p"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="18_no2wp"]
@@ -359,9 +358,6 @@ position = Vector2(1849, -176)
 
 [node name="Spikes11" parent="Spikes" instance=ExtResource("15_u5fud")]
 position = Vector2(1976, -128)
-
-[node name="Hud" parent="." instance=ExtResource("16_gxmfn")]
-layer = 100
 
 [node name="MainBuilding" parent="." instance=ExtResource("16_gx6gd")]
 position = Vector2(-47, -32)
