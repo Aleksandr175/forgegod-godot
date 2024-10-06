@@ -13,10 +13,10 @@ signal update_quest_ui
 
 @onready var quest_log_ui: Control = %QuestUI  # Reference to the UI element for the quest log
 var active_quests: Array = []
-var completed_quests: Array = []
+var completed_quest_ids: Array = []
 var quest_database = {
-	"quest_10": {
-		"quest_id": "quest_10",
+	"quest_default": {
+		"quest_id": "quest_default",
 		"title": "Need some money",
 		"description": "Collect 5 coins.",
 		"objectives": [{
@@ -284,7 +284,8 @@ func _ready():
 	timer.start()
 
 func _initialize_ui():
-	start_quest('quest_10')
+	load_quests()
+	#start_quest('quest_default')
 
 func start_quest(quest_id: String):
 	var quest_data = quest_database[quest_id]
@@ -346,12 +347,16 @@ func complete_quest(quest: Quest):
 		quest.status = "Completed"
 		distribute_rewards(quest.rewards)
 		active_quests.erase(quest)
-		completed_quests.append(quest)
+		completed_quest_ids.append(quest.quest_id)
 		print("Quest completed: ", quest.title, quest.quest_id)
 		
 		# Handle post-completion actions
 		process_completion_actions(quest)
 
+		# Save the updated completed quests to GameState
+		GameState.completed_quest_ids = completed_quest_ids.duplicate()
+		GameState.save_game()
+		
 		# Start next quests
 		for next_quest_id in quest_database[quest.quest_id]["next_quests"]:
 			start_quest(next_quest_id)
@@ -392,7 +397,7 @@ func do_progress(objective, qty, quest):
 		complete_quest(quest)
 	emit_signal("quest_updated", quest)
 
-func process_completion_actions(quest: Quest):
+func process_completion_actions(quest):
 	var quest_data = quest_database[quest.quest_id]
 	if quest_data.has("completion_actions"):
 		for action in quest_data["completion_actions"]:
@@ -419,3 +424,38 @@ func print_node_tree(node: Node, indent: int = 0):
 	print(String(" ").repeat(indent) + node.name)
 	for child in node.get_children():
 		print_node_tree(child, indent + 2)
+
+func load_quests():
+	completed_quest_ids = GameState.completed_quest_ids.duplicate()
+	active_quests.clear()
+	
+	# If there are completed quests
+	if completed_quest_ids.size() > 0:
+		# Get the last completed quest ID
+		var last_completed_quest_id = completed_quest_ids[completed_quest_ids.size() - 1]
+		
+		# Find the quest data in quest_database
+		var last_completed_quest_data = quest_database.get(last_completed_quest_id)
+		
+		if last_completed_quest_data != null:
+			# complete actions after last quest:
+			print('last_completed_quest_data', last_completed_quest_data)
+			process_completion_actions(last_completed_quest_data)
+
+			# Get the next quests
+			if last_completed_quest_data.has("next_quests"):
+				var next_quests = last_completed_quest_data["next_quests"]
+				# Start the first next quest
+				if next_quests.size() > 0:
+					start_quest(next_quests[0])
+				else:
+					print("No next quests available.")
+			else:
+				print("No next quests defined for this quest.")
+		else:
+			print("Last completed quest not found in quest_database.")
+	else:
+		# No quests have been completed yet; start the initial quest
+		start_quest('quest_default')  # Replace 'quest_10' with your starting quest ID
+
+	#active_quests = GameState.active_quests.duplicate()

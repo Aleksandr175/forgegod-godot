@@ -391,6 +391,7 @@ func _ready() -> void:
 	# Initialize the inventory with the starting items
 	inventory_items = inventory_items.filter(func(item): return item != null)
 	inventory_items.resize(inventory_size)
+	load_inventory()
 	
 func add_item(item_id: int, qty: int) -> void:
 	var item_dictionary = find_dictionary_item_by_id(item_id)
@@ -418,6 +419,10 @@ func add_item(item_id: int, qty: int) -> void:
 	# Sort inventory to remove empty slots
 	sort_inventory_items()
 	
+	# Save inventory to GameState
+	save_inventory()
+	GameState.save_game()
+
 	# Emit signal after adding/updating the item
 	inventory_updated.emit()
 	
@@ -435,6 +440,10 @@ func remove_item(item: Dictionary) -> void:
 	# Sort inventory to remove empty slots
 	sort_inventory_items()
 	
+	# Save inventory to GameState
+	save_inventory()
+	GameState.save_game()
+
 	inventory_updated.emit()
 
 func set_player_reference(player: Node) -> void:
@@ -505,3 +514,31 @@ func sort_inventory_items() -> void:
 	# Resize to inventory_size, filling with nulls if necessary
 	compacted_items.resize(inventory_size)
 	inventory_items = compacted_items
+
+func load_inventory():
+	inventory_items.clear()
+	# Ensure inventory_items has the correct size
+	inventory_items.resize(inventory_size)
+	
+	var index = 0
+	for saved_item in GameState.player_inventory:
+		var item_dictionary = find_dictionary_item_by_id(saved_item["id"])
+		if item_dictionary != null:
+			var new_item = item_dictionary.duplicate(true)
+			new_item.qty = saved_item["qty"]
+			inventory_items[index] = new_item
+			index += 1
+			if index >= inventory_size:
+				break  # Prevent exceeding inventory size
+		else:
+			print("Item with ID %d not found in inventory_dictionary." % saved_item["id"])
+
+func save_inventory():
+	var simplified_inventory = []
+	for item in inventory_items:
+		if item != null:
+			simplified_inventory.append({
+				"id": item.id,
+				"qty": item.qty
+			})
+	GameState.player_inventory = simplified_inventory
