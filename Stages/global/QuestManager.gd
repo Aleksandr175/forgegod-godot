@@ -44,10 +44,8 @@ var quest_database = {
 			"name": "Portal"
 		}],
 		"dialog_data": [
-			{"character": "player", "text": "Oh, right, I have no time..."},
-			{"character": "player", "text": "But I need collect some money."},
-			{"character": "king", "text": "King speaking."},
-			{"character": "dealer", "text": "Dealer speaking."},
+			{"character": "player", "text": "Me: Oh, right, I have no time..."},
+			{"character": "player", "text": "Me: But I need collect some money."},
 		]
 	},
 	"quest_20": {
@@ -69,8 +67,8 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_30"],
 		"dialog_data": [
-			{"character": "player", "text": "Good! Portal opened!"},
-			{"character": "player", "text": "Let's go to village. I have some deals there."},
+			{"character": "player", "text": "Me: Good! Portal opened!"},
+			{"character": "player", "text": "Me: Let's go to village. I have some deals there."},
 		]
 	},
 	"quest_30": {
@@ -92,8 +90,8 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_40"],
 		"dialog_data": [
-			{"character": "player", "text": "Oh, I forgot to turn off iron in the house!"},
-			{"character": "player", "text": "Or no? Let's check it."},
+			{"character": "player", "text": "Me: Oh, I forgot to turn off iron in the house!"},
+			{"character": "player", "text": "Me: Or no? Let's check it."},
 		]
 	},
 	"quest_40": {
@@ -115,9 +113,9 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_41"],
 		"dialog_data": [
-			{"character": "player", "text": "Hm, I turned off the iron!"},
-			{"character": "player", "text": "But I forgot to collect woods for crafting."},
-			{"character": "player", "text": "Hurry, I need to do it before sunset."},
+			{"character": "player", "text": "Me: Hm, I turned off the iron!"},
+			{"character": "player", "text": "Me: But I forgot to collect woods for crafting."},
+			{"character": "player", "text": "Me: Hurry, I need to do it before sunset."},
 		]
 	},
 	"quest_41": {
@@ -139,8 +137,8 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_50"],
 		"dialog_data": [
-			{"character": "player", "text": "Good! Portal opened!"},
-			{"character": "player", "text": "Let's go to village. I have some deals there."},
+			{"character": "player", "text": "Me: Good! Portal opened!"},
+			{"character": "player", "text": "Me: Let's go to village. I have some deals there."},
 		]
 	},
 	"quest_50": {
