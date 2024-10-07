@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=39 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://Entities/players/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://bvk5lgy0kkxgh" path="res://assets/sprites/player/main_hero.png" id="2_w7ppk"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://6b07cvgy8iqh" path="res://UI/InventoryUI/Inventory_Panel.tscn" id="5_pvdss"]
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="6_wavhk"]
 [ext_resource type="PackedScene" uid="uid://ges3fmqdhvsf" path="res://UI/Dialog/Dialog.tscn" id="6_yi45e"]
+[ext_resource type="Texture2D" uid="uid://dd5ulsoya3ecd" path="res://assets/sprites/ui/inventory.png" id="7_0dsc7"]
+[ext_resource type="Texture2D" uid="uid://dufr618ouycjg" path="res://assets/sprites/ui/circle.png" id="7_8iyyq"]
 [ext_resource type="Texture2D" uid="uid://ce6ayhor22a6t" path="res://assets/sprites/ui/arrow.png" id="7_c8q7n"]
 [ext_resource type="Texture2D" uid="uid://fsexdr8v3fkh" path="res://assets/sprites/ui/jump.png" id="8_sc1od"]
 [ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://UI/HUD/HUD.tscn" id="11_7olqj"]
@@ -286,13 +288,13 @@ position = Vector2(47, 48)
 shape = SubResource("CircleShape2D_x26y3")
 action = "inventory_ui"
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_8iyyq")
 
-[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
-offset_left = -25.0
-offset_top = -26.0
-offset_right = 25.0
-offset_bottom = 24.0
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/Control/TouchScreenButton"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_0dsc7")
 
 [node name="MoveControls" type="Control" parent="Camera2D/CanvasLayer"]
 layout_mode = 3
@@ -319,6 +321,10 @@ position = Vector2(47, 48)
 shape = SubResource("CircleShape2D_x26y3")
 action = "move_left"
 
+[node name="Sprite2D7" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control2/TouchScreenButton"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_8iyyq")
+
 [node name="Sprite2D2" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control2/TouchScreenButton"]
 position = Vector2(1, 0)
 rotation = 3.14159
@@ -339,6 +345,10 @@ grow_vertical = 0
 position = Vector2(47, 48)
 shape = SubResource("CircleShape2D_x26y3")
 action = "move_right"
+
+[node name="Sprite2D8" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control3/TouchScreenButton"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_8iyyq")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control3/TouchScreenButton"]
 position = Vector2(0, 1)
@@ -361,6 +371,10 @@ position = Vector2(47, 48)
 shape = SubResource("CircleShape2D_x26y3")
 action = "move_up"
 
+[node name="Sprite2D5" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control4/TouchScreenButton"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_8iyyq")
+
 [node name="Sprite2D4" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control4/TouchScreenButton"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 rotation = -1.5708
@@ -382,6 +396,10 @@ grow_vertical = 0
 position = Vector2(47, 46)
 shape = SubResource("CircleShape2D_8nfp5")
 action = "move_down"
+
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control5/TouchScreenButton2"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_8iyyq")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Camera2D/CanvasLayer/MoveControls/Control5/TouchScreenButton2"]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -406,6 +424,10 @@ grow_vertical = 0
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/Control2"]
 shape = SubResource("CircleShape2D_rl5h8")
 action = "jump"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Camera2D/CanvasLayer/Control2/TouchScreenButton"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_8iyyq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/Control2/TouchScreenButton"]
 scale = Vector2(2, 2)
