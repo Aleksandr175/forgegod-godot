@@ -46,6 +46,8 @@ var quest_database = {
 		"dialog_data": [
 			{"character": "player", "text": "Oh, right, I have no time..."},
 			{"character": "player", "text": "But I need collect some money."},
+			{"character": "king", "text": "King speaking."},
+			{"character": "dealer", "text": "Dealer speaking."},
 		]
 	},
 	"quest_20": {

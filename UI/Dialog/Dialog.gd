@@ -23,21 +23,15 @@ func _ready():
 	GlobalSignals.start_dialog.connect(show_dialog)
 	rich_text_label.clear()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func start_dialog_sequence(dialog):
 	current_dialog_index = 0
-	start_dialog(dialog_data[current_dialog_index]["text"])
+	start_dialog(dialog_data[current_dialog_index])
 
 func show_dialog(dialog):
 	dialog_data = dialog
 	get_tree().paused = true  # Pause game
 
 	dialog_ui.visible = true
-	#set_character_image(dialog["character"])
 	start_dialog_sequence(dialog_data)
 
 func on_text_displayed():
@@ -65,8 +59,8 @@ func show_next_character():
 		#get_tree().paused = false  # Resume game after dialog
 		rich_text_label.text = full_text
 
-func start_dialog(text):
-	full_text = text
+func start_dialog(dialogItem):
+	full_text = dialogItem["text"]
 	current_text = ""
 	#char_index = 0
 	
@@ -75,22 +69,25 @@ func start_dialog(text):
 	#timer.connect("timeout", Callable(self, "show_next_character"))
 	#get_tree().create_timer(typing_speed).connect("timeout", self, "show_next_character", [], true)
 
+	set_character_image(dialogItem["character"])
+
 func set_character_image(character_name):
-	#match character_name:
-	#	"player":
-	#		character_image.texture = preload("res://path_to_player_image.png")
-	#	"dealer":
-	#		character_image.texture = preload("res://path_to_dealer_image.png")
-	#	_:
-	#		character_image.texture = null
+	match character_name:
+		"player":
+			character_image.texture = preload("res://assets/sprites/characters/portraits/player.png")
+		"dealer":
+			character_image.texture = preload("res://assets/sprites/characters/portraits/dealer.png")
+		"king":
+			character_image.texture = preload("res://assets/sprites/characters/portraits/king.png")
+		_:
+			character_image.texture = null
 	pass
 
 
 func _on_button_pressed():
-	print('next')
 	current_dialog_index += 1
-	print(dialog_data.size(), current_dialog_index)
+	#print(dialog_data.size(), current_dialog_index)
 	if dialog_data.size() > current_dialog_index:
-		start_dialog(dialog_data[current_dialog_index]["text"])
+		start_dialog(dialog_data[current_dialog_index])
 	else:
 		close_dialog()

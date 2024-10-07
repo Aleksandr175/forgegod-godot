@@ -27,7 +27,7 @@ offset_top = -250.0
 offset_right = 300.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 0.662745)
+color = Color(0, 0, 0, 0.729412)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
@@ -50,9 +50,9 @@ texture = ExtResource("2_yvx0d")
 [node name="Button" type="Button" parent="ColorRect"]
 layout_mode = 0
 offset_left = 452.0
-offset_top = 132.0
+offset_top = 145.0
 offset_right = 572.0
-offset_bottom = 199.0
+offset_bottom = 212.0
 text = "Next"
 
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
