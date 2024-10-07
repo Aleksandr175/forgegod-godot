@@ -17,7 +17,7 @@ var completed_quest_ids: Array = []
 var quest_database = {
 	"quest_default": {
 		"quest_id": "quest_default",
-		"title": "Need some money",
+		"title": "Wonderful day!",
 		"description": "Collect 5 coins.",
 		"objectives": [{
 			"description": "Collect 5 coins",
@@ -44,14 +44,14 @@ var quest_database = {
 			"name": "Portal"
 		}],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Oh, right, I have no time..."},
-			{"character": "player", "text": "Me: But I need collect some money."},
+			{"character": "player", "text": "Me: What a wonderful day! But it's time to head back home."},
+			{"character": "player", "text": "Me: Oh, it seems there are coins scattered around. If I collect them, I can go home."},
 		]
 	},
 	"quest_20": {
 		"quest_id": "quest_20",
-		"title": "Visit Village",
-		"description": "Visit Village Visit Blacksmith House Visit Blacksmith House Visit Blacksmith House.",
+		"title": "Go back to home",
+		"description": "Enter the portal and go to the Village",
 		"objectives": [{
 			"type": "visit",
 			"item_id": "village",
@@ -67,18 +67,18 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_30"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Good! Portal opened!"},
-			{"character": "player", "text": "Me: Let's go to village. I have some deals there."},
+			{"character": "player", "text": "Me: Good! The portal is open!"},
+			{"character": "player", "text": "Me: Time to head back home to the village."},
 		]
 	},
 	"quest_30": {
 		"quest_id": "quest_30",
-		"title": "Go to Home",
-		"description": "Go back to home.",
+		"title": "Go back to Home",
+		"description": "",
 		"objectives": [{
-			"type": "craft",
-			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
-			"qty": 2
+			"type": "visit",
+			"item_id": "house",
+			"qty": 1
 		}],
 		"rewards": {
 			"goods": [{
@@ -90,36 +90,137 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_40"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Oh, I forgot to turn off iron in the house!"},
-			{"character": "player", "text": "Me: Or no? Let's check it."},
+			{"character": "villager", "text": "Villager: Greetings! It's been a while since we've seen you. Your forge is up the stairs and then left all the way at the end."},
+			{"character": "player", "text": "Me: Thank you!"},
 		]
 	},
 	"quest_40": {
 		"quest_id": "quest_40",
-		"title": "Go to Forest",
-		"description": "Go to Forest.",
+		"title": "Go to Merchant",
+		"description": "Find Merchant.",
 		"objectives": [{
-			"type": "craft",
-			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
+			"type": "dealer",
+			"item_id": null,
 			"qty": 1
 		}],
 		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 10
-			}],
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 10
+			#}],
 			"experience": 5
 		},
 		"prerequisites": [],
 		"next_quests": ["quest_41"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Hm, I turned off the iron!"},
-			{"character": "player", "text": "Me: But I forgot to collect woods for crafting."},
-			{"character": "player", "text": "Me: Hurry, I need to do it before sunset."},
+			{"character": "player", "text": "Me: Hmm, seems like I'm out of wood. Without it, I can't start working."},
+			{"character": "player", "text": "Me: I should drop by the merchant—he might be able to help me."},
 		]
 	},
 	"quest_41": {
 		"quest_id": "quest_41",
+		"title": "Buy Wood",
+		"description": "Buy 5 wood.",
+		"objectives": [{
+			"type": "buy",
+			"item_id": Inventory.inventory_dictionary["wood"]["id"],
+			"qty": 5
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 10
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_42"],
+		"dialog_data": [
+			{"character": "dealer", "text": "Merchant: Welcome to my shop! What can I get for you today?"},
+			{"character": "player", "text": "Me: Hello! I need some wood for work in the forge."},
+			{"character": "dealer", "text": "Merchant: Excellent choice! I have fine wood, just one coin apiece. Top quality at a great price!"},
+		],
+	},
+	
+	"quest_42": {
+		"quest_id": "quest_42",
+		"title": "Go to Home",
+		"description": "",
+		"objectives": [{
+			"type": "visit",
+			"item_id": "house",
+			"qty": 1
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 10
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_43"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Now that I have the wood, I can start making an axe."},
+		],
+	},
+	
+	"quest_43": {
+		"quest_id": "quest_43",
+		"title": "Craft Wooden Axe",
+		"description": "",
+		"objectives": [{
+			"type": "craft",
+			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+			"qty": 1
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 10
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_44"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Let's begin by processing the wood... Then add the details..."},
+		],
+	},
+	
+	"quest_44": {
+		"quest_id": "quest_44",
+		"title": "Serve Villager",
+		"description": "Sell weapon to Villager",
+		"objectives": [{
+			"type": "sell",
+			"item_id": null,
+			"qty": 1
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 10
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_45"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: My first axe! Looks pretty good. Maybe I can take a break now."},
+			{"character": "villager", "text": "Villager: Knock-knock!"},
+			{"character": "player", "text": "Me: Who could that be?"},
+			{"character": "villager", "text": "Villager: Good day! I heard you're back to smithing. I need a new axe. Can I buy one from you?"},
+			{"character": "player", "text": "Me: Ok, I am coming!"},
+		],
+	},
+	
+	# quest to sell axe to villager
+
+
+
+	"quest_45": {
+		"quest_id": "quest_45",
 		"title": "Advanced Blacksmithing",
 		"description": "Craft an Iron Sword.",
 		"objectives": [{

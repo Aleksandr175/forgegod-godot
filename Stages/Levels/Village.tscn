@@ -30,10 +30,10 @@ script = ExtResource("1_mrsg1")
 position = Vector2(81, -105)
 
 [node name="Player" parent="." instance=ExtResource("1_6e2qq")]
-position = Vector2(146, -1)
+position = Vector2(14, 0)
 
 [node name="Building" parent="." instance=ExtResource("2_40gdy")]
-position = Vector2(59, 0)
+position = Vector2(-194, -96)
 
 [node name="Shop" parent="." instance=ExtResource("4_lghs7")]
 position = Vector2(81, -96)
@@ -65,15 +65,6 @@ position = Vector2(-104, 7)
 [node name="Bridge4" parent="." instance=ExtResource("8_soblm")]
 position = Vector2(-87, -89)
 
-[node name="Villager1" parent="." instance=ExtResource("9_o5hxk")]
-position = Vector2(37, -96)
-
-[node name="Villager2" parent="." instance=ExtResource("9_o5hxk")]
-position = Vector2(319, -48)
-
-[node name="Villager3" parent="." instance=ExtResource("9_o5hxk")]
-position = Vector2(-224, 0)
-
 [node name="Signpost" parent="." instance=ExtResource("10_skl8q")]
 position = Vector2(-156, 0)
 direction = "left"
@@ -90,7 +81,7 @@ position = Vector2(194, 0)
 position = Vector2(213, 0)
 
 [node name="ResourceWoodBig4" parent="." instance=ExtResource("14_ksj4c")]
-position = Vector2(116, 0)
+position = Vector2(23, -95)
 
 [node name="ResourceWoodBig7" parent="." instance=ExtResource("14_ksj4c")]
 position = Vector2(-137, -95)
@@ -102,13 +93,13 @@ position = Vector2(346, -159)
 position = Vector2(295, -47)
 
 [node name="Anvil" parent="." instance=ExtResource("15_ob2jk")]
-position = Vector2(2, 0)
+position = Vector2(-156, -96)
 
 [node name="House2" parent="." instance=ExtResource("16_sbx6o")]
 position = Vector2(407, -48)
 
 [node name="House3" parent="." instance=ExtResource("17_mxc72")]
-position = Vector2(-199, -96)
+position = Vector2(80, 0)
 
 [node name="PortalToCave" parent="." instance=ExtResource("17_n0ils")]
 position = Vector2(-310, 1)
@@ -126,12 +117,24 @@ layer_0/name = "Front"
 layer_0/z_index = 1
 layer_0/tile_data = PackedInt32Array(-393232, 131072, 4, -393231, 131072, 4, -393230, 196608, 4, -393233, 65536, 4)
 layer_1/name = "Back"
-layer_1/tile_data = PackedInt32Array(-655365, 131072, 5, -720901, 65536, 5, -655364, 131072, 5, -655363, 65536, 5, -458746, 65536, 5, -720900, 131072, 5, -786436, 65536, 5, -12, 65536, 5, -13, 131072, 5, -262123, 131072, 2, -262122, 131072, 1, -720877, 131072, 1, -655345, 131072, 3)
+layer_1/tile_data = PackedInt32Array(-655365, 131072, 5, -720901, 65536, 5, -655364, 131072, 5, -655363, 65536, 5, -458746, 65536, 5, -720900, 131072, 5, -786436, 65536, 5, -12, 65536, 5, -13, 131072, 5, -262123, 65536, 4, -262122, 131072, 4, -720877, 131072, 1, -655345, 131072, 3, -65530, 131072, 4, -65531, 131072, 4, -65532, 65536, 4, -65529, 131072, 4, -65528, 196608, 4, -65527, 65536, 3, -131063, 65536, 1, -65526, 131072, 1, -18, 589824, 5, -262121, 131072, 4, -262120, 196608, 4, -262124, 131072, 1)
 
 [node name="Node2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
 position = Vector2(470, -155.5)
 shape = SubResource("RectangleShape2D_ru3oh")
+
+[node name="Villager4" parent="." instance=ExtResource("9_o5hxk")]
+position = Vector2(40, 0)
+
+[node name="Villager1" parent="." instance=ExtResource("9_o5hxk")]
+position = Vector2(37, -96)
+
+[node name="Villager2" parent="." instance=ExtResource("9_o5hxk")]
+position = Vector2(343, -48)
+
+[node name="Villager3" parent="." instance=ExtResource("9_o5hxk")]
+position = Vector2(-224, 0)
 
 [connection signal="portal_entered" from="PortalToCave" to="." method="_on_portal_to_cave_portal_entered"]
