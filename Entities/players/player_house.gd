@@ -3,6 +3,17 @@ class_name PlayerHouse
 
 const SPEED = 130.0
 @onready var animated_sprite = $AnimatedSpritePlayer
+@onready var inventory_ui = $InventoryUI
+
+func _ready():
+	GlobalSignals.inventory_opened.connect(open_inventory)
+	GlobalSignals.inventory_closed.connect(close_inventory)
+
+func open_inventory():
+	inventory_ui.visible = true
+	
+func close_inventory():
+	inventory_ui.visible = false
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -36,3 +47,7 @@ func update_animations(direction: int, direction_vertical: int):
 		animated_sprite.flip_h = false
 	elif direction < 0 or direction_vertical < 0:
 		animated_sprite.flip_h = true
+
+
+func _on_inventory_panel_inventory_closed():
+	pass # Replace with function body.

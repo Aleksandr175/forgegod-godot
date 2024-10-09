@@ -3,6 +3,9 @@ extends Node
 signal player_entered_portal
 signal player_exited_portal
 
+signal inventory_opened
+signal inventory_closed
+
 signal start_dialog(dialog)
 signal close_dialog
 

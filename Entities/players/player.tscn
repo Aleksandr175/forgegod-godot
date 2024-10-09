@@ -240,6 +240,7 @@ wait_time = 0.3
 one_shot = true
 
 [node name="QuestsUi" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("5_6nexr")]
 
@@ -446,6 +447,7 @@ visible = false
 [node name="LevelsUi" parent="LevelMenuUI" instance=ExtResource("6_wavhk")]
 
 [node name="Hud" parent="." instance=ExtResource("11_7olqj")]
+layer = 2
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
@@ -460,4 +462,3 @@ visible = false
 [connection signal="pressed" from="Camera2D/CanvasLayer/MoveControls/Control2/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/MoveControls/Control3/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/MoveControls/Control4/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
-[connection signal="inventory_closed" from="InventoryUI/InventoryPanel" to="." method="_on_inventory_panel_inventory_closed"]

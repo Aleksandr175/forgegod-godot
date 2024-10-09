@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcklgjr2v6qjr"]
+[gd_scene load_steps=5 format=3 uid="uid://bcklgjr2v6qjr"]
 
 [ext_resource type="Texture2D" uid="uid://suitv8sml7v1" path="res://assets/sprites/objects/furnace/on.png" id="1_glpfn"]
 [ext_resource type="Script" path="res://Entities/objects/Furnace/Furnace.gd" id="1_nnp1k"]
 [ext_resource type="PackedScene" uid="uid://kjtvqgpyeboy" path="res://UI/Pointer/Pointer.tscn" id="3_aq84t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8jbf5"]
+radius = 31.0
 
 [node name="Furnace" type="Node2D"]
 script = ExtResource("1_nnp1k")
@@ -14,4 +17,11 @@ texture = ExtResource("1_glpfn")
 [node name="Pointer" parent="." instance=ExtResource("3_aq84t")]
 position = Vector2(0, -6)
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_8jbf5")
+
 [connection signal="pointer_pressed" from="Pointer" to="." method="_on_pointer_pointer_pressed"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

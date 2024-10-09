@@ -31,6 +31,8 @@ func _ready():
 	weapon_sprite.visible = false
 	change_weapon_position()
 	Inventory.set_player_reference(self)
+	GlobalSignals.inventory_opened.connect(open_inventory)
+	GlobalSignals.inventory_closed.connect(close_inventory)
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("attack") and !attacking:
@@ -163,13 +165,16 @@ func stop_climbing():
 
 func _input(event):
 	if event.is_action_pressed("inventory_ui"):
-		inventory_ui.visible = !inventory_ui.visible
-		get_tree().paused = !get_tree().paused
-
+		open_inventory()
 
 func _on_inventory_panel_inventory_closed():
-	inventory_ui.visible = !inventory_ui.visible
-	get_tree().paused = !get_tree().paused
+	close_inventory()
+	
+func open_inventory():
+	inventory_ui.visible = true
+	
+func close_inventory():
+	inventory_ui.visible = false
 
 func auto_attack():
 	attack()

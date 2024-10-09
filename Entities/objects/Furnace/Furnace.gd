@@ -1,9 +1,10 @@
 extends Node2D
 
-signal inventory_opened
-
 @onready var pointer = $Pointer
 
 
 func _on_pointer_pointer_pressed():
-	inventory_opened.emit()
+	GlobalSignals.inventory_opened.emit()
+
+func _on_area_2d_area_exited(area):
+	GlobalSignals.inventory_closed.emit()

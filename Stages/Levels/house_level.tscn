@@ -52,7 +52,5 @@ shape = SubResource("RectangleShape2D_lipq7")
 [node name="Furnace" parent="." instance=ExtResource("4_478m1")]
 position = Vector2(66, -28)
 
-[connection signal="inventory_closed" from="InventoryUI/InventoryPanel" to="." method="_on_inventory_panel_inventory_closed"]
 [connection signal="area_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_area_entered"]
 [connection signal="body_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]
-[connection signal="inventory_opened" from="Furnace" to="." method="_on_furnace_inventory_opened"]
