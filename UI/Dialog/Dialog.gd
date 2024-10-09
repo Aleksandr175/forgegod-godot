@@ -93,3 +93,7 @@ func _on_button_pressed():
 		start_dialog(dialog_data[current_dialog_index])
 	else:
 		close_dialog()
+
+
+func _on_touch_screen_button_pressed():
+	_on_button_pressed()
