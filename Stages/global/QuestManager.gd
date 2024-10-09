@@ -99,8 +99,8 @@ var quest_database = {
 		"title": "Go to Merchant",
 		"description": "Find Merchant.",
 		"objectives": [{
-			"type": "dealer",
-			"item_id": null,
+			"type": "visit",
+			"item_id": "dealer",
 			"qty": 1
 		}],
 		"rewards": {
