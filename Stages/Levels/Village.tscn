@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpsqn4et5qmh2"]
+[gd_scene load_steps=22 format=3 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d1m4vkbuwehwi" path="res://Entities/Portal/Portal.tscn" id="17_n0ils"]
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="18_o8siw"]
 [ext_resource type="TileSet" uid="uid://b2l4domhq4vs6" path="res://tilesets/decorations.tres" id="19_d3ikv"]
+[ext_resource type="PackedScene" uid="uid://b8mxsexwwhiy7" path="res://Entities/Spawner/Spawner.tscn" id="20_45djf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru3oh"]
 size = Vector2(20, 247)
@@ -30,9 +31,9 @@ script = ExtResource("1_mrsg1")
 position = Vector2(81, -105)
 
 [node name="Player" parent="." instance=ExtResource("1_6e2qq")]
-position = Vector2(14, 0)
+position = Vector2(-118, -101)
 
-[node name="Building" parent="." instance=ExtResource("2_40gdy")]
+[node name="MainBuilding" parent="." instance=ExtResource("2_40gdy")]
 position = Vector2(-194, -96)
 
 [node name="Shop" parent="." instance=ExtResource("4_lghs7")]
@@ -136,5 +137,8 @@ position = Vector2(343, -48)
 
 [node name="Villager3" parent="." instance=ExtResource("9_o5hxk")]
 position = Vector2(-224, 0)
+
+[node name="Spawner" parent="." instance=ExtResource("20_45djf")]
+position = Vector2(13, -96)
 
 [connection signal="portal_entered" from="PortalToCave" to="." method="_on_portal_to_cave_portal_entered"]

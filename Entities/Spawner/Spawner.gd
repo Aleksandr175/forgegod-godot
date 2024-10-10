@@ -2,18 +2,18 @@ extends Node2D
 
 @onready var villager_scene = preload("res://Entities/characters/Villager/Villager.tscn")
 @onready var timer = $Timer
-@onready var spawner_position: Vector2 = position  # Use the spawner's position
 var villagers_in_queue: Array = []
 
+var x = 0
 var queue_positions = [
-	Vector2(10, 0),  # First position (closest to the building)
-	Vector2(30, 0),  # Second position
-	Vector2(50, 0),  # Third position
+	Vector2(x, 0),  # First position (closest to the building)
+	Vector2(x + 22, 0),  # Second position
+	Vector2(x + 45, 0),  # Third position
 ]
 
 func _ready():
 	timer.connect("timeout", _on_timer_timeout)
-	
+
 func _on_timer_timeout():
 	spawn_villager()
 
@@ -40,7 +40,7 @@ func spawn_villager():
 func free_queue_position(villager):
 	#print('completed wish _on_villager_wish_completed', villager)
 	villagers_in_queue.erase(villager)
-	villager.queue_free()
+	#villager.queue_free()
 
 	# Shift the queue forward
 	for i in range(villager.queue_index, villagers_in_queue.size()):
