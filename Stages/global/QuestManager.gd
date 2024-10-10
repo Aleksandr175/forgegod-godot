@@ -191,7 +191,7 @@ var quest_database = {
 	"quest_44": {
 		"quest_id": "quest_44",
 		"title": "Serve Villager",
-		"description": "Sell weapon to Villager",
+		"description": "Sell Wooden Axe to Villager",
 		"objectives": [{
 			"type": "sell",
 			"item_id": null,
@@ -215,12 +215,63 @@ var quest_database = {
 		],
 	},
 	
+	"quest_45": {
+		"quest_id": "quest_45",
+		"title": "Find the Village Elder",
+		"description": "The Village Elder waits you.",
+		"objectives": [{
+			"type": "visit",
+			"item_id": "king",
+			"qty": 1
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 10
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_46"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Oh right, the elder wanted to see me. I wonder what it's about?"},
+			{"character": "player", "text": "Me: I should go visit him immediately."},
+		],
+	},
+	
+	"quest_46": {
+		"quest_id": "quest_46",
+		"title": "Give the Elder 3 Wooden Axes",
+		"description": "",
+		"objectives": [{
+			"type": "king",
+			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+			"qty": 3
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 20
+			}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_47"],
+		"dialog_data": [
+			{"character": "king", "text": "King: ..."},
+			{"character": "player", "text": "Me: Ok."},
+			{"character": "player", "text": "Me: I can buy wood for axes in shop."},
+			{"character": "player", "text": "Me: Or I can chop some trees."},
+			{"character": "player", "text": "Me: I will return as soon as I craft enough axes."},
+		],
+	},
+	
 	# quest to sell axe to villager
 
 
 
-	"quest_45": {
-		"quest_id": "quest_45",
+	"quest_47": {
+		"quest_id": "quest_47",
 		"title": "Advanced Blacksmithing",
 		"description": "Craft an Iron Sword.",
 		"objectives": [{

@@ -70,6 +70,7 @@ func close_wish_panel():
 	panel.visible = false
 
 func _on_area_2d_2_area_entered(area):
+	QuestManager.update_objective_progress("visit", "king", 1)
 	generate_wish()
 	
 	var panelButton = panel.find_child('Button')
