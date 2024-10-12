@@ -388,10 +388,15 @@ var player_node: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Initialize the inventory with the starting items
-	inventory_items = inventory_items.filter(func(item): return item != null)
-	inventory_items.resize(inventory_size)
+	GlobalSignals.new_game_started.connect(reset_inventory)
+	reset_inventory()
 	load_inventory()
+	
+func reset_inventory():
+	inventory_items.clear()
+	# Ensure inventory_items has the correct size
+	inventory_items.resize(inventory_size)
+	inventory_updated.emit()
 	
 func add_item(item_id: int, qty: int) -> void:
 	var item_dictionary = find_dictionary_item_by_id(item_id)
@@ -516,9 +521,7 @@ func sort_inventory_items() -> void:
 	inventory_items = compacted_items
 
 func load_inventory():
-	inventory_items.clear()
-	# Ensure inventory_items has the correct size
-	inventory_items.resize(inventory_size)
+	reset_inventory()
 	
 	var index = 0
 	for saved_item in GameState.player_inventory:
