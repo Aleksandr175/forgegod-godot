@@ -37,7 +37,7 @@ var quest_database = {
 			"experience": 10
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_20"],
+		"next_quests": ["quest_tutorial_1"],
 		"completion_actions": [{
 			"type": "open_portal",
 			"path_node": "/root/Instruction/Portal", 
@@ -48,8 +48,8 @@ var quest_database = {
 			{"character": "player", "text": "Me: Oh, it seems there are coins scattered around. If I collect them, I can go home."},
 		]
 	},
-	"quest_20": {
-		"quest_id": "quest_20",
+	"quest_tutorial_1": {
+		"quest_id": "quest_tutorial_1",
 		"title": "Go back to home",
 		"description": "Enter the portal and go to the Village",
 		"objectives": [{
@@ -65,14 +65,14 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_30"],
+		"next_quests": ["quest_tutorial_2"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Good! The portal is open!"},
 			{"character": "player", "text": "Me: Time to head back home to the village."},
 		]
 	},
-	"quest_30": {
-		"quest_id": "quest_30",
+	"quest_tutorial_2": {
+		"quest_id": "quest_tutorial_2",
 		"title": "Go back to Home",
 		"description": "",
 		"objectives": [{
@@ -88,14 +88,14 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_40"],
+		"next_quests": ["quest_tutorial_3"],
 		"dialog_data": [
 			{"character": "villager", "text": "Villager: Greetings! It's been a while since we've seen you. Your forge is up the stairs and then left all the way at the end."},
 			{"character": "player", "text": "Me: Thank you!"},
 		]
 	},
-	"quest_40": {
-		"quest_id": "quest_40",
+	"quest_tutorial_3": {
+		"quest_id": "quest_tutorial_3",
 		"title": "Go to Merchant",
 		"description": "Find Merchant.",
 		"objectives": [{
@@ -111,14 +111,14 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_41"],
+		"next_quests": ["quest_tutorial_4"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Hmm, seems like I'm out of wood. Without it, I can't start working."},
 			{"character": "player", "text": "Me: I should drop by the merchant—he might be able to help me."},
 		]
 	},
-	"quest_41": {
-		"quest_id": "quest_41",
+	"quest_tutorial_4": {
+		"quest_id": "quest_tutorial_4",
 		"title": "Buy Wood",
 		"description": "Buy 5 wood.",
 		"objectives": [{
@@ -134,7 +134,7 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_42"],
+		"next_quests": ["quest_tutorial_5"],
 		"dialog_data": [
 			{"character": "dealer", "text": "Merchant: Welcome to my shop! What can I get for you today?"},
 			{"character": "player", "text": "Me: Hello! I need some wood for work in the forge."},
@@ -142,8 +142,8 @@ var quest_database = {
 		],
 	},
 	
-	"quest_42": {
-		"quest_id": "quest_42",
+	"quest_tutorial_5": {
+		"quest_id": "quest_tutorial_5",
 		"title": "Go to Home",
 		"description": "",
 		"objectives": [{
@@ -159,14 +159,14 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_43"],
+		"next_quests": ["quest_tutorial_6"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Now that I have the wood, I can start making an axe."},
 		],
 	},
 	
-	"quest_43": {
-		"quest_id": "quest_43",
+	"quest_tutorial_6": {
+		"quest_id": "quest_tutorial_6",
 		"title": "Craft Wooden Axe",
 		"description": "",
 		"objectives": [{
@@ -182,14 +182,14 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_44"],
+		"next_quests": ["quest_tutorial_7"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Let's begin by processing the wood... Then add the details..."},
 		],
 	},
 	
-	"quest_44": {
-		"quest_id": "quest_44",
+	"quest_tutorial_7": {
+		"quest_id": "quest_tutorial_7",
 		"title": "Serve Villager",
 		"description": "Sell Wooden Axe to Villager",
 		"objectives": [{
@@ -205,7 +205,7 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_45"],
+		"next_quests": ["quest_tutorial_8"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: My first axe! Looks pretty good. Maybe I can take a break now."},
 			{"character": "villager", "text": "Villager: Knock-knock!"},
@@ -215,8 +215,8 @@ var quest_database = {
 		],
 	},
 	
-	"quest_45": {
-		"quest_id": "quest_45",
+	"quest_tutorial_8": {
+		"quest_id": "quest_tutorial_8",
 		"title": "Find the Village Elder",
 		"description": "The Village Elder waits you.",
 		"objectives": [{
@@ -232,17 +232,46 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_46"],
+		"next_quests": ["quest_tutorial_9"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Oh right, the elder wanted to see me. I wonder what it's about?"},
 			{"character": "player", "text": "Me: I should go visit him immediately."},
 		],
 	},
+
+	"quest_tutorial_9": {
+		"quest_id": "quest_tutorial_9",
+		"title": "Craft 3 Wooden Axes",
+		"description": "Use your forge to craft three wooden axes for the foresters.",
+		"objectives": [{
+			"type": "craft",
+			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+			"qty": 3
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 20
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_tutorial_10"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: Welcome back to the village! It's wonderful to see you working at your forge again."},
+			{"character": "player", "text": "Me: Thank you, Elder. I heard you wanted to see me."},
+			{"character": "king", "text": "Elder: Indeed, I did. Our foresters have been hard at work, but their axes are worn and dull. We could greatly use your skills to craft new ones."},
+			{"character": "player", "text": "Me: I'd be happy to help. How many axes do they need?"},
+			{"character": "king", "text": "Elder: Three sturdy wooden axes should suffice for now. It would mean a lot to them."},
+			{"character": "player", "text": "Me: Consider it done. I'll start right away."},
+			{"character": "king", "text": "Elder: Thank you, my friend. Your craftsmanship is invaluable to our village."},
+		],
+	},
 	
-	"quest_46": {
-		"quest_id": "quest_46",
+	"quest_tutorial_10": {
+		"quest_id": "quest_tutorial_10",
 		"title": "Give the Elder 3 Wooden Axes",
-		"description": "",
+		"description": "Come back to Elder.",
 		"objectives": [{
 			"type": "king",
 			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
@@ -256,22 +285,74 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_47"],
+		"next_quests": ["quest_first_chapter_1"],
 		"dialog_data": [
-			{"character": "king", "text": "King: ..."},
-			{"character": "player", "text": "Me: Ok."},
-			{"character": "player", "text": "Me: I can buy wood for axes in shop."},
-			{"character": "player", "text": "Me: Or I can chop some trees."},
-			{"character": "player", "text": "Me: I will return as soon as I craft enough axes."},
+			{"character": "player", "text": "Me: Ok, I got enough axes. Let's go back to Elder."},
+		],
+	},
+
+	"quest_first_chapter_1": {
+		"quest_id": "quest_first_chapter_1",
+		"title": "Give the Elder 3 Wooden Axes",
+		"description": "",
+		"objectives": [{
+			"type": "king",
+			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+			"qty": 3
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 20
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_first_chapter_2"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Elder, I've finished the axes you requested."},
+			{"character": "king", "text": "Elder: Excellent work! The foresters will be thrilled. You have our gratitude."},
+			{"character": "player", "text": "Me: I'm glad I could help. Let me know if there's anything else you need."},
+			{"character": "king", "text": "Elder: Actually, there is another matter I'd like to discuss with you. It's of great importance to our village."},
+			{"character": "player", "text": "Me: What is it?"},
+			{"character": "king", "text": "Elder: Perhaps you've noticed some unusual creatures near the caves recently?"},
+			{"character": "player", "text": "Me: I've heard some rumors but haven't seen them myself."},
+			{"character": "king", "text": "Elder: These creatures are emerging more frequently, and I fear they may pose a threat. There is an old prophecy that speaks of a skilled smith who will craft a legendary weapon to protect us..."},
+			{"character": "player", "text": "Me: You think that smith could be me?"},
+			{"character": "king", "text": "Elder: I believe so. Will you help us?"},
+			{"character": "player", "text": "Me: Of course. Tell me what I need to do."},
+			{"character": "king", "text": "Elder: Firstly, go to caves and collect some iron. You will need it."},
 		],
 	},
 	
-	# quest to sell axe to villager
+	"quest_first_chapter_2": {
+		"quest_id": "quest_first_chapter_2",
+		"title": "Go to Cave Level 1",
+		"description": "",
+		"objectives": [{
+			"type": "visit",
+			"item_id": "level-1",
+			"qty": 1
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 20
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_first_chapter_3"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Ok, I should find some iron here."},
+		],
+	},
+	
 
 
 
-	"quest_47": {
-		"quest_id": "quest_47",
+	"quest_48": {
+		"quest_id": "quest_48",
 		"title": "Advanced Blacksmithing",
 		"description": "Craft an Iron Sword.",
 		"objectives": [{
