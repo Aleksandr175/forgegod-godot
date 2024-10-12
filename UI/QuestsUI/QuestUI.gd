@@ -2,10 +2,10 @@ extends Control
 
 #@onready var quest_list = $QuestList  # A VBoxContainer or similar
 
-@onready var quest_name = $ColorRect/VBoxContainer/quest_name
-@onready var quest_description = $ColorRect/VBoxContainer/quest_description
-@onready var quest_progress = $ColorRect/VBoxContainer/quest_progress
-@onready var quest_requirement = $ColorRect/VBoxContainer/quest_requirement
+@onready var quest_name = $ColorRect/MarginContainer/VBoxContainer/quest_name
+@onready var quest_description = $ColorRect/MarginContainer/VBoxContainer/quest_description
+@onready var quest_progress = $ColorRect/MarginContainer/VBoxContainer/quest_progress
+@onready var quest_requirement = $ColorRect/MarginContainer/VBoxContainer/quest_requirement
 
 func _ready():
 	print('quest UI ready')

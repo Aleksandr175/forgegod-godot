@@ -245,6 +245,7 @@ layer = 3
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("5_6nexr")]
 
 [node name="XP" type="Label" parent="QuestsUi"]
+visible = false
 offset_left = 15.0
 offset_top = 143.0
 offset_right = 59.0
@@ -252,6 +253,7 @@ offset_bottom = 159.0
 text = "XP:"
 
 [node name="XPValue" type="Label" parent="QuestsUi"]
+visible = false
 offset_left = 67.0
 offset_top = 143.0
 offset_right = 111.0
