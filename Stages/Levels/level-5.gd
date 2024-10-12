@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = $Player
 @onready var levels_menu_ui = $LevelsMenuUI
 
-@export var level_name: String = 'level-2'
+@export var level_name: String = 'level-5'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

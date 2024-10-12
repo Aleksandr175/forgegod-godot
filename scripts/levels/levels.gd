@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var levels_menu_ui = $LevelsMenuUI
 
-@export var level_name: String = 'level-1'
+@export var level_name: String = 'level-10'
 
 func _on_cave_exit_level_menu_opened():
 	GameState.complete_level(level_name)
