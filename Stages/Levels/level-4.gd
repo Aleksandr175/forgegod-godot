@@ -9,6 +9,7 @@ extends Node2D
 func _ready():
 	var camera = player.find_child("Camera2D")
 	camera.limit_bottom = 1000000
+	QuestManager.update_objective_progress("visit", level_name, 1)
 
 func _on_cave_exit_level_menu_opened():
 	GameState.complete_level(level_name)

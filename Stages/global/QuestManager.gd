@@ -293,12 +293,12 @@ var quest_database = {
 
 	"quest_first_chapter_1": {
 		"quest_id": "quest_first_chapter_1",
-		"title": "Give the Elder 3 Wooden Axes",
-		"description": "",
+		"title": "Go to the Caves Level 1",
+		"description": "Use portal in the left side of village",
 		"objectives": [{
-			"type": "king",
-			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
-			"qty": 3
+			"type": "visit",
+			"item_id": "level-1",
+			"qty": 1
 		}],
 		"rewards": {
 			#"goods": [{
@@ -327,11 +327,11 @@ var quest_database = {
 	
 	"quest_first_chapter_2": {
 		"quest_id": "quest_first_chapter_2",
-		"title": "Go to Cave Level 1",
+		"title": "Go to the Caves Level 2",
 		"description": "",
 		"objectives": [{
 			"type": "visit",
-			"item_id": "level-1",
+			"item_id": "level-2",
 			"qty": 1
 		}],
 		"rewards": {
@@ -344,7 +344,8 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_3"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Ok, I should find some iron here."},
+			{"character": "player", "text": "Me: Ok, I can get some wood here."},
+			{"character": "player", "text": "Me: Or I can go to the caves."},
 		],
 	},
 	
