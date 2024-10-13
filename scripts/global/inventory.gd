@@ -225,6 +225,8 @@ var shop_items: Array = [{
 }]
 
 
+var unlocked_recipes: Array = []  # Stores IDs of unlocked recipes
+var default_unlocked_recipes: Array = [inventory_dictionary["axeWooden"]["id"]]
 
 var recipes: Array = [{
 	"id": inventory_dictionary["copperIngot"]["id"],
@@ -232,6 +234,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["copperIngot"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": false,
 	"requirements": [{
 		"id": inventory_dictionary["wood"]["id"], 
 		"name": inventory_dictionary["wood"]["name"], 
@@ -251,6 +254,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["ironIngot"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": false,
 	"requirements": [{
 		"id": inventory_dictionary["wood"]["id"], 
 		"name": inventory_dictionary["wood"]["name"], 
@@ -273,6 +277,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["spearWooden"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": true,
 	"requirements": [{
 		"id": inventory_dictionary["wood"]["id"], 
 		"name": inventory_dictionary["wood"]["name"], 
@@ -286,6 +291,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["swordWooden"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": true,
 	"requirements": [{
 		"id": inventory_dictionary["wood"]["id"], 
 		"name": inventory_dictionary["wood"]["name"], 
@@ -299,6 +305,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["axeWooden"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": false,
 	"requirements": [{
 		"id": inventory_dictionary["wood"]["id"], 
 		"name": inventory_dictionary["wood"]["name"], 
@@ -316,6 +323,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["spearIron"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": true,
 	"requirements": [{
 		"id": inventory_dictionary["ironIngot"]["id"], 
 		"name": inventory_dictionary["ironIngot"]["name"], 
@@ -335,6 +343,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["axeIron"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": true,
 	"requirements": [{
 		"id": inventory_dictionary["ironIngot"]["id"], 
 		"name": inventory_dictionary["ironIngot"]["name"], 
@@ -354,6 +363,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["swordIron"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": true,
 	"requirements": [{
 		"id": inventory_dictionary["ironIngot"]["id"], 
 		"name": inventory_dictionary["ironIngot"]["name"], 
@@ -367,6 +377,7 @@ var recipes: Array = [{
 	"texture": inventory_dictionary["broadswordIron"]["texture"],
 	"qty": 1,
 	"type": "recipe",
+	"locked": true,
 	"requirements": [{
 		"id": inventory_dictionary["ironIngot"]["id"], 
 		"name": inventory_dictionary["ironIngot"]["name"], 
@@ -523,6 +534,7 @@ func sort_inventory_items() -> void:
 func load_inventory():
 	reset_inventory()
 	
+	# Load inventory items
 	var index = 0
 	for saved_item in GameState.player_inventory:
 		var item_dictionary = find_dictionary_item_by_id(saved_item["id"])
@@ -536,6 +548,22 @@ func load_inventory():
 		else:
 			print("Item with ID %d not found in inventory_dictionary." % saved_item["id"])
 
+	# Load unlocked recipes
+	if GameState.unlocked_recipes:
+		unlocked_recipes = GameState.unlocked_recipes.duplicate()
+	else:
+		unlocked_recipes = default_unlocked_recipes.duplicate() # default unlocked recipes
+
+	# Update recipes' locked status based on unlocked_recipes
+	update_recipe_lock_status()
+
+func update_recipe_lock_status():
+	for recipe in recipes:
+		if unlocked_recipes.has(recipe.id):
+			recipe.locked = false
+		else:
+			recipe.locked = true
+
 func save_inventory():
 	var simplified_inventory = []
 	for item in inventory_items:
@@ -545,3 +573,15 @@ func save_inventory():
 				"qty": item.qty
 			})
 	GameState.player_inventory = simplified_inventory
+	GameState.unlocked_recipes = unlocked_recipes
+
+func unlock_recipe(recipe_id):
+	if not unlocked_recipes.has(recipe_id):
+		unlocked_recipes.append(recipe_id)
+		# Update the locked status of the recipe
+		update_recipe_lock_status()
+		# Save the updated unlocked recipes
+		save_inventory()
+		GameState.save_game()
+		# Emit signal to update UI
+		inventory_updated.emit()

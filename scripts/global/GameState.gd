@@ -6,7 +6,10 @@ var player_inventory: Array = []  # List of inventory items
 var quest_progress: Dictionary = {}  # Track quest stages
 var level_progress: Dictionary = {}  # Track levels unlocked/completed
 var completed_quest_ids: Array = []  # List of IDs of completed quests
+var unlocked_recipes: Array = []  # List of IDs of unlocked recipes
+
 #var other_data: Dictionary = {}  # Any additional data
+
 
 var is_loaded = false
 
@@ -53,6 +56,7 @@ func save_game():
 		#"quest_progress": quest_progress,
 		"level_progress": level_progress,
 		"completed_quest_ids": completed_quest_ids,
+		"unlocked_recipes": unlocked_recipes,
 		#"other_data": other_data
 	}
 
@@ -87,6 +91,7 @@ func load_game():
 				#quest_progress = data.get("quest_progress", quest_progress)
 				level_progress = data.get("level_progress", level_progress)
 				completed_quest_ids = data.get("completed_quest_ids", completed_quest_ids)
+				unlocked_recipes = data.get("unlocked_recipes", unlocked_recipes)
 				#other_data = data.get("other_data", other_data)
 				print("Game loaded successfully.")
 
@@ -111,7 +116,9 @@ func start_new_game():
 	quest_progress = {}
 	level_progress = {}
 	completed_quest_ids = []
+	unlocked_recipes = []
 	#other_data = {}
+
 	save_game()
 	SceneManager.change_scene(player_scene)
 	GlobalSignals.new_game_started.emit()

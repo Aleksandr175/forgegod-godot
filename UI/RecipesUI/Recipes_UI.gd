@@ -22,7 +22,6 @@ func _on_recipes_updated():
 			slot.recipe_slot_selected.connect(_on_recipe_slot_selected)
 		else:
 			slot.set_empty()
-			
 	
 func clear_grid_container():
 	while recipes_container.get_child_count() > 0:
