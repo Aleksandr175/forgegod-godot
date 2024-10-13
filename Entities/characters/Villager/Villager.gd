@@ -11,6 +11,7 @@ var spawner_position: Vector2  # Define the variable to hold the spawner's posit
 @onready var sprite = $AnimatedSprite2D
 
 func _ready():
+	randomize()
 	villager_panel.visible = false
 	generate_wish()
 	find_building()
@@ -26,9 +27,17 @@ func _process(delta):
 		sprite.flip_h = true
 
 func generate_wish():
-	var possible_wishes = Inventory.recipes
-	wish = possible_wishes[randi() % possible_wishes.size()]
-	# villager wants to buy only 1 item
+	var unlocked_recipes = Inventory.get_unlocked_recipe_data()
+	if unlocked_recipes.size() == 0:
+		# No unlocked recipes; villager cannot have a wish
+		print("No unlocked recipes available for villager wishes.")
+		wish = null
+		return
+
+	# Select a random recipe from the unlocked recipes
+	wish = unlocked_recipes[randi() % unlocked_recipes.size()]
+
+	# Villager wants to buy only 1 item
 	wish.qty = 1
 	
 	var wishItem = Inventory.find_dictionary_item_by_id(wish.id)
@@ -109,7 +118,10 @@ func _on_villager_ui_button_pressed():
 		leave_queue()
 
 func open_wish_panel():
-	villager_panel.visible = true
+	if wish != null:
+		villager_panel.visible = true
+	else:
+		villager_panel.visible = false
 
 func close_wish_panel():
 	villager_panel.visible = false

@@ -585,3 +585,10 @@ func unlock_recipe(recipe_id):
 		GameState.save_game()
 		# Emit signal to update UI
 		inventory_updated.emit()
+
+func get_unlocked_recipe_data() -> Array:
+	var unlocked_recipe_list = []
+	for recipe in recipes:
+		if not recipe.locked:
+			unlocked_recipe_list.append(recipe)
+	return unlocked_recipe_list
