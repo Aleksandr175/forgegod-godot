@@ -49,7 +49,7 @@ func clear_grid_container():
 
 func _on_recipes_ui_recipe_ui_slot_selected(recipe):
 	var recipeData = find_item_by_name(recipe.name)
-	_on_selected_recipe_updated(recipe)
+	_on_selected_recipe_updated(recipeData)
 
 func find_item_by_name(recipe_name):
 	for item in Inventory.recipes:

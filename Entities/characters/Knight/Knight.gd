@@ -9,7 +9,3 @@ func _ready():
 		sprite.flip_h = true
 	else:
 		sprite.flip_h = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

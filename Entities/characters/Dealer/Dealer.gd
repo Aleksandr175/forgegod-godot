@@ -10,5 +10,5 @@ func _on_pointer_pointer_pressed():
 	shop_ui.visible = true
 
 
-func _on_area_2d_area_exited(area):
+func _on_area_2d_area_exited(_area):
 	shop_ui.visible = false

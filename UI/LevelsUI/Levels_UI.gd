@@ -29,7 +29,7 @@ func populate_level_buttons():
 		levels_container.add_child(level_button)
 		level_buttons[level_name] = level_button
 
-func create_level_button(level_name, level_info):
+func create_level_button(level_name):
 	var button = Button.new()
 	button.text = level_name.capitalize()
 

@@ -25,7 +25,7 @@ func _ready():
 
 func start_dialog_sequence(dialog):
 	current_dialog_index = 0
-	start_dialog(dialog_data[current_dialog_index])
+	start_dialog(dialog[current_dialog_index])
 
 func show_dialog(dialog):
 	dialog_data = dialog
