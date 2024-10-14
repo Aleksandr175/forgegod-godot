@@ -6,9 +6,12 @@ signal player_exited_portal
 signal inventory_opened
 signal inventory_closed
 
+signal recipes_unlocked
+
 signal start_dialog(dialog)
 signal close_dialog
 
 signal level_completed(level_name)
 
 signal new_game_started
+signal game_loaded

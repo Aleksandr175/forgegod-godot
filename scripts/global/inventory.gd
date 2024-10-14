@@ -399,8 +399,8 @@ var player_node: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GlobalSignals.new_game_started.connect(reset_inventory)
-	reset_inventory()
+	GlobalSignals.new_game_started.connect(load_inventory)
+	GlobalSignals.game_loaded.connect(load_inventory)
 	load_inventory()
 	
 func reset_inventory():
@@ -559,10 +559,18 @@ func load_inventory():
 
 func update_recipe_lock_status():
 	for recipe in recipes:
-		if unlocked_recipes.has(recipe.id):
+		var found = false  # A flag to track if the recipe.id is found in unlocked_recipes
+		for unlocked_id in unlocked_recipes:
+			if unlocked_id == recipe.id:
+				found = true
+				break  # Exit the loop once you find a match
+
+		if found:
 			recipe.locked = false
 		else:
 			recipe.locked = true
+	
+	GlobalSignals.recipes_unlocked.emit()
 
 func save_inventory():
 	var simplified_inventory = []
@@ -583,8 +591,6 @@ func unlock_recipe(recipe_id):
 		# Save the updated unlocked recipes
 		save_inventory()
 		GameState.save_game()
-		# Emit signal to update UI
-		inventory_updated.emit()
 
 func get_unlocked_recipe_data() -> Array:
 	var unlocked_recipe_list = []

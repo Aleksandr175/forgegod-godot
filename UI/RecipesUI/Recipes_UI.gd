@@ -7,7 +7,7 @@ signal recipe_ui_slot_selected(recipe)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Inventory.inventory_updated.connect(_on_recipes_updated)
+	GlobalSignals.recipes_unlocked.connect(_on_recipes_updated)
 	_on_recipes_updated()
 
 func _on_recipes_updated():

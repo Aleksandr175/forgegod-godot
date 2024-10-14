@@ -94,6 +94,7 @@ func load_game():
 				unlocked_recipes = data.get("unlocked_recipes", unlocked_recipes)
 				#other_data = data.get("other_data", other_data)
 				print("Game loaded successfully.")
+				GlobalSignals.game_loaded.emit()
 
 				# Defer changing the scene to prevent issues
 				call_deferred("_change_to_saved_scene")
@@ -116,7 +117,7 @@ func start_new_game():
 	quest_progress = {}
 	level_progress = {}
 	completed_quest_ids = []
-	unlocked_recipes = []
+	unlocked_recipes = [Inventory.inventory_dictionary["spearWooden"]["id"]]
 	#other_data = {}
 
 	save_game()
