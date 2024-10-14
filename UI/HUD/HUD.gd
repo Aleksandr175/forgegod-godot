@@ -12,7 +12,7 @@ func _ready():
 	#update_iron_display()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Open menu"):
+	if Input.is_action_just_pressed("open_menu"):
 		GameManager.play_pause()
 		get_tree().paused = GameManager.isPaused
 	
