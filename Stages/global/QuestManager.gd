@@ -41,7 +41,7 @@ var quest_database = {
 		"next_quests": ["quest_tutorial_1"],
 		"completion_actions": [{
 			"type": "open_portal",
-			"path_node": "/root/Instruction/Portal", 
+			"path_node": "/root/instruction/Portal", 
 			"name": "Portal"
 		}],
 		"dialog_data": [
@@ -51,12 +51,12 @@ var quest_database = {
 		"quest_actions": [
 			{
 				"stage": "res://Stages/Levels/instruction.tscn",
-				"node_name": "/root/Instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
+				"node_name": "/root/instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
 				"action": "show",  # Action to perform (e.g., "show", "hide")
 			},
 			{
 				"stage": "res://Stages/Levels/instruction.tscn",
-				"node_name": "/root/Instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
+				"node_name": "/root/instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
 				"action": "hide",  # Action to perform (e.g., "show", "hide")
 			}
 		],
@@ -729,7 +729,7 @@ func process_quest_actions(actions_array, quest_phase):
 		var action_stage = action_data.get("stage", "")
 		var node_name = action_data.get("node_name", "")
 		var action = action_data.get("action", "")
-		print('----', action_stage, current_stage_path)
+
 		# Check if the action's stage matches the current stage
 		if action_stage != current_stage_path:
 			continue  # Skip actions not related to the current stage
@@ -749,7 +749,8 @@ func update_quest_node(node_name, action):
 		return
 
 	print('current_stage.name', current_stage.name)
-	print('NODE : ', get_node("/root/Instruction"), " ", node_name)
+	print('NODE : ', get_node("/root/instruction"), " ", node_name)
+	print('node_name', get_node(node_name))
 	# Find the node by name within the current stage
 	var quest_node = current_stage.get_node(node_name)
 	print('->',quest_node)
@@ -774,8 +775,3 @@ func on_stage_changed():
 		if quest_data != null and quest_data.has("quest_actions"):
 			# Process quest actions relevant to the current stage
 			process_quest_actions(quest_data["quest_actions"], "start")
-
-func print_scene_tree(node, indent = 0):
-	print("%s%s", node.name)
-	for child in node.get_children():
-		print_scene_tree(child, indent + 1)

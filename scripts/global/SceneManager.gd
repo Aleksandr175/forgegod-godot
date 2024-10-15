@@ -1,6 +1,7 @@
 extends Node
 
 var current_scene: Node = null
+var current_scene_path: String = ""
 var is_transitioning: bool = false
 
 var loading_screen: CanvasLayer = null
@@ -14,6 +15,12 @@ func _ready():
 
 	# Optional: Initialize the current_scene if needed
 	current_scene = get_tree().current_scene
+
+func get_current_scene() -> Node:
+	return current_scene
+
+func get_current_scene_path() -> String:
+	return current_scene_path
 
 func change_scene(scene_path: String):
 	if is_transitioning:
@@ -30,7 +37,7 @@ func change_scene(scene_path: String):
 func _start_transition(scene_path: String):
 	# Show transition animation or loading screen
 	_show_loading_screen()
-	print('loading')
+	print('stage transition loading')
 	# Defer the actual scene change to allow the loading screen to display
 	#await get_tree().process_frame
 
@@ -50,20 +57,38 @@ func _start_transition(scene_path: String):
 func _replace_current_scene(scene_path: String):
 	# Free the existing scene
 	if current_scene:
-		current_scene.call_deferred("free")
+		current_scene.queue_free()
+		current_scene = null
+		
+		# Wait for the node to be freed
+		await Engine.get_main_loop().process_frame
 
 	# Load the new scene
-	var new_scene = load(scene_path).instantiate()
+	var scene_resource = load(scene_path)
+	if scene_resource is PackedScene:
+		var new_scene = scene_resource.instantiate()
+		# Optionally, set the root node's name
+		var scene_name = scene_path.get_file().get_basename()
+		new_scene.name = scene_name
+		
+		# Add the new scene to the root node
+		get_tree().root.add_child(new_scene)
 
-	# Add the new scene to the scene tree
-	get_tree().root.add_child(new_scene)
+		# Set the new scene as the current scene
+		current_scene = new_scene
+		get_tree().current_scene = new_scene
+		get_tree().current_scene.name = scene_name
 
-	# Set the new scene as the current scene
-	get_tree().current_scene = new_scene
-	current_scene = new_scene
-	
-	# save scene
-	GameState.save_scene(scene_path)
+		# Update current scene path
+		current_scene_path = scene_path
+
+		# Notify QuestManager that the scene has changed
+		QuestManager.on_stage_changed()
+
+		# Debug print to check the root node's name
+		print("New scene loaded: ", scene_path)
+	else:
+		print("Failed to load scene: ", scene_path)
 
 func _show_loading_screen():
 	loading_screen.visible = true

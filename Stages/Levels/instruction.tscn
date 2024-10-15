@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://mo1pmf0yu3tx"]
+[gd_scene load_steps=11 format=3 uid="uid://mo1pmf0yu3tx"]
 
-[ext_resource type="Script" path="res://Stages/Levels/instruction.gd" id="1_s1m5q"]
+[ext_resource type="Script" path="res://Stages/Levels/instruction.gd" id="1_txd0i"]
 [ext_resource type="TileSet" uid="uid://b2l4domhq4vs6" path="res://tilesets/decorations.tres" id="2_7htqh"]
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="2_vu2k2"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="3_2wbmq"]
@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://Entities/objects/Coin/coin.tscn" id="5_pr2g8"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_3rpqj"]
 [ext_resource type="PackedScene" uid="uid://d1m4vkbuwehwi" path="res://Entities/Portal/Portal.tscn" id="8_x4ylm"]
+[ext_resource type="Texture2D" uid="uid://dnvokirnxqi2r" path="res://assets/sprites/buildings/red-building.png" id="10_ukvj8"]
 
 [node name="Instruction" type="Node2D"]
-script = ExtResource("1_s1m5q")
+script = ExtResource("1_txd0i")
 
 [node name="Tiles" type="Node" parent="."]
 
@@ -92,5 +93,17 @@ position = Vector2(-15, 34)
 
 [node name="Portal" parent="." instance=ExtResource("8_x4ylm")]
 position = Vector2(486, 16)
+
+[node name="QuestNodes" type="Node2D" parent="."]
+
+[node name="quest_default" type="Node2D" parent="QuestNodes"]
+visible = false
+position = Vector2(53, -52)
+
+[node name="Recipe" type="Node2D" parent="QuestNodes/quest_default"]
+
+[node name="Sprite2D" type="Sprite2D" parent="QuestNodes/quest_default/Recipe"]
+position = Vector2(-45, -1)
+texture = ExtResource("10_ukvj8")
 
 [connection signal="portal_entered" from="Portal" to="." method="_on_portal_portal_entered"]
