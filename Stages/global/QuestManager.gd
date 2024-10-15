@@ -26,6 +26,7 @@ var quest_database = {
 			"qty": 3
 		}],
 		"rewards": {
+			"recipes": [Inventory.inventory_dictionary["swordIron"]["id"]],
 			"goods": [{
 				"item_id": Inventory.inventory_dictionary["coin"]["id"],
 				"qty": 50
@@ -572,11 +573,14 @@ func distribute_rewards(rewards: Dictionary):
 			for item in rewards["goods"]:
 				# Add the new item to the inventory
 				Inventory.add_item(item["item_id"], int(item["qty"]))
+		elif key == "experience":
+			# Add experience logic
+			pass
+		elif key == "recipes":
+			for recipe_id in rewards["recipes"]:
+				Inventory.unlock_recipe(recipe_id)
+				print("Unlocked recipe for item ID:", recipe_id)
 
-		#if key == "experience":
-			# TODO: add experience
-
-		# Add logic to give the player their reward
 		#print("Received reward: ", key, "x", rewards[key])
 
 func complete_quest(quest: Quest):
