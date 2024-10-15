@@ -8,7 +8,6 @@ extends Control
 @onready var quest_requirement = $ColorRect/MarginContainer/VBoxContainer/quest_requirement
 
 func _ready():
-	print('quest UI ready')
 	QuestManager.connect("update_quest_ui", _on_quest_manager_update_quest_ui)
 
 func clear_quests():
@@ -37,7 +36,6 @@ func add_quest(title: String, description: String, objectives: Array):
 	#	quest_requirement.text = objective.description
 
 func _on_quest_manager_update_quest_ui(active_quests):
-	print('get active_quests', active_quests)
 	clear_quests()
 	for quest in active_quests:
 		add_quest(quest.title, quest.description, quest.objectives)

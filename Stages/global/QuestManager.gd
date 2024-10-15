@@ -47,7 +47,19 @@ var quest_database = {
 		"dialog_data": [
 			{"character": "player", "text": "Me: What a wonderful day! But it's time to head back home."},
 			{"character": "player", "text": "Me: Oh, it seems there are coins scattered around. If I collect them, I can go home."},
-		]
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/instruction.tscn",
+				"node_name": "/root/Instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
+				"action": "show",  # Action to perform (e.g., "show", "hide")
+			},
+			{
+				"stage": "res://Stages/Levels/instruction.tscn",
+				"node_name": "/root/Instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
+				"action": "hide",  # Action to perform (e.g., "show", "hide")
+			}
+		],
 	},
 	"quest_tutorial_1": {
 		"quest_id": "quest_tutorial_1",
@@ -558,6 +570,10 @@ func start_quest(quest_id: String):
 		active_quests.append(new_quest)
 		print("Quest started: ", new_quest.title, " - ", new_quest.quest_id)
 		update_quest()
+		
+		# Show quest nodes if any
+		if quest_data.has("quest_actions"):
+			process_quest_actions(quest_data["quest_actions"], "start")
 
 func check_objectives(quest: Quest) -> bool:
 	for objective in quest.objectives:
@@ -601,6 +617,11 @@ func complete_quest(quest: Quest):
 		# Start next quests
 		for next_quest_id in quest_database[quest.quest_id]["next_quests"]:
 			start_quest(next_quest_id)
+			
+		# Hide quest objects if needed
+		var quest_data = quest_database.get(quest.quest_id)
+		if quest_data != null and quest_data.has("quest_actions"):
+			process_quest_actions(quest_data["quest_actions"], "complete")
 
 func update_quest():
 	update_quest_ui.emit(active_quests)
@@ -700,3 +721,61 @@ func load_quests():
 		start_quest('quest_default')  # Replace 'quest_10' with your starting quest ID
 
 	#active_quests = GameState.active_quests.duplicate()
+
+func process_quest_actions(actions_array, quest_phase):
+	print('process_quest_actions', quest_phase)
+	var current_stage_path = SceneManager.get_current_scene_path()
+	for action_data in actions_array:
+		var action_stage = action_data.get("stage", "")
+		var node_name = action_data.get("node_name", "")
+		var action = action_data.get("action", "")
+		print('----', action_stage, current_stage_path)
+		# Check if the action's stage matches the current stage
+		if action_stage != current_stage_path:
+			continue  # Skip actions not related to the current stage
+		
+		# Determine if the action should be processed during the quest phase
+		if quest_phase == "start" and action == "show":
+			update_quest_node(node_name, "show")
+		elif quest_phase == "complete" and action == "hide":
+			update_quest_node(node_name, "hide")
+		# Add more conditions if needed
+
+func update_quest_node(node_name, action):
+	print('update_quest_node ', node_name, ' ', action)
+	var current_stage = SceneManager.get_current_scene()
+	if current_stage == null:
+		print("Current stage is null.")
+		return
+
+	print('current_stage.name', current_stage.name)
+	print('NODE : ', get_node("/root/Instruction"), " ", node_name)
+	# Find the node by name within the current stage
+	var quest_node = current_stage.get_node(node_name)
+	print('->',quest_node)
+	if quest_node:
+		if action == "show":
+			quest_node.visible = true
+			#enable_collision(quest_node, true)
+		elif action == "hide":
+			quest_node.visible = false
+			#enable_collision(quest_node, false)
+		elif action == "remove":
+			quest_node.queue_free()
+		else:
+			print("Unknown action for quest node:", action)
+	else:
+		print("Quest node not found:", node_name)
+
+func on_stage_changed():
+	# Re-process quest actions for active quests
+	for quest in active_quests:
+		var quest_data = quest_database.get(quest.quest_id)
+		if quest_data != null and quest_data.has("quest_actions"):
+			# Process quest actions relevant to the current stage
+			process_quest_actions(quest_data["quest_actions"], "start")
+
+func print_scene_tree(node, indent = 0):
+	print("%s%s", node.name)
+	for child in node.get_children():
+		print_scene_tree(child, indent + 1)
