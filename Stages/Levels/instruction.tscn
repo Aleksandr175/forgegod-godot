@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://Entities/objects/Coin/coin.tscn" id="5_pr2g8"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_3rpqj"]
 [ext_resource type="PackedScene" uid="uid://d1m4vkbuwehwi" path="res://Entities/Portal/Portal.tscn" id="8_x4ylm"]
-[ext_resource type="Texture2D" uid="uid://dnvokirnxqi2r" path="res://assets/sprites/buildings/red-building.png" id="10_ukvj8"]
+[ext_resource type="PackedScene" uid="uid://b7fbqtq7i7fuh" path="res://Entities/objects/resources/resource_recipe.tscn" id="11_3ua8t"]
 
 [node name="Instruction" type="Node2D"]
 script = ExtResource("1_txd0i")
@@ -97,13 +97,10 @@ position = Vector2(486, 16)
 [node name="QuestNodes" type="Node2D" parent="."]
 
 [node name="quest_default" type="Node2D" parent="QuestNodes"]
-visible = false
 position = Vector2(53, -52)
 
-[node name="Recipe" type="Node2D" parent="QuestNodes/quest_default"]
-
-[node name="Sprite2D" type="Sprite2D" parent="QuestNodes/quest_default/Recipe"]
-position = Vector2(-45, -1)
-texture = ExtResource("10_ukvj8")
+[node name="ResourceIron" parent="QuestNodes/quest_default" instance=ExtResource("11_3ua8t")]
+position = Vector2(-34, 77)
+recipe_id = "100"
 
 [connection signal="portal_entered" from="Portal" to="." method="_on_portal_portal_entered"]

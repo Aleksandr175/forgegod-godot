@@ -591,6 +591,8 @@ func unlock_recipe(recipe_id):
 		# Save the updated unlocked recipes
 		save_inventory()
 		GameState.save_game()
+		return true
+	return false
 
 func get_unlocked_recipe_data() -> Array:
 	var unlocked_recipe_list = []

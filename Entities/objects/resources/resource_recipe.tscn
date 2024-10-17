@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7fbqtq7i7fuh"]
+
+[ext_resource type="Script" path="res://Entities/objects/resources/resource-recipe.gd" id="1_05lp7"]
+[ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="2_c6vyn"]
+[ext_resource type="Texture2D" uid="uid://dbsr1rrvwa0p6" path="res://assets/sprites/objects/resources/resource-recipe.png" id="3_ytisb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8w8u6"]
+resource_local_to_scene = true
+shader = ExtResource("2_c6vyn")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17fdo"]
+radius = 4.0
+
+[node name="ResourceRecipe" type="Node2D"]
+script = ExtResource("1_05lp7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8w8u6")
+position = Vector2(0, -7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ytisb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_17fdo")
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -5)
+amount = 3
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+color = Color(1, 1, 1, 0.545098)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
