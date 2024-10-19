@@ -180,6 +180,7 @@ position_smoothing_speed = 20.0
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("3_mqr4x")]
 
 [node name="XP" type="Label" parent="QuestsUi"]
+visible = false
 offset_left = 14.0
 offset_top = 25.0
 offset_right = 58.0
@@ -187,6 +188,7 @@ offset_bottom = 41.0
 text = "XP:"
 
 [node name="XPValue" type="Label" parent="QuestsUi"]
+visible = false
 offset_left = 61.0
 offset_top = 25.0
 offset_right = 105.0

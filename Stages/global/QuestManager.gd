@@ -26,7 +26,7 @@ var quest_database = {
 			"qty": 3
 		}],
 		"rewards": {
-			"recipes": [Inventory.inventory_dictionary["swordIron"]["id"]],
+			#"recipes": [Inventory.inventory_dictionary["swordIron"]["id"]],
 			"goods": [{
 				"item_id": Inventory.inventory_dictionary["coin"]["id"],
 				"qty": 50
@@ -165,6 +165,7 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {
+			"recipes": [Inventory.inventory_dictionary["axeWooden"]["id"]],
 			#"goods": [{
 			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
 			#	"qty": 10
@@ -358,10 +359,110 @@ var quest_database = {
 		"next_quests": ["quest_first_chapter_3"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Ok, I can get some wood here."},
-			{"character": "player", "text": "Me: Or I can go to the caves."},
+			{"character": "player", "text": "Me: Or I can go to the caves immediately."},
 		],
 	},
 	
+	"quest_first_chapter_3": {
+		"quest_id": "quest_first_chapter_3",
+		"title": "Collect 10 iron",
+		"description": "",
+		"objectives": [{
+			"type": "collect",
+			"item_id": "iron",
+			"qty": 10
+		}],
+		"rewards": {
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 20
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_first_chapter_4"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: These caves are darker than I remember."},
+			{"character": "player", "text": "Me: I need to find iron ore and watch out for any obstacles."},
+		],
+	},
+	
+	"quest_first_chapter_4": {
+		"quest_id": "quest_first_chapter_4",
+		"title": "Return to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": "visit",
+			"item_id": "king",
+			"qty": 1
+		}],
+		"rewards": {
+			"recipes": [Inventory.inventory_dictionary["ironIngot"]["id"], Inventory.inventory_dictionary["swordIron"]["id"], Inventory.inventory_dictionary["spearIron"]["id"]],
+			#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 20
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_first_chapter_5"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Elder, I've collected the 10 units of iron ore you requested."},
+			{"character": "king", "text": "Elder: Excellent work! With this iron, we can begin crafting stronger weapons for our defenders."},
+			{"character": "king", "text": "Elder: You'll need to smelt the iron ore into iron ingots. Remember, raw ore isn't suitable for weapon-making."},
+			{"character": "player", "text": "Me: Understood. I'll use the forge to smelt the ore."},
+			{"character": "king", "text": "Elder: Here, take these as well—a new recipe for crafting an iron sword and spear. They will serve our villagers well."},
+			{"character": "player", "text": "Me: Thank you! I'll make good use of them."},
+		],
+	},
+
+	"quest_first_chapter_5": {
+		"quest_id": "quest_first_chapter_5",
+		"title": "Craft iron ingot",
+		"description": "",
+		"objectives": [{
+			"type": "craft",
+			"item_id": Inventory.inventory_dictionary["ironIngot"]["id"],
+			"qty": 3
+		}],
+		"rewards": {
+			#"recipes": [Inventory.inventory_dictionary["ironIngot"]["id"]],
+						#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 20
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_first_chapter_6"],
+		"dialog_data": [],
+	},
+
+
+	"quest_first_chapter_6": {
+		"quest_id": "quest_first_chapter_6",
+		"title": "Serve clients",
+		"description": "",
+		"objectives": [{
+			"type": "sell",
+			"item_id": null,
+			"qty": 3
+		}],
+		"rewards": {
+			#"recipes": [Inventory.inventory_dictionary["ironIngot"]["id"]],
+						#"goods": [{
+			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			#	"qty": 20
+			#}],
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_first_chapter_7"],
+		"dialog_data": [
+			{"character": "villager", "text": "Villager: Hello! I heard you're crafting weapons again. Could you make me something?"},
+			{"character": "player", "text": "Me: Yes, sure!"},
+		],
+	},
 
 
 
