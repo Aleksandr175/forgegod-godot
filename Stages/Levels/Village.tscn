@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://b1bjmfy8vuu2n" path="res://Entities/objects/Signpost/Signpost.tscn" id="10_skl8q"]
 [ext_resource type="PackedScene" uid="uid://cojkett73cey" path="res://Entities/characters/King/King.tscn" id="12_mskdh"]
 [ext_resource type="PackedScene" uid="uid://coo27gke4jvlb" path="res://Entities/characters/Knight/Knight.tscn" id="13_eou2t"]
+[ext_resource type="PackedScene" uid="uid://cionouthodmwd" path="res://Entities/Buildings/Library.tscn" id="14_7rsxc"]
 [ext_resource type="PackedScene" uid="uid://cvmjw85or2k2f" path="res://Entities/objects/resources/resource_wood_big.tscn" id="14_ksj4c"]
 [ext_resource type="PackedScene" uid="uid://bujjxmdkf25w0" path="res://Entities/objects/Anvil/Anvil.tscn" id="15_ob2jk"]
-[ext_resource type="PackedScene" uid="uid://c2dwpco3pj1u7" path="res://Entities/Buildings/House2/House2.tscn" id="16_sbx6o"]
 [ext_resource type="PackedScene" uid="uid://bgvgcqaqgxvth" path="res://Entities/Buildings/House3/House3.tscn" id="17_mxc72"]
 [ext_resource type="PackedScene" uid="uid://d1m4vkbuwehwi" path="res://Entities/Portal/Portal.tscn" id="17_n0ils"]
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="18_o8siw"]
@@ -96,7 +96,7 @@ position = Vector2(295, -47)
 [node name="Anvil" parent="." instance=ExtResource("15_ob2jk")]
 position = Vector2(-156, -96)
 
-[node name="House2" parent="." instance=ExtResource("16_sbx6o")]
+[node name="Library" parent="." instance=ExtResource("14_7rsxc")]
 position = Vector2(407, -48)
 
 [node name="House3" parent="." instance=ExtResource("17_mxc72")]
