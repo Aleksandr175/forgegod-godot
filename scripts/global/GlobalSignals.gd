@@ -15,3 +15,5 @@ signal level_completed(level_name)
 
 signal new_game_started
 signal game_loaded
+
+signal stage_changed

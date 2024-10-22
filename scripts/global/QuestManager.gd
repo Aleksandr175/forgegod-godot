@@ -531,6 +531,7 @@ var quest_database = {
 
 func _ready():
 	GlobalSignals.new_game_started.connect(start_timer)
+	GlobalSignals.stage_changed.connect(update_quest)
 	start_timer()
 
 func start_timer():

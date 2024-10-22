@@ -21,11 +21,9 @@ func _on_area_2d_area_entered(area):
 	var player = area.get_parent()
 	if player is Player:
 		player.auto_attack()
-		print('enter')
 
 
 func _on_area_2d_area_exited(area):
 	var player = area.get_parent()
 	if player is Player:
 		player.auto_attack_stop()
-		print('enter')

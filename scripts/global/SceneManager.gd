@@ -85,6 +85,8 @@ func _replace_current_scene(scene_path: String):
 		# Notify QuestManager that the scene has changed
 		QuestManager.on_stage_changed()
 
+		GlobalSignals.stage_changed.emit()
+
 		# Debug print to check the root node's name
 		print("New scene loaded: ", scene_path)
 	else:
