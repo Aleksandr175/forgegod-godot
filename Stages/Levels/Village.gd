@@ -4,7 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	QuestManager.update_objective_progress("visit", "village", 1)
+	QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, "village", 1)
 
 
 func _on_portal_to_cave_portal_entered():

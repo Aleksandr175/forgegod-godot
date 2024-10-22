@@ -10,7 +10,7 @@ func _on_body_entered(body):
 		Inventory.add_item(item.id, 1)
 
 		# Update quest objective for collecting coins
-		QuestManager.update_objective_progress("collect", str(item.id), 1)
+		QuestManager.update_objective_progress(Enums.QuestTypes.COLLECT, str(item.id), 1)
 
 		animation_coin.play("pickup")
 		

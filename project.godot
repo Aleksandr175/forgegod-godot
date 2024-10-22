@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Enums="*res://Utilities/enums.gd"
 GameManager="*res://Utilities/GameManager/game_manager.gd"
 GameState="*res://scripts/global/GameState.gd"
 Inventory="*res://scripts/global/inventory.gd"

@@ -22,7 +22,7 @@ func generate_wish():
 	
 	for quest in QuestManager.active_quests:
 		for objective in quest.objectives:
-			if objective.type == 'king':
+			if objective.type == Enums.QuestTypes.SELL_TO_KING:
 				print('objective ', objective)
 				wishFromQuest = Inventory.find_dictionary_item_by_id(int(objective["item_id"]))
 				wishFromQuest["qty"] = objective.target_qty
@@ -58,7 +58,7 @@ func _on_villager_ui_button_pressed():
 		print('sell to king')
 		Inventory.add_item(reward.id, reward.qty)
 		Inventory.remove_items([wishFromQuest])
-		QuestManager.update_objective_progress("king", str(wishFromQuest.id), wishFromQuest.qty)
+		QuestManager.update_objective_progress(Enums.QuestTypes.SELL_TO_KING, str(wishFromQuest.id), wishFromQuest.qty)
 		
 		wishFromQuest = null
 		close_wish_panel()
@@ -70,7 +70,7 @@ func close_wish_panel():
 	panel.visible = false
 
 func _on_area_2d_2_area_entered(area):
-	QuestManager.update_objective_progress("visit", "king", 1)
+	QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, "king", 1)
 	generate_wish()
 	
 	var panelButton = panel.find_child('Button')

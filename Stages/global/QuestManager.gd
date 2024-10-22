@@ -21,7 +21,7 @@ var quest_database = {
 		"description": "Collect 5 coins.",
 		"objectives": [{
 			"description": "Collect 5 coins",
-			"type": "collect",
+			"type": Enums.QuestTypes.COLLECT,
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
 			"qty": 3
 		}],
@@ -66,7 +66,7 @@ var quest_database = {
 		"title": "Go back to home",
 		"description": "Enter the portal and go to the Village",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "village",
 			"qty": 1
 		}],
@@ -89,7 +89,7 @@ var quest_database = {
 		"title": "Go back to Home",
 		"description": "",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "house",
 			"qty": 1
 		}],
@@ -112,7 +112,7 @@ var quest_database = {
 		"title": "Go to Merchant",
 		"description": "Find Merchant.",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "dealer",
 			"qty": 1
 		}],
@@ -135,7 +135,7 @@ var quest_database = {
 		"title": "Buy Wood",
 		"description": "Buy 5 wood.",
 		"objectives": [{
-			"type": "buy",
+			"type": Enums.QuestTypes.BUY,
 			"item_id": Inventory.inventory_dictionary["wood"]["id"],
 			"qty": 5
 		}],
@@ -160,7 +160,7 @@ var quest_database = {
 		"title": "Go to Home",
 		"description": "",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "house",
 			"qty": 1
 		}],
@@ -184,7 +184,7 @@ var quest_database = {
 		"title": "Craft Wooden Axe",
 		"description": "",
 		"objectives": [{
-			"type": "craft",
+			"type": Enums.QuestTypes.CRAFT,
 			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
 			"qty": 1
 		}],
@@ -207,7 +207,7 @@ var quest_database = {
 		"title": "Serve Villager",
 		"description": "Sell Wooden Axe to Villager",
 		"objectives": [{
-			"type": "sell",
+			"type": Enums.QuestTypes.SELL,
 			"item_id": null,
 			"qty": 1
 		}],
@@ -234,7 +234,7 @@ var quest_database = {
 		"title": "Find the Village Elder",
 		"description": "The Village Elder waits you.",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "king",
 			"qty": 1
 		}],
@@ -258,7 +258,7 @@ var quest_database = {
 		"title": "Craft 3 Wooden Axes",
 		"description": "Use your forge to craft three wooden axes for the foresters.",
 		"objectives": [{
-			"type": "craft",
+			"type": Enums.QuestTypes.CRAFT,
 			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
 			"qty": 3
 		}],
@@ -287,7 +287,7 @@ var quest_database = {
 		"title": "Give the Elder 3 Wooden Axes",
 		"description": "Come back to Elder.",
 		"objectives": [{
-			"type": "king",
+			"type": Enums.QuestTypes.SELL_TO_KING,
 			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
 			"qty": 3
 		}],
@@ -310,7 +310,7 @@ var quest_database = {
 		"title": "Go to the Caves Level 1",
 		"description": "Use portal in the left side of village",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "level-1",
 			"qty": 1
 		}],
@@ -344,7 +344,7 @@ var quest_database = {
 		"title": "Go to the Caves Level 2",
 		"description": "",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "level-2",
 			"qty": 1
 		}],
@@ -368,7 +368,7 @@ var quest_database = {
 		"title": "Collect 10 iron",
 		"description": "",
 		"objectives": [{
-			"type": "collect",
+			"type": Enums.QuestTypes.COLLECT,
 			"item_id": "iron",
 			"qty": 10
 		}],
@@ -392,7 +392,7 @@ var quest_database = {
 		"title": "Return to the Elder",
 		"description": "",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "king",
 			"qty": 1
 		}],
@@ -421,7 +421,7 @@ var quest_database = {
 		"title": "Craft iron ingot",
 		"description": "",
 		"objectives": [{
-			"type": "craft",
+			"type": Enums.QuestTypes.CRAFT,
 			"item_id": Inventory.inventory_dictionary["ironIngot"]["id"],
 			"qty": 3
 		}],
@@ -444,7 +444,7 @@ var quest_database = {
 		"title": "Serve clients",
 		"description": "",
 		"objectives": [{
-			"type": "sell",
+			"type": Enums.QuestTypes.SELL,
 			"item_id": null,
 			"qty": 3
 		}],
@@ -471,7 +471,7 @@ var quest_database = {
 		"title": "Advanced Blacksmithing",
 		"description": "Craft an Iron Sword.",
 		"objectives": [{
-			"type": "craft",
+			"type": Enums.QuestTypes.CRAFT,
 			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
 			"qty": 1
 		}],
@@ -494,7 +494,7 @@ var quest_database = {
 		"title": "Visit Village",
 		"description": "Visit Village Visit Blacksmith House Visit Blacksmith House Visit Blacksmith House.",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "village",
 			"qty": 1
 		}],
@@ -514,7 +514,7 @@ var quest_database = {
 		"title": "Visit Blacksmith House",
 		"description": "Visit Blacksmith House",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "house",
 			"qty": 1
 		}],
@@ -533,7 +533,7 @@ var quest_database = {
 		"title": "Visit Dealer",
 		"description": "Visit Dealer in Village",
 		"objectives": [{
-			"type": "visit",
+			"type": Enums.QuestTypes.VISIT,
 			"item_id": "dealer",
 			"qty": 1
 		}],
@@ -552,7 +552,7 @@ var quest_database = {
 		"title": "Buy Wood",
 		"description": "Visit Dealer and buy Wood",
 		"objectives": [{
-			"type": "buy",
+			"type": Enums.QuestTypes.BUY,
 			"item_id": Inventory.inventory_dictionary["wood"]["id"],
 			"qty": 3
 		}],
@@ -571,7 +571,7 @@ var quest_database = {
 		"title": "Serve Customers",
 		"description": "Sell goods to customers",
 		"objectives": [{
-			"type": "sell",
+			"type": Enums.QuestTypes.SELL,
 			"qty": 1
 		}],
 		"rewards": {
@@ -589,7 +589,7 @@ var quest_database = {
 		"title": "Help King",
 		"description": "Sell goods to king",
 		"objectives": [{
-			"type": "king",
+			"type": Enums.QuestTypes.SELL_TO_KING,
 			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
 			"qty": 5
 		}],
@@ -608,7 +608,7 @@ var quest_database = {
 		"title": "Serve Customers",
 		"description": "Sell goods to customers",
 		"objectives": [{
-			"type": "sell",
+			"type": Enums.QuestTypes.SELL,
 			"qty": 1
 		}],
 		"rewards": {
@@ -727,28 +727,28 @@ func complete_quest(quest: Quest):
 func update_quest():
 	update_quest_ui.emit(active_quests)
 
-func update_objective_progress(type: String, item_id: String, qty: int):
+func update_objective_progress(type: int, item_id: String, qty: int):
 	print('type ', type, 'item_id ', item_id, 'qty ', qty)
 	for quest in active_quests:
 		for objective in quest.objectives:
 			var target_item_id = str(objective.item_id);
 			
-			if type == "collect" and objective.type == "collect" and int(target_item_id) == int(item_id):
+			if type == Enums.QuestTypes.COLLECT and objective.type == Enums.QuestTypes.COLLECT and int(target_item_id) == int(item_id):
 				do_progress(objective, qty, quest)
 
-			if type == "visit" and objective.type == "visit" and target_item_id == item_id:
+			if type == Enums.QuestTypes.VISIT and objective.type == Enums.QuestTypes.VISIT and target_item_id == item_id:
 				do_progress(objective, qty, quest)
 
-			if type == "craft" and objective.type == "craft" and int(target_item_id) == int(item_id):
+			if type == Enums.QuestTypes.CRAFT and objective.type == Enums.QuestTypes.CRAFT and int(target_item_id) == int(item_id):
 				do_progress(objective, qty, quest)
 				
-			if type == "buy" and objective.type == "buy" and int(target_item_id) == int(item_id):
+			if type == Enums.QuestTypes.BUY and objective.type == Enums.QuestTypes.BUY and int(target_item_id) == int(item_id):
 				do_progress(objective, qty, quest)
 
-			if type == "sell" and objective.type == "sell":
+			if type == Enums.QuestTypes.SELL and objective.type == Enums.QuestTypes.SELL:
 				do_progress(objective, qty, quest)
 
-			if type == "king" and objective.type == "king":
+			if type == Enums.QuestTypes.SELL_TO_KING and objective.type == Enums.QuestTypes.SELL_TO_KING:
 				print('ffffffff', objective, qty, quest)
 				do_progress(objective, qty, quest)
 

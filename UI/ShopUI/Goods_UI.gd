@@ -44,4 +44,4 @@ func _on_shop_item_bought(item):
 		
 		Inventory.add_item(item["id"], 1)
 		Inventory.remove_items([coins_item])
-		QuestManager.update_objective_progress("buy", str(item["id"]), 1)
+		QuestManager.update_objective_progress(Enums.QuestTypes.BUY, str(item["id"]), 1)
