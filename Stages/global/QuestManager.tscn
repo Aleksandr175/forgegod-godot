@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://rhrrf6j8i0v1"]
-
-[ext_resource type="Script" path="res://Stages/global/QuestManager.gd" id="1_ka18g"]
-
-[node name="QuestManager" type="Node"]
-script = ExtResource("1_ka18g")
