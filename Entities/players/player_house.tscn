@@ -175,6 +175,12 @@ limit_bottom = 160
 limit_smoothed = true
 position_smoothing_speed = 20.0
 
+[node name="InventoryUI" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="InventoryPanel" parent="InventoryUI" instance=ExtResource("5_ybk3c")]
+
 [node name="QuestsUi" type="CanvasLayer" parent="."]
 
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("3_mqr4x")]
@@ -196,12 +202,6 @@ offset_bottom = 41.0
 text = "0"
 
 [node name="Dialog" parent="QuestsUi" instance=ExtResource("4_3yuht")]
-
-[node name="InventoryUI" type="CanvasLayer" parent="."]
-layer = 2
-visible = false
-
-[node name="InventoryPanel" parent="InventoryUI" instance=ExtResource("5_ybk3c")]
 
 [node name="Hud" parent="." instance=ExtResource("6_g2ogr")]
 layer = 2

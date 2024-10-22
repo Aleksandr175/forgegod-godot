@@ -59,6 +59,7 @@ blend_mode = 1
 [node name="QuestNodes" type="Node2D" parent="."]
 
 [node name="quest_prophecy" type="Node2D" parent="QuestNodes"]
+visible = false
 
 [node name="Area2D" type="Area2D" parent="QuestNodes/quest_prophecy"]
 visible = false
