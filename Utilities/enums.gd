@@ -9,10 +9,17 @@ enum QuestTypes {
 	SELL_TO_KING
 }
 
-enum TargetObjects {
+enum QuestTargetObjects {
 	KING,
 	HOUSE,
 	LIBRARY,
 	VILLAGE,
-	DEALER
+	DEALER,
+	ALTAR
+}
+
+enum QuestActions {
+	SHOW,
+	HIDE,
+	REMOVE
 }

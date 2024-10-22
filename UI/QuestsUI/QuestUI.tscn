@@ -40,7 +40,7 @@ text = "Name"
 [node name="quest_description" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 30)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/normal_font_size = 16
 text = "Quest description"
 fit_content = true
 

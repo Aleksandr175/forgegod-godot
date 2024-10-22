@@ -52,12 +52,12 @@ var quest_database = {
 			{
 				"stage": "res://Stages/Levels/instruction.tscn",
 				"node_name": "/root/instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
-				"action": "show",  # Action to perform (e.g., "show", "hide")
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
 			},
 			{
 				"stage": "res://Stages/Levels/instruction.tscn",
 				"node_name": "/root/instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
-				"action": "hide",  # Action to perform (e.g., "show", "hide")
+				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
 			}
 		],
 	},
@@ -426,11 +426,6 @@ var quest_database = {
 			"qty": 3
 		}],
 		"rewards": {
-			#"recipes": [Inventory.inventory_dictionary["ironIngot"]["id"]],
-						#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 20
-			#}],
 			"experience": 5
 		},
 		"prerequisites": [],
@@ -449,11 +444,6 @@ var quest_database = {
 			"qty": 3
 		}],
 		"rewards": {
-			#"recipes": [Inventory.inventory_dictionary["ironIngot"]["id"]],
-						#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 20
-			#}],
 			"experience": 5
 		},
 		"prerequisites": [],
@@ -463,163 +453,79 @@ var quest_database = {
 			{"character": "player", "text": "Me: Yes, sure!"},
 		],
 	},
-
-
-
-	"quest_48": {
-		"quest_id": "quest_48",
-		"title": "Advanced Blacksmithing",
-		"description": "Craft an Iron Sword.",
+	
+	"quest_first_chapter_7": {
+		"quest_id": "quest_first_chapter_7",
+		"title": "Find the Elder",
+		"description": "",
 		"objectives": [{
-			"type": Enums.QuestTypes.CRAFT,
-			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
 			"qty": 1
 		}],
 		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 10
-			}],
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_50"],
+		"next_quests": ["quest_first_chapter_8"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Good! Portal opened!"},
-			{"character": "player", "text": "Me: Let's go to village. I have some deals there."},
-		]
-	},
-	"quest_50": {
-		"quest_id": "quest_50",
-		"title": "Visit Village",
-		"description": "Visit Village Visit Blacksmith House Visit Blacksmith House Visit Blacksmith House.",
-		"objectives": [{
-			"type": Enums.QuestTypes.VISIT,
-			"item_id": "village",
-			"qty": 1
-		}],
-		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 10
-			}],
-			"experience": 5
-		},
-		"prerequisites": [],
-		"next_quests": ["quest_5"]
+			{"character": "player", "text": "Me: I need to find the Elder"},
+		],
 	},
 
-	"quest_5": {
-		"quest_id": "quest_5",
-		"title": "Visit Blacksmith House",
-		"description": "Visit Blacksmith House",
+	# Quest 16: Meeting with the Village Elder
+
+	"quest_first_chapter_8": {
+		"quest_id": "quest_first_chapter_8",
+		"title": "Find library",
+		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": "house",
+			"item_id": Enums.QuestTargetObjects.LIBRARY,
 			"qty": 1
 		}],
 		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 10
-			}],
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_6"]
+		"next_quests": ["quest_first_chapter_9"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: Excellent work; our defenders are now well-armed. However, I recalled something important."},
+			{"character": "player", "text": "Me: What did you remember?"},
+			{"character": "king", "text": "Elder: There might be ancient records in our library on how to seal the ancient evil that is said to be awakening in the depths of the caves. I ask you to go there and find this information."},
+			{"character": "player", "text": "Me: I'll head to the library immediately and try to find whatever I can."},
+		],
 	},
-	"quest_6": {
-		"quest_id": "quest_6",
-		"title": "Visit Dealer",
-		"description": "Visit Dealer in Village",
+
+	"quest_first_chapter_9": {
+		"quest_id": "quest_first_chapter_9",
+		"title": "Find Altar",
+		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": "dealer",
+			"item_id": Enums.QuestTargetObjects.ALTAR,
 			"qty": 1
 		}],
 		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 999
-			}],
-			"experience": 500
+			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_7"]
-	},
-	"quest_7": {
-		"quest_id": "quest_7",
-		"title": "Buy Wood",
-		"description": "Visit Dealer and buy Wood",
-		"objectives": [{
-			"type": Enums.QuestTypes.BUY,
-			"item_id": Inventory.inventory_dictionary["wood"]["id"],
-			"qty": 3
-		}],
-		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 999
-			}],
-			"experience": 500
-		},
-		"prerequisites": [],
-		"next_quests": ["quest_8"]
-	},
-	"quest_8": {
-		"quest_id": "quest_8",
-		"title": "Serve Customers",
-		"description": "Sell goods to customers",
-		"objectives": [{
-			"type": Enums.QuestTypes.SELL,
-			"qty": 1
-		}],
-		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 9
-			}],
-			"experience": 500
-		},
-		"prerequisites": [],
-		"next_quests": ["quest_9"]
-	},
-	"quest_9": {
-		"quest_id": "quest_9",
-		"title": "Help King",
-		"description": "Sell goods to king",
-		"objectives": [{
-			"type": Enums.QuestTypes.SELL_TO_KING,
-			"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
-			"qty": 5
-		}],
-		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 9
-			}],
-			"experience": 500
-		},
-		"prerequisites": [],
-		"next_quests": ["quest_11"]
-	},
-	"quest_11": {
-		"quest_id": "quest_11",
-		"title": "Serve Customers",
-		"description": "Sell goods to customers",
-		"objectives": [{
-			"type": Enums.QuestTypes.SELL,
-			"qty": 1
-		}],
-		"rewards": {
-			"goods": [{
-				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 9
-			}],
-			"experience": 500
-		},
-		"prerequisites": [],
-		"next_quests": ["quest_12"]
+		"next_quests": ["quest_first_chapter_10"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: I found some prophecy"},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Library.tscn",
+				"node_name": "/root/Library/QuestNodes/quest_prophecy",
+				"action": Enums.QuestActions.SHOW,
+			},
+			{
+				"stage": "res://Stages/Levels/Library.tscn",
+				"node_name": "/root/Library/QuestNodes/quest_prophecy",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.HIDE,
+			}
+		],
 	},
 }
 
@@ -836,10 +742,10 @@ func process_quest_actions(actions_array, quest_phase):
 			continue  # Skip actions not related to the current stage
 		
 		# Determine if the action should be processed during the quest phase
-		if quest_phase == "start" and action == "show":
-			update_quest_node(node_name, "show")
-		elif quest_phase == "complete" and action == "hide":
-			update_quest_node(node_name, "hide")
+		if quest_phase == "start" and action == Enums.QuestActions.SHOW:
+			update_quest_node(node_name, Enums.QuestActions.SHOW)
+		elif quest_phase == "complete" and action == Enums.QuestActions.HIDE:
+			update_quest_node(node_name, Enums.QuestActions.HIDE)
 		# Add more conditions if needed
 
 func update_quest_node(node_name, action):
@@ -856,13 +762,13 @@ func update_quest_node(node_name, action):
 	var quest_node = current_stage.get_node(node_name)
 	print('->',quest_node)
 	if quest_node:
-		if action == "show":
+		if action == Enums.QuestActions.SHOW:
 			quest_node.visible = true
 			#enable_collision(quest_node, true)
-		elif action == "hide":
+		elif action == Enums.QuestActions.HIDE:
 			quest_node.visible = false
 			#enable_collision(quest_node, false)
-		elif action == "remove":
+		elif action == Enums.QuestActions.REMOVE:
 			quest_node.queue_free()
 		else:
 			print("Unknown action for quest node:", action)
