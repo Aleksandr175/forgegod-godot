@@ -198,19 +198,10 @@ z_index = 5
 collision_layer = 2
 script = ExtResource("1_ofpvf")
 
-[node name="AnimatedSpritePlayer222" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(0, -12)
-sprite_frames = SubResource("SpriteFrames_81gkq")
-animation = &"run"
-autoplay = "idle"
-frame = 2
-frame_progress = 0.708653
-
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_81gkq")
-animation = &"die"
+animation = &"run"
 autoplay = "idle"
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
@@ -481,7 +472,6 @@ layer = 2
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="animation_finished" from="AnimatedSpritePlayer222" to="." method="_on_animated_sprite_player_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSpritePlayer" to="." method="_on_animated_sprite_player_animation_finished"]
 [connection signal="animation_finished" from="WeaponSprite" to="." method="_on_weapon_sprite_animation_finished"]
 [connection signal="frame_changed" from="WeaponSprite" to="." method="_on_weapon_sprite_frame_changed"]
