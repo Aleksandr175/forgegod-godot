@@ -8,6 +8,10 @@ var item = null
 func die():
 	item = Inventory.inventory_dictionary[resourceDictionaryId]
 	Inventory.add_item(item.id, increase_qty)
+
+	# Update quest objective for collecting items
+	QuestManager.update_objective_progress(Enums.QuestTypes.COLLECT, str(item.id), increase_qty)
+
 	queue_free()
 
 func get_damage():

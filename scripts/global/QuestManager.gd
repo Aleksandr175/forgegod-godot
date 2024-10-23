@@ -369,18 +369,14 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.COLLECT,
-			"item_id": "iron",
-			"qty": 10
+			"item_id": Inventory.inventory_dictionary["iron"]["id"],
+			"qty": 5
 		}],
 		"rewards": {
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 20
-			#}],
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_first_chapter_4"],
+		"next_quests": ["quest_first_chapter_3-4"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: These caves are darker than I remember."},
 			{"character": "player", "text": "Me: I need to find iron ore and watch out for any obstacles."},
@@ -398,21 +394,12 @@ var quest_database = {
 		}],
 		"rewards": {
 			"recipes": [Inventory.inventory_dictionary["ironIngot"]["id"], Inventory.inventory_dictionary["swordIron"]["id"], Inventory.inventory_dictionary["spearIron"]["id"]],
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 20
-			#}],
 			"experience": 5
 		},
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_5"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Elder, I've collected the 10 units of iron ore you requested."},
-			{"character": "king", "text": "Elder: Excellent work! With this iron, we can begin crafting stronger weapons for our defenders."},
-			{"character": "king", "text": "Elder: You'll need to smelt the iron ore into iron ingots. Remember, raw ore isn't suitable for weapon-making."},
-			{"character": "player", "text": "Me: Understood. I'll use the forge to smelt the ore."},
-			{"character": "king", "text": "Elder: Here, take these as well—a new recipe for crafting an iron sword and spear. They will serve our villagers well."},
-			{"character": "player", "text": "Me: Thank you! I'll make good use of them."},
+			{"character": "player", "text": "Me: Ok, I should return to the Elder."},
 		],
 	},
 
@@ -430,7 +417,14 @@ var quest_database = {
 		},
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_6"],
-		"dialog_data": [],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Elder, I've collected the 10 units of iron ore you requested."},
+			{"character": "king", "text": "Elder: Excellent work! With this iron, we can begin crafting stronger weapons for our defenders."},
+			{"character": "king", "text": "Elder: You'll need to smelt the iron ore into iron ingots. Remember, raw ore isn't suitable for weapon-making."},
+			{"character": "player", "text": "Me: Understood. I'll use the forge to smelt the ore."},
+			{"character": "king", "text": "Elder: Here, take these as well—a new recipe for crafting an iron sword and spear. They will serve our villagers well."},
+			{"character": "player", "text": "Me: Thank you! I'll make good use of them."},
+		],
 	},
 
 
@@ -512,7 +506,7 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_10"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: I found some prophecy"},
+			{"character": "player", "text": "Me: So, I should find something unusual. What could it be?"},
 		],
 		"quest_actions": [
 			{
@@ -525,6 +519,66 @@ var quest_database = {
 				"node_name": "/root/Library/QuestNodes/quest_prophecy",  # Path to the quest node in the scene
 				"action": Enums.QuestActions.HIDE,
 			}
+		],
+	},
+
+	"quest_second_chapter_1": {
+		"quest_id": "quest_second_chapter_1",
+		"title": "Find Elder",
+		"description": "Returning to the Elder with the Prophecy",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_2"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Let's go back to Elder and tell him what I found."},
+		],
+	},
+	
+	"quest_second_chapter_2": {
+		"quest_id": "quest_second_chapter_2",
+		"title": "Go to the Caves Level 3",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": 'level-3',
+			"qty": 5
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_3"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: I found an altar in the library. It mentions that to seal the ancient evil, we need rare materials and legendary artifacts."},
+			{"character": "king", "text": "Elder: This is important information. Let's begin by searching for these materials. Please gather Emeraldite while I try to discover where to find the legendary artifacts."},
+			{"character": "king", "text": "Elder: As I know you can find it deeper in caves"},
+		],
+	},
+	
+	"quest_second_chapter_3": {
+		"quest_id": "quest_second_chapter_3",
+		"title": "Collect Emerald",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.COLLECT,
+			"item_id": Inventory.inventory_dictionary["emerald"]["id"],
+			"qty": 5
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_4"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Wow! It is much darker here"},
+			{"character": "player", "text": "Me: Let's try to find this Emerald"},
 		],
 	},
 }
@@ -546,7 +600,13 @@ func _initialize_ui():
 	load_quests()
 
 func start_quest(quest_id: String):
-	var quest_data = quest_database[quest_id]
+	var quest_data = null
+
+	# Check if the quest_id exists in the dictionary
+	if quest_database.has(quest_id):
+		quest_data = quest_database[quest_id]
+	else:
+		print("Quest ID not found: ", quest_id)
 	
 	if quest_data != null:
 		# Check if prerequisites are completed

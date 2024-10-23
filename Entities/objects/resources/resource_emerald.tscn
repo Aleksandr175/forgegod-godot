@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjqlxi0x27omm"]
+
+[ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_acj0n"]
+[ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="2_88mm3"]
+[ext_resource type="Texture2D" uid="uid://c2mgglbcfso8" path="res://assets/sprites/objects/resources/resource-emerald.png" id="3_yhmrp"]
+[ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="4_vjlrk"]
+[ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="5_mc1f4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8w8u6"]
+resource_local_to_scene = true
+shader = ExtResource("2_88mm3")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17xi6"]
+radius = 3.04138
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wib6g"]
+radius = 7.0
+
+[sub_resource type="Gradient" id="Gradient_fhhv1"]
+offsets = PackedFloat32Array(0, 0.741627)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s8xmt"]
+gradient = SubResource("Gradient_fhhv1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="ResourceEmerald" type="Node2D"]
+script = ExtResource("1_acj0n")
+resourceDictionaryId = "emerald"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8w8u6")
+position = Vector2(0, -5)
+texture = ExtResource("3_yhmrp")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_vjlrk")]
+MAX_HEALTH = 70.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_mc1f4")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -4.5)
+shape = SubResource("CircleShape2D_17xi6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11, -5)
+shape = SubResource("CircleShape2D_wib6g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11, -5)
+shape = SubResource("CircleShape2D_wib6g")
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -5)
+amount = 3
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+color = Color(1, 1, 1, 0.545098)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.359375, 0.359375)
+color = Color(1.73707e-06, 0.811373, 0.459654, 1)
+texture = SubResource("GradientTexture2D_s8xmt")
+texture_scale = 1.5
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

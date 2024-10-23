@@ -32,9 +32,19 @@ var inventory_dictionary: Dictionary = {
 		"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
 		"value": 2
 	},
+	
+	"emerald": {
+		"id": 5,
+		"name": "Copper",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/resource-emerald.png"),
+		"value": 2
+	},
+	
+	
 
 	"copperIngot": {
-		"id": 5,
+		"id": 15,
 		"name": "Copper Ingot",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-copper-ingot.png"),
@@ -42,7 +52,7 @@ var inventory_dictionary: Dictionary = {
 	},
 
 	"ironIngot": {
-		"id": 6,
+		"id": 16,
 		"name": "Iron Ingot",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-iron-ingot.png"),
@@ -50,7 +60,7 @@ var inventory_dictionary: Dictionary = {
 	},
 
 	"emeraldIngot": {
-		"id": 6,
+		"id": 17,
 		"name": "Emerald Ingot",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-emerald-ingot.png"),
