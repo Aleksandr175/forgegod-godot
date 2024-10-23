@@ -12,6 +12,8 @@ func die():
 	# Update quest objective for collecting items
 	QuestManager.update_objective_progress(Enums.QuestTypes.COLLECT, str(item.id), increase_qty)
 
+	GlobalSignals.resource_picked_up.emit(item.name, increase_qty)
+
 	queue_free()
 
 func get_damage():

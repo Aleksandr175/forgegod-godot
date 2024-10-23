@@ -12,5 +12,7 @@ func _on_body_entered(body):
 		# Update quest objective for collecting coins
 		QuestManager.update_objective_progress(Enums.QuestTypes.COLLECT, str(item.id), 1)
 
+		GlobalSignals.resource_picked_up.emit("Coin", 1)
+
 		animation_coin.play("pickup")
 		

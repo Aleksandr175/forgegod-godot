@@ -33,6 +33,7 @@ func _ready():
 	Inventory.set_player_reference(self)
 	GlobalSignals.inventory_opened.connect(open_inventory)
 	GlobalSignals.inventory_closed.connect(close_inventory)
+	GlobalSignals.resource_picked_up.connect(_on_resource_picked_up)
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("attack") and !attacking:
@@ -197,3 +198,20 @@ func _on_tree_entered():
 func _on_tree_exited():
 	GlobalSignals.player_entered_portal.disconnect(move_stop)
 	pass # Replace with function body.
+
+func _on_resource_picked_up(resource_name: String, qty: int):
+	# Load the PickupText scene
+	var PickupTextScene = preload("res://Stages/UI/PickupText.tscn")
+	
+	# Create an instance of the PickupText
+	var pickup_text = PickupTextScene.instantiate()
+
+	# Set the text
+	var text = "+%d %s" % [qty, resource_name]
+	pickup_text.set_text(text)  # Use the setter method
+
+	# Add it to the PickupNotifications node
+	get_node("PickupNotifications").add_child(pickup_text)
+	
+	# Position it above the player
+	#pickup_text.rect_position = Vector2(0, -50)  # Adjust as needed

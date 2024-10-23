@@ -8,6 +8,8 @@ signal inventory_closed
 
 signal recipes_unlocked
 
+signal resource_picked_up
+
 signal start_dialog(dialog)
 signal close_dialog
 
