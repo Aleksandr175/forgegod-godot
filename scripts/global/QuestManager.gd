@@ -183,10 +183,15 @@ var quest_database = {
 		"description": "Sell Wooden Axe to Villager",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
-			"item_id": null,
+			"customer_id": "customer1",
+			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
 			"qty": 1
 		}],
 		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 10
+			}],
 			"experience": 5
 		},
 		"next_quests": ["quest_tutorial_8"],
@@ -196,6 +201,18 @@ var quest_database = {
 			{"character": "player", "text": "Me: Who could that be?"},
 			{"character": "villager", "text": "Villager: Good day! I heard you're back to smithing. I need a new axe. Can I buy one from you?"},
 			{"character": "player", "text": "Me: Ok, I am coming!"},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_to_villager",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_to_villager",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
+			}
 		],
 	},
 	
@@ -585,6 +602,7 @@ func start_quest(quest_id: String):
 			objective.target_qty = objective_data["qty"] if objective_data.has("qty") else 0
 			objective.item_id = str(objective_data["item_id"]) if objective_data.has("item_id") else "0"
 			objective.type = objective_data.type
+			objective.customer_id = objective_data["customer_id"] if objective_data.has("customer_id") else "0"
 
 			new_quest.objectives.append(objective)
 		

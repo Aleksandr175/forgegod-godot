@@ -218,19 +218,19 @@ var shop_items: Array = [{
 	"id": inventory_dictionary["wood"]["id"],
 	"name": inventory_dictionary["wood"]["name"],
 	"texture": inventory_dictionary["wood"]["texture"],
-	"price": 10,
+	"price": inventory_dictionary["wood"]["value"],
 	"type": "Resource"
 }, {
 	"id": inventory_dictionary["iron"]["id"],
 	"name": inventory_dictionary["iron"]["name"],
 	"texture": inventory_dictionary["iron"]["texture"],
-	"price": 10,
+	"price": inventory_dictionary["iron"]["value"],
 	"type": "Resource"
 }, {
 	"id": inventory_dictionary["copper"]["id"],
 	"name": inventory_dictionary["copper"]["name"],
 	"texture": inventory_dictionary["copper"]["texture"],
-	"price": 15,
+	"price": inventory_dictionary["copper"]["value"],
 	"type": "Resource",
 }]
 

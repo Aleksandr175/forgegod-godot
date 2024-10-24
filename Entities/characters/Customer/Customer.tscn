@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddjublycqau75"]
+
+[ext_resource type="Script" path="res://Entities/characters/Customer/Customer.gd" id="1_qir3w"]
+[ext_resource type="Texture2D" uid="uid://bjtkhcqcaqubh" path="res://assets/sprites/characters/fHero_.png" id="2_ny5g1"]
+[ext_resource type="PackedScene" uid="uid://0yw8v8u4pwac" path="res://UI/VillagerUI/Villager_UI.tscn" id="3_nssjx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdxpf"]
+atlas = ExtResource("2_ny5g1")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0r68"]
+atlas = ExtResource("2_ny5g1")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq54u"]
+atlas = ExtResource("2_ny5g1")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef3uq"]
+atlas = ExtResource("2_ny5g1")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rphqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdxpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0r68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq54u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef3uq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d35jn"]
+radius = 15.0333
+
+[node name="Customer" type="Node2D"]
+script = ExtResource("1_qir3w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_rphqc")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_d35jn")
+
+[node name="VillagerUi" parent="." instance=ExtResource("3_nssjx")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -38.0
+offset_top = -75.0
+offset_right = -38.0
+offset_bottom = -75.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.25, 0.25)
+
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_exited" from="Area2D2" to="." method="_on_area_2d_2_area_exited"]
+[connection signal="button_pressed" from="VillagerUi" to="." method="_on_villager_ui_button_pressed"]

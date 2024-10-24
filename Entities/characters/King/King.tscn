@@ -38,16 +38,6 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"run",
-"speed": 10.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"spawn",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d35jn"]
@@ -61,8 +51,6 @@ position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_h0nfp")
 animation = &"idle"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.734
 
 [node name="Area2D2" type="Area2D" parent="."]
 
