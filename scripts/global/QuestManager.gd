@@ -23,21 +23,16 @@ var quest_database = {
 			"description": "Collect 5 coins",
 			"type": Enums.QuestTypes.COLLECT,
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			"qty": 3
+			"qty": 5
 		}],
 		"rewards": {
 			#"recipes": [Inventory.inventory_dictionary["swordIron"]["id"]],
 			"goods": [{
 				"item_id": Inventory.inventory_dictionary["coin"]["id"],
-				"qty": 50
-			},
-			{
-				"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
 				"qty": 10
 			}],
 			"experience": 10
 		},
-		"prerequisites": [],
 		"next_quests": ["quest_tutorial_1"],
 		"completion_actions": [{
 			"type": "open_portal",
@@ -77,7 +72,6 @@ var quest_database = {
 			}],
 			"experience": 5
 		},
-		"prerequisites": [],
 		"next_quests": ["quest_tutorial_2"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Good! The portal is open!"},
@@ -100,7 +94,6 @@ var quest_database = {
 			}],
 			"experience": 5
 		},
-		"prerequisites": [],
 		"next_quests": ["quest_tutorial_3"],
 		"dialog_data": [
 			{"character": "villager", "text": "Villager: Greetings! It's been a while since we've seen you. Your forge is up the stairs and then left all the way at the end."},
@@ -117,13 +110,8 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 10
-			#}],
 			"experience": 5
 		},
-		"prerequisites": [],
 		"next_quests": ["quest_tutorial_4"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Hmm, seems like I'm out of wood. Without it, I can't start working."},
@@ -140,13 +128,8 @@ var quest_database = {
 			"qty": 5
 		}],
 		"rewards": {
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 10
-			#}],
 			"experience": 5
 		},
-		"prerequisites": [],
 		"next_quests": ["quest_tutorial_5"],
 		"dialog_data": [
 			{"character": "dealer", "text": "Merchant: Welcome to my shop! What can I get for you today?"},
@@ -166,10 +149,6 @@ var quest_database = {
 		}],
 		"rewards": {
 			"recipes": [Inventory.inventory_dictionary["axeWooden"]["id"]],
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 10
-			#}],
 			"experience": 5
 		},
 		"prerequisites": [],
@@ -189,10 +168,6 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 10
-			#}],
 			"experience": 5
 		},
 		"prerequisites": [],
@@ -212,13 +187,8 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 10
-			#}],
 			"experience": 5
 		},
-		"prerequisites": [],
 		"next_quests": ["quest_tutorial_8"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: My first axe! Looks pretty good. Maybe I can take a break now."},
@@ -239,13 +209,8 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 10
-			#}],
 			"experience": 5
 		},
-		"prerequisites": [],
 		"next_quests": ["quest_tutorial_9"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Oh right, the elder wanted to see me. I wonder what it's about?"},
@@ -263,13 +228,8 @@ var quest_database = {
 			"qty": 3
 		}],
 		"rewards": {
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 20
-			#}],
 			"experience": 5
 		},
-		"prerequisites": [],
 		"next_quests": ["quest_tutorial_10"],
 		"dialog_data": [
 			{"character": "king", "text": "Elder: Welcome back to the village! It's wonderful to see you working at your forge again."},
@@ -609,16 +569,9 @@ func start_quest(quest_id: String):
 		print("Quest ID not found: ", quest_id)
 	
 	if quest_data != null:
-		# Check if prerequisites are completed
-		#for prereq in quest_data["prerequisites"]:
-		#	if !completed_quests.has(prereq):
-		#		print("Cannot start quest: ", quest_id, ". Prerequisite quest not completed: ", prereq)
-		#		return
-		
 		if quest_data.has("dialog_data"):
 			GlobalSignals.start_dialog.emit(quest_data["dialog_data"])
 		
-		# If all prerequisites are completed, start the quest
 		var new_quest = Quest.new()
 		new_quest.title = quest_data["title"]
 		new_quest.description = quest_data["description"]

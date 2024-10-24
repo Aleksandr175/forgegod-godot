@@ -504,6 +504,12 @@ func find_dictionary_item_by_name(item_name: String):
 		if Inventory.inventory_dictionary[inventory_item]["name"] == item_name:
 			return Inventory.inventory_dictionary[inventory_item].duplicate(true)  # Return a deep copy of the item
 	return null
+
+func find_recipe_by_id(itemId: int):
+	for inventory_item in Inventory.recipes:
+		if inventory_item["id"] == itemId:
+			return inventory_item.duplicate(true)  # Return a deep copy of the item
+	return null
 	
 func find_item_in_inventory(item):
 	for inventory_item in Inventory.inventory_items:
@@ -601,6 +607,10 @@ func unlock_recipe(recipe_id):
 		# Save the updated unlocked recipes
 		save_inventory()
 		GameState.save_game()
+		
+		var recipe = find_recipe_by_id(recipe_id)
+		GlobalSignals.resource_picked_up.emit('Recipe ' + recipe.name, 1)
+
 		return true
 	return false
 
