@@ -9,6 +9,33 @@ var reward = null
 @export var customer_id: String = ""
 @export var sprite_frames: SpriteFrames
 
+var customer_wishes = {
+	"customer_1": {
+		"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 10
+		}
+	},
+	"customer_2": {
+		"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 10
+		}
+	},
+	"customer_3": {
+		"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 10
+		}
+	},
+}
+
 func _ready():
 	panel.visible = false
 	
@@ -20,19 +47,30 @@ func _ready():
 	sprite.play("idle")
 
 func generate_wish():
-	wishFromQuest = null;
+	wishFromQuest = null
+	reward = null
 	
-	for quest in QuestManager.active_quests:
-		for objective in quest.objectives:
-			print(objective.type, ' ', objective.customer_id, ' ', customer_id)
-			if objective.type == Enums.QuestTypes.SELL and objective.customer_id == customer_id:
-				wishFromQuest = Inventory.find_dictionary_item_by_id(int(objective["item_id"]))
-				wishFromQuest["qty"] = objective.target_qty
+	if customer_id != "" and customer_wishes.has(customer_id):
+			
+		for quest in QuestManager.active_quests:
+			for objective in quest.objectives:
+				print(objective.type, objective.customer_id)
+				if objective.type == Enums.QuestTypes.SELL and objective.customer_id == customer_id:
+					var wish_data = customer_wishes[customer_id]
+					# Fetch the wished item data
+					wishFromQuest = Inventory.find_dictionary_item_by_id(wish_data["item_id"])
+					wishFromQuest["qty"] = wish_data["qty"]
 
-				reward = Inventory.find_dictionary_item_by_id(quest["rewards"]["goods"][0]["item_id"])
-				reward["qty"] = quest["rewards"]["goods"][0]["qty"]
-				break
+					# Fetch the reward data
+					var reward_data = wish_data["reward"]
+					reward = Inventory.find_dictionary_item_by_id(reward_data["item_id"])
+					reward["qty"] = reward_data["qty"]
 
+					update_wish_panel(wishFromQuest, reward)
+		
+	else:
+		print("No wish found for customer_id:", customer_id)
+	
 	if wishFromQuest:
 		update_wish_panel(wishFromQuest, reward)
 
@@ -57,11 +95,11 @@ func update_wish_panel(wishData, rewardData) -> void:
 
 func _on_villager_ui_button_pressed():
 	if wishFromQuest and Inventory.has_enough_resources([wishFromQuest]):
-		print('sell to customer')
+		print('sell to customer ', customer_id)
 		Inventory.add_item(reward.id, reward.qty)
 		Inventory.remove_items([wishFromQuest])
 		QuestManager.update_objective_progress(Enums.QuestTypes.SELL, str(wishFromQuest.id), wishFromQuest.qty)
-		
+
 		wishFromQuest = null
 		close_wish_panel()
 

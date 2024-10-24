@@ -210,8 +210,15 @@ func _on_resource_picked_up(resource_name: String, qty: int):
 	var text = "+%d %s" % [qty, resource_name]
 	pickup_text.set_text(text)  # Use the setter method
 
-	# Add it to the PickupNotifications node
-	get_node("PickupNotifications").add_child(pickup_text)
+	var pickup_notifications = get_node("PickupNotifications")
+	pickup_notifications.add_child(pickup_text)
+	
+	print('pickup_notifications.get_child_count()', pickup_notifications.get_child_count())
+	# Calculate offset based on the number of existing notifications
+	var num_notifications = pickup_notifications.get_child_count()
+	var y_offset = -150 - (20 * (num_notifications - 1))
+	print(y_offset)
+	pickup_text.position = Vector2(0, y_offset)
 	
 	# Position it above the player
 	#pickup_text.rect_position = Vector2(0, -50)  # Adjust as needed

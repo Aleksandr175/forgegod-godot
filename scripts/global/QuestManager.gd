@@ -183,9 +183,7 @@ var quest_database = {
 		"description": "Sell Wooden Axe to Villager",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
-			"customer_id": "customer1",
-			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
-			"qty": 1
+			"customer_id": "customer_1",
 		}],
 		"rewards": {
 			"goods": [{
@@ -347,13 +345,13 @@ var quest_database = {
 		"objectives": [{
 			"type": Enums.QuestTypes.COLLECT,
 			"item_id": Inventory.inventory_dictionary["iron"]["id"],
-			"qty": 5
+			"qty": 10
 		}],
 		"rewards": {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_first_chapter_3-4"],
+		"next_quests": ["quest_first_chapter_4"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: These caves are darker than I remember."},
 			{"character": "player", "text": "Me: I need to find iron ore and watch out for any obstacles."},
@@ -407,21 +405,66 @@ var quest_database = {
 
 	"quest_first_chapter_6": {
 		"quest_id": "quest_first_chapter_6",
-		"title": "Serve clients",
+		"title": "Serve First Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
-			"item_id": null,
-			"qty": 3
+			"customer_id": "customer_2",
 		}],
 		"rewards": {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_first_chapter_7"],
+		"next_quests": ["quest_first_chapter_6-2"],
 		"dialog_data": [
 			{"character": "villager", "text": "Villager: Hello! I heard you're crafting weapons again. Could you make me something?"},
 			{"character": "player", "text": "Me: Yes, sure!"},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_2",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_2",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
+			}
+		],
+	},
+	
+	"quest_first_chapter_6-2": {
+		"quest_id": "quest_first_chapter_6-2",
+		"title": "Serve Second Villager",
+		"description": "Sell Wooden Axe to Villager",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": "customer_3",
+		}],
+		"rewards": {
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["coin"]["id"],
+				"qty": 10
+			}],
+			"experience": 5
+		},
+		"next_quests": ["quest_first_chapter_7"],
+		"dialog_data": [
+			{"character": "villager", "text": "Villager: Oh! I need wooden axe too, please!"},
+			{"character": "player", "text": "Me: Ok, one moment"},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_2",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_2",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
+			}
 		],
 	},
 	
@@ -440,7 +483,9 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_8"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: I need to find the Elder"},
+			{"character": "villager", "text": "Villager: Thanks a lot!"},
+			{"character": "player", "text": "Me: You are welcome."},
+			{"character": "player", "text": "Me: Ok, I need to find the Elder."},
 		],
 	},
 
