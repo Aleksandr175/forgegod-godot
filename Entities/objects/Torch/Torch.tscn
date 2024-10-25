@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdwio8e7l8x4s"]
+[gd_scene load_steps=12 format=3 uid="uid://cdwio8e7l8x4s"]
 
 [ext_resource type="Texture2D" uid="uid://w2vqgp3ondnr" path="res://assets/sprites/objects/torch/torch.png" id="1_1t4an"]
 
@@ -48,6 +48,67 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Animation" id="Animation_p4rjt"]
+resource_name = "torch"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [64, 56, 64]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [64, 56, 64]
+}
+
+[sub_resource type="Animation" id="Animation_3fw4o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [64]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [64]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmfnv"]
+_data = {
+"RESET": SubResource("Animation_3fw4o"),
+"torch": SubResource("Animation_p4rjt")
+}
+
 [node name="Torch" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -63,3 +124,9 @@ position = Vector2(0, -9)
 color = Color(1, 0.545098, 0.137255, 1)
 texture = SubResource("GradientTexture2D_bpx5e")
 texture_scale = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gmfnv")
+}
+autoplay = "torch"
