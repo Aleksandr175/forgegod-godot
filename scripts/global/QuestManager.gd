@@ -570,7 +570,7 @@ var quest_database = {
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
 			"item_id": 'level-3',
-			"qty": 5
+			"qty": 1
 		}],
 		"rewards": {
 			"experience": 5

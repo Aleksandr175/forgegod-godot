@@ -35,10 +35,10 @@ var inventory_dictionary: Dictionary = {
 	
 	"emerald": {
 		"id": 5,
-		"name": "Copper",
+		"name": "Emerald",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-emerald.png"),
-		"value": 2
+		"value": 5
 	},
 	
 	
