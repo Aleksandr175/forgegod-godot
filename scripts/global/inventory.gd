@@ -153,6 +153,15 @@ var inventory_dictionary: Dictionary = {
 	},
 
 
+	"tearOfTheHeavens": {
+		"id": 1001,
+		"name": "Tear Of The Heavens",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/staffEmerald.png"),
+		"value": 3000,
+	},
+
+
 
 	#"swordCopper": {
 	#	"id": 102,

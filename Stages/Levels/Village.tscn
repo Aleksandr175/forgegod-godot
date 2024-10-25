@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dpsqn4et5qmh2"]
+[gd_scene load_steps=23 format=3 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="18_o8siw"]
 [ext_resource type="TileSet" uid="uid://b2l4domhq4vs6" path="res://tilesets/decorations.tres" id="19_d3ikv"]
 [ext_resource type="PackedScene" uid="uid://b8mxsexwwhiy7" path="res://Entities/Spawner/Spawner.tscn" id="20_45djf"]
+[ext_resource type="PackedScene" uid="uid://ml70jcqibis3" path="res://Entities/objects/resources/resource_tear_heavens.tscn" id="21_cyatc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru3oh"]
 size = Vector2(20, 247)
@@ -87,9 +88,6 @@ position = Vector2(23, -95)
 [node name="ResourceWoodBig7" parent="." instance=ExtResource("14_ksj4c")]
 position = Vector2(-137, -95)
 
-[node name="ResourceWoodBig5" parent="." instance=ExtResource("14_ksj4c")]
-position = Vector2(346, -159)
-
 [node name="ResourceWoodBig6" parent="." instance=ExtResource("14_ksj4c")]
 position = Vector2(295, -47)
 
@@ -140,5 +138,13 @@ position = Vector2(-224, 0)
 
 [node name="Spawner" parent="." instance=ExtResource("20_45djf")]
 position = Vector2(13, -96)
+
+[node name="QuestNodes" type="Node2D" parent="."]
+
+[node name="quest_tear_heavens" type="Node2D" parent="QuestNodes"]
+visible = false
+
+[node name="ResourceEmerald" parent="QuestNodes/quest_tear_heavens" instance=ExtResource("21_cyatc")]
+position = Vector2(338, -163)
 
 [connection signal="portal_entered" from="PortalToCave" to="." method="_on_portal_to_cave_portal_entered"]

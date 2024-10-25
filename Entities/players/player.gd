@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 130.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 const ATTACK_DURATION = 0.5 # Duration of the attack animation in seconds
 const ROTATION_INCREMENT = deg_to_rad(45) # 45 degrees in radians

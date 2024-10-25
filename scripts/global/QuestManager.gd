@@ -603,6 +603,64 @@ var quest_database = {
 			{"character": "player", "text": "Me: Let's try to find this Emerald"},
 		],
 	},
+	
+	"quest_second_chapter_4": {
+		"quest_id": "quest_second_chapter_4",
+		"title": "Return to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_5"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Ok! I collected necessary Emerald."},
+			{"character": "player", "text": "Me: I should go back to the Elder"},
+		],
+	},
+	
+	"quest_second_chapter_5": {
+		"quest_id": "quest_second_chapter_5",
+		"title": "Collect Tear of the Heavens",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.COLLECT,
+			"item_id": Inventory.inventory_dictionary["tearOfTheHeavens"]["id"],
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_5"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: Excellent work with the Emeraldite. I believe I’ve discovered something about the first artifact you're seeking."},
+			{"character": "player", "text": "Me: That’s wonderful news! Where can I find it?"},
+			{"character": "king", "text": "Elder: This artifact is called the Tear of the Heavens. According to legend, it’s a powerful crystal that fell from the sky, carrying extraordinary strength"},
+			{"character": "king", "text": "Elder: As far as I can tell, it’s located right here in our village."},
+			{"character": "player", "text": "Me: In the village? But where exactly?"},
+			{"character": "king", "text": "Elder: There’s a path behind the shop that leads up the hill. The writings say to follow it to reach the Tear’s resting place."},
+			{"character": "player", "text": "Me: Got it. Thank you for the guidance, Elder. I’ll head up the path and find the Tear of the Heavens."},
+			{"character": "king", "text": "Elder: Take care. The path may not be easy, and remember—this artifact holds ancient magic. Guard it well."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_tear_heavens",
+				"action": Enums.QuestActions.SHOW,
+			},
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_tear_heavens",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.HIDE,
+			}
+		],
+	},
 }
 
 func _ready():
