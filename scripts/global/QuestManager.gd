@@ -637,7 +637,7 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_second_chapter_5"],
+		"next_quests": ["quest_second_chapter_6"],
 		"dialog_data": [
 			{"character": "king", "text": "Elder: Excellent work with the Emeraldite. I believe I’ve discovered something about the first artifact you're seeking."},
 			{"character": "player", "text": "Me: That’s wonderful news! Where can I find it?"},
@@ -659,6 +659,25 @@ var quest_database = {
 				"node_name": "/root/Village/QuestNodes/quest_tear_heavens",  # Path to the quest node in the scene
 				"action": Enums.QuestActions.HIDE,
 			}
+		],
+	},
+	
+	"quest_second_chapter_6": {
+		"quest_id": "quest_second_chapter_6",
+		"title": "Return to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_7"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Oh! Let's go back to the Elder."},
 		],
 	},
 }

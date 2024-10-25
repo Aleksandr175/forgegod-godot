@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var resourceDictionaryId: String
-var increase_qty = 3
+@export var increase_qty = 3
 var item = null
 @onready var sprite_2d = $Sprite2D
 
