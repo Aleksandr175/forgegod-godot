@@ -220,7 +220,7 @@ var quest_database = {
 		"description": "The Village Elder waits you.",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": "king",
+			"item_id": Enums.QuestTargetObjects.KING,
 			"qty": 1
 		}],
 		"rewards": {
@@ -364,7 +364,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": "king",
+			"item_id": Enums.QuestTargetObjects.KING,
 			"qty": 1
 		}],
 		"rewards": {

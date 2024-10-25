@@ -47,6 +47,7 @@ direction = -1
 customer_id = "customer_1"
 
 [node name="quest_sell_2" type="Node2D" parent="QuestNodes"]
+visible = false
 
 [node name="Customer" parent="QuestNodes/quest_sell_2" instance=ExtResource("5_fwco5")]
 position = Vector2(30, 23)

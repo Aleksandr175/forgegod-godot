@@ -71,7 +71,7 @@ func close_wish_panel():
 
 func _on_area_2d_2_area_entered(area):
 	if area.get_parent() is Player:
-		QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, "king", 1)
+		QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, str(Enums.QuestTargetObjects.KING), 1)
 		generate_wish()
 		
 		var panelButton = panel.find_child('Button')
