@@ -35,7 +35,7 @@ layer_1/name = "objects"
 layer_1/tile_data = PackedInt32Array(-65535, 983041, 9, 1, 983041, 10, 2, 1048577, 10, 3, 1048577, 10, 4, 1048577, 10, -327677, 589826, 0, -262141, 589826, 1, -196605, 589826, 2, -131069, 589826, 3, -327676, 655362, 0, -262140, 655362, 1, -196604, 655362, 2, -131068, 655362, 3, 7, 524289, 1, 65543, 524289, 2, 8, 589825, 1, 65544, 589825, 2, 9, 655361, 1, 65545, 655361, 2, 65531, 524289, 1, 131067, 524289, 2, 65532, 589825, 1, 131068, 589825, 2, 65533, 655361, 1, 131069, 655361, 2, -262137, 983041, 5, -196601, 983041, 6, -131065, 983041, 7, -262136, 1048577, 5, -196600, 1048577, 6, -131064, 1048577, 7, -262135, 1114113, 5, -196599, 1114113, 6, -131063, 1114113, 7, -131067, 1114113, 8, -65531, 1114113, 9, 5, 1114113, 10, -131071, 983041, 8, -65534, 1048577, 9, -65533, 1048577, 9, -65532, 1048577, 9, -2, 65537, 6, 65534, 65537, 6, 131070, 65537, 6, -1, 131073, 6, 65535, 131073, 6, 131071, 131073, 6, -65536, 196609, 6, 0, 196609, 6, 65536, 196609, 6, -65538, 65537, 5, -65537, 131073, 5, -131072, 196609, 5, -655356, 983041, 5, -589820, 983041, 6, -524284, 983041, 7, -655355, 1048577, 5, -589819, 1048577, 6, -524283, 1048577, 7, -655354, 1114113, 5, -589818, 1114113, 6, -524282, 1114113, 7, -655360, 983041, 5, -589824, 983041, 6, -524288, 983041, 7, -655359, 1048577, 5, -589823, 1048577, 6, -524287, 1048577, 7, -655358, 1114113, 5, -589822, 1114113, 6, -524286, 1114113, 7, -589828, 983041, 5, -524292, 983041, 6, -458756, 983041, 7, -589827, 1048577, 5, -524291, 1048577, 6, -458755, 1048577, 7, -589826, 1114113, 5, -524290, 1114113, 6, -458754, 1114113, 7, -131077, 786433, 6, -65541, 786433, 7, -131076, 851969, 6, -65540, 851969, 7, -131075, 917505, 6, -65539, 917505, 7, -458747, 65536, 1, -393211, 65536, 2, 196606, 65537, 7, 196607, 131073, 7, 131072, 196609, 7, -524293, 524289, 3, -458757, 524289, 4, -524289, 720897, 3, -458753, 720897, 4, -196602, 720897, 3, -131066, 720897, 4)
 
 [node name="PlayerHouse" parent="." instance=ExtResource("3_vdqw3")]
-position = Vector2(-5, 23)
+position = Vector2(39, 37)
 
 [node name="ExitArea2D" type="Area2D" parent="."]
 
@@ -61,10 +61,10 @@ blend_mode = 1
 [node name="quest_prophecy" type="Node2D" parent="QuestNodes"]
 visible = false
 
-[node name="Area2D" type="Area2D" parent="QuestNodes/quest_prophecy"]
+[node name="AltarArea2D" type="Area2D" parent="QuestNodes/quest_prophecy"]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestNodes/quest_prophecy/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestNodes/quest_prophecy/AltarArea2D"]
 position = Vector2(88, -94)
 shape = SubResource("CircleShape2D_e8yuu")
 
@@ -77,4 +77,4 @@ texture = SubResource("GradientTexture2D_w5yyj")
 texture_scale = 1.5
 
 [connection signal="area_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_area_entered"]
-[connection signal="area_entered" from="QuestNodes/quest_prophecy/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="QuestNodes/quest_prophecy/AltarArea2D" to="." method="_on_altar_area_2d_area_entered"]

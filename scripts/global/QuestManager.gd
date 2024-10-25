@@ -62,7 +62,7 @@ var quest_database = {
 		"description": "Enter the portal and go to the Village",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": "village",
+			"item_id": Enums.QuestTargetObjects.VILLAGE,
 			"qty": 1
 		}],
 		"rewards": {
@@ -84,7 +84,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": "house",
+			"item_id": Enums.QuestTargetObjects.HOUSE,
 			"qty": 1
 		}],
 		"rewards": {
@@ -106,7 +106,7 @@ var quest_database = {
 		"description": "Find Merchant.",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": "dealer",
+			"item_id": Enums.QuestTargetObjects.DEALER,
 			"qty": 1
 		}],
 		"rewards": {
@@ -144,7 +144,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": "house",
+			"item_id": Enums.QuestTargetObjects.HOUSE,
 			"qty": 1
 		}],
 		"rewards": {
@@ -526,7 +526,7 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [],
-		"next_quests": ["quest_first_chapter_10"],
+		"next_quests": ["quest_second_chapter_1"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: So, I should find something unusual. What could it be?"},
 		],
@@ -710,16 +710,17 @@ func complete_quest(quest: Quest):
 func update_quest():
 	update_quest_ui.emit(active_quests)
 
-func update_objective_progress(type: int, item_id: String, qty: int):
+func update_objective_progress(type: int, item_id, qty: int):
 	print('type ', type, 'item_id ', item_id, 'qty ', qty)
 	for quest in active_quests:
 		for objective in quest.objectives:
 			var target_item_id = str(objective.item_id);
+			var item_id_str = str(item_id)
 			
 			if type == Enums.QuestTypes.COLLECT and objective.type == Enums.QuestTypes.COLLECT and int(target_item_id) == int(item_id):
 				do_progress(objective, qty, quest)
 
-			if type == Enums.QuestTypes.VISIT and objective.type == Enums.QuestTypes.VISIT and target_item_id == item_id:
+			if type == Enums.QuestTypes.VISIT and objective.type == Enums.QuestTypes.VISIT and target_item_id == item_id_str:
 				do_progress(objective, qty, quest)
 
 			if type == Enums.QuestTypes.CRAFT and objective.type == Enums.QuestTypes.CRAFT and int(target_item_id) == int(item_id):
@@ -732,7 +733,6 @@ func update_objective_progress(type: int, item_id: String, qty: int):
 				do_progress(objective, qty, quest)
 
 			if type == Enums.QuestTypes.SELL_TO_KING and objective.type == Enums.QuestTypes.SELL_TO_KING:
-				print('ffffffff', objective, qty, quest)
 				do_progress(objective, qty, quest)
 
 func do_progress(objective, qty, quest):

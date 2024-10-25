@@ -28,7 +28,6 @@ func clear_grid_container():
 		var child = shop_slots_container.get_child(0)
 		shop_slots_container.remove_child(child)
 		child.queue_free()
-		#print('clear_grid_container shop slots', shop_slots_container.get_child_count())
 
 # Callback function that handles we buy shop item
 func _on_shop_item_bought(item):
@@ -40,8 +39,7 @@ func _on_shop_item_bought(item):
 			"id": Inventory.inventory_dictionary["coin"]["id"],
 			"qty": item["price"],
 		}
-		#print(coins_item)
 		
 		Inventory.add_item(item["id"], 1)
 		Inventory.remove_items([coins_item])
-		QuestManager.update_objective_progress(Enums.QuestTypes.BUY, str(item["id"]), 1)
+		QuestManager.update_objective_progress(Enums.QuestTypes.BUY, item["id"], 1)

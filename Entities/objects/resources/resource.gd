@@ -10,7 +10,7 @@ func die():
 	Inventory.add_item(item.id, increase_qty)
 
 	# Update quest objective for collecting items
-	QuestManager.update_objective_progress(Enums.QuestTypes.COLLECT, str(item.id), increase_qty)
+	QuestManager.update_objective_progress(Enums.QuestTypes.COLLECT, item.id, increase_qty)
 
 	GlobalSignals.resource_picked_up.emit(item.name, increase_qty)
 

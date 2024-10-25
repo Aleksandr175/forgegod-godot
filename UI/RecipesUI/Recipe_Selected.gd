@@ -67,7 +67,7 @@ func order(recipe):
 		# Add the new item to the inventory
 		Inventory.add_item(recipe.id, int(recipe.qty))
 
-		QuestManager.update_objective_progress(Enums.QuestTypes.CRAFT, str(recipe.id), int(recipe.qty))
+		QuestManager.update_objective_progress(Enums.QuestTypes.CRAFT, recipe.id, int(recipe.qty))
 		set_craft_button_available(recipe.requirements)
 	else:
 		print("Not enough resources to create:", recipe.name)

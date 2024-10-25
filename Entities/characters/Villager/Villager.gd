@@ -111,7 +111,7 @@ func _on_villager_ui_button_pressed():
 	if wish and Inventory.has_enough_resources([wish]):
 		Inventory.add_item(reward.id, reward.qty)
 		Inventory.remove_items([wish])
-		QuestManager.update_objective_progress(Enums.QuestTypes.SELL, str(wish.id), 1)
+		QuestManager.update_objective_progress(Enums.QuestTypes.SELL, wish.id, 1)
 		
 		wish = null
 		close_wish_panel()
