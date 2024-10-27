@@ -2,6 +2,7 @@ extends Button
 
 # Exports for setting up the button
 @export var level_name: String = ""
+@export var level_label: String = ""
 var level_info: Dictionary
 var resource_icons: Array[String] = []
 
@@ -12,7 +13,7 @@ var resource_icons: Array[String] = []
 
 func _ready():
 	# Set the level name label
-	level_name_label.text = level_name.capitalize()
+	level_name_label.text = level_label.capitalize()
 
 	# Add resource icons
 	#add_resource_icons()
@@ -37,6 +38,7 @@ func _ready():
 #		icon_container.add_child(icon)
 
 func update_lock_status():
+	print('level_name', level_name)
 	if level_name and GameState.levels[level_name]["unlocked"]:
 		disabled = false
 #		lock_icon.visible = false

@@ -20,7 +20,9 @@ func populate_level_buttons():
 		var level_info = GameState.levels[level_name]
 		var level_button = LevelButtonScene.instantiate()
 
+		print('level_info.label', level_info.label)
 		# Set properties
+		level_button.level_label = level_info.label
 		level_button.level_name = level_name
 		level_button.level_info = level_info
 		#level_button.resource_icons = get_resource_icons_for_level(level_name)

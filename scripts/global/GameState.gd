@@ -15,10 +15,11 @@ var is_loaded = false
 
 var levels = {
 	#"village": {"unlocked": true, "completed": false},
-	"level-1": {"unlocked": true, "completed": false},
-	"level-2": {"unlocked": false, "completed": false},
-	"level-3": {"unlocked": false, "completed": false},
-	"level-4": {"unlocked": false, "completed": false},
+	"level-1": {"unlocked": true, "completed": false, "label": "Forest"},
+	"level-2": {"unlocked": false, "completed": false, "label": "Iron Cave"},
+	"level-3": {"unlocked": false, "completed": false, "label": "Emerald Cave"},
+	# TODO rename
+	"level-4": {"unlocked": false, "completed": false, "label": "Purple Cave"},
 	# Add more levels as needed
 }
 
