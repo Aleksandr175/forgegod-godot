@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cviakntj1q8fk"]
+[gd_scene load_steps=13 format=3 uid="uid://cviakntj1q8fk"]
 
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="1_1utdn"]
 [ext_resource type="Script" path="res://Stages/Levels/level-4.gd" id="1_b7h8b"]
@@ -7,12 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://ca4e1jm0gkcs2" path="res://Entities/objects/Spikes/Spikes.tscn" id="3_50lco"]
 [ext_resource type="TileSet" uid="uid://b2l4domhq4vs6" path="res://tilesets/decorations.tres" id="3_bbsfp"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="4_j1m0x"]
-[ext_resource type="PackedScene" uid="uid://c6c4g11sipqif" path="res://Entities/characters/villager1.tscn" id="6_iix78"]
-[ext_resource type="PackedScene" uid="uid://cw6jy6mcv68bh" path="res://Entities/objects/resources/resource_iron.tscn" id="7_i88jq"]
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://Entities/objects/Coin/coin.tscn" id="8_82g22"]
 [ext_resource type="PackedScene" uid="uid://bhvmtffufxoc2" path="res://Entities/objects/Checkpoint/Checkpoint.tscn" id="9_o00v4"]
 [ext_resource type="PackedScene" uid="uid://cdwio8e7l8x4s" path="res://Entities/objects/Torch/Torch.tscn" id="11_wvsc2"]
 [ext_resource type="PackedScene" uid="uid://cjrth4mg58yfy" path="res://Entities/objects/Cave/Cave_Exit.tscn" id="12_jx51t"]
+[ext_resource type="PackedScene" uid="uid://cmikmpd064muo" path="res://Entities/objects/resources/resource_twilightite.tscn" id="14_hgjnt"]
 
 [node name="Level-4" type="Node2D"]
 script = ExtResource("1_b7h8b")
@@ -56,34 +55,6 @@ position = Vector2(152, 224)
 
 [node name="Spikes3" parent="." instance=ExtResource("3_50lco")]
 position = Vector2(72, 224)
-
-[node name="Villager1" parent="." instance=ExtResource("6_iix78")]
-position = Vector2(359, 144)
-direction = -1
-
-[node name="Villager2" parent="." instance=ExtResource("6_iix78")]
-position = Vector2(391, 144)
-
-[node name="ResourceIron" parent="." instance=ExtResource("7_i88jq")]
-position = Vector2(376, 144)
-
-[node name="ResourceIron2" parent="." instance=ExtResource("7_i88jq")]
-position = Vector2(432, 32)
-
-[node name="ResourceIron3" parent="." instance=ExtResource("7_i88jq")]
-position = Vector2(390, 32)
-
-[node name="ResourceIron4" parent="." instance=ExtResource("7_i88jq")]
-position = Vector2(320, 63)
-
-[node name="ResourceIron5" parent="." instance=ExtResource("7_i88jq")]
-position = Vector2(108, 224)
-
-[node name="ResourceIron6" parent="." instance=ExtResource("7_i88jq")]
-position = Vector2(32, 224)
-
-[node name="ResourceIron7" parent="." instance=ExtResource("7_i88jq")]
-position = Vector2(196, 0)
 
 [node name="Coin" parent="." instance=ExtResource("8_82g22")]
 position = Vector2(265, -7)
@@ -143,7 +114,7 @@ position = Vector2(134, 210)
 position = Vector2(-15, 210)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.2
+energy = 0.7
 blend_mode = 1
 
 [node name="Cave_Exit" parent="." instance=ExtResource("12_jx51t")]
@@ -157,5 +128,14 @@ visible = false
 
 [node name="LevelsUi" parent="LevelsMenuUI" instance=ExtResource("2_75pm2")]
 process_mode = 3
+
+[node name="ResourceTwilightite" parent="." instance=ExtResource("14_hgjnt")]
+position = Vector2(310, 65)
+
+[node name="ResourceTwilightite2" parent="." instance=ExtResource("14_hgjnt")]
+position = Vector2(413, 33)
+
+[node name="ResourceTwilightite3" parent="." instance=ExtResource("14_hgjnt")]
+position = Vector2(116, 225)
 
 [connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]
