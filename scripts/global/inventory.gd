@@ -157,7 +157,7 @@ var inventory_dictionary: Dictionary = {
 		"id": 1001,
 		"name": "Tear Of The Heavens",
 		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/staffEmerald.png"),
+		"texture": load("res://assets/sprites/objects/resources/resource-tearheavens.png"),
 		"value": 3000,
 	},
 
@@ -165,8 +165,16 @@ var inventory_dictionary: Dictionary = {
 		"id": 1002,
 		"name": "Mountain's Heart",
 		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/staffEmerald.png"),
+		"texture": load("res://assets/sprites/objects/resources/resource-mountainsHeart.png"),
 		"value": 4000,
+	},
+
+	"breathForest": {
+		"id": 1002,
+		"name": "Breath of the Forest",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/resources/resource-breathForest.png"),
+		"value": 3500,
 	},
 
 	#"swordCopper": {

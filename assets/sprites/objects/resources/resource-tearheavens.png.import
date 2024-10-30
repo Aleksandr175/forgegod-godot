@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coyxu2jw7u38t"
-path="res://.godot/imported/resource-tearheavens.png-18ebebab67b966f3721711f97746c34e.ctex"
+uid="uid://cx03ry1pauclh"
+path="res://.godot/imported/resource-tearheavens.png-eb9044b523fd31e86685d5ced429a175.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/goods/resource-tearheavens.png"
-dest_files=["res://.godot/imported/resource-tearheavens.png-18ebebab67b966f3721711f97746c34e.ctex"]
+source_file="res://assets/sprites/objects/resources/resource-tearheavens.png"
+dest_files=["res://.godot/imported/resource-tearheavens.png-eb9044b523fd31e86685d5ced429a175.ctex"]
 
 [params]
 

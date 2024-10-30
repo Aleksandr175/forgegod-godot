@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_td04d"]
 [ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="2_mhj1j"]
-[ext_resource type="Texture2D" uid="uid://coyxu2jw7u38t" path="res://assets/sprites/objects/goods/resource-tearheavens.png" id="3_q7g0e"]
+[ext_resource type="Texture2D" uid="uid://cx03ry1pauclh" path="res://assets/sprites/objects/resources/resource-tearheavens.png" id="3_sx3a0"]
 [ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="4_e1p2s"]
 [ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="5_a16ri"]
 
@@ -74,7 +74,7 @@ increase_qty = 1
 material = SubResource("ShaderMaterial_8w8u6")
 position = Vector2(0, -5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_q7g0e")
+texture = ExtResource("3_sx3a0")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_e1p2s")]
 MAX_HEALTH = 150.0
