@@ -161,7 +161,13 @@ var inventory_dictionary: Dictionary = {
 		"value": 3000,
 	},
 
-
+	"mountainsHeart": {
+		"id": 1002,
+		"name": "Mountain's Heart",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/staffEmerald.png"),
+		"value": 4000,
+	},
 
 	#"swordCopper": {
 	#	"id": 102,

@@ -15,7 +15,8 @@ enum QuestTargetObjects {
 	LIBRARY,
 	VILLAGE,
 	DEALER,
-	ALTAR
+	ALTAR,
+	MENTOR
 }
 
 enum QuestActions {

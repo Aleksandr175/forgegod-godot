@@ -680,6 +680,212 @@ var quest_database = {
 			{"character": "player", "text": "Me: Oh! Let's go back to the Elder."},
 		],
 	},
+
+
+	"quest_second_chapter_7": {
+		"quest_id": "quest_second_chapter_7",
+		"title": "Go to home",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.HOUSE,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_8"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: You've done well, finding the Tear of the Heavens. This artifact is truly remarkable, and I'm grateful you retrieved it safely."},
+			{"character": "player", "text": "Me: Thank you, Elder. Have you learned anything about the next artifact?"},
+			{"character": "king", "text": "Elder: Not yet, I’m afraid. The writings are obscure, and it may take me a bit more time to uncover the next clue. In the meantime, there’s another way you could be of help."},
+			{"character": "player", "text": "Me: Of course. What can I do?"},
+			{"character": "king", "text": "Elder: The villagers have been eagerly awaiting your help. They’ve heard of your skill in using emerald, and several of them are already waiting for you at your house. They’re in need of weapons that only you can forge."},
+			{"character": "player", "text": "Me: Understood. I’ll see to their orders and return once they’re done."},
+			{"character": "king", "text": "Elder: Thank you. These weapons will strengthen the village’s defenses, and your work will not go unnoticed."},
+		],
+	},
+	
+	
+	"quest_second_chapter_8": {
+		"quest_id": "quest_second_chapter_8",
+		"title": "Serve Wolf Hunter",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": "customer_second_chapter_3",
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_9"],
+		"dialog_data": [
+			{"character": "villager", "text": "Wolf Hunter: I’ve heard you’re skilled in crafting with emerald. I need a spear that can withstand the strength of a wolf and cut cleanly through fur and hide. Could you forge one for me?"},
+			{"character": "player", "text": "Me: An emerald spear, you say? It sounds like a worthy challenge. I’ll make sure it’s sharp and durable"},
+			{"character": "villager", "text": "Wolf Hunter: Thank you. This weapon could make all the difference for my hunts."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_3",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+		],
+	},
+
+	"quest_second_chapter_9": {
+		"quest_id": "quest_second_chapter_9",
+		"title": "Serve Collector",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": "customer_second_chapter_4",
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_10"],
+		"dialog_data": [
+			{"character": "villager", "text": "Collector: Good day! I’ve been admiring your work and was hoping you could make me something unique—a mace, crafted from emerald. It’s not for combat, but rather for the pleasure of owning such a rare piece."},
+			{"character": "player", "text": "Me: An emerald mace... It will be as impressive to behold as it is to hold. I’ll see to it."},
+			{"character": "villager", "text": "Collector: Wonderful! I’m certain it will be the centerpiece of my collection."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_3",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+		],
+	},
+
+	"quest_second_chapter_10": {
+		"quest_id": "quest_second_chapter_10",
+		"title": "Serve Wizard's Apprentice",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": "customer_second_chapter_5",
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_11"],
+		"dialog_data": [
+			{"character": "villager", "text": "Wizard's Apprentice: Hello! My master, the village wizard, has sent me here with a special request. He believes an emerald-tipped staff will amplify my abilities and help me in my studies. Could you make one for me?"},
+			{"character": "player", "text": "Me: Of course. A staff for a budding wizard—it sounds like a fascinating project."},
+			{"character": "villager", "text": "Wizard's Apprentice: Thank you! My master says it will make a great difference in my training."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/house_level.tscn",
+				"node_name": "/root/house_level/QuestNodes/quest_sell_3",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+		],
+	},
+	
+	"quest_second_chapter_11": {
+		"quest_id": "quest_second_chapter_11",
+		"title": "Visit the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_12"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: That's all for today. Let's go back to the Elder"},
+		],
+	},
+
+	"quest_second_chapter_12": {
+		"quest_id": "quest_second_chapter_12",
+		"title": "Visit Dark Cave",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": 'level-5',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_13"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: It’s good to see you, apprentice. I’ve finally discovered where the Mountain’s Heart is located—it’s hidden deep within the most remote corner of the cave. But beware, the path to it is treacherous, and many have lost their way in those depths."},
+			{"character": "player", "text": "Me: I’ll be careful. If this artifact is as powerful as you say, I’ll make sure it doesn’t fall into the wrong hands."},
+			{"character": "king", "text": "Elder: Thank you. And... if you happen to find any sign of your mentor, please let me know. It’s possible he went after this very artifact."},
+		],
+	},
+	
+	"quest_second_chapter_13": {
+		"quest_id": "quest_second_chapter_13",
+		"title": "Find the Mentor",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.MENTOR,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_14"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: There is it. I should look around and find any sign of my mentor."},
+		],
+	},
+
+	"quest_second_chapter_14": {
+		"quest_id": "quest_second_chapter_14",
+		"title": "Find the Mountain's Heart",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.COLLECT,
+			"item_id": Inventory.inventory_dictionary["mountainsHeart"]["id"],
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_15"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Oh! It is him! So terrible! Oh, hi has a note. It is sad that he almost found Mountain's Heart but evil found him."},
+			{"character": "player", "text": "Me: He couldn't escape..."},
+		],
+	},
+
+	"quest_second_chapter_15": {
+		"quest_id": "quest_second_chapter_15",
+		"title": "Come back to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_16"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Wow! I found it! Let's go back to the Elder"},
+		],
+	},
 }
 
 func _ready():

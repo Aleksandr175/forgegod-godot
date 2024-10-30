@@ -63,5 +63,22 @@ position = Vector2(9, 23)
 direction = -1
 customer_id = "customer_3"
 
+[node name="quest_sell_3" type="Node2D" parent="QuestNodes"]
+
+[node name="Customer3" parent="QuestNodes/quest_sell_3" instance=ExtResource("5_fwco5")]
+position = Vector2(20, 6)
+direction = -1
+customer_id = "customer_second_chapter_5"
+
+[node name="Customer" parent="QuestNodes/quest_sell_3" instance=ExtResource("5_fwco5")]
+position = Vector2(30, 23)
+direction = -1
+customer_id = "customer_second_chapter_3"
+
+[node name="Customer2" parent="QuestNodes/quest_sell_3" instance=ExtResource("5_fwco5")]
+position = Vector2(9, 23)
+direction = -1
+customer_id = "customer_second_chapter_4"
+
 [connection signal="area_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_area_entered"]
 [connection signal="body_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]
