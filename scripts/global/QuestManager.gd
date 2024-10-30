@@ -863,8 +863,7 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_second_chapter_15"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Oh! It is him! So terrible! Oh, hi has a note. It is sad that he almost found Mountain's Heart but evil found him."},
-			{"character": "player", "text": "Me: He couldn't escape..."},
+			{"character": "player", "text": "Me: This… this is my mentor. He must have been searching for the Mountain's Heart as well. He didn’t make it…"},
 		],
 	},
 
@@ -884,6 +883,49 @@ var quest_database = {
 		"next_quests": ["quest_second_chapter_16"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Wow! I found it! Let's go back to the Elder"},
+		],
+	},
+
+	"quest_second_chapter_16": {
+		"quest_id": "quest_second_chapter_16",
+		"title": "Come back to the Elder",
+		"description": "Reporting the Blacksmith's Fate",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": 'level-6',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_17"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Elder, I… I found my mentor. He… he didn’t survive. It looks like he was searching for the Mountain’s Heart too but… something stopped him."},
+			{"character": "king", "text": "Elder: ... (sighs deeply) ..."},
+			{"character": "king", "text": "Elder: This is painful news, apprentice. Your mentor was a brave soul, but it seems this ancient darkness is stronger than we thought. If he could not withstand it, we must act quickly to prepare the village."},
+			{"character": "player", "text": "Me: What do you need me to do?"},
+			{"character": "king", "text": "Elder: To strengthen our defenses, we’ll need a special material called Twilightite. It’s a rare, purple mineral found in the caves, and its properties could prove invaluable. Please, gather as much as you can—we’ll need it to forge powerful weapons."},
+			{"character": "player", "text": "Me: I understand. I’ll head back to the caves and bring back the Twilightite."},
+		],
+	},
+	
+	"quest_second_chapter_17": {
+		"quest_id": "quest_second_chapter_17",
+		"title": "Collect ",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.COLLECT,
+			"item_id": Inventory.inventory_dictionary["twilightite"]["id"],
+			"qty": 5
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_18"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Ok, let find Twilightite."},
 		],
 	},
 }

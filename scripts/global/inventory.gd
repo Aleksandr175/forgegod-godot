@@ -40,7 +40,14 @@ var inventory_dictionary: Dictionary = {
 		"texture": load("res://assets/sprites/objects/resources/resource-emerald.png"),
 		"value": 5
 	},
-	
+
+	"twilightite": {
+		"id": 6,
+		"name": "Twilightite",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/resource-twilightite.png"),
+		"value": 10
+	},
 	
 
 	"copperIngot": {
