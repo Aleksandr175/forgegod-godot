@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt3mc571af53i"]
+
+[ext_resource type="Script" path="res://Entities/characters/Blacksmith/Blacksmith.gd" id="1_yfbnk"]
+[ext_resource type="Texture2D" uid="uid://by1pedmucho4m" path="res://assets/sprites/characters/morganLeFay_.png" id="2_oya6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bbpg"]
+atlas = ExtResource("2_oya6g")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0nfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bbpg")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d35jn"]
+radius = 36.1248
+
+[node name="Blacksmith" type="Node2D"]
+script = ExtResource("1_yfbnk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_h0nfp")
+animation = &"die"
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_d35jn")
+
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
