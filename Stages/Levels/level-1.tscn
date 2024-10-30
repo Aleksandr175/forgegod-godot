@@ -54,11 +54,6 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAdAAEAAAAAAAcAAAAVAP//AAABAAcAAAAUAP//AAACAAcAAAAQAP//AAAJAAQAAAD/////AAACAAEAAAAKAP//AAACAAMAAAD8////AAACAAUAAAA=")
 tile_set = ExtResource("3_8avys")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
-energy = 0.2
-blend_mode = 1
-
 [node name="Player" parent="." instance=ExtResource("2_rpr4n")]
 position = Vector2(-31, 0)
 

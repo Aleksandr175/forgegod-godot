@@ -18,8 +18,9 @@ var levels = {
 	"level-1": {"unlocked": true, "completed": false, "label": "Forest"},
 	"level-2": {"unlocked": false, "completed": false, "label": "Iron Cave"},
 	"level-3": {"unlocked": false, "completed": false, "label": "Emerald Cave"},
-	# TODO rename
-	"level-4": {"unlocked": false, "completed": false, "label": "Purple Cave"},
+	"level-5": {"unlocked": false, "completed": false, "label": "Dark Cave"},
+	"level-4": {"unlocked": false, "completed": false, "label": "Twilightite Cave"},
+	"level-6": {"unlocked": false, "completed": false, "label": "Deep Forest"},
 	# Add more levels as needed
 }
 
