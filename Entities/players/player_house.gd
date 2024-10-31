@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name PlayerHouse
 
-const SPEED = 130.0
+const SPEED = 100.0
 @onready var animated_sprite = $AnimatedSpritePlayer
 @onready var inventory_ui = $InventoryUI
 

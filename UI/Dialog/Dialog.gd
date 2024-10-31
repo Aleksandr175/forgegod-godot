@@ -78,7 +78,9 @@ func set_character_image(character_name):
 		"dealer":
 			character_image.texture = preload("res://assets/sprites/characters/portraits/dealer.png")
 		"king":
-			character_image.texture = preload("res://assets/sprites/characters/portraits/king.png")
+			character_image.texture = preload("res://assets/sprites/characters/portraits/elder.png")
+		"soldier":
+			character_image.texture = preload("res://assets/sprites/characters/portraits/soldier.png")
 		"villager":
 			character_image.texture = preload("res://assets/sprites/characters/portraits/villager.png")
 		_:

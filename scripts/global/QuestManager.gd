@@ -58,7 +58,7 @@ var quest_database = {
 	},
 	"quest_tutorial_1": {
 		"quest_id": "quest_tutorial_1",
-		"title": "Go back to home",
+		"title": "Enter the portal",
 		"description": "Enter the portal and go to the Village",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -96,7 +96,7 @@ var quest_database = {
 		},
 		"next_quests": ["quest_tutorial_3"],
 		"dialog_data": [
-			{"character": "villager", "text": "Villager: Greetings! It's been a while since we've seen you. Your forge is up the stairs and then left all the way at the end."},
+			{"character": "soldier", "text": "Soldier: Greetings! You are knew blacksmith's apprentice, aren't you? We were waiting for you. The forge is up the stairs behind me and then left all the way at the end."},
 			{"character": "player", "text": "Me: Thank you!"},
 		]
 	},
