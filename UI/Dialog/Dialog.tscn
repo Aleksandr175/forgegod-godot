@@ -30,7 +30,7 @@ offset_top = -250.0
 offset_right = 300.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 0.729412)
+color = Color(0, 0, 0, 0.811765)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
@@ -39,6 +39,7 @@ offset_left = 31.0
 offset_top = 44.0
 offset_right = 420.0
 offset_bottom = 211.0
+theme_override_constants/line_separation = 6
 text = "Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text "
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]

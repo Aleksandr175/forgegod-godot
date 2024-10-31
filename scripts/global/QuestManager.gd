@@ -114,8 +114,9 @@ var quest_database = {
 		},
 		"next_quests": ["quest_tutorial_4"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Hmm, seems like I'm out of wood. Without it, I can't start working."},
-			{"character": "player", "text": "Me: I should drop by the merchant—he might be able to help me."},
+			{"character": "player", "text": "Me: Hmm, where is my master? I can't wait. I think I can't start working without wood."},
+			{"character": "player", "text": "Me: I should go to the merchant. He might be able to help me."},
+			{"character": "player", "text": "Me: I saw a shop not so far from here."},
 		]
 	},
 	"quest_tutorial_4": {
@@ -155,6 +156,7 @@ var quest_database = {
 		"next_quests": ["quest_tutorial_6"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Now that I have the wood, I can start making an axe."},
+			{"character": "player", "text": "Me: May be master has returned."},
 		],
 	},
 	
@@ -173,7 +175,8 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_tutorial_7"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Let's begin by processing the wood... Then add the details..."},
+			{"character": "player", "text": "Me: He is still not here."},
+			{"character": "player", "text": "Me: Oh, let's begin by processing the wood anyway... Then add the details..."},
 		],
 	},
 	
@@ -184,6 +187,7 @@ var quest_database = {
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
 			"customer_id": "customer_1",
+			"qty": 1
 		}],
 		"rewards": {
 			"goods": [{
@@ -194,11 +198,11 @@ var quest_database = {
 		},
 		"next_quests": ["quest_tutorial_8"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: My first axe! Looks pretty good. Maybe I can take a break now."},
+			{"character": "player", "text": "Me: My first axe! Looks pretty good. Master would be pleased. Maybe I can take a break now."},
 			{"character": "villager", "text": "Villager: Knock-knock!"},
 			{"character": "player", "text": "Me: Who could that be?"},
-			{"character": "villager", "text": "Villager: Good day! I heard you're back to smithing. I need a new axe. Can I buy one from you?"},
-			{"character": "player", "text": "Me: Ok, I am coming!"},
+			{"character": "villager", "text": "Villager: Good day! I heard you're a new smith. I need a new wooden axe. Can I buy one?"},
+			{"character": "player", "text": "Me: Ok, sure!"},
 		],
 		"quest_actions": [
 			{
@@ -228,8 +232,8 @@ var quest_database = {
 		},
 		"next_quests": ["quest_tutorial_9"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Oh right, the elder wanted to see me. I wonder what it's about?"},
-			{"character": "player", "text": "Me: I should go visit him immediately."},
+			{"character": "player", "text": "Me: Oh right, I can visit the elder and ask him about my mentor."},
+			{"character": "player", "text": "Me: I should go to visit him immediately."},
 		],
 	},
 
@@ -247,13 +251,15 @@ var quest_database = {
 		},
 		"next_quests": ["quest_tutorial_10"],
 		"dialog_data": [
-			{"character": "king", "text": "Elder: Welcome back to the village! It's wonderful to see you working at your forge again."},
-			{"character": "player", "text": "Me: Thank you, Elder. I heard you wanted to see me."},
-			{"character": "king", "text": "Elder: Indeed, I did. Our foresters have been hard at work, but their axes are worn and dull. We could greatly use your skills to craft new ones."},
+			{"character": "king", "text": "Elder: Welcome to the village! It's wonderful to see you came to help our smith."},
+			{"character": "player", "text": "Me: Thank you, Elder. But I can't find my mentor. Do you know where he is?"},
+			{"character": "king", "text": "Elder: Oh, no. I don't, but I am sure he will be back soon."},
+			{"character": "player", "text": "Me: Ok, can I help you somehow now?"},
+			{"character": "king", "text": "Elder: Indeed! Our foresters have been hard at work, but their axes are worn and dull. We could greatly use your skills to craft new ones."},
 			{"character": "player", "text": "Me: I'd be happy to help. How many axes do they need?"},
 			{"character": "king", "text": "Elder: Three sturdy wooden axes should suffice for now. It would mean a lot to them."},
 			{"character": "player", "text": "Me: Consider it done. I'll start right away."},
-			{"character": "king", "text": "Elder: Thank you, my friend. Your craftsmanship is invaluable to our village."},
+			{"character": "king", "text": "Elder: Thank you, my friend."},
 		],
 	},
 	

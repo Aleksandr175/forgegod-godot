@@ -81,7 +81,6 @@ func generate_wish():
 			
 		for quest in QuestManager.active_quests:
 			for objective in quest.objectives:
-				print(objective.type, objective.customer_id)
 				if objective.type == Enums.QuestTypes.SELL and objective.customer_id == customer_id:
 					var wish_data = customer_wishes[customer_id]
 					# Fetch the wished item data
@@ -122,7 +121,6 @@ func update_wish_panel(wishData, rewardData) -> void:
 
 func _on_villager_ui_button_pressed():
 	if wishFromQuest and Inventory.has_enough_resources([wishFromQuest]):
-		print('sell to customer ', customer_id)
 		Inventory.add_item(reward.id, reward.qty)
 		Inventory.remove_items([wishFromQuest])
 		QuestManager.update_objective_progress(Enums.QuestTypes.SELL, str(wishFromQuest.id), wishFromQuest.qty)
@@ -137,17 +135,16 @@ func close_wish_panel():
 	panel.visible = false
 
 func _on_area_2d_2_area_entered(area):
-	QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, "king", 1)
-	generate_wish()
-	
-	var panelButton = panel.find_child('Button')
+	if (area.get_parent() is Player or area.get_parent() is PlayerHouse):
+		generate_wish()
+		
+		var panelButton = panel.find_child('Button')
 
-	panelButton.disabled = true
+		panelButton.disabled = true
 
-	if wishFromQuest and Inventory.has_enough_resources([wishFromQuest]):
-		panelButton.disabled = false
+		if wishFromQuest and Inventory.has_enough_resources([wishFromQuest]):
+			panelButton.disabled = false
 
-	if (area.get_parent() is Player or area.get_parent() is PlayerHouse) and wishFromQuest:
 		open_wish_panel()
 
 
