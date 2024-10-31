@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bigatfousfwsb"
-path="res://.godot/imported/greenHouse_1_0.png-22dcb495f51e3dc49e9b180e8505e8c3.ctex"
+uid="uid://wi44qi584jds"
+path="res://.godot/imported/greenShop_1.png-2b8626f5f42e8ae735f1f5103aeeb578.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/buildings/greenHouse_1_0.png"
-dest_files=["res://.godot/imported/greenHouse_1_0.png-22dcb495f51e3dc49e9b180e8505e8c3.ctex"]
+source_file="res://assets/sprites/buildings/not_used/greenShop_1.png"
+dest_files=["res://.godot/imported/greenShop_1.png-2b8626f5f42e8ae735f1f5103aeeb578.ctex"]
 
 [params]
 

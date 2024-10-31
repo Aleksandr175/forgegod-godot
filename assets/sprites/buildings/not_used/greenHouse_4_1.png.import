@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6lu4u1cqrueh"
-path="res://.godot/imported/greenHouse_4_0.png-99b69777162ea2f707608d7bb7c2ae70.ctex"
+uid="uid://cmgwmwhfopwvg"
+path="res://.godot/imported/greenHouse_4_1.png-e049f7dc0245b6ab2a584d88c956e2ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/buildings/greenHouse_4_0.png"
-dest_files=["res://.godot/imported/greenHouse_4_0.png-99b69777162ea2f707608d7bb7c2ae70.ctex"]
+source_file="res://assets/sprites/buildings/not_used/greenHouse_4_1.png"
+dest_files=["res://.godot/imported/greenHouse_4_1.png-e049f7dc0245b6ab2a584d88c956e2ab.ctex"]
 
 [params]
 
