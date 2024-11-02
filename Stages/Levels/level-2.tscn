@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://lst2vi5wettj"]
+[gd_scene load_steps=15 format=4 uid="uid://lst2vi5wettj"]
 
 [ext_resource type="Script" path="res://Stages/Levels/level-2.gd" id="1_1sa4p"]
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="2_6y104"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cw6jy6mcv68bh" path="res://Entities/objects/resources/resource_iron.tscn" id="7_vc6nj"]
 [ext_resource type="PackedScene" uid="uid://cdwio8e7l8x4s" path="res://Entities/objects/Torch/Torch.tscn" id="8_khmja"]
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://Entities/objects/Coin/coin.tscn" id="10_dunej"]
+[ext_resource type="PackedScene" uid="uid://b7fbqtq7i7fuh" path="res://Entities/objects/resources/resource_recipe.tscn" id="14_ghobj"]
 
 [node name="Level-2" type="Node2D"]
 script = ExtResource("1_1sa4p")
@@ -78,9 +79,6 @@ position = Vector2(391, 144)
 
 [node name="ResourceIron" parent="." instance=ExtResource("7_vc6nj")]
 position = Vector2(376, 144)
-
-[node name="ResourceIron2" parent="." instance=ExtResource("7_vc6nj")]
-position = Vector2(432, 32)
 
 [node name="ResourceIron3" parent="." instance=ExtResource("7_vc6nj")]
 position = Vector2(390, 32)
@@ -169,5 +167,9 @@ visible = false
 
 [node name="LevelsUi" parent="LevelsMenuUI" instance=ExtResource("5_5t8q4")]
 process_mode = 3
+
+[node name="ResourceRecipe" parent="." instance=ExtResource("14_ghobj")]
+position = Vector2(426, 29)
+recipe_id = "202"
 
 [connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]

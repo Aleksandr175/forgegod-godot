@@ -5,7 +5,6 @@ extends Control
 @onready var quest_name = $ColorRect/MarginContainer/VBoxContainer/quest_name
 @onready var quest_description = $ColorRect/MarginContainer/VBoxContainer/quest_description
 @onready var quest_progress = $ColorRect/MarginContainer/VBoxContainer/quest_progress
-@onready var quest_requirement = $ColorRect/MarginContainer/VBoxContainer/quest_requirement
 
 func _ready():
 	QuestManager.connect("update_quest_ui", _on_quest_manager_update_quest_ui)
@@ -14,7 +13,6 @@ func clear_quests():
 	quest_name.text = ''
 	quest_description.text = ''
 	quest_progress.text = ''
-	quest_requirement.text = ''
 	#quest_list.clear_children()  # Clear existing quest list
 
 func add_quest(title: String, description: String, objectives: Array):
@@ -33,7 +31,6 @@ func add_quest(title: String, description: String, objectives: Array):
 			quest_progress.text = str(objective.current_qty) + '/' + str(objective.target_qty)
 		else:
 			quest_progress.text = ''
-	#	quest_requirement.text = objective.description
 
 func _on_quest_manager_update_quest_ui(active_quests):
 	clear_quests()

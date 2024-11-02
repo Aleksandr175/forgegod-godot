@@ -44,11 +44,6 @@ theme_override_font_sizes/normal_font_size = 16
 text = "Quest description"
 fit_content = true
 
-[node name="quest_requirement" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "Requirement"
-
 [node name="quest_progress" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16

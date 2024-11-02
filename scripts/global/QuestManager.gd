@@ -232,7 +232,7 @@ var quest_database = {
 		},
 		"next_quests": ["quest_tutorial_9"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Oh right, I can visit the elder and ask him about my mentor."},
+			{"character": "player", "text": "Me: Oh right, I can visit the Elder and ask him about my mentor."},
 			{"character": "player", "text": "Me: I should go to visit him immediately."},
 		],
 	},
@@ -288,7 +288,7 @@ var quest_database = {
 
 	"quest_first_chapter_1": {
 		"quest_id": "quest_first_chapter_1",
-		"title": "Go to the Caves Level 1",
+		"title": "Go to the Forest",
 		"description": "Use portal in the left side of village",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -312,9 +312,10 @@ var quest_database = {
 			{"character": "player", "text": "Me: What is it?"},
 			{"character": "king", "text": "Elder: Perhaps you've noticed some unusual creatures near the caves recently?"},
 			{"character": "player", "text": "Me: I've heard some rumors but haven't seen them myself."},
-			{"character": "king", "text": "Elder: These creatures are emerging more frequently, and I fear they may pose a threat. There is an old prophecy that speaks of a skilled smith who will craft a legendary weapon to protect us..."},
+			{"character": "king", "text": "Elder: These creatures are emerging more frequently, and I fear they may pose a threat. "},
+			{"character": "king", "text": "Elder: There is an old prophecy that speaks of a skilled smith who will craft a legendary weapon to protect us..."}, 
 			{"character": "player", "text": "Me: You think that smith could be me?"},
-			{"character": "king", "text": "Elder: I believe so. Will you help us?"},
+			{"character": "king", "text": "Elder: The prophecy says so. You arrived just in time. Will you help us?"},
 			{"character": "player", "text": "Me: Of course. Tell me what I need to do."},
 			{"character": "king", "text": "Elder: Firstly, go to caves and collect some iron. You will need it."},
 		],
@@ -322,7 +323,7 @@ var quest_database = {
 	
 	"quest_first_chapter_2": {
 		"quest_id": "quest_first_chapter_2",
-		"title": "Go to the Caves Level 2",
+		"title": "Go to the Iron Caves",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -359,7 +360,7 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_4"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: These caves are darker than I remember."},
+			{"character": "player", "text": "Me: These caves are darker than I thougth."},
 			{"character": "player", "text": "Me: I need to find iron ore and watch out for any obstacles."},
 		],
 	},
