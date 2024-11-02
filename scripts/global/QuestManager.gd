@@ -888,8 +888,8 @@ var quest_database = {
 
 	"quest_second_chapter_16": {
 		"quest_id": "quest_second_chapter_16",
-		"title": "Come back to the Elder",
-		"description": "Reporting the Blacksmith's Fate",
+		"title": "Go to Twilightite cave",
+		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
 			"item_id": 'level-6',
@@ -912,12 +912,12 @@ var quest_database = {
 	
 	"quest_second_chapter_17": {
 		"quest_id": "quest_second_chapter_17",
-		"title": "Collect ",
+		"title": "Collect Twilightite",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.COLLECT,
 			"item_id": Inventory.inventory_dictionary["twilightite"]["id"],
-			"qty": 5
+			"qty": 3
 		}],
 		"rewards": {
 			"experience": 5
@@ -925,7 +925,48 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_second_chapter_18"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Ok, let find Twilightite."},
+			{"character": "player", "text": "Me: Ok, let's find Twilightite."},
+		],
+	},
+	
+	"quest_second_chapter_18": {
+		"quest_id": "quest_second_chapter_18",
+		"title": "Come back to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_19"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Come back to the Elder as soon as posible."},
+		],
+	},
+
+	"quest_second_chapter_19": {
+		"quest_id": "quest_second_chapter_19",
+		"title": "Serve first sodier",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"item_id": 'customer_',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_20"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: Thank you for gathering the Twilightite. It is more powerful than I imagined, and with it, we can forge weapons to strengthen our defenses."},
+			{"character": "player", "text": "Me: What do you need me to make?"},
+			{"character": "king", "text": "Elder: Three soldiers have requested weapons that will aid them in facing the coming evil. Each one has specific requirements. You’ll need to forge an iron broadsword, a steel double-headed axe, and a Twilight Blade. They’re waiting for you to speak with them."},
+			{"character": "player", "text": "Me: Understood. I’ll speak with each soldier and get started on their weapons."},
 		],
 	},
 }

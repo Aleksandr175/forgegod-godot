@@ -135,6 +135,31 @@ var inventory_dictionary: Dictionary = {
 	},
 	
 	# Steel id from 300
+	"broadswordSteel": {
+		"id": 302,
+		"name": "Steel Broadsword",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/doubleBitAxeSteel.png"),
+		"value": 150,
+	},
+
+	"doubleBitAxeSteel": {
+		"id": 303,
+		"name": "Steel Double Bit Axe",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/doubleBitAxeSteel.png"),
+		"value": 150,
+	},
+	
+	"longswordSteelSteel": {
+		"id": 304,
+		"name": "Steel Longsword",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/longswordSteel.png"),
+		"value": 180,
+	},
+	
+
 	
 	# Emerald id from 400
 	"spearEmerald": {

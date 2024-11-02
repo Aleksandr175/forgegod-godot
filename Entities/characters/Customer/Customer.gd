@@ -61,6 +61,31 @@ var customer_wishes = {
 			"qty": 30
 		}
 	},
+
+	"customer_second_chapter_6": {
+		"item_id": Inventory.inventory_dictionary["broadswordIron"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 20
+		}
+	},
+		"customer_second_chapter_7": {
+		"item_id": Inventory.inventory_dictionary["doubleBitAxeIron"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 30
+		}
+	},
+		"customer_second_chapter_8": {
+		"item_id": Inventory.inventory_dictionary["staffEmerald"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 30
+		}
+	},
 }
 
 func _ready():
