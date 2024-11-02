@@ -417,6 +417,7 @@ var quest_database = {
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
 			"customer_id": "customer_2",
+			"qty": 1
 		}],
 		"rewards": {
 			"experience": 5
@@ -424,7 +425,7 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_6-2"],
 		"dialog_data": [
-			{"character": "villager", "text": "Villager: Hello! I heard you're crafting weapons again. Could you make me something?"},
+			{"character": "villager", "text": "Villager: Hello! I heard you're crafting weapons now. Could you make me something?"},
 			{"character": "player", "text": "Me: Yes, sure!"},
 		],
 		"quest_actions": [
@@ -433,11 +434,6 @@ var quest_database = {
 				"node_name": "/root/house_level/QuestNodes/quest_sell_2",  # Path to the quest node in the scene
 				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
 			},
-			{
-				"stage": "res://Stages/Levels/house_level.tscn",
-				"node_name": "/root/house_level/QuestNodes/quest_sell_2",  # Path to the quest node in the scene
-				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
-			}
 		],
 	},
 	
@@ -448,6 +444,7 @@ var quest_database = {
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
 			"customer_id": "customer_3",
+			"qty": 1
 		}],
 		"rewards": {
 			"goods": [{
@@ -458,7 +455,7 @@ var quest_database = {
 		},
 		"next_quests": ["quest_first_chapter_7"],
 		"dialog_data": [
-			{"character": "villager", "text": "Villager: Oh! I need wooden axe too, please!"},
+			{"character": "villager", "text": "Villager: Oh! I need iron sword, please!"},
 			{"character": "player", "text": "Me: Ok, one moment"},
 		],
 		"quest_actions": [
@@ -467,11 +464,6 @@ var quest_database = {
 				"node_name": "/root/house_level/QuestNodes/quest_sell_2",  # Path to the quest node in the scene
 				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
 			},
-			{
-				"stage": "res://Stages/Levels/house_level.tscn",
-				"node_name": "/root/house_level/QuestNodes/quest_sell_2",  # Path to the quest node in the scene
-				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
-			}
 		],
 	},
 	
@@ -515,7 +507,8 @@ var quest_database = {
 		"dialog_data": [
 			{"character": "king", "text": "Elder: Excellent work; our defenders are now well-armed. However, I recalled something important."},
 			{"character": "player", "text": "Me: What did you remember?"},
-			{"character": "king", "text": "Elder: There might be ancient records in our library on how to seal the ancient evil that is said to be awakening in the depths of the caves. I ask you to go there and find this information."},
+			{"character": "king", "text": "Elder: There might be ancient records in our library on how to seal the ancient evil that is said to be awakening in the depths of the caves. "},
+			{"character": "king", "text": "Elder: I ask you to go there and find this information."},
 			{"character": "player", "text": "Me: I'll head to the library immediately and try to find whatever I can."},
 		],
 	},
@@ -566,13 +559,13 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_second_chapter_2"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Let's go back to Elder and tell him what I found."},
+			{"character": "player", "text": "Me: Oh, prophecy! Let's go back to Elder and tell him what I found."},
 		],
 	},
 	
 	"quest_second_chapter_2": {
 		"quest_id": "quest_second_chapter_2",
-		"title": "Go to the Caves Level 3",
+		"title": "Go to the Emerald Cave",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -585,9 +578,9 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_second_chapter_3"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: I found an altar in the library. It mentions that to seal the ancient evil, we need rare materials and legendary artifacts."},
+			{"character": "player", "text": "Me: I found an altar witrh prophecy in the library. It mentions that to seal the ancient evil, we need rare materials and legendary artifacts."},
 			{"character": "king", "text": "Elder: This is important information. Let's begin by searching for these materials. Please gather Emeraldite while I try to discover where to find the legendary artifacts."},
-			{"character": "king", "text": "Elder: As I know you can find it deeper in caves"},
+			{"character": "king", "text": "Elder: As I know you can find it deeper in caves."},
 		],
 	},
 	

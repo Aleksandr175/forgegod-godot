@@ -19,19 +19,19 @@ var customer_wishes = {
 		}
 	},
 	"customer_2": {
-		"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+		"item_id": Inventory.inventory_dictionary["spearIron"]["id"],
 		"qty": 1,
 		"reward": {
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			"qty": 10
+			"qty": 12
 		}
 	},
 	"customer_3": {
-		"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],
+		"item_id": Inventory.inventory_dictionary["swordIron"]["id"],
 		"qty": 1,
 		"reward": {
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			"qty": 10
+			"qty": 15
 		}
 	},
 
@@ -145,8 +145,8 @@ func _on_area_2d_2_area_entered(area):
 		if wishFromQuest and Inventory.has_enough_resources([wishFromQuest]):
 			panelButton.disabled = false
 
-		open_wish_panel()
-
+		if wishFromQuest:
+			open_wish_panel()
 
 func _on_area_2d_2_area_exited(area):
 	if area.get_parent() is Player or area.get_parent() is PlayerHouse:
