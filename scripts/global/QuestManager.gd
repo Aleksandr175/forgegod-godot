@@ -578,7 +578,7 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_second_chapter_3"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: I found an altar witrh prophecy in the library. It mentions that to seal the ancient evil, we need rare materials and legendary artifacts."},
+			{"character": "player", "text": "Me: I found an altar with prophecy in the library. It mentions that to seal the ancient evil, we need rare materials and legendary artifacts."},
 			{"character": "king", "text": "Elder: This is important information. Let's begin by searching for these materials."},
 			{"character": "king", "text": "Elder: Please gather Emeraldite while I try to discover where to find the legendary artifacts."},
 			{"character": "king", "text": "Elder: As I know you can find it deeper in caves."},
@@ -1053,7 +1053,48 @@ var quest_database = {
 		],
 	},
 
+	"quest_second_chapter_23": {
+		"quest_id": "quest_second_chapter_23",
+		"title": "Return to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"customer_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_24"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Uh, ok, let's go back to the elder"},
+		],
+	},
+
+	"quest_second_chapter_24": {
+		"quest_id": "quest_second_chapter_24",
+		"title": "Go to the Deep Forest",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"customer_id": 'level-6',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_25"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: You did excellent work assisting the soldiers. Now, I have news about the final artifact. It’s called the Breath of the Forest—an ancient wood with magical properties."},
+			{"character": "king", "text": "Elder: It’s hidden deep within the forest, which can be reached by traveling through the entire cave. At the cave’s exit, you’ll find a new snowy biome. Among the trees there, you will find this artifact."},
+			{"character": "player", "text": "Me: Thank you for the guidance, Elder. I’ll set off immediately."},
+			{"character": "king", "text": "Elder: Take care. The forest holds many secrets, and we need this artifact to complete your great task."},
+		],
+	},
 }
+
 
 func _ready():
 	GlobalSignals.new_game_started.connect(start_timer)

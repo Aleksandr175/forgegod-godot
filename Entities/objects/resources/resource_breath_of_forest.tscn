@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3 uid="uid://cmrlk7t3jctaw"]
+
+[ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_uao88"]
+[ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="2_3nbdd"]
+[ext_resource type="Texture2D" uid="uid://bkmafddi48ig4" path="res://assets/sprites/objects/resources/resource-breathForest.png" id="3_fd6w0"]
+[ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="4_db50m"]
+[ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="5_v6md1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8w8u6"]
+resource_local_to_scene = true
+shader = ExtResource("2_3nbdd")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17xi6"]
+radius = 3.04138
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wib6g"]
+radius = 7.0
+
+[sub_resource type="Gradient" id="Gradient_fhhv1"]
+offsets = PackedFloat32Array(0, 0.741627)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s8xmt"]
+gradient = SubResource("Gradient_fhhv1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_dls5o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_pavda"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(2.08165e-12, -10), Vector2(2.08165e-12, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2apvs"]
+_data = {
+"RESET": SubResource("Animation_dls5o"),
+"idle": SubResource("Animation_pavda")
+}
+
+[node name="ResourceTearHeavens" type="Node2D"]
+script = ExtResource("1_uao88")
+resourceDictionaryId = "tearOfTheHeavens"
+increase_qty = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8w8u6")
+position = Vector2(0, -5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_fd6w0")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_db50m")]
+MAX_HEALTH = 150.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_v6md1")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -4.5)
+shape = SubResource("CircleShape2D_17xi6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11, -5)
+shape = SubResource("CircleShape2D_wib6g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11, -5)
+shape = SubResource("CircleShape2D_wib6g")
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -5)
+amount = 3
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+color = Color(1, 1, 1, 0.545098)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.359375, 0.359375)
+color = Color(0, 0.768202, 0.846995, 1)
+texture = SubResource("GradientTexture2D_s8xmt")
+texture_scale = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2apvs")
+}
+autoplay = "idle"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
