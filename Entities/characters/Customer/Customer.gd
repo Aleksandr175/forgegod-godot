@@ -62,7 +62,7 @@ var customer_wishes = {
 		}
 	},
 
-	"customer_second_chapter_6": {
+	"soldier_1": {
 		"item_id": Inventory.inventory_dictionary["broadswordIron"]["id"],
 		"qty": 1,
 		"reward": {
@@ -70,7 +70,7 @@ var customer_wishes = {
 			"qty": 20
 		}
 	},
-		"customer_second_chapter_7": {
+	"soldier_2": {
 		"item_id": Inventory.inventory_dictionary["doubleBitAxeIron"]["id"],
 		"qty": 1,
 		"reward": {
@@ -78,7 +78,7 @@ var customer_wishes = {
 			"qty": 30
 		}
 	},
-		"customer_second_chapter_8": {
+	"soldier_3": {
 		"item_id": Inventory.inventory_dictionary["staffEmerald"]["id"],
 		"qty": 1,
 		"reward": {
@@ -160,6 +160,8 @@ func close_wish_panel():
 	panel.visible = false
 
 func _on_area_2d_2_area_entered(area):
+	QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, customer_id, 1)
+
 	if (area.get_parent() is Player or area.get_parent() is PlayerHouse):
 		generate_wish()
 		

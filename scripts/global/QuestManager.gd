@@ -579,7 +579,8 @@ var quest_database = {
 		"next_quests": ["quest_second_chapter_3"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: I found an altar witrh prophecy in the library. It mentions that to seal the ancient evil, we need rare materials and legendary artifacts."},
-			{"character": "king", "text": "Elder: This is important information. Let's begin by searching for these materials. Please gather Emeraldite while I try to discover where to find the legendary artifacts."},
+			{"character": "king", "text": "Elder: This is important information. Let's begin by searching for these materials."},
+			{"character": "king", "text": "Elder: Please gather Emeraldite while I try to discover where to find the legendary artifacts."},
 			{"character": "king", "text": "Elder: As I know you can find it deeper in caves."},
 		],
 	},
@@ -953,8 +954,8 @@ var quest_database = {
 		"title": "Serve first sodier",
 		"description": "",
 		"objectives": [{
-			"type": Enums.QuestTypes.SELL,
-			"item_id": 'customer_',
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.SOLDIER_1,
 			"qty": 1
 		}],
 		"rewards": {
@@ -969,6 +970,89 @@ var quest_database = {
 			{"character": "player", "text": "Me: Understood. I’ll speak with each soldier and get started on their weapons."},
 		],
 	},
+
+	"quest_second_chapter_20": {
+		"quest_id": "quest_second_chapter_20",
+		"title": "Serve first sodier",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": Enums.QuestTargetObjects.SOLDIER_1,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_21"],
+		"dialog_data": [
+			{"character": "soldier", "text": "Soldier: We’re all feeling the tension in the air. The darkness is coming, and we need every advantage we can get. An iron broadsword—strong and reliable—is what I need. With it, I’ll stand guard and defend the village to my last breath."},
+			{"character": "player", "text": "Me: I’ll make sure your sword is as strong as your resolve."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_3_soldiers",
+				"action": Enums.QuestActions.SHOW,
+			},
+		],
+	},
+
+	"quest_second_chapter_21": {
+		"quest_id": "quest_second_chapter_21",
+		"title": "Serve second sodier",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": Enums.QuestTargetObjects.SOLDIER_2,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_22"],
+		"dialog_data": [
+			{"character": "soldier", "text": "Soldier: If the darkness dares to threaten our home, it will meet my steel axe. Double-headed, balanced, and fierce—that’s the kind of weapon I need to face whatever comes from the caves. This axe will give me the strength to strike down anything in my path."},
+			{"character": "player", "text": "Me: I’ll craft an axe worthy of your courage."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_3_soldiers",
+				"action": Enums.QuestActions.SHOW,
+			},
+		],
+	},
+
+	"quest_second_chapter_22": {
+		"quest_id": "quest_second_chapter_22",
+		"title": "Serve third sodier",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": Enums.QuestTargetObjects.SOLDIER_3,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"prerequisites": [],
+		"next_quests": ["quest_second_chapter_23"],
+		"dialog_data": [
+			{"character": "soldier", "text": "Soldier: I’ve heard that Twilightite holds mysterious power… that it can channel energies beyond our understanding."}, 
+			{"character": "soldier", "text": "Soldier: I’ll need every bit of that power in the battles to come. Could you forge me a blade from this material? With it, I’ll have the strength to cut through even the shadows."},
+			{"character": "player", "text": "Me: A Twilight Blade—yes, it will be a weapon unlike any other. I’ll make sure it’s ready for you."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_3_soldiers",
+				"action": Enums.QuestActions.SHOW,
+			},
+		],
+	},
+
 }
 
 func _ready():

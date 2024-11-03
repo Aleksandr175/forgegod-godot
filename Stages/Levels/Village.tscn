@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dpsqn4et5qmh2"]
+[gd_scene load_steps=25 format=4 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
@@ -21,6 +21,7 @@
 [ext_resource type="TileSet" uid="uid://b2l4domhq4vs6" path="res://tilesets/decorations.tres" id="19_d3ikv"]
 [ext_resource type="PackedScene" uid="uid://b8mxsexwwhiy7" path="res://Entities/Spawner/Spawner.tscn" id="20_45djf"]
 [ext_resource type="PackedScene" uid="uid://ml70jcqibis3" path="res://Entities/objects/resources/resource_tear_heavens.tscn" id="21_cyatc"]
+[ext_resource type="PackedScene" uid="uid://ddjublycqau75" path="res://Entities/characters/Customer/Customer.tscn" id="22_qmm02"]
 [ext_resource type="PackedScene" uid="uid://i2lpt6wvs77u" path="res://Entities/Buildings/House4/House4.tscn" id="22_tkes4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru3oh"]
@@ -163,6 +164,21 @@ visible = false
 
 [node name="ResourceEmerald" parent="QuestNodes/quest_tear_heavens" instance=ExtResource("21_cyatc")]
 position = Vector2(338, -163)
+
+[node name="quest_3_soldiers" type="Node2D" parent="QuestNodes"]
+visible = false
+
+[node name="Customer" parent="QuestNodes/quest_3_soldiers" instance=ExtResource("22_qmm02")]
+position = Vector2(490, -48)
+customer_id = "soldier_1"
+
+[node name="Customer2" parent="QuestNodes/quest_3_soldiers" instance=ExtResource("22_qmm02")]
+position = Vector2(509, -48)
+customer_id = "soldier_2"
+
+[node name="Customer3" parent="QuestNodes/quest_3_soldiers" instance=ExtResource("22_qmm02")]
+position = Vector2(526, -48)
+customer_id = "soldier_3"
 
 [node name="Villager5" parent="." instance=ExtResource("9_o5hxk")]
 position = Vector2(621, -48)

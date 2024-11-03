@@ -16,7 +16,10 @@ enum QuestTargetObjects {
 	VILLAGE,
 	DEALER,
 	ALTAR,
-	MENTOR
+	MENTOR,
+	SOLDIER_1,
+	SOLDIER_2,
+	SOLDIER_3,
 }
 
 enum QuestActions {
