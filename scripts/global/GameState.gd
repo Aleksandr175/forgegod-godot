@@ -33,16 +33,35 @@ func _ready():
 	pass
 
 func complete_level(level_name):
-	levels[level_name]["completed"] = true
-	var current_index = level_order.find(level_name)
+	if level_progress.has(level_name):
+		level_progress[level_name]["completed"] = true
+		var current_index = level_order.find(level_name)
 
-	if current_index != -1 and current_index + 1 < level_order.size():
-		var next_level = level_order[current_index + 1]
-		levels[next_level]["unlocked"] = true
-		print(next_level + " has been unlocked!")
+		if current_index != -1 and current_index + 1 < level_order.size():
+			var next_level = level_order[current_index + 1]
+			unlock_level(next_level)
+		save_game()
+	else:
+		print("Level name not found in level_progress: ", level_name)
 
-	level_progress = levels
-	save_game()
+func unlock_level(level_id: String):
+	if level_progress.has(level_id):
+		if level_progress[level_id]["unlocked"] != true:
+			level_progress[level_id]["unlocked"] = true
+			levels["unlocked"] = true
+			print("Level unlocked: ", level_id)
+			save_game()
+		else:
+			print("Level already unlocked: ", level_id)
+	else:
+		print("Level ID not found in level_progress: ", level_id)
+	
+func is_level_unlocked(level_id: String) -> bool:
+	if level_progress.has(level_id):
+		return level_progress[level_id]["unlocked"]
+	else:
+		print("Level ID not found in level_progress: ", level_id)
+		return false
 	
 func change_scene(scene_path):
 	var packed_scene = load(scene_path)
@@ -98,6 +117,9 @@ func load_game():
 				print("Game loaded successfully.")
 				GlobalSignals.game_loaded.emit()
 
+				# Apply level_progress to levels
+				_apply_level_progress()
+				
 				# Defer changing the scene to prevent issues
 				call_deferred("_change_to_saved_scene")
 			else:
@@ -108,6 +130,14 @@ func load_game():
 		print("No save file found. Starting a new game.")
 		start_new_game()
 
+func _apply_level_progress():
+	for level_id in level_progress.keys():
+		if levels.has(level_id):
+			# Here, you can apply any additional logic if needed
+			pass
+		else:
+			print("Level ID not found in levels: ", level_id)
+
 func _change_to_saved_scene():
 	SceneManager.change_scene(player_scene)
 
@@ -117,10 +147,19 @@ func start_new_game():
 
 	player_inventory = []
 	quest_progress = {}
-	level_progress = {}
 	completed_quest_ids = []
 	unlocked_recipes = [Inventory.inventory_dictionary["spearWooden"]["id"]]
 	#other_data = {}
+	
+	# Initialize level_progress
+	level_progress = {}
+	for level_id in levels.keys():
+		level_progress[level_id] = {
+			"unlocked": false,
+			"completed": false
+		}
+	# Unlock the first level
+	level_progress["level-1"]["unlocked"] = true
 
 	save_game()
 	SceneManager.change_scene(player_scene)

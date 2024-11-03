@@ -38,8 +38,7 @@ func _ready():
 #		icon_container.add_child(icon)
 
 func update_lock_status():
-	print('level_name', level_name)
-	if level_name and GameState.levels[level_name]["unlocked"]:
+	if level_name and GameState.level_progress[level_name]["unlocked"]:
 		disabled = false
 #		lock_icon.visible = false
 	else:
@@ -47,7 +46,7 @@ func update_lock_status():
 #		lock_icon.visible = true
 
 func _on_button_pressed():
-	if GameState.levels[level_name]["unlocked"]:
+	if GameState.is_level_unlocked(level_name):
 		GameState.current_level_name = level_name
 		get_tree().paused = false
 		SceneManager.change_scene("res://Stages/Levels/" + level_name + ".tscn")

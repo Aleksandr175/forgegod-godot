@@ -20,7 +20,7 @@ func populate_level_buttons():
 		var level_info = GameState.levels[level_name]
 		var level_button = LevelButtonScene.instantiate()
 
-		print('level_info.label', level_info.label)
+		#print('level_info.label', level_info.label)
 		# Set properties
 		level_button.level_label = level_info.label
 		level_button.level_name = level_name
@@ -66,7 +66,7 @@ func _on_village_button_pressed():
 	SceneManager.change_scene("res://Stages/Levels/Village.tscn")
 
 func on_level_completed(lvl_name):
-	print('on_level_completed', lvl_name)
+	#print('on_level_completed', lvl_name)
 	populate_level_buttons()
 
 func _on_tree_entered():

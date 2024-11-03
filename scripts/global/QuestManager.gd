@@ -575,7 +575,9 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [
+			{"type": "unlock_level", "level_id": "level-3"},
+		],
 		"next_quests": ["quest_second_chapter_3"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: I found an altar with prophecy in the library. It mentions that to seal the ancient evil, we need rare materials and legendary artifacts."},
@@ -821,7 +823,9 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [
+			{"type": "unlock_level", "level_id": "level-4"},
+		],
 		"next_quests": ["quest_second_chapter_13"],
 		"dialog_data": [
 			{"character": "king", "text": "Elder: It’s good to see you, apprentice. I’ve finally discovered where the Mountain’s Heart is located—it’s hidden deep within the most remote corner of the cave. But beware, the path to it is treacherous, and many have lost their way in those depths."},
@@ -899,7 +903,9 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [
+			{"type": "unlock_level", "level_id": "level-5"},
+		],
 		"next_quests": ["quest_second_chapter_17"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Elder, I… I found my mentor. He… he didn’t survive. It looks like he was searching for the Mountain’s Heart too but… something stopped him."},
@@ -1084,7 +1090,9 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [
+			{"type": "unlock_level", "level_id": "level-6"},
+		],
 		"next_quests": ["quest_second_chapter_25"],
 		"dialog_data": [
 			{"character": "king", "text": "Elder: You did excellent work assisting the soldiers. Now, I have news about the final artifact. It’s called the Breath of the Forest—an ancient wood with magical properties."},
@@ -1124,6 +1132,10 @@ func start_quest(quest_id: String):
 	if quest_data != null:
 		if quest_data.has("dialog_data"):
 			GlobalSignals.start_dialog.emit(quest_data["dialog_data"])
+			
+		# Process prerequisites
+		if quest_data.has("prerequisites"):
+			process_prerequisites(quest_data["prerequisites"])
 		
 		var new_quest = Quest.new()
 		new_quest.title = quest_data["title"]
@@ -1350,3 +1362,18 @@ func on_stage_changed():
 		if quest_data != null and quest_data.has("quest_actions"):
 			# Process quest actions relevant to the current stage
 			process_quest_actions(quest_data["quest_actions"], "start")
+
+func process_prerequisites(prerequisites):
+	for prerequisite in prerequisites:
+		var prereq_type = prerequisite["type"]
+		if prereq_type == "unlock_level":
+			var level_id = prerequisite["level_id"]
+			GameState.unlock_level(level_id)
+			print("Unlocked level: ", level_id)
+		#elif prereq_type == "give_item":
+		#	var item_id = prerequisite["item_id"]
+		#	var qty = prerequisite["qty"]
+		#	Inventory.add_item(item_id, qty)
+		#	print("Gave player item: ", item_id, " x", qty)
+		else:
+			print("Unknown prerequisite type: ", prereq_type)

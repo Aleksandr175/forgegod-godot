@@ -5,7 +5,6 @@ extends Node2D
 @export var level_name: String = 'level-10'
 
 func _on_cave_exit_level_menu_opened():
-	GameState.complete_level(level_name)
 	GlobalSignals.level_completed.emit(level_name)
 	levels_menu_ui.visible = !levels_menu_ui.visible
 	get_tree().paused = !get_tree().paused
