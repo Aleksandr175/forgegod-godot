@@ -6,6 +6,9 @@ signal player_exited_portal
 signal inventory_opened
 signal inventory_closed
 
+signal craft_menu_opened
+signal craft_menu_closed
+
 signal recipes_unlocked
 
 signal resource_picked_up

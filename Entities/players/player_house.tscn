@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bvk5lgy0kkxgh" path="res://assets/sprites/player/main_hero.png" id="2_ksb0t"]
 [ext_resource type="PackedScene" uid="uid://bgh468rubynm0" path="res://UI/QuestsUI/QuestUI.tscn" id="3_mqr4x"]
 [ext_resource type="PackedScene" uid="uid://ges3fmqdhvsf" path="res://UI/Dialog/Dialog.tscn" id="4_3yuht"]
-[ext_resource type="PackedScene" uid="uid://6b07cvgy8iqh" path="res://UI/InventoryUI/Inventory_Panel.tscn" id="5_ybk3c"]
 [ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://UI/HUD/HUD.tscn" id="6_g2ogr"]
+[ext_resource type="PackedScene" uid="uid://cb813owxsoify" path="res://UI/CraftUI/Craft_Panel.tscn" id="6_mphkm"]
 [ext_resource type="Texture2D" uid="uid://dufr618ouycjg" path="res://assets/sprites/ui/circle.png" id="7_d0a42"]
 [ext_resource type="Texture2D" uid="uid://ce6ayhor22a6t" path="res://assets/sprites/ui/arrow.png" id="9_m1mgn"]
 [ext_resource type="Texture2D" uid="uid://c0v32vj6qo6se" path="res://assets/sprites/ui/menu.png" id="10_6bg15"]
@@ -303,7 +303,7 @@ texture = ExtResource("10_6bg15")
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="InventoryPanel" parent="InventoryUI" instance=ExtResource("5_ybk3c")]
+[node name="CraftPanel" parent="InventoryUI" instance=ExtResource("6_mphkm")]
 
 [node name="Hud" parent="." instance=ExtResource("6_g2ogr")]
 layer = 2

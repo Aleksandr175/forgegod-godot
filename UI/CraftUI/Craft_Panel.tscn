@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb813owxsoify"]
+
+[ext_resource type="Script" path="res://UI/CraftUI/Craft_Panel.gd" id="1_ibfuu"]
+[ext_resource type="PackedScene" uid="uid://baphtpay2atal" path="res://UI/RecipesUI/Recipe_Selected.tscn" id="2_r5qmn"]
+[ext_resource type="PackedScene" uid="uid://bhf5u0afx8yxb" path="res://UI/RecipesUI/Recipes_UI.tscn" id="3_0qgqs"]
+[ext_resource type="PackedScene" uid="uid://dutum2bfx4x6o" path="res://UI/InventoryUI/Inventory_UI.tscn" id="4_q5kuj"]
+[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_ohmkq"]
+
+[node name="CraftPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -500.0
+offset_right = 240.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ibfuu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235732, 0.235732, 0.235732, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+custom_minimum_size = Vector2(440, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="RecipeSelected" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_r5qmn")]
+custom_minimum_size = Vector2(440, 220)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RecipesUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("3_0qgqs")]
+custom_minimum_size = Vector2(440, 300)
+layout_mode = 2
+
+[node name="InventoryUi" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("4_q5kuj")]
+custom_minimum_size = Vector2(440, 300)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_ohmkq")
+text = "X"
+
+[connection signal="recipe_ui_slot_selected" from="ColorRect/MarginContainer/VBoxContainer/RecipesUi" to="ColorRect/MarginContainer/VBoxContainer/RecipeSelected" method="_on_recipes_ui_recipe_ui_slot_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -6,8 +6,8 @@ const SPEED = 100.0
 @onready var inventory_ui = $InventoryUI
 
 func _ready():
-	GlobalSignals.inventory_opened.connect(open_inventory)
-	GlobalSignals.inventory_closed.connect(close_inventory)
+	GlobalSignals.craft_menu_opened.connect(open_inventory)
+	GlobalSignals.craft_menu_closed.connect(close_inventory)
 
 func open_inventory():
 	inventory_ui.visible = true
