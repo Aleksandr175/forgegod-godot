@@ -1149,7 +1149,7 @@ var quest_database = {
 
 	"quest_second_chapter_27": {
 		"quest_id": "quest_second_chapter_27",
-		"title": "Go back to the Elder",
+		"title": "Find first villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1169,20 +1169,189 @@ var quest_database = {
 
 	"quest_second_chapter_28": {
 		"quest_id": "quest_second_chapter_28",
-		"title": "Go back to the Elder",
+		"title": "Serve first villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
-			"customer_id": 'villager-1',
+			"customer_id": 'villager_1',
 			"qty": 1
 		}],
 		"rewards": {
 			"experience": 5
 		},
-		"next_quests": ["quest_second_chapter_28"],
+		"next_quests": ["quest_second_chapter_29"],
 		"dialog_data": [
 			{"character": "villager", "text": "Villager: The rumors of darkness are troubling, and I want to be ready. Can you make me a reliable weapon? Even if I never use it, it will give me peace of mind."},
 			{"character": "player", "text": "Me: Of course, I’ll make something that helps you feel safe."},
+		],
+	},
+	
+	"quest_second_chapter_29": {
+		"quest_id": "quest_second_chapter_29",
+		"title": "Find second villager",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.VILLAGER_2,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_29_2"],
+		"dialog_data": [],
+	},
+
+	"quest_second_chapter_29_2": {
+		"quest_id": "quest_second_chapter_29_2",
+		"title": "Serve second villager",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": 'villager_2',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_30"],
+		"dialog_data": [
+			{"character": "villager", "text": "Villager: I’ve heard you’re making weapons for everyone who fears the darkness. I’d like something for protection, just to be prepared."},
+			{"character": "player", "text": "Me: I understand, given the times… I’ll make you a good weapon."},
+		],
+	},
+	
+	"quest_second_chapter_30": {
+		"quest_id": "quest_second_chapter_30",
+		"title": "Find third villager",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.VILLAGER_3,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_30_2"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Ok, let's find last villager."},
+		],
+	},
+	
+	"quest_second_chapter_30_2": {
+		"quest_id": "quest_second_chapter_30_2",
+		"title": "Serve third villager",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": 'villager_3',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_31"],
+		"dialog_data": [
+			{"character": "villager", "text": "Villager: I don’t know how this will all end, but I’ll feel better if I have a weapon. Could you help me?"},
+			{"character": "player", "text": "Me: Absolutely. I’ll make you a reliable weapon."},
+		],
+	},
+	
+	"quest_second_chapter_31": {
+		"quest_id": "quest_second_chapter_31",
+		"title": "Find the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"recipes": [Inventory.inventory_dictionary["legendarySword"]["id"]],
+			"goods": [{
+				"item_id": Inventory.inventory_dictionary["magicalPotion"]["id"],
+				"qty": 1
+			}],
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_32"],
+		"dialog_data": [],
+	},
+	
+	"quest_second_chapter_32": {
+		"quest_id": "quest_second_chapter_32",
+		"title": "Go to home",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.HOUSE,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_33"],
+		"dialog_data": [
+			{"character": "kind", "text": "Elder: You’ve helped all those who needed protection. Now it’s time for the final step. Take this magical potion."},
+			{"character": "kind", "text": "Elder: Combine it with the three artifacts you’ve found, and from this, forge the legendary weapon—the Sword of Light. Only it has the power to defeat the darkness."},
+			{"character": "player", "text": "Me: Thank you, Elder. I’ll use everything I have to create this sword."},
+		],
+	},
+	
+	"quest_second_chapter_33": {
+		"quest_id": "quest_second_chapter_33",
+		"title": "Craft legendary sword",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.CRAFT,
+			"item_id": Inventory.inventory_dictionary["legendarySword"]["id"],
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_34"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Oh, let's begin. I have only one try."},
+		],
+	},
+
+	"quest_second_chapter_34": {
+		"quest_id": "quest_second_chapter_34",
+		"title": "Return to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_35"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Ok, I should say to the Elder that sword is done!"},
+		],
+	},
+
+	"quest_second_chapter_35": {
+		"quest_id": "quest_second_chapter_35",
+		"title": "Go to the Evil Caves",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": 'level-7',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_36"],
+		"dialog_data": [
+			{"character": "kind", "text": "Elder: Now that the legendary sword is complete, it’s time to put an end to this darkness. "},
+			{"character": "kind", "text": "Elder: Go to the depths of the cave. There, you’ll find an ancient altar, designed to seal away evil. Drive the sword into the altar, and the darkness will be bound."},
+			{"character": "player", "text": "Me: I’ll do it. Your faith in me gives me strength."},
 		],
 	},
 }

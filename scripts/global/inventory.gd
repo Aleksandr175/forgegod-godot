@@ -209,6 +209,22 @@ var inventory_dictionary: Dictionary = {
 		"value": 3500,
 	},
 
+	"magicalPotion": {
+		"id": 2000,
+		"name": "Magical Potion",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/resources/resource-magicalPotion.png"),
+		"value": 100,
+	},
+	
+	"legendarySword": {
+		"id": 3000,
+		"name": "Legendary Sword",
+		"type": "item",
+		"texture": load("res://assets/sprites/objects/goods/legendarySword.png"),
+		"value": 10000,
+	},
+	
 	#"swordCopper": {
 	#	"id": 102,
 	#	"name": "Copper Sword",
@@ -449,6 +465,41 @@ var recipes: Array = [{
 		"type": inventory_dictionary["ironIngot"]["type"], 
 		"texture": inventory_dictionary["ironIngot"]["texture"],
 		"qty": 5,
+	}],
+},
+
+# LEGENDARY SWORD
+{
+	"id": inventory_dictionary["legendarySword"]["id"],
+	"name": inventory_dictionary["legendarySword"]["name"],
+	"texture": inventory_dictionary["legendarySword"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"locked": true,
+	"requirements": [{
+		"id": inventory_dictionary["tearOfTheHeavens"]["id"], 
+		"name": inventory_dictionary["tearOfTheHeavens"]["name"], 
+		"type": inventory_dictionary["tearOfTheHeavens"]["type"], 
+		"texture": inventory_dictionary["tearOfTheHeavens"]["texture"],
+		"qty": 1,
+	}, {
+		"id": inventory_dictionary["mountainsHeart"]["id"], 
+		"name": inventory_dictionary["mountainsHeart"]["name"], 
+		"type": inventory_dictionary["mountainsHeart"]["type"], 
+		"texture": inventory_dictionary["mountainsHeart"]["texture"],
+		"qty": 1,
+	}, {
+		"id": inventory_dictionary["breathForest"]["id"], 
+		"name": inventory_dictionary["breathForest"]["name"], 
+		"type": inventory_dictionary["breathForest"]["type"], 
+		"texture": inventory_dictionary["breathForest"]["texture"],
+		"qty": 1,
+	}, {
+		"id": inventory_dictionary["legendarySword"]["id"], 
+		"name": inventory_dictionary["legendarySword"]["name"], 
+		"type": inventory_dictionary["legendarySword"]["type"], 
+		"texture": inventory_dictionary["legendarySword"]["texture"],
+		"qty": 1,
 	}],
 },]
 
