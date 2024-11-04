@@ -20,6 +20,9 @@ enum QuestTargetObjects {
 	SOLDIER_1,
 	SOLDIER_2,
 	SOLDIER_3,
+	VILLAGER_1,
+	VILLAGER_2,
+	VILLAGER_3,
 }
 
 enum QuestActions {

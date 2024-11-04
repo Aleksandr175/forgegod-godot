@@ -25,7 +25,7 @@ var levels = {
 }
 
 var current_level_name = "village"
-var level_order = ["level-1", "level-2", "level-3", "level-4"]  # Define the order of levels
+var level_order = ["level-1", "level-2", "level-3", "level-4", "level-5", "level-6"]  # Define the order of levels
 
 func _ready():
 	#remove_corrupted_save()
@@ -112,6 +112,7 @@ func load_game():
 				#quest_progress = data.get("quest_progress", quest_progress)
 				level_progress = data.get("level_progress", level_progress)
 				completed_quest_ids = data.get("completed_quest_ids", completed_quest_ids)
+				#completed_quest_ids = ["quest_second_chapter_24"]
 				unlocked_recipes = data.get("unlocked_recipes", unlocked_recipes)
 				#other_data = data.get("other_data", other_data)
 				print("Game loaded successfully.")
@@ -119,7 +120,7 @@ func load_game():
 
 				# Apply level_progress to levels
 				_apply_level_progress()
-				
+
 				# Defer changing the scene to prevent issues
 				call_deferred("_change_to_saved_scene")
 			else:

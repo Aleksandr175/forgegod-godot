@@ -15,7 +15,7 @@
 
 [node name="Level-6" type="Node2D"]
 script = ExtResource("1_dvooh")
-level_name = "level-1"
+level_name = "level-6"
 
 [node name="Node" type="Node" parent="."]
 
@@ -57,9 +57,6 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAiAPn/AAAAAAEAAAAiAPr/AAAAAAIAAAAiAPv/AAAAAAMAAAAbAPr/AAAGAAMAAAAbAPn/AAAGAAEAAAAgAPr/AAAGAAEAAAAgAPv/AAAGAAMAAAAZAAEAAAAGAAMAAAAeAAEAAAAGAAMAAAAjAAEAAAAGAAMAAAAqAP//AAAGAAMAAAArAP//AAAAAAMAAAAtAP//AAAGAAMAAAAwAP//AAAGAAMAAAAwAP7/AAAGAAEAAAArAP7/AAAAAAEAAAAqAP3/AAAGAAEAAAAqAP7/AAAGAAIAAAAtAP3/AAAGAAEAAAAtAP7/AAAGAAIAAAAjAAAAAAAGAAEAAAAeAAAAAAAGAAEAAAAZAP7/AAAGAAEAAAAZAP//AAAGAAIAAAAZAAAAAAAGAAIAAAASAP7/AAAGAAMAAAASAPz/AAAGAAEAAAASAP3/AAAGAAIAAAATAP7/AAAAAAMAAAATAP3/AAAAAAEAAAA=")
 tile_set = ExtResource("3_ocorx")
 
-[node name="Player" parent="." instance=ExtResource("4_4rojy")]
-position = Vector2(-31, 0)
-
 [node name="LevelsMenuUI" type="CanvasLayer" parent="."]
 visible = false
 
@@ -83,10 +80,6 @@ description = "Winter is coming"
 
 [node name="Bridge3" parent="." instance=ExtResource("3_ofryr")]
 position = Vector2(168, 7)
-
-[node name="ResourceTearHeavens" parent="." instance=ExtResource("11_vfdv4")]
-position = Vector2(461, -81)
-resourceDictionaryId = "breathForest"
 
 [node name="Coin" parent="." instance=ExtResource("10_720ls")]
 position = Vector2(61, -11)
@@ -117,5 +110,17 @@ position = Vector2(496, -74)
 
 [node name="Coin8" parent="." instance=ExtResource("10_720ls")]
 position = Vector2(791, -11)
+
+[node name="Player" parent="." instance=ExtResource("4_4rojy")]
+position = Vector2(-31, -15)
+
+[node name="QuestNodes" type="Node2D" parent="."]
+
+[node name="quest_breathForest" type="Node2D" parent="QuestNodes"]
+visible = false
+
+[node name="ResourceBreathForest" parent="QuestNodes/quest_breathForest" instance=ExtResource("11_vfdv4")]
+position = Vector2(461, -81)
+resourceDictionaryId = "breathForest"
 
 [connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]
