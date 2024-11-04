@@ -1095,10 +1095,94 @@ var quest_database = {
 		],
 		"next_quests": ["quest_second_chapter_25"],
 		"dialog_data": [
-			{"character": "king", "text": "Elder: You did excellent work assisting the soldiers. Now, I have news about the final artifact. It’s called the Breath of the Forest—an ancient wood with magical properties."},
-			{"character": "king", "text": "Elder: It’s hidden deep within the forest, which can be reached by traveling through the entire cave. At the cave’s exit, you’ll find a new snowy biome. Among the trees there, you will find this artifact."},
+			{"character": "king", "text": "Elder: You did excellent work assisting the soldiers. Now, I have news about the final artifact."},
+			{"character": "king", "text": "Elder: It’s called the Breath of the Forest—an ancient wood with magical properties."},
+			{"character": "king", "text": "Elder: It’s hidden deep within the forest, which can be reached by traveling through the entire cave. "},
+			{"character": "king", "text": "Elder: At the cave’s exit, you’ll find a new snowy biome. Among the trees there, you will find this artifact."},
 			{"character": "player", "text": "Me: Thank you for the guidance, Elder. I’ll set off immediately."},
 			{"character": "king", "text": "Elder: Take care. The forest holds many secrets, and we need this artifact to complete your great task."},
+		],
+	},
+
+	"quest_second_chapter_25": {
+		"quest_id": "quest_second_chapter_25",
+		"title": "Find the Breath of the Forest",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.COLLECT,
+			"item_id": Inventory.inventory_dictionary["breathForest"]["id"],
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_26"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Oh, it is freezing. Let's find it quickly and go back to village."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/level-6.tscn",
+				"node_name": "/root/level-6/QuestNodes/quest_breathForest",
+				"action": Enums.QuestActions.SHOW,
+			},
+		],
+	},
+
+	"quest_second_chapter_26": {
+		"quest_id": "quest_second_chapter_26",
+		"title": "Go back to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_27"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: I should talk with the Elder about this artifact."},
+		],
+	},
+
+	"quest_second_chapter_27": {
+		"quest_id": "quest_second_chapter_27",
+		"title": "Go back to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.VILLAGER_1,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_28"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: You’ve found all three artifacts. This is incredible… but fear has gripped the villagers. Even ordinary people want to be prepared to defend themselves. "},
+			{"character": "king", "text": "Elder: Help them by crafting weapons for three villagers. They’re waiting for you by their homes."},
+			{"character": "player", "text": "Me: Of course, I’ll make weapons for them. I’ll return once I’m done."},
+		],
+	},
+
+	"quest_second_chapter_28": {
+		"quest_id": "quest_second_chapter_28",
+		"title": "Go back to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.SELL,
+			"customer_id": 'villager-1',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_28"],
+		"dialog_data": [
+			{"character": "villager", "text": "Villager: The rumors of darkness are troubling, and I want to be ready. Can you make me a reliable weapon? Even if I never use it, it will give me peace of mind."},
+			{"character": "player", "text": "Me: Of course, I’ll make something that helps you feel safe."},
 		],
 	},
 }

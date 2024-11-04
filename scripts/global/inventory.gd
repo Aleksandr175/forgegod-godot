@@ -202,7 +202,7 @@ var inventory_dictionary: Dictionary = {
 	},
 
 	"breathForest": {
-		"id": 1002,
+		"id": 1003,
 		"name": "Breath of the Forest",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/resources/resource-breathForest.png"),
