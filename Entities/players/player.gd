@@ -113,10 +113,11 @@ func update_animations(direction_value, is_climbing_value):
 		
 
 func attack():
-	weapon_sprite.rotation = 0
-	attacking = true
-	weapon_sprite.visible = true
-	weapon_sprite.play("attack")
+	if !get_tree().paused:
+		weapon_sprite.rotation = 0
+		attacking = true
+		weapon_sprite.visible = true
+		weapon_sprite.play("attack")
 
 func attack_end():
 	change_weapon_position()

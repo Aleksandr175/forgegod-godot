@@ -31,8 +31,9 @@ func _physics_process(_delta):
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
-	update_animations(direction, direction_vertical)
-	move_and_slide()
+	if !get_tree().paused:
+		update_animations(direction, direction_vertical)
+		move_and_slide()
 	
 	
 func update_animations(direction: int, direction_vertical: int):
