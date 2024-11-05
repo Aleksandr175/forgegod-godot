@@ -16,6 +16,7 @@ enum QuestTargetObjects {
 	VILLAGE,
 	DEALER,
 	ALTAR,
+	ALTAR_EVIL,
 	MENTOR,
 	SOLDIER_1,
 	SOLDIER_2,

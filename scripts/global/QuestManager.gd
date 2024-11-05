@@ -946,6 +946,7 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {
+			"recipes": [Inventory.inventory_dictionary["twilightiteSword"]["id"]],
 			"experience": 5
 		},
 		"prerequisites": [],
@@ -1153,7 +1154,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": Enums.QuestTargetObjects.VILLAGER_1,
+			"item_id": 'villager_1',
 			"qty": 1
 		}],
 		"rewards": {
@@ -1192,7 +1193,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": Enums.QuestTargetObjects.VILLAGER_2,
+			"item_id": 'villager_2',
 			"qty": 1
 		}],
 		"rewards": {
@@ -1227,7 +1228,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": Enums.QuestTargetObjects.VILLAGER_3,
+			"item_id": 'villager_3',
 			"qty": 1
 		}],
 		"rewards": {
@@ -1352,6 +1353,83 @@ var quest_database = {
 			{"character": "kind", "text": "Elder: Now that the legendary sword is complete, it’s time to put an end to this darkness. "},
 			{"character": "kind", "text": "Elder: Go to the depths of the cave. There, you’ll find an ancient altar, designed to seal away evil. Drive the sword into the altar, and the darkness will be bound."},
 			{"character": "player", "text": "Me: I’ll do it. Your faith in me gives me strength."},
+		],
+	},
+
+	"quest_second_chapter_36": {
+		"quest_id": "quest_second_chapter_36",
+		"title": "Find the Evil Altar",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.ALTAR_EVIL,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_37"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: It's very dark. I feel I am close to it"},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Level-7.tscn",
+				"node_name": "/root/level-7/QuestNodes/quest_seal_evil",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+		],
+	},
+	
+	"quest_second_chapter_37": {
+		"quest_id": "quest_second_chapter_37",
+		"title": "Return to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_38"],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Oh my god! I did it! Evil is sealed!"},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Level-7.tscn",
+				"node_name": "/root/level-7/QuestNodes/quest_seal_evil",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
+			},
+			{
+				"stage": "res://Stages/Levels/Level-7.tscn",
+				"node_name": "/root/level-7/QuestNodes/quest_sealed_evil",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+		],
+	},
+	
+	# TODO: say good news to all villagers
+	"quest_second_chapter_38": {
+		"quest_id": "quest_second_chapter_38",
+		"title": "Return to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": Enums.QuestTargetObjects.KING,
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_second_chapter_39"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: You have accomplished a great deed, apprentice. You saved our village and completed what your mentor could not. Now you are a true master."},
+			{"character": "king", "text": "Elder: May your name live on in the legends of our village. Thank you."},
+			{"character": "player", "text": "Me: Thank you, Elder. It was an honor."},
+			{"character": "player", "text": "Me: Ok, I should say this good news to everyone!"},
 		],
 	},
 }

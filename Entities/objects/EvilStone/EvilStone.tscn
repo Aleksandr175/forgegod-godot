@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://boijoqg5ppd58"]
+
+[ext_resource type="Script" path="res://Entities/objects/EvilStone/EvilStone.gd" id="1_jiiwp"]
+[ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="1_rcw0v"]
+[ext_resource type="Texture2D" uid="uid://bpoh2xfjt418g" path="res://assets/sprites/objects/evilStone/evil-stone.png" id="2_fysgm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gccly"]
+resource_local_to_scene = true
+shader = ExtResource("1_rcw0v")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="Gradient" id="Gradient_fhhv1"]
+offsets = PackedFloat32Array(0, 0.741627)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vyu7h"]
+gradient = SubResource("Gradient_fhhv1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikid3"]
+radius = 18.0
+
+[node name="EvilStone" type="Node2D"]
+script = ExtResource("1_jiiwp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_gccly")
+position = Vector2(0, -11)
+texture = ExtResource("2_fysgm")
+
+[node name="GPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(0, -5)
+amount = 3
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+color = Color(1, 1, 1, 0.545098)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(0, -22)
+color = Color(0.571684, 0.0644822, 0.160213, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_vyu7h")
+texture_scale = 1.5
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_ikid3")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

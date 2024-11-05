@@ -184,6 +184,14 @@ var inventory_dictionary: Dictionary = {
 		"value": 300,
 	},
 
+	"twilightiteSword": {
+		"id": 501,
+		"name": "Twilight Blade",
+		"type": "Resource",
+		"texture": load("res://assets/sprites/objects/resources/resource-twilightite.png"),
+		"value": 500
+	},
+
 
 	"tearOfTheHeavens": {
 		"id": 1001,
@@ -240,48 +248,6 @@ var inventory_items: Array = [{
 	"name": inventory_dictionary["coin"]["name"], 
 	"type": inventory_dictionary["coin"]["type"], 
 	"texture": inventory_dictionary["coin"]["texture"],
-	"scene_path": "res://scenes/objects/inventory_item.tscn" 
-}, {
-	"id": inventory_dictionary["axeWooden"]["id"], 
-	"qty": 3, 
-	"name": inventory_dictionary["axeWooden"]["name"], 
-	"type": inventory_dictionary["axeWooden"]["type"], 
-	"texture": inventory_dictionary["axeWooden"]["texture"],
-	"scene_path": "res://scenes/objects/inventory_item.tscn" 
-}, {
-	"id": inventory_dictionary["swordIron"]["id"], 
-	"qty": 50, 
-	"name": inventory_dictionary["swordIron"]["name"], 
-	"type": inventory_dictionary["swordIron"]["type"], 
-	"texture": inventory_dictionary["swordIron"]["texture"],
-	"scene_path": "res://scenes/objects/inventory_item.tscn" 
-}, {
-	"id": inventory_dictionary["swordWooden"]["id"], 
-	"qty": 10, 
-	"name": inventory_dictionary["swordWooden"]["name"], 
-	"type": inventory_dictionary["swordWooden"]["type"], 
-	"texture": inventory_dictionary["swordWooden"]["texture"],
-	"scene_path": "res://scenes/objects/inventory_item.tscn" 
-}, { 
-	"id": inventory_dictionary["iron"]["id"], 
-	"qty": 5, 
-	"name": inventory_dictionary["iron"]["name"], 
-	"type": inventory_dictionary["iron"]["type"], 
-	"texture": inventory_dictionary["iron"]["texture"],
-	"scene_path": "res://scenes/objects/inventory_item.tscn" 
-},{ 
-	"id": inventory_dictionary["copper"]["id"], 
-	"qty": 20, 
-	"name": inventory_dictionary["copper"]["name"], 
-	"type": inventory_dictionary["copper"]["type"], 
-	"texture": inventory_dictionary["copper"]["texture"],
-	"scene_path": "res://scenes/objects/inventory_item.tscn" 
-}, { 
-	"id": inventory_dictionary["wood"]["id"], 
-	"qty": 20, 
-	"name": inventory_dictionary["wood"]["name"], 
-	"type": inventory_dictionary["wood"]["type"], 
-	"texture": inventory_dictionary["wood"]["texture"],
 	"scene_path": "res://scenes/objects/inventory_item.tscn" 
 }]
 
@@ -720,7 +686,7 @@ func unlock_recipe(recipe_id):
 		return true
 	return false
 
-func get_unlocked_recipe_data() -> Array:
+func get_unlocked_recipes() -> Array:
 	var unlocked_recipe_list = []
 	for recipe in recipes:
 		if not recipe.locked:

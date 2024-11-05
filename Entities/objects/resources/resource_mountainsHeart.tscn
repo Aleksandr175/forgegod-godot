@@ -1,14 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmrlk7t3jctaw"]
+[gd_scene load_steps=14 format=3 uid="uid://by3ggahosp1oh"]
 
-[ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_uao88"]
-[ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="2_3nbdd"]
-[ext_resource type="Texture2D" uid="uid://bkmafddi48ig4" path="res://assets/sprites/objects/resources/resource-breathForest.png" id="3_fd6w0"]
-[ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="4_db50m"]
-[ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="5_v6md1"]
+[ext_resource type="Script" path="res://Entities/objects/resources/resource.gd" id="1_i8xhn"]
+[ext_resource type="Shader" path="res://Shaders/Blink.gdshader" id="2_ejltb"]
+[ext_resource type="Texture2D" uid="uid://djsqxagustput" path="res://assets/sprites/objects/resources/resource-mountainsHeart.png" id="3_61424"]
+[ext_resource type="PackedScene" uid="uid://dgif2qykfetra" path="res://scenes/health_component.tscn" id="4_cnbda"]
+[ext_resource type="PackedScene" uid="uid://5jb8txn2n27o" path="res://scenes/hitbox_component.tscn" id="5_t4588"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8w8u6"]
 resource_local_to_scene = true
-shader = ExtResource("2_3nbdd")
+shader = ExtResource("2_ejltb")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
 
@@ -18,12 +18,12 @@ radius = 3.04138
 [sub_resource type="CircleShape2D" id="CircleShape2D_wib6g"]
 radius = 7.0
 
-[sub_resource type="Gradient" id="Gradient_fhhv1"]
+[sub_resource type="Gradient" id="Gradient_slm4e"]
 offsets = PackedFloat32Array(0, 0.741627)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_s8xmt"]
-gradient = SubResource("Gradient_fhhv1")
+gradient = SubResource("Gradient_slm4e")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
@@ -66,20 +66,20 @@ _data = {
 }
 
 [node name="ResourceBreathForest" type="Node2D"]
-script = ExtResource("1_uao88")
-resourceDictionaryId = "tearOfTheHeavens"
+script = ExtResource("1_i8xhn")
+resourceDictionaryId = "mountainsHeart"
 increase_qty = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_8w8u6")
 position = Vector2(0, -5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_fd6w0")
+texture = ExtResource("3_61424")
 
-[node name="HealthComponent" parent="." instance=ExtResource("4_db50m")]
+[node name="HealthComponent" parent="." instance=ExtResource("4_cnbda")]
 MAX_HEALTH = 120.0
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_v6md1")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_t4588")]
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]

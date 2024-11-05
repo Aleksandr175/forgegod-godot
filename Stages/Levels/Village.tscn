@@ -128,7 +128,7 @@ tile_set = ExtResource("19_d3ikv")
 
 [node name="Back" type="TileMapLayer" parent="TileObjects"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD8//X/AAACAAUAAAD9//X/AAABAAUAAAAGAPn/AAABAAUAAAD0////AAABAAUAAADz////AAACAAUAAAAVAPz/AAABAAQAAAAWAPz/AAACAAQAAAATAPX/AAACAAEAAAAPAPb/AAACAAMAAAAGAP//AAACAAQAAAAFAP//AAACAAQAAAAEAP//AAABAAQAAAAHAP//AAACAAQAAAAIAP//AAADAAQAAADu////AAAJAAUAAAAXAPz/AAACAAQAAAAYAPz/AAADAAQAAAAfAPz/AAACAAUAAAAfAPv/AAABAAUAAAAgAPz/AAACAAUAAAAgAPv/AAACAAUAAAAgAPr/AAABAAUAAAD8//T/AAABAAUAAAD7//X/AAACAAEAAAABAP//AAABAAMAAAABAP7/AAABAAEAAAASAPX/AAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAD8//X/AAACAAUAAAD9//X/AAABAAUAAAAGAPn/AAABAAUAAAAVAPz/AAABAAQAAAAWAPz/AAACAAQAAAATAPX/AAAIAAEAAAAPAPb/AAACAAMAAAAGAP//AAACAAQAAAAFAP//AAACAAQAAAAEAP//AAABAAQAAAAHAP//AAACAAQAAAAIAP//AAADAAQAAADu////AAAJAAQAAAAXAPz/AAACAAQAAAAYAPz/AAADAAQAAAAfAPz/AAACAAUAAAAfAPv/AAABAAUAAAAgAPz/AAACAAUAAAAgAPv/AAACAAUAAAAgAPr/AAABAAUAAAD8//T/AAABAAUAAAD7//X/AAACAAEAAAABAP//AAABAAMAAAABAP7/AAABAAEAAAASAPX/AAACAAMAAADw//n/AAAMAAEAAAALAPb/AAAIAAIAAADy////AAAJAAUAAADz////AAACAAMAAAA=")
 tile_set = ExtResource("19_d3ikv")
 
 [node name="Signpost" parent="TileObjects" instance=ExtResource("10_skl8q")]
@@ -141,12 +141,8 @@ description = "Library"
 position = Vector2(639, -155.5)
 shape = SubResource("RectangleShape2D_ru3oh")
 
-[node name="Villager1" parent="." instance=ExtResource("9_o5hxk")]
-position = Vector2(48, -96)
-
 [node name="Villager2" parent="." instance=ExtResource("9_o5hxk")]
-position = Vector2(353, -48)
-direction = -1
+position = Vector2(355, -48)
 
 [node name="Spawner" parent="." instance=ExtResource("20_45djf")]
 position = Vector2(13, -96)
@@ -155,7 +151,7 @@ position = Vector2(13, -96)
 position = Vector2(336, -48)
 
 [node name="Knight" parent="." instance=ExtResource("13_eou2t")]
-position = Vector2(-227, 0)
+position = Vector2(-229, 0)
 
 [node name="QuestNodes" type="Node2D" parent="."]
 
@@ -180,8 +176,21 @@ customer_id = "soldier_2"
 position = Vector2(526, -48)
 customer_id = "soldier_3"
 
-[node name="Villager5" parent="." instance=ExtResource("9_o5hxk")]
-position = Vector2(621, -48)
+[node name="quest_3_villagers" type="Node2D" parent="QuestNodes"]
+
+[node name="Customer" parent="QuestNodes/quest_3_villagers" instance=ExtResource("22_qmm02")]
+position = Vector2(40, 0)
+direction = -1
+customer_id = "villager_1"
+
+[node name="Customer2" parent="QuestNodes/quest_3_villagers" instance=ExtResource("22_qmm02")]
+position = Vector2(40, -96)
+direction = -1
+customer_id = "villager_2"
+
+[node name="Customer3" parent="QuestNodes/quest_3_villagers" instance=ExtResource("22_qmm02")]
+position = Vector2(623, -48)
+customer_id = "villager_3"
 
 [node name="House4" parent="." instance=ExtResource("22_tkes4")]
 position = Vector2(571, -48)

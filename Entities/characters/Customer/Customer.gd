@@ -67,23 +67,49 @@ var customer_wishes = {
 		"qty": 1,
 		"reward": {
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			"qty": 20
+			"qty": 50
 		}
 	},
 	"soldier_2": {
-		"item_id": Inventory.inventory_dictionary["doubleBitAxeIron"]["id"],
+		"item_id": Inventory.inventory_dictionary["doubleBitAxeSteel"]["id"],
 		"qty": 1,
 		"reward": {
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			"qty": 30
+			"qty": 100
 		}
 	},
 	"soldier_3": {
-		"item_id": Inventory.inventory_dictionary["staffEmerald"]["id"],
+		"item_id": Inventory.inventory_dictionary["twilightiteSword"]["id"],
 		"qty": 1,
 		"reward": {
 			"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			"qty": 30
+			"qty": 200
+		}
+	},
+	
+	
+	"villager_1": {
+		"item_id": Inventory.inventory_dictionary["axeIron"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 20
+		}
+	},
+	"villager_2": {
+		"item_id": Inventory.inventory_dictionary["maceEmerald"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 80
+		}
+	},
+	"villager_3": {
+		"item_id": Inventory.inventory_dictionary["twilightiteSword"]["id"],
+		"qty": 1,
+		"reward": {
+			"item_id": Inventory.inventory_dictionary["coin"]["id"],
+			"qty": 200
 		}
 	},
 }
