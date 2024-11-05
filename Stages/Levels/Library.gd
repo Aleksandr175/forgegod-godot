@@ -7,7 +7,7 @@ func _ready():
 
 
 func _on_exit_area_2d_area_entered(area):
-	SceneManager.change_scene("res://Stages/Levels/Village.tscn")
+	SceneManager.change_scene("res://Stages/Levels/Village.tscn", "from_library")
 
 func _on_altar_area_2d_area_entered(area):
 	var body = area.get_parent()

@@ -49,6 +49,6 @@ func _on_button_pressed():
 	if GameState.is_level_unlocked(level_name):
 		GameState.current_level_name = level_name
 		get_tree().paused = false
-		SceneManager.change_scene("res://Stages/Levels/" + level_name + ".tscn")
+		SceneManager.change_scene("res://Stages/Levels/" + level_name + ".tscn", "")
 	else:
 		print("Level is locked!")

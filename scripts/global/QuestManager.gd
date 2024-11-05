@@ -176,7 +176,7 @@ var quest_database = {
 		"next_quests": ["quest_tutorial_7"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: He is still not here."},
-			{"character": "player", "text": "Me: Oh, let's begin by processing the wood anyway... Then add the details..."},
+			{"character": "player", "text": "Me: Oh, let's craft the wooden axe anyway..."},
 		],
 	},
 	
@@ -210,11 +210,6 @@ var quest_database = {
 				"node_name": "/root/house_level/QuestNodes/quest_sell_to_villager",  # Path to the quest node in the scene
 				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
 			},
-			{
-				"stage": "res://Stages/Levels/house_level.tscn",
-				"node_name": "/root/house_level/QuestNodes/quest_sell_to_villager",  # Path to the quest node in the scene
-				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
-			}
 		],
 	},
 	

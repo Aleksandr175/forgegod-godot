@@ -9,7 +9,7 @@ var completed_quest_ids: Array = []  # List of IDs of completed quests
 var unlocked_recipes: Array = []  # List of IDs of unlocked recipes
 
 #var other_data: Dictionary = {}  # Any additional data
-
+var entry_point: String = ""
 
 var is_loaded = false
 

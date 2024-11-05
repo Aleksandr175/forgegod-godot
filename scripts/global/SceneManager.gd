@@ -22,7 +22,7 @@ func get_current_scene() -> Node:
 func get_current_scene_path() -> String:
 	return current_scene_path
 
-func change_scene(scene_path: String):
+func change_scene(scene_path: String, entry_point_name: String = ''):
 	if is_transitioning:
 		return  # Prevent multiple transitions at the same time
 
@@ -30,6 +30,7 @@ func change_scene(scene_path: String):
 
 	# Save the current scene path to GameState
 	GameState.save_scene(scene_path)
+	GameState.entry_point = entry_point_name  # Store the entry point in GameState
 
 	# Start the transition
 	_start_transition(scene_path)
@@ -61,7 +62,7 @@ func _replace_current_scene(scene_path: String):
 		current_scene = null
 		
 		# Wait for the node to be freed
-		await Engine.get_main_loop().process_frame
+		await get_tree().process_frame  # Updated for Godot 4.x
 
 	# Load the new scene
 	var scene_resource = load(scene_path)
@@ -77,7 +78,6 @@ func _replace_current_scene(scene_path: String):
 		# Set the new scene as the current scene
 		current_scene = new_scene
 		get_tree().current_scene = new_scene
-		get_tree().current_scene.name = scene_name
 
 		# Update current scene path
 		current_scene_path = scene_path
@@ -91,6 +91,7 @@ func _replace_current_scene(scene_path: String):
 		print("New scene loaded: ", scene_path)
 	else:
 		print("Failed to load scene: ", scene_path)
+
 
 func _show_loading_screen():
 	loading_screen.visible = true

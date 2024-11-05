@@ -7,4 +7,4 @@ func _ready():
 	portal.visible = false
 
 func _on_portal_portal_entered():
-	SceneManager.change_scene("res://Stages/Levels/Village.tscn")
+	SceneManager.change_scene("res://Stages/Levels/Village.tscn", "from_portal")

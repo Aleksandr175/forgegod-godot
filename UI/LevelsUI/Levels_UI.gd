@@ -63,7 +63,7 @@ func create_level_button(level_name):
 
 func _on_village_button_pressed():
 	get_tree().paused = false
-	SceneManager.change_scene("res://Stages/Levels/Village.tscn")
+	SceneManager.change_scene("res://Stages/Levels/Village.tscn", "from_portal")
 
 func on_level_completed(lvl_name):
 	#print('on_level_completed', lvl_name)
