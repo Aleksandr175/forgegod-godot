@@ -66,11 +66,12 @@ func _on_village_button_pressed():
 	SceneManager.change_scene("res://Stages/Levels/Village.tscn", "from_portal")
 
 func on_level_completed(lvl_name):
-	#print('on_level_completed', lvl_name)
 	populate_level_buttons()
 
 func _on_tree_entered():
 	GlobalSignals.level_completed.connect(on_level_completed)
+	GlobalSignals.level_unlocked.connect(on_level_completed)
 
 func _on_tree_exited():
 	GlobalSignals.level_completed.disconnect(on_level_completed)
+	GlobalSignals.level_unlocked.connect(on_level_completed)

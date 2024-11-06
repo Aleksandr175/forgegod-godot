@@ -50,6 +50,7 @@ func unlock_level(level_id: String):
 			level_progress[level_id]["unlocked"] = true
 			levels["unlocked"] = true
 			print("Level unlocked: ", level_id)
+			GlobalSignals.level_unlocked.emit(level_id)
 			save_game()
 		else:
 			print("Level already unlocked: ", level_id)

@@ -308,17 +308,15 @@ var quest_database = {
 			{"character": "king", "text": "Elder: Perhaps you've noticed some unusual creatures near the caves recently?"},
 			{"character": "player", "text": "Me: I've heard some rumors but haven't seen them myself."},
 			{"character": "king", "text": "Elder: These creatures are emerging more frequently, and I fear they may pose a threat. "},
-			{"character": "king", "text": "Elder: There is an old prophecy that speaks of a skilled smith who will craft a legendary weapon to protect us..."}, 
-			{"character": "player", "text": "Me: You think that smith could be me?"},
-			{"character": "king", "text": "Elder: The prophecy says so. You arrived just in time. Will you help us?"},
-			{"character": "player", "text": "Me: Of course. Tell me what I need to do."},
-			{"character": "king", "text": "Elder: Firstly, go to caves and collect some iron. You will need it."},
+			{"character": "king", "text": "Elder: Will you help us?"},
+			{"character": "player", "text": "Me: Absolutely! Tell me what I need to do."},
+			{"character": "king", "text": "Elder: Firstly, go to Iron Cave and collect some iron. You will need it."},
 		],
 	},
 	
 	"quest_first_chapter_2": {
 		"quest_id": "quest_first_chapter_2",
-		"title": "Go to the Iron Caves",
+		"title": "Go to the Iron Cave",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -326,17 +324,13 @@ var quest_database = {
 			"qty": 1
 		}],
 		"rewards": {
-			#"goods": [{
-			#	"item_id": Inventory.inventory_dictionary["coin"]["id"],
-			#	"qty": 20
-			#}],
 			"experience": 5
 		},
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_3"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Ok, I can get some wood here."},
-			{"character": "player", "text": "Me: Or I can go to the caves immediately."},
+			{"character": "player", "text": "Me: Or I can go to the Iron Cave immediately."},
 		],
 	},
 	
@@ -395,7 +389,7 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_6"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Elder, I've collected the 10 units of iron ore you requested."},
+			{"character": "player", "text": "Me: Elder, I've collected iron ore you requested."},
 			{"character": "king", "text": "Elder: Excellent work! With this iron, we can begin crafting stronger weapons for our defenders."},
 			{"character": "king", "text": "Elder: You'll need to smelt the iron ore into iron ingots. Remember, raw ore isn't suitable for weapon-making."},
 			{"character": "player", "text": "Me: Understood. I'll use the forge to smelt the ore."},
@@ -403,7 +397,6 @@ var quest_database = {
 			{"character": "player", "text": "Me: Thank you! I'll make good use of them."},
 		],
 	},
-
 
 	"quest_first_chapter_6": {
 		"quest_id": "quest_first_chapter_6",
@@ -435,7 +428,7 @@ var quest_database = {
 	"quest_first_chapter_6-2": {
 		"quest_id": "quest_first_chapter_6-2",
 		"title": "Serve Second Villager",
-		"description": "Sell Wooden Axe to Villager",
+		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
 			"customer_id": "customer_3",
@@ -450,7 +443,7 @@ var quest_database = {
 		},
 		"next_quests": ["quest_first_chapter_7"],
 		"dialog_data": [
-			{"character": "villager", "text": "Villager: Oh! I need iron sword, please!"},
+			{"character": "villager", "text": "Villager: Hi! I need iron sword, please!"},
 			{"character": "player", "text": "Me: Ok, one moment"},
 		],
 		"quest_actions": [
@@ -500,8 +493,8 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_first_chapter_9"],
 		"dialog_data": [
-			{"character": "king", "text": "Elder: Excellent work; our defenders are now well-armed. However, I recalled something important."},
-			{"character": "player", "text": "Me: What did you remember?"},
+			{"character": "king", "text": "Elder: Excellent work. Our defenders are now well-armed. However, I recalled something important."},
+			{"character": "player", "text": "Me: What is it?"},
 			{"character": "king", "text": "Elder: There might be ancient records in our library on how to seal the ancient evil that is said to be awakening in the depths of the caves. "},
 			{"character": "king", "text": "Elder: I ask you to go there and find this information."},
 			{"character": "player", "text": "Me: I'll head to the library immediately and try to find whatever I can."},
@@ -1388,7 +1381,7 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"next_quests": ["quest_second_chapter_38"],
+		"next_quests": ["quest_third_chapter_1"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Oh my god! I did it! Evil is sealed!"},
 		],
@@ -1406,10 +1399,88 @@ var quest_database = {
 		],
 	},
 	
-	# TODO: say good news to all villagers
-	"quest_second_chapter_38": {
-		"quest_id": "quest_second_chapter_38",
+
+	"quest_third_chapter_1": {
+		"quest_id": "quest_third_chapter_1",
 		"title": "Return to the Elder",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": 'villager_4',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_third_chapter_2"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: You have accomplished a great deed, apprentice. You saved our village and completed what your mentor could not. Now you are a true master."},
+			{"character": "king", "text": "Elder: May your name live on in the legends of our village. Thank you."},
+			{"character": "player", "text": "Me: Thank you, Elder. It was an honor."},
+			{"character": "player", "text": "Me: Ok, I should say this good news to everyone!"},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_3_villagers_good_news",
+				"action": Enums.QuestActions.SHOW,
+			},
+		],
+	},
+	
+	"quest_third_chapter_2": {
+		"quest_id": "quest_third_chapter_2",
+		"title": "Talk with first villager",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": 'villager_5',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_third_chapter_3"],
+		"dialog_data": [
+			{"character": "villager", "text": "Villager: Thank you! Because of you, our village is safe."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_3_villagers_good_news",
+				"action": Enums.QuestActions.SHOW,
+			},
+		],
+	},
+	
+	"quest_third_chapter_3": {
+		"quest_id": "quest_third_chapter_3",
+		"title": "Talk with second villager",
+		"description": "",
+		"objectives": [{
+			"type": Enums.QuestTypes.VISIT,
+			"item_id": 'villager_6',
+			"qty": 1
+		}],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_third_chapter_4"],
+		"dialog_data": [
+			{"character": "villager", "text": "Villager: You’re a hero! We all owe you our lives."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_3_villagers_good_news",
+				"action": Enums.QuestActions.SHOW,
+			},
+		],
+	},
+
+	"quest_third_chapter_4": {
+		"quest_id": "quest_third_chapter_4",
+		"title": "Talk with the Elder",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1419,12 +1490,26 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"next_quests": ["quest_second_chapter_39"],
+		"next_quests": ["quest_third_chapter_5"],
 		"dialog_data": [
-			{"character": "king", "text": "Elder: You have accomplished a great deed, apprentice. You saved our village and completed what your mentor could not. Now you are a true master."},
-			{"character": "king", "text": "Elder: May your name live on in the legends of our village. Thank you."},
-			{"character": "player", "text": "Me: Thank you, Elder. It was an honor."},
-			{"character": "player", "text": "Me: Ok, I should say this good news to everyone!"},
+			{"character": "villager", "text": "Villager: You’ve banished the darkness! Now we can sleep peacefully."},
+		],
+	},
+
+	"quest_third_chapter_5": {
+		"quest_id": "quest_third_chapter_5",
+		"title": "More quests coming!",
+		"description": "",
+		"objectives": [],
+		"rewards": {
+			"experience": 5
+		},
+		"next_quests": ["quest_third_chapter_5"],
+		"dialog_data": [
+			{"character": "king", "text": "Elder: Thank you, hero! Now you can relax and craft anything you want."},
+			{"character": "king", "text": "Elder: Did you learn all recipes?"},
+			{"character": "king", "text": "Elder: Continue to improve your skills. Maybe it is not the last time you need it!"},
+			{"character": "player", "text": "Me: Yes, I should continue!"},
 		],
 	},
 }

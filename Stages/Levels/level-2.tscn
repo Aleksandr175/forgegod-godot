@@ -95,37 +95,42 @@ position = Vector2(32, 224)
 [node name="ResourceIron7" parent="." instance=ExtResource("7_vc6nj")]
 position = Vector2(196, 0)
 
-[node name="Coin" parent="." instance=ExtResource("10_dunej")]
+[node name="coins" type="Node" parent="."]
+
+[node name="Coin" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(265, -7)
 
-[node name="Coin2" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin2" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(250, -7)
 
-[node name="Coin3" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin3" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(264, 90)
 
-[node name="Coin4" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin4" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(200, 74)
 
-[node name="Coin5" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin5" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(74, -7)
 
-[node name="Coin6" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin12" parent="coins" instance=ExtResource("10_dunej")]
+position = Vector2(-80, -7)
+
+[node name="Coin6" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(91, 152)
 
-[node name="Coin7" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin7" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(104, 152)
 
-[node name="Coin8" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin8" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(116, 152)
 
-[node name="Coin9" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin9" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(185, 169)
 
-[node name="Coin10" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin10" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(421, 135)
 
-[node name="Coin11" parent="." instance=ExtResource("10_dunej")]
+[node name="Coin11" parent="coins" instance=ExtResource("10_dunej")]
 position = Vector2(408, 135)
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_yefrc")]
@@ -160,7 +165,7 @@ blend_mode = 1
 position = Vector2(-47, 225)
 
 [node name="Player" parent="." instance=ExtResource("4_7kols")]
-position = Vector2(-25, 222)
+position = Vector2(-31, -6)
 
 [node name="LevelsMenuUI" type="CanvasLayer" parent="."]
 visible = false

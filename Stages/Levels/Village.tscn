@@ -192,6 +192,22 @@ customer_id = "villager_2"
 position = Vector2(623, -48)
 customer_id = "villager_3"
 
+[node name="quest_3_villagers_good_news" type="Node2D" parent="QuestNodes"]
+
+[node name="Customer" parent="QuestNodes/quest_3_villagers_good_news" instance=ExtResource("22_qmm02")]
+position = Vector2(40, 0)
+direction = -1
+customer_id = "villager_4"
+
+[node name="Customer2" parent="QuestNodes/quest_3_villagers_good_news" instance=ExtResource("22_qmm02")]
+position = Vector2(40, -96)
+direction = -1
+customer_id = "villager_5"
+
+[node name="Customer3" parent="QuestNodes/quest_3_villagers_good_news" instance=ExtResource("22_qmm02")]
+position = Vector2(623, -48)
+customer_id = "villager_6"
+
 [node name="House4" parent="." instance=ExtResource("22_tkes4")]
 position = Vector2(571, -48)
 
