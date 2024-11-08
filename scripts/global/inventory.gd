@@ -38,7 +38,7 @@ var inventory_dictionary: Dictionary = {
 		"name": "Emerald",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-emerald.png"),
-		"value": 5
+		"value": 15
 	},
 
 	"twilightite": {
@@ -46,7 +46,7 @@ var inventory_dictionary: Dictionary = {
 		"name": "Twilightite",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-twilightite.png"),
-		"value": 10
+		"value": 25
 	},
 	
 
@@ -66,13 +66,21 @@ var inventory_dictionary: Dictionary = {
 		"value": 7
 	},
 
-	"emeraldIngot": {
-		"id": 17,
-		"name": "Emerald Ingot",
-		"type": "Resource",
-		"texture": load("res://assets/sprites/objects/resources/resource-emerald-ingot.png"),
-		"value": 25
-	},
+	#"steelIngot": {
+	#	"id": 17,
+	#	"name": "Steel Ingot",
+	#	"type": "Resource",
+	#	"texture": load("res://assets/sprites/objects/resources/resource-iron-ingot.png"),
+	#	"value": 20
+	#},
+
+	#"emeraldIngot": {
+	#	"id": 18,
+	#	"name": "Emerald Ingot",
+	#	"type": "Resource",
+	#	"texture": load("res://assets/sprites/objects/resources/resource-emerald-ingot.png"),
+	#	"value": 25
+	#},
 
 	# Iron id from 100
 	"swordWooden": {
@@ -167,21 +175,21 @@ var inventory_dictionary: Dictionary = {
 		"name": "Emerald Spear",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/spearEmerald.png"),
-		"value": 200,
+		"value": 50,
 	},
 	"maceEmerald": {
 		"id": 402,
 		"name": "Emerald Mace",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/spearEmerald.png"),
-		"value": 250,
+		"value": 70,
 	},
 	"staffEmerald": {
 		"id": 403,
 		"name": "Emerald Staff",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/staffEmerald.png"),
-		"value": 300,
+		"value": 55,
 	},
 
 	"twilightiteSword": {
@@ -189,7 +197,7 @@ var inventory_dictionary: Dictionary = {
 		"name": "Twilight Blade",
 		"type": "Resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-twilightite.png"),
-		"value": 500
+		"value": 150
 	},
 
 
@@ -431,6 +439,86 @@ var recipes: Array = [{
 		"type": inventory_dictionary["ironIngot"]["type"], 
 		"texture": inventory_dictionary["ironIngot"]["texture"],
 		"qty": 5,
+	}],
+},
+
+# EMERALD WEAPONS
+{
+	"id": inventory_dictionary["spearEmerald"]["id"],
+	"name": inventory_dictionary["spearEmerald"]["name"],
+	"texture": inventory_dictionary["spearEmerald"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"locked": true,
+	"requirements": [{
+		"id": inventory_dictionary["emerald"]["id"], 
+		"name": inventory_dictionary["emerald"]["name"], 
+		"type": inventory_dictionary["emerald"]["type"], 
+		"texture": inventory_dictionary["emerald"]["texture"],
+		"qty": 2,
+	}, {
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 1,
+	}],
+}, {
+	"id": inventory_dictionary["maceEmerald"]["id"],
+	"name": inventory_dictionary["maceEmerald"]["name"],
+	"texture": inventory_dictionary["maceEmerald"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"locked": true,
+	"requirements": [{
+		"id": inventory_dictionary["emerald"]["id"], 
+		"name": inventory_dictionary["emerald"]["name"], 
+		"type": inventory_dictionary["emerald"]["type"], 
+		"texture": inventory_dictionary["emerald"]["texture"],
+		"qty": 3,
+	}, {
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 1,
+	}],
+}, {
+	"id": inventory_dictionary["staffEmerald"]["id"],
+	"name": inventory_dictionary["staffEmerald"]["name"],
+	"texture": inventory_dictionary["staffEmerald"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"locked": true,
+	"requirements": [{
+		"id": inventory_dictionary["emerald"]["id"], 
+		"name": inventory_dictionary["emerald"]["name"], 
+		"type": inventory_dictionary["emerald"]["type"], 
+		"texture": inventory_dictionary["emerald"]["texture"],
+		"qty": 2,
+	}, {
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 2,
+	}],
+},
+
+# TWILIGHTITE
+{
+	"id": inventory_dictionary["twilightiteSword"]["id"],
+	"name": inventory_dictionary["twilightiteSword"]["name"],
+	"texture": inventory_dictionary["twilightiteSword"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"locked": true,
+	"requirements": [{
+		"id": inventory_dictionary["twilightite"]["id"], 
+		"name": inventory_dictionary["twilightite"]["name"], 
+		"type": inventory_dictionary["twilightite"]["type"], 
+		"texture": inventory_dictionary["twilightite"]["texture"],
+		"qty": 4,
 	}],
 },
 

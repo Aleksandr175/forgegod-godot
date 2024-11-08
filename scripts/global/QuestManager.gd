@@ -630,14 +630,14 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_second_chapter_6"],
 		"dialog_data": [
-			{"character": "king", "text": "Elder: Excellent work with the Emeraldite. I believe I’ve discovered something about the first artifact you're seeking."},
+			{"character": "king", "text": "Elder: Excellent work with the Emeraldite. I believe I’ve discovered something about the first artifact."},
 			{"character": "player", "text": "Me: That’s wonderful news! Where can I find it?"},
 			{"character": "king", "text": "Elder: This artifact is called the Tear of the Heavens. According to legend, it’s a powerful crystal that fell from the sky, carrying extraordinary strength"},
 			{"character": "king", "text": "Elder: As far as I can tell, it’s located right here in our village."},
 			{"character": "player", "text": "Me: In the village? But where exactly?"},
 			{"character": "king", "text": "Elder: There’s a path behind the shop that leads up the hill. The writings say to follow it to reach the Tear’s resting place."},
 			{"character": "player", "text": "Me: Got it. Thank you for the guidance, Elder. I’ll head up the path and find the Tear of the Heavens."},
-			{"character": "king", "text": "Elder: Take care. The path may not be easy, and remember—this artifact holds ancient magic. Guard it well."},
+			{"character": "king", "text": "Elder: Take care. The path may not be easy, and remember — this artifact holds ancient magic. Guard it well."},
 		],
 		"quest_actions": [
 			{
@@ -692,7 +692,8 @@ var quest_database = {
 			{"character": "player", "text": "Me: Thank you, Elder. Have you learned anything about the next artifact?"},
 			{"character": "king", "text": "Elder: Not yet, I’m afraid. The writings are obscure, and it may take me a bit more time to uncover the next clue. In the meantime, there’s another way you could be of help."},
 			{"character": "player", "text": "Me: Of course. What can I do?"},
-			{"character": "king", "text": "Elder: The villagers have been eagerly awaiting your help. They’ve heard of your skill in using emerald, and several of them are already waiting for you at your house. They’re in need of weapons that only you can forge."},
+			{"character": "king", "text": "Elder: The villagers have been eagerly awaiting your help."},
+			{"character": "king", "text": "Elder: They’ve heard you found emerald, and several of them are already waiting for you at your house. They’re in need of weapons that you can forge."},
 			{"character": "player", "text": "Me: Understood. I’ll see to their orders and return once they’re done."},
 			{"character": "king", "text": "Elder: Thank you. These weapons will strengthen the village’s defenses, and your work will not go unnoticed."},
 		],
@@ -713,7 +714,8 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_second_chapter_9"],
 		"dialog_data": [
-			{"character": "villager", "text": "Wolf Hunter: I’ve heard you’re skilled in crafting with emerald. I need a spear that can withstand the strength of a wolf and cut cleanly through fur and hide. Could you forge one for me?"},
+			{"character": "villager", "text": "Wolf Hunter: I’ve heard you’re skilled in crafting with emerald."},
+			{"character": "villager", "text": "Wolf Hunter: I need a spear that can withstand the strength of a wolf and cut cleanly through fur and hide. Could you forge one for me?"},
 			{"character": "player", "text": "Me: An emerald spear, you say? It sounds like a worthy challenge. I’ll make sure it’s sharp and durable"},
 			{"character": "villager", "text": "Wolf Hunter: Thank you. This weapon could make all the difference for my hunts."},
 		],
