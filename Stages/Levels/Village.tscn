@@ -193,6 +193,7 @@ position = Vector2(623, -48)
 customer_id = "villager_3"
 
 [node name="quest_3_villagers_good_news" type="Node2D" parent="QuestNodes"]
+visible = false
 
 [node name="Customer" parent="QuestNodes/quest_3_villagers_good_news" instance=ExtResource("22_qmm02")]
 position = Vector2(40, 0)

@@ -90,7 +90,7 @@ visible = false
 position = Vector2(138, 48)
 
 [node name="Player" parent="." instance=ExtResource("12_2k8lo")]
-position = Vector2(-29, -16)
+position = Vector2(-31, -6)
 
 [node name="Bridge3" parent="." instance=ExtResource("10_0bs1x")]
 position = Vector2(136, 7)
@@ -116,7 +116,12 @@ position = Vector2(316, -14)
 [node name="Blacksmith" parent="." instance=ExtResource("12_w0qyg")]
 position = Vector2(297, 0)
 
-[node name="ResourceBreathForest" parent="." instance=ExtResource("13_vfefh")]
+[node name="QuestNodes" type="Node2D" parent="."]
+
+[node name="quest_get_mountain_heart" type="Node2D" parent="QuestNodes"]
+visible = false
+
+[node name="ResourceBreathForest" parent="QuestNodes/quest_get_mountain_heart" instance=ExtResource("13_vfefh")]
 position = Vector2(339, 0)
 
 [connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]

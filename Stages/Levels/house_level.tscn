@@ -71,15 +71,15 @@ position = Vector2(-32, -34)
 direction = -1
 customer_id = "customer_second_chapter_5"
 
-[node name="Customer" parent="QuestNodes/quest_sell_3" instance=ExtResource("5_fwco5")]
-position = Vector2(-2, 8)
-direction = -1
-customer_id = "customer_second_chapter_3"
-
 [node name="Customer2" parent="QuestNodes/quest_sell_3" instance=ExtResource("5_fwco5")]
 position = Vector2(-24, -6)
 direction = -1
 customer_id = "customer_second_chapter_4"
+
+[node name="Customer" parent="QuestNodes/quest_sell_3" instance=ExtResource("5_fwco5")]
+position = Vector2(-2, 8)
+direction = -1
+customer_id = "customer_second_chapter_3"
 
 [connection signal="area_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_area_entered"]
 [connection signal="body_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]

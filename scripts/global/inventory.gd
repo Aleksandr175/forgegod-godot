@@ -181,7 +181,7 @@ var inventory_dictionary: Dictionary = {
 		"id": 402,
 		"name": "Emerald Mace",
 		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/spearEmerald.png"),
+		"texture": load("res://assets/sprites/objects/goods/maceEmerald.png"),
 		"value": 70,
 	},
 	"staffEmerald": {

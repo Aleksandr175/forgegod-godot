@@ -711,11 +711,12 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [{
+			"type": "unlock_recipes", "recipes": [Inventory.inventory_dictionary["spearEmerald"]["id"]],
+		}],
 		"next_quests": ["quest_second_chapter_9"],
 		"dialog_data": [
-			{"character": "villager", "text": "Wolf Hunter: I’ve heard you’re skilled in crafting with emerald."},
-			{"character": "villager", "text": "Wolf Hunter: I need a spear that can withstand the strength of a wolf and cut cleanly through fur and hide. Could you forge one for me?"},
+			{"character": "villager", "text": "Wolf Hunter: Hi! I need a spear that can withstand the strength of a wolf and cut cleanly through fur and hide. Could you forge one for me?"},
 			{"character": "player", "text": "Me: An emerald spear, you say? It sounds like a worthy challenge. I’ll make sure it’s sharp and durable"},
 			{"character": "villager", "text": "Wolf Hunter: Thank you. This weapon could make all the difference for my hunts."},
 		],
@@ -739,10 +740,13 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [{
+			"type": "unlock_recipes", "recipes": [Inventory.inventory_dictionary["maceEmerald"]["id"]],
+		}],
 		"next_quests": ["quest_second_chapter_10"],
 		"dialog_data": [
-			{"character": "villager", "text": "Collector: Good day! I’ve been admiring your work and was hoping you could make me something unique—a mace, crafted from emerald. It’s not for combat, but rather for the pleasure of owning such a rare piece."},
+			{"character": "villager", "text": "Collector: Good day! I’ve been admiring your work and was hoping you could make me something unique—a mace, crafted from emerald."},
+			{"character": "villager", "text": "Collector: It’s not for combat, but rather for the pleasure of owning such a rare piece."},
 			{"character": "player", "text": "Me: An emerald mace... It will be as impressive to behold as it is to hold. I’ll see to it."},
 			{"character": "villager", "text": "Collector: Wonderful! I’m certain it will be the centerpiece of my collection."},
 		],
@@ -766,11 +770,14 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [{
+			"type": "unlock_recipes", "recipes": [Inventory.inventory_dictionary["staffEmerald"]["id"]],
+		}],
 		"next_quests": ["quest_second_chapter_11"],
 		"dialog_data": [
-			{"character": "villager", "text": "Wizard's Apprentice: Hello! My master, the village wizard, has sent me here with a special request. He believes an emerald-tipped staff will amplify my abilities and help me in my studies. Could you make one for me?"},
-			{"character": "player", "text": "Me: Of course. A staff for a budding wizard—it sounds like a fascinating project."},
+			{"character": "villager", "text": "Wizard's Apprentice: Hello! My master, the village wizard, has sent me here with a special request."},
+			{"character": "villager", "text": "Wizard's Apprentice: He believes an emerald-tipped staff will amplify my abilities and help me in my studies. Could you make one for me?"},
+			{"character": "player", "text": "Me: Of course. A staff for a budding wizard — it sounds like a fascinating project."},
 			{"character": "villager", "text": "Wizard's Apprentice: Thank you! My master says it will make a great difference in my training."},
 		],
 		"quest_actions": [
@@ -814,11 +821,12 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [
-			{"type": "unlock_level", "level_id": "level-4"},
+			{"type": "unlock_level", "level_id": "level-5"},
 		],
 		"next_quests": ["quest_second_chapter_13"],
 		"dialog_data": [
-			{"character": "king", "text": "Elder: It’s good to see you, apprentice. I’ve finally discovered where the Mountain’s Heart is located—it’s hidden deep within the most remote corner of the cave. But beware, the path to it is treacherous, and many have lost their way in those depths."},
+			{"character": "king", "text": "Elder: It’s good to see you, apprentice. I’ve finally discovered where the Mountain’s Heart is located—it’s hidden deep within the most remote corner of the cave."},
+			{"character": "king", "text": "Elder: But beware, the path to it is treacherous, and many have lost their way in those depths."},
 			{"character": "player", "text": "Me: I’ll be careful. If this artifact is as powerful as you say, I’ll make sure it doesn’t fall into the wrong hands."},
 			{"character": "king", "text": "Elder: Thank you. And... if you happen to find any sign of your mentor, please let me know. It’s possible he went after this very artifact."},
 		],
@@ -860,6 +868,13 @@ var quest_database = {
 		"dialog_data": [
 			{"character": "player", "text": "Me: This… this is my mentor. He must have been searching for the Mountain's Heart as well. He didn’t make it…"},
 		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/level-5.tscn",
+				"node_name": "/root/level-5/QuestNodes/quest_get_mountain_heart",  # Path to the quest node in the scene
+				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
+			},
+		],
 	},
 
 	"quest_second_chapter_15": {
@@ -887,7 +902,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": 'level-6',
+			"item_id": 'level-4',
 			"qty": 1
 		}],
 		"rewards": {
@@ -899,10 +914,12 @@ var quest_database = {
 		"next_quests": ["quest_second_chapter_17"],
 		"dialog_data": [
 			{"character": "player", "text": "Me: Elder, I… I found my mentor. He… he didn’t survive. It looks like he was searching for the Mountain’s Heart too but… something stopped him."},
-			{"character": "king", "text": "Elder: ... (sighs deeply) ..."},
-			{"character": "king", "text": "Elder: This is painful news, apprentice. Your mentor was a brave soul, but it seems this ancient darkness is stronger than we thought. If he could not withstand it, we must act quickly to prepare the village."},
+			{"character": "king", "text": "Elder: ... (sighs deeply) ... This is painful news, apprentice. Your mentor was a brave soul, but it seems this ancient darkness is stronger than we thought."},
+			{"character": "king", "text": "Elder: If he could not withstand it, we must act quickly to prepare the village."},
 			{"character": "player", "text": "Me: What do you need me to do?"},
-			{"character": "king", "text": "Elder: To strengthen our defenses, we’ll need a special material called Twilightite. It’s a rare, purple mineral found in the caves, and its properties could prove invaluable. Please, gather as much as you can—we’ll need it to forge powerful weapons."},
+			{"character": "king", "text": "Elder: To strengthen our defenses, we’ll need a special material called Twilightite."},
+			{"character": "king", "text": "Elder: It’s a rare, purple mineral found in the caves, and its properties could prove invaluable."},
+			{"character": "king", "text": "Elder: Please, gather as much as you can — we’ll need it to forge powerful weapons."},
 			{"character": "player", "text": "Me: I understand. I’ll head back to the caves and bring back the Twilightite."},
 		],
 	},
@@ -952,7 +969,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"item_id": Enums.QuestTargetObjects.SOLDIER_1,
+			"item_id": 'soldier_1',
 			"qty": 1
 		}],
 		"rewards": {
@@ -963,8 +980,16 @@ var quest_database = {
 		"dialog_data": [
 			{"character": "king", "text": "Elder: Thank you for gathering the Twilightite. It is more powerful than I imagined, and with it, we can forge weapons to strengthen our defenses."},
 			{"character": "player", "text": "Me: What do you need me to make?"},
-			{"character": "king", "text": "Elder: Three soldiers have requested weapons that will aid them in facing the coming evil. Each one has specific requirements. You’ll need to forge an iron broadsword, a steel double-headed axe, and a Twilight Blade. They’re waiting for you to speak with them."},
+			{"character": "king", "text": "Elder: Three soldiers have requested weapons that will aid them in facing the coming evil. Each one has specific requirements."},
+			{"character": "king", "text": "Elder: You’ll need to forge an iron broadsword, a steel double-headed axe, and a Twilight Blade. They’re waiting for you to speak with them."},
 			{"character": "player", "text": "Me: Understood. I’ll speak with each soldier and get started on their weapons."},
+		],
+		"quest_actions": [
+			{
+				"stage": "res://Stages/Levels/Village.tscn",
+				"node_name": "/root/Village/QuestNodes/quest_3_soldiers",
+				"action": Enums.QuestActions.SHOW,
+			},
 		],
 	},
 
@@ -974,16 +999,19 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
-			"customer_id": Enums.QuestTargetObjects.SOLDIER_1,
+			"customer_id": 'soldier_1',
 			"qty": 1
 		}],
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [{
+			"type": "unlock_recipes", "recipes": [Inventory.inventory_dictionary["broadswordIron"]["id"]],
+		}],
 		"next_quests": ["quest_second_chapter_21"],
 		"dialog_data": [
-			{"character": "soldier", "text": "Soldier: We’re all feeling the tension in the air. The darkness is coming, and we need every advantage we can get. An iron broadsword—strong and reliable—is what I need. With it, I’ll stand guard and defend the village to my last breath."},
+			{"character": "soldier", "text": "Soldier: We’re all feeling the tension in the air. The darkness is coming, and we need every advantage we can get. "},
+			{"character": "soldier", "text": "Soldier: An iron broadsword — strong and reliable—is what I need. With it, I’ll stand guard and defend the village to my last breath."},
 			{"character": "player", "text": "Me: I’ll make sure your sword is as strong as your resolve."},
 		],
 		"quest_actions": [
@@ -1001,13 +1029,15 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
-			"customer_id": Enums.QuestTargetObjects.SOLDIER_2,
+			"customer_id": 'soldier_2',
 			"qty": 1
 		}],
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [{
+			"type": "unlock_recipes", "recipes": [Inventory.inventory_dictionary["doubleBitAxeSteel"]["id"]],
+		}],
 		"next_quests": ["quest_second_chapter_22"],
 		"dialog_data": [
 			{"character": "soldier", "text": "Soldier: If the darkness dares to threaten our home, it will meet my steel axe. Double-headed, balanced, and fierce—that’s the kind of weapon I need to face whatever comes from the caves. This axe will give me the strength to strike down anything in my path."},
@@ -1028,13 +1058,15 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
-			"customer_id": Enums.QuestTargetObjects.SOLDIER_3,
+			"customer_id": 'soldier_3',
 			"qty": 1
 		}],
 		"rewards": {
 			"experience": 5
 		},
-		"prerequisites": [],
+		"prerequisites": [{
+			"type": "unlock_recipes", "recipes": [Inventory.inventory_dictionary["twilightiteSword"]["id"]],
+		}],
 		"next_quests": ["quest_second_chapter_23"],
 		"dialog_data": [
 			{"character": "soldier", "text": "Soldier: I’ve heard that Twilightite holds mysterious power… that it can channel energies beyond our understanding."}, 
@@ -1783,6 +1815,10 @@ func process_prerequisites(prerequisites):
 			var level_id = prerequisite["level_id"]
 			GameState.unlock_level(level_id)
 			print("Unlocked level: ", level_id)
+		if prereq_type == "unlock_recipes":
+			for recipe_id in prerequisite["recipes"]:
+				Inventory.unlock_recipe(recipe_id)
+				print("Unlocked recipe for item ID:", recipe_id)
 		#elif prereq_type == "give_item":
 		#	var item_id = prerequisite["item_id"]
 		#	var qty = prerequisite["qty"]

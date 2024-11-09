@@ -24,6 +24,9 @@ func SetShader_BlinkIntensity(newValue: float):
 	sprite_2d.material.set_shader_parameter("blink_intensity", newValue)
 
 func _on_area_2d_area_entered(area):
+	if not self.get_parent().visible or not self.visible:
+		return  # Ignore interaction if the resource is not visible
+
 	var player = area.get_parent()
 	if player is Player:
 		player.auto_attack()

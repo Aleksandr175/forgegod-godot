@@ -3,6 +3,9 @@ extends Node2D
 @export var recipe_id: String = ""
 
 func _on_area_2d_area_entered(area):
+	if not self.get_parent().visible or not self.visible:
+		return  # Ignore interaction if the resource is not visible
+
 	var player = area.get_parent()
 	if player is Player:
 		collect_recipe()
