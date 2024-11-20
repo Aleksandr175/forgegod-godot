@@ -147,7 +147,7 @@ var inventory_dictionary: Dictionary = {
 		"id": 302,
 		"name": "Steel Broadsword",
 		"type": "item",
-		"texture": load("res://assets/sprites/objects/goods/doubleBitAxeSteel.png"),
+		"texture": load("res://assets/sprites/objects/goods/broadswordSteel.png"),
 		"value": 150,
 	},
 
@@ -159,7 +159,7 @@ var inventory_dictionary: Dictionary = {
 		"value": 150,
 	},
 	
-	"longswordSteelSteel": {
+	"longswordSteel": {
 		"id": 304,
 		"name": "Steel Longsword",
 		"type": "item",
@@ -196,7 +196,7 @@ var inventory_dictionary: Dictionary = {
 		"id": 501,
 		"name": "Twilight Blade",
 		"type": "Resource",
-		"texture": load("res://assets/sprites/objects/resources/resource-twilightite.png"),
+		"texture": load("res://assets/sprites/objects/goods/swordTwilightite.png"),
 		"value": 150
 	},
 
@@ -442,6 +442,70 @@ var recipes: Array = [{
 	}],
 },
 
+# STEEL WEAPONS
+{
+	"id": inventory_dictionary["broadswordSteel"]["id"],
+	"name": inventory_dictionary["broadswordSteel"]["name"],
+	"texture": inventory_dictionary["broadswordSteel"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"locked": true,
+	"requirements": [{
+		"id": inventory_dictionary["ironIngot"]["id"], 
+		"name": inventory_dictionary["ironIngot"]["name"], 
+		"type": inventory_dictionary["ironIngot"]["type"], 
+		"texture": inventory_dictionary["ironIngot"]["texture"],
+		"qty": 2,
+	}, {
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 1,
+	}],
+}, {
+	"id": inventory_dictionary["doubleBitAxeSteel"]["id"],
+	"name": inventory_dictionary["doubleBitAxeSteel"]["name"],
+	"texture": inventory_dictionary["doubleBitAxeSteel"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"locked": true,
+	"requirements": [{
+		"id": inventory_dictionary["ironIngot"]["id"], 
+		"name": inventory_dictionary["ironIngot"]["name"], 
+		"type": inventory_dictionary["ironIngot"]["type"], 
+		"texture": inventory_dictionary["ironIngot"]["texture"],
+		"qty": 3,
+	}, {
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 1,
+	}],
+},
+{
+	"id": inventory_dictionary["longswordSteel"]["id"],
+	"name": inventory_dictionary["longswordSteel"]["name"],
+	"texture": inventory_dictionary["longswordSteel"]["texture"],
+	"qty": 1,
+	"type": "recipe",
+	"locked": true,
+	"requirements": [{
+		"id": inventory_dictionary["ironIngot"]["id"], 
+		"name": inventory_dictionary["ironIngot"]["name"], 
+		"type": inventory_dictionary["ironIngot"]["type"], 
+		"texture": inventory_dictionary["ironIngot"]["texture"],
+		"qty": 4,
+	}, {
+		"id": inventory_dictionary["wood"]["id"], 
+		"name": inventory_dictionary["wood"]["name"], 
+		"type": inventory_dictionary["wood"]["type"], 
+		"texture": inventory_dictionary["wood"]["texture"],
+		"qty": 1,
+	}],
+},
+
 # EMERALD WEAPONS
 {
 	"id": inventory_dictionary["spearEmerald"]["id"],
@@ -549,10 +613,10 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["breathForest"]["texture"],
 		"qty": 1,
 	}, {
-		"id": inventory_dictionary["legendarySword"]["id"], 
-		"name": inventory_dictionary["legendarySword"]["name"], 
-		"type": inventory_dictionary["legendarySword"]["type"], 
-		"texture": inventory_dictionary["legendarySword"]["texture"],
+		"id": inventory_dictionary["magicalPotion"]["id"], 
+		"name": inventory_dictionary["magicalPotion"]["name"], 
+		"type": inventory_dictionary["magicalPotion"]["type"], 
+		"texture": inventory_dictionary["magicalPotion"]["texture"],
 		"qty": 1,
 	}],
 },]

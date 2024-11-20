@@ -153,6 +153,9 @@ position = Vector2(336, -48)
 [node name="Knight" parent="." instance=ExtResource("13_eou2t")]
 position = Vector2(-229, 0)
 
+[node name="House4" parent="." instance=ExtResource("22_tkes4")]
+position = Vector2(571, -48)
+
 [node name="QuestNodes" type="Node2D" parent="."]
 
 [node name="quest_tear_heavens" type="Node2D" parent="QuestNodes"]
@@ -166,14 +169,17 @@ visible = false
 
 [node name="Customer" parent="QuestNodes/quest_3_soldiers" instance=ExtResource("22_qmm02")]
 position = Vector2(490, -48)
+customer_type = "soldier"
 customer_id = "soldier_1"
 
 [node name="Customer2" parent="QuestNodes/quest_3_soldiers" instance=ExtResource("22_qmm02")]
 position = Vector2(509, -48)
+customer_type = "soldier"
 customer_id = "soldier_2"
 
 [node name="Customer3" parent="QuestNodes/quest_3_soldiers" instance=ExtResource("22_qmm02")]
 position = Vector2(526, -48)
+customer_type = "soldier"
 customer_id = "soldier_3"
 
 [node name="quest_3_villagers" type="Node2D" parent="QuestNodes"]
@@ -208,9 +214,6 @@ customer_id = "villager_5"
 [node name="Customer3" parent="QuestNodes/quest_3_villagers_good_news" instance=ExtResource("22_qmm02")]
 position = Vector2(623, -48)
 customer_id = "villager_6"
-
-[node name="House4" parent="." instance=ExtResource("22_tkes4")]
-position = Vector2(571, -48)
 
 [node name="EntryPoints" type="Node2D" parent="."]
 

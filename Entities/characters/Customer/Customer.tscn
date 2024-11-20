@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddjublycqau75"]
+[gd_scene load_steps=16 format=3 uid="uid://ddjublycqau75"]
 
 [ext_resource type="Script" path="res://Entities/characters/Customer/Customer.gd" id="1_qir3w"]
+[ext_resource type="Texture2D" uid="uid://b61nddb2n5o0a" path="res://assets/sprites/characters/knight.png" id="2_6478p"]
 [ext_resource type="Texture2D" uid="uid://bjtkhcqcaqubh" path="res://assets/sprites/characters/fHero_.png" id="2_ny5g1"]
 [ext_resource type="PackedScene" uid="uid://0yw8v8u4pwac" path="res://UI/VillagerUI/Villager_UI.tscn" id="3_nssjx"]
 
@@ -40,15 +41,58 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5doh"]
+atlas = ExtResource("2_6478p")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77clc"]
+atlas = ExtResource("2_6478p")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vwuv"]
+atlas = ExtResource("2_6478p")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pb6a"]
+atlas = ExtResource("2_6478p")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fy2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5doh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77clc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vwuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pb6a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d35jn"]
 radius = 15.0333
 
 [node name="Customer" type="Node2D"]
 script = ExtResource("1_qir3w")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2DCustomer" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_rphqc")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AnimatedSprite2DSoldier" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_8fy2l")
 animation = &"idle"
 autoplay = "idle"
 

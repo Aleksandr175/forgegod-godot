@@ -1040,7 +1040,9 @@ var quest_database = {
 		}],
 		"next_quests": ["quest_second_chapter_22"],
 		"dialog_data": [
-			{"character": "soldier", "text": "Soldier: If the darkness dares to threaten our home, it will meet my steel axe. Double-headed, balanced, and fierce—that’s the kind of weapon I need to face whatever comes from the caves. This axe will give me the strength to strike down anything in my path."},
+			{"character": "soldier", "text": "Soldier: If the darkness dares to threaten our home, it will meet my steel axe."},
+			{"character": "soldier", "text": "Soldier: Double-headed, balanced, and fierce—that’s the kind of weapon I need to face whatever comes from the caves."},
+			{"character": "soldier", "text": "Soldier: This axe will give me the strength to strike down anything in my path."},
 			{"character": "player", "text": "Me: I’ll craft an axe worthy of your courage."},
 		],
 		"quest_actions": [
@@ -1088,7 +1090,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"customer_id": Enums.QuestTargetObjects.KING,
+			"item_id": Enums.QuestTargetObjects.KING,
 			"qty": 1
 		}],
 		"rewards": {
@@ -1107,7 +1109,7 @@ var quest_database = {
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
-			"customer_id": 'level-6',
+			"item_id": 'level-6',
 			"qty": 1
 		}],
 		"rewards": {
@@ -1299,7 +1301,9 @@ var quest_database = {
 			"experience": 5
 		},
 		"next_quests": ["quest_second_chapter_32"],
-		"dialog_data": [],
+		"dialog_data": [
+			{"character": "player", "text": "Me: Oh, that is all! Let's go back to the Elder"},
+		],
 	},
 	
 	"quest_second_chapter_32": {
@@ -1316,8 +1320,8 @@ var quest_database = {
 		},
 		"next_quests": ["quest_second_chapter_33"],
 		"dialog_data": [
-			{"character": "kind", "text": "Elder: You’ve helped all those who needed protection. Now it’s time for the final step. Take this magical potion."},
-			{"character": "kind", "text": "Elder: Combine it with the three artifacts you’ve found, and from this, forge the legendary weapon—the Sword of Light. Only it has the power to defeat the darkness."},
+			{"character": "king", "text": "Elder: You've helped all those who needed protection. Now it’s time for the final step. Take this magical potion."},
+			{"character": "king", "text": "Elder: Combine it with the three artifacts you’ve found, and from this, forge the legendary weapon—the Sword of Light. Only it has the power to defeat the darkness."},
 			{"character": "player", "text": "Me: Thank you, Elder. I’ll use everything I have to create this sword."},
 		],
 	},
@@ -1370,10 +1374,13 @@ var quest_database = {
 		"rewards": {
 			"experience": 5
 		},
+		"prerequisites": [
+			{"type": "unlock_level", "level_id": "level-7"},
+		],
 		"next_quests": ["quest_second_chapter_36"],
 		"dialog_data": [
-			{"character": "kind", "text": "Elder: Now that the legendary sword is complete, it’s time to put an end to this darkness. "},
-			{"character": "kind", "text": "Elder: Go to the depths of the cave. There, you’ll find an ancient altar, designed to seal away evil. Drive the sword into the altar, and the darkness will be bound."},
+			{"character": "king", "text": "Elder: Now that the legendary sword is complete, it’s time to put an end to this darkness. "},
+			{"character": "king", "text": "Elder: Go to the depths of the cave. There, you’ll find an ancient altar, designed to seal away evil. Drive the sword into the altar, and the darkness will be bound."},
 			{"character": "player", "text": "Me: I’ll do it. Your faith in me gives me strength."},
 		],
 	},
@@ -1553,6 +1560,7 @@ func _ready():
 	GlobalSignals.new_game_started.connect(start_timer)
 	GlobalSignals.stage_changed.connect(update_quest)
 	start_timer()
+	#start_quest("quest_second_chapter_35")
 
 func start_timer():
 	var timer = Timer.new()
@@ -1755,17 +1763,18 @@ func load_quests():
 	#active_quests = GameState.active_quests.duplicate()
 
 func process_quest_actions(actions_array, quest_phase):
-	print('process_quest_actions', quest_phase)
+	print('process_quest_actions', quest_phase, " ", actions_array)
 	var current_stage_path = SceneManager.get_current_scene_path()
+	print("current_stage_path", current_stage_path)
 	for action_data in actions_array:
 		var action_stage = action_data.get("stage", "")
 		var node_name = action_data.get("node_name", "")
 		var action = action_data.get("action", "")
 
 		# Check if the action's stage matches the current stage
-		if action_stage != current_stage_path:
+		if action_stage.to_lower() != current_stage_path.to_lower():
 			continue  # Skip actions not related to the current stage
-		
+
 		# Determine if the action should be processed during the quest phase
 		if quest_phase == "start" and action == Enums.QuestActions.SHOW:
 			update_quest_node(node_name, Enums.QuestActions.SHOW)

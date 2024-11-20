@@ -21,11 +21,12 @@ var levels = {
 	"level-5": {"unlocked": false, "completed": false, "label": "Dark Cave"},
 	"level-4": {"unlocked": false, "completed": false, "label": "Twilightite Cave"},
 	"level-6": {"unlocked": false, "completed": false, "label": "Deep Forest"},
+	"level-7": {"unlocked": false, "completed": false, "label": "Evil's Seal"},
 	# Add more levels as needed
 }
 
 var current_level_name = "village"
-var level_order = ["level-1", "level-2", "level-3", "level-4", "level-5", "level-6"]  # Define the order of levels
+var level_order = ["level-1", "level-2", "level-3", "level-4", "level-5", "level-6", "level-7"]  # Define the order of levels
 
 func _ready():
 	#remove_corrupted_save()
@@ -55,8 +56,10 @@ func unlock_level(level_id: String):
 		else:
 			print("Level already unlocked: ", level_id)
 	else:
-		print("Level ID not found in level_progress: ", level_id)
-	
+		print("Level ID not found in level_progress: ", level_id, ". Trying to add...")
+		level_progress[level_id] = levels[level_id]
+		unlock_level(level_id)
+
 func is_level_unlocked(level_id: String) -> bool:
 	if level_progress.has(level_id):
 		return level_progress[level_id]["unlocked"]

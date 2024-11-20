@@ -2,9 +2,11 @@ extends Node2D
 
 var speed: int = 20  # Speed at which the villager moves
 @onready var panel = $VillagerUi
-@onready var sprite = $AnimatedSprite2D
+@onready var sprite_villager = $AnimatedSprite2DCustomer
+@onready var sprite_soldier = $AnimatedSprite2DSoldier
 var wishFromQuest = null
 var reward = null
+@export var customer_type: String = "villager"
 @export var direction: int = 1
 @export var customer_id: String = ""
 @export var sprite_frames: SpriteFrames
@@ -118,11 +120,22 @@ func _ready():
 	panel.visible = false
 	
 	if direction == 1:
-		sprite.flip_h = true
+		sprite_villager.flip_h = true
+		sprite_soldier.flip_h = true
 	else:
-		sprite.flip_h = false
+		sprite_villager.flip_h = false
+		sprite_soldier.flip_h = false
 
-	sprite.play("idle")
+	sprite_villager.visible = false
+	sprite_soldier.visible = false
+
+	if customer_type == "villager":
+		sprite_villager.visible = true
+		sprite_villager.play("idle")
+
+	if customer_type == "soldier":
+		sprite_soldier.visible = true
+		sprite_soldier.play("idle")
 
 func generate_wish():
 	wishFromQuest = null

@@ -28,11 +28,12 @@ func start_dialog_sequence(dialog):
 	start_dialog(dialog[current_dialog_index])
 
 func show_dialog(dialog):
-	dialog_data = dialog
-	get_tree().paused = true  # Pause game
+	if dialog and dialog.size() > 0:
+		dialog_data = dialog
+		get_tree().paused = true  # Pause game
 
-	dialog_ui.visible = true
-	start_dialog_sequence(dialog_data)
+		dialog_ui.visible = true
+		start_dialog_sequence(dialog_data)
 
 func on_text_displayed():
 	current_dialog_index += 1
