@@ -6,6 +6,7 @@ var selected_recipe = null
 @onready var recipe_name = $VBoxContainer/HBoxContainer/VBoxContainer/Label
 @onready var craft_button = $VBoxContainer/Button
 @onready var particles = $VBoxContainer/CPUParticles2D  # Reference to the particle system
+@onready var forge_sound = $ForgeSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -61,9 +62,9 @@ func order(recipe):
 	if Inventory.has_required_items(recipe.requirements):
 		# Proceed with item creation
 		print("All requirements met. Creating item:", recipe.name, recipe.id)
-		
+
 		Inventory.remove_items(recipe.requirements)
-		
+
 		# Add the new item to the inventory
 		Inventory.add_item(recipe.id, int(recipe.qty))
 
@@ -74,12 +75,15 @@ func order(recipe):
 
 func _on_button_pressed():
 	order(selected_recipe)
+	# play forge sound
+	forge_sound.play()
+
 	particles.emitting = true  # Start emitting particles
 	
 	# Optionally, you can stop emitting after a short delay
 	await get_tree().create_timer(0.5).timeout
 	particles.emitting = false
-
+	
 func set_craft_button_available(requirements):
 	if Inventory.has_required_items(requirements):
 		craft_button.disabled = false

@@ -25,6 +25,8 @@ var last_direction = 1
 var is_climbing = false
 var can_move = true
 
+@onready var chop_sound = $ChopSound
+
 func _ready():
 	GameManager.player = self
 	weapon_sprite.play("idle")
@@ -162,6 +164,10 @@ func _on_hitbox_component_area_entered(area):
 		attack_data.attack_force = DAMAGE
 
 		area.damage(attack_data)
+		
+		# Play chopping/mining sound when hitting a resource
+		#if area.is_in_group("resource_nodes"):  # Ensure the area is a resource node
+		chop_sound.play()
 
 func start_climbing():
 	is_climbing = true
@@ -197,12 +203,9 @@ func move_start():
 
 func _on_tree_entered():
 	GlobalSignals.player_entered_portal.connect(move_stop)
-	pass # Replace with function body.
-
 
 func _on_tree_exited():
 	GlobalSignals.player_entered_portal.disconnect(move_stop)
-	pass # Replace with function body.
 
 func _on_resource_picked_up(resource_name: String, qty: int):
 	# Load the PickupText scene
@@ -218,11 +221,11 @@ func _on_resource_picked_up(resource_name: String, qty: int):
 	var pickup_notifications = get_node("PickupNotifications")
 	pickup_notifications.add_child(pickup_text)
 	
-	print('pickup_notifications.get_child_count()', pickup_notifications.get_child_count())
+	#print('pickup_notifications.get_child_count()', pickup_notifications.get_child_count())
 	# Calculate offset based on the number of existing notifications
 	var num_notifications = pickup_notifications.get_child_count()
 	var y_offset = -150 - (20 * (num_notifications - 1))
-	print(y_offset)
+	
 	pickup_text.position = Vector2(0, y_offset)
 	
 	# Position it above the player

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://baphtpay2atal"]
+[gd_scene load_steps=7 format=3 uid="uid://baphtpay2atal"]
 
 [ext_resource type="Script" path="res://UI/RecipesUI/Recipe_Selected.gd" id="1_rtpl1"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_u0qec"]
 [ext_resource type="PackedScene" uid="uid://da05yq43vfk4f" path="res://UI/InventoryUI/Inventory_Slot_Small.tscn" id="2_yjdlx"]
 [ext_resource type="PackedScene" uid="uid://dp6h2dbl4d8yc" path="res://UI/RecipesUI/Recipe_Slot.tscn" id="3_n2355"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="3_u8req"]
+[ext_resource type="AudioStream" uid="uid://dcxvybkym1jpf" path="res://assets/sounds/forge.wav" id="6_b2uwy"]
 
 [node name="RecipeSelected" type="Control"]
 layout_mode = 3
@@ -83,5 +84,8 @@ gravity = Vector2(2.08165e-12, 50)
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
 scale_amount_max = 10.0
+
+[node name="ForgeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_b2uwy")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

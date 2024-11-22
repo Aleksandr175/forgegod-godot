@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=42 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://Entities/players/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://bvk5lgy0kkxgh" path="res://assets/sprites/player/main_hero.png" id="2_w7ppk"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://fsexdr8v3fkh" path="res://assets/sprites/ui/jump.png" id="8_sc1od"]
 [ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://UI/HUD/HUD.tscn" id="11_7olqj"]
 [ext_resource type="Texture2D" uid="uid://c0v32vj6qo6se" path="res://assets/sprites/ui/menu.png" id="11_uvdw5"]
+[ext_resource type="AudioStream" uid="uid://c2u6c35qtrwnm" path="res://assets/sounds/chop.wav" id="15_4peym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mte1a"]
 atlas = ExtResource("2_w7ppk")
@@ -482,6 +483,9 @@ anchors_preset = 0
 offset_top = -28.0
 offset_right = 10.0
 offset_bottom = -18.0
+
+[node name="ChopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_4peym")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

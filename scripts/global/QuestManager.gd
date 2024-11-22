@@ -43,18 +43,6 @@ var quest_database = {
 			{"character": "player", "text": "Me: What a wonderful day! But it's time to head back home."},
 			{"character": "player", "text": "Me: Oh, it seems there are coins scattered around. If I collect them, I can go home."},
 		],
-		"quest_actions": [
-			{
-				"stage": "res://Stages/Levels/instruction.tscn",
-				"node_name": "/root/instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
-				"action": Enums.QuestActions.SHOW,  # Action to perform (e.g., "show", "hide")
-			},
-			{
-				"stage": "res://Stages/Levels/instruction.tscn",
-				"node_name": "/root/instruction/QuestNodes/quest_default",  # Path to the quest node in the scene
-				"action": Enums.QuestActions.HIDE,  # Action to perform (e.g., "show", "hide")
-			}
-		],
 	},
 	"quest_tutorial_1": {
 		"quest_id": "quest_tutorial_1",
