@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdwio8e7l8x4s"]
+[gd_scene load_steps=12 format=3 uid="uid://cdwio8e7l8x4s"]
 
 [ext_resource type="Texture2D" uid="uid://w2vqgp3ondnr" path="res://assets/sprites/objects/torch/torch.png" id="1_1t4an"]
 
@@ -38,49 +38,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_l6hyj"]
-offsets = PackedFloat32Array(0, 0.741627)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bpx5e"]
-gradient = SubResource("Gradient_l6hyj")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 1)
-
 [sub_resource type="Animation" id="Animation_3fw4o"]
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PointLight2D:texture:width")
+tracks/0/path = NodePath("PointLight2D2:texture:fill_to")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [64, 48, 64]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PointLight2D:texture:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [64, 56, 64]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PointLight2D2:texture:fill_to")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -90,30 +56,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_p4rjt"]
 resource_name = "torch"
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PointLight2D:texture:width")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [64, 56, 64]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PointLight2D:texture:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [64, 56, 64]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gmfnv"]
 _data = {
@@ -142,13 +84,6 @@ animation = &"idle"
 autoplay = "idle"
 frame = 2
 frame_progress = 0.0224435
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(0, -9)
-color = Color(1, 0.545098, 0.137255, 1)
-texture = SubResource("GradientTexture2D_bpx5e")
-texture_scale = 1.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

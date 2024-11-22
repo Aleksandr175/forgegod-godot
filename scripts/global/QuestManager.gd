@@ -1439,11 +1439,11 @@ var quest_database = {
 			},
 		],
 	},
-	
+
 
 	"quest_third_chapter_1": {
 		"quest_id": "quest_third_chapter_1",
-		"title": "Return to the Elder",
+		"title": "Talk with first villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1471,7 +1471,7 @@ var quest_database = {
 	
 	"quest_third_chapter_2": {
 		"quest_id": "quest_third_chapter_2",
-		"title": "Talk with first villager",
+		"title": "Talk with second villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1496,7 +1496,7 @@ var quest_database = {
 	
 	"quest_third_chapter_3": {
 		"quest_id": "quest_third_chapter_3",
-		"title": "Talk with second villager",
+		"title": "Talk with third villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
