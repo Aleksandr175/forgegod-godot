@@ -1,6 +1,6 @@
 extends Node2D
 
-var inventory_size = 20
+var inventory_size = 30
 
 var inventory_dictionary: Dictionary = {
 	# Resources id from 1

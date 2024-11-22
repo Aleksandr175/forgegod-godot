@@ -39,6 +39,10 @@ func _process(_delta):
 	if Input.is_action_just_pressed("attack") and !attacking:
 		attack()
 
+	# Cheat code for getting resources and test game
+	if Input.is_action_just_pressed("cheat_add_resources"):
+		add_cheat_resources()
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor() and !is_climbing:
@@ -223,3 +227,10 @@ func _on_resource_picked_up(resource_name: String, qty: int):
 	
 	# Position it above the player
 	#pickup_text.rect_position = Vector2(0, -50)  # Adjust as needed
+
+func add_cheat_resources():
+	var resource_dict = Inventory.inventory_dictionary  # Access the inventory dictionary
+	for item_name in resource_dict.keys():
+		var item_data = resource_dict[item_name]
+		Inventory.add_item(item_data.id, 10)
+	print("Cheat activated: Added 10 of each resource to the inventory.")
