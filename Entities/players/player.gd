@@ -26,6 +26,7 @@ var is_climbing = false
 var can_move = true
 
 @onready var chop_sound = $ChopSound
+@onready var jump_sound = $JumpSound
 
 func _ready():
 	GameManager.player = self
@@ -53,6 +54,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and !is_climbing:
 		velocity.y = JUMP_VELOCITY
+		jump_sound.play()
 
 	# Get the input direction: -1, 0, 1
 	direction = Input.get_axis("move_left", "move_right")
