@@ -159,7 +159,7 @@ position = Vector2(134, 210)
 position = Vector2(-15, 210)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.3
+energy = 0.4
 blend_mode = 1
 
 [node name="Cave_Exit" parent="." instance=ExtResource("7_lcha5")]

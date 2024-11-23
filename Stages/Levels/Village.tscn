@@ -99,7 +99,7 @@ position = Vector2(23, -95)
 position = Vector2(-137, -95)
 
 [node name="ResourceWoodBig6" parent="." instance=ExtResource("14_ksj4c")]
-position = Vector2(295, -47)
+position = Vector2(145, 1)
 
 [node name="Anvil" parent="." instance=ExtResource("15_ob2jk")]
 position = Vector2(-156, -96)
