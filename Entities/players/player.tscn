@@ -260,8 +260,6 @@ offset_right = 111.0
 offset_bottom = 159.0
 text = "0"
 
-[node name="Dialog" parent="QuestsUi" instance=ExtResource("6_yi45e")]
-
 [node name="Camera2D" type="Camera2D" parent="." groups=["cameras"]]
 position = Vector2(0, -7)
 zoom = Vector2(5, 5)
@@ -487,6 +485,10 @@ anchors_preset = 0
 offset_top = -28.0
 offset_right = 10.0
 offset_bottom = -18.0
+
+[node name="Dialog" type="CanvasLayer" parent="."]
+
+[node name="Dialog" parent="Dialog" instance=ExtResource("6_yi45e")]
 
 [node name="ChopSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_4peym")
