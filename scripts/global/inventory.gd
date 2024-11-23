@@ -3,32 +3,32 @@ extends Node2D
 var inventory_size = 30
 
 var inventory_dictionary: Dictionary = {
-	# Resources id from 1
+	# resources id from 1
 	"coin": {
 		"id": 1,
 		"name": "Coin",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/resources/coin.png"),
 		"value": 1,
 	},
 	"wood": {
 		"id": 2,
 		"name": "Wood",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-wood.png"),
 		"value": 1,
 	},
 	"iron": {
 		"id": 3,
 		"name": "Iron",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
 		"value": 3,
 	},
 	"copper": {
 		"id": 4,
 		"name": "Copper",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
 		"value": 2
 	},
@@ -36,7 +36,7 @@ var inventory_dictionary: Dictionary = {
 	"emerald": {
 		"id": 5,
 		"name": "Emerald",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-emerald.png"),
 		"value": 15
 	},
@@ -44,7 +44,7 @@ var inventory_dictionary: Dictionary = {
 	"twilightite": {
 		"id": 6,
 		"name": "Twilightite",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-twilightite.png"),
 		"value": 25
 	},
@@ -53,7 +53,7 @@ var inventory_dictionary: Dictionary = {
 	"copperIngot": {
 		"id": 15,
 		"name": "Copper Ingot",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-copper-ingot.png"),
 		"value": 5
 	},
@@ -61,7 +61,7 @@ var inventory_dictionary: Dictionary = {
 	"ironIngot": {
 		"id": 16,
 		"name": "Iron Ingot",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/resources/resource-iron-ingot.png"),
 		"value": 7
 	},
@@ -69,7 +69,7 @@ var inventory_dictionary: Dictionary = {
 	#"steelIngot": {
 	#	"id": 17,
 	#	"name": "Steel Ingot",
-	#	"type": "Resource",
+	#	"type": "resource",
 	#	"texture": load("res://assets/sprites/objects/resources/resource-iron-ingot.png"),
 	#	"value": 20
 	#},
@@ -77,7 +77,7 @@ var inventory_dictionary: Dictionary = {
 	#"emeraldIngot": {
 	#	"id": 18,
 	#	"name": "Emerald Ingot",
-	#	"type": "Resource",
+	#	"type": "resource",
 	#	"texture": load("res://assets/sprites/objects/resources/resource-emerald-ingot.png"),
 	#	"value": 25
 	#},
@@ -88,21 +88,24 @@ var inventory_dictionary: Dictionary = {
 		"name": "Wooden Sword",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/swordWood.png"),
-		"value": 8
+		"value": 8,
+		"for_customers": true
 	},
 	"axeWooden": {
 		"id": 101,
 		"name": "Wooden Axe",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/axeWood.png"),
-		"value": 7
+		"value": 7,
+		"for_customers": true
 	},
 	"spearWooden": {
 		"id": 102,
 		"name": "Wooden Spear",
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/spearWood.png"),
-		"value": 5
+		"value": 5,
+		"for_customers": true
 	},
 
 	# Iron id from 200
@@ -112,6 +115,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/swordIron.png"),
 		"value": 30,
+		"for_customers": true
 	},
 	"axeIron": {
 		"id": 202,
@@ -119,6 +123,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/axeIron.png"),
 		"value": 25,
+		"for_customers": true
 	},
 	"spearIron": {
 		"id": 203,
@@ -126,6 +131,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/spearIron.png"),
 		"value": 15,
+		"for_customers": true
 	},
 	"broadswordIron": {
 		"id": 204,
@@ -133,6 +139,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/broadswordIron.png"),
 		"value": 40,
+		"for_customers": true
 	},
 	"doubleBitAxeIron": {
 		"id": 205,
@@ -140,6 +147,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/doubleBitAxeIron.png"),
 		"value": 150,
+		"for_customers": true
 	},
 	
 	# Steel id from 300
@@ -149,6 +157,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/broadswordSteel.png"),
 		"value": 150,
+		"for_customers": true
 	},
 
 	"doubleBitAxeSteel": {
@@ -157,6 +166,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/doubleBitAxeSteel.png"),
 		"value": 150,
+		"for_customers": true
 	},
 	
 	"longswordSteel": {
@@ -165,6 +175,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/longswordSteel.png"),
 		"value": 180,
+		"for_customers": true
 	},
 	
 
@@ -176,6 +187,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/spearEmerald.png"),
 		"value": 50,
+		"for_customers": true
 	},
 	"maceEmerald": {
 		"id": 402,
@@ -183,6 +195,7 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/maceEmerald.png"),
 		"value": 70,
+		"for_customers": true
 	},
 	"staffEmerald": {
 		"id": 403,
@@ -190,12 +203,13 @@ var inventory_dictionary: Dictionary = {
 		"type": "item",
 		"texture": load("res://assets/sprites/objects/goods/staffEmerald.png"),
 		"value": 55,
+		"for_customers": true
 	},
 
 	"twilightiteSword": {
 		"id": 501,
 		"name": "Twilight Blade",
-		"type": "Resource",
+		"type": "resource",
 		"texture": load("res://assets/sprites/objects/goods/swordTwilightite.png"),
 		"value": 150
 	},
@@ -264,19 +278,19 @@ var shop_items: Array = [{
 	"name": inventory_dictionary["wood"]["name"],
 	"texture": inventory_dictionary["wood"]["texture"],
 	"price": inventory_dictionary["wood"]["value"],
-	"type": "Resource"
+	"type": "resource"
 }, {
 	"id": inventory_dictionary["iron"]["id"],
 	"name": inventory_dictionary["iron"]["name"],
 	"texture": inventory_dictionary["iron"]["texture"],
 	"price": inventory_dictionary["iron"]["value"],
-	"type": "Resource"
+	"type": "resource"
 }, {
 	"id": inventory_dictionary["copper"]["id"],
 	"name": inventory_dictionary["copper"]["name"],
 	"texture": inventory_dictionary["copper"]["texture"],
 	"price": inventory_dictionary["copper"]["value"],
-	"type": "Resource",
+	"type": "resource",
 }]
 
 
@@ -340,6 +354,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 2,
 	}],
+	"for_customers": true
 }, {
 	"id": inventory_dictionary["swordWooden"]["id"],
 	"name": inventory_dictionary["swordWooden"]["name"],
@@ -354,6 +369,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 4,
 	}],
+	"for_customers": true
 }, {
 	"id": inventory_dictionary["axeWooden"]["id"],
 	"name": inventory_dictionary["axeWooden"]["name"],
@@ -368,6 +384,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 3,
 	}],
+	"for_customers": true
 }, 
 
 
@@ -392,6 +409,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 1,
 	}],
+	"for_customers": true
 }, {
 	"id": inventory_dictionary["axeIron"]["id"],
 	"name": inventory_dictionary["axeIron"]["name"],
@@ -412,6 +430,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 1,
 	}],
+	"for_customers": true
 }, {
 	"id": inventory_dictionary["swordIron"]["id"],
 	"name": inventory_dictionary["swordIron"]["name"],
@@ -426,6 +445,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["ironIngot"]["texture"],
 		"qty": 3,
 	}],
+	"for_customers": true
 }, {
 	"id": inventory_dictionary["broadswordIron"]["id"],
 	"name": inventory_dictionary["broadswordIron"]["name"],
@@ -440,6 +460,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["ironIngot"]["texture"],
 		"qty": 5,
 	}],
+	"for_customers": true
 },
 
 # STEEL WEAPONS
@@ -463,6 +484,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 1,
 	}],
+	"for_customers": true
 }, {
 	"id": inventory_dictionary["doubleBitAxeSteel"]["id"],
 	"name": inventory_dictionary["doubleBitAxeSteel"]["name"],
@@ -483,6 +505,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 1,
 	}],
+	"for_customers": true
 },
 {
 	"id": inventory_dictionary["longswordSteel"]["id"],
@@ -504,6 +527,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 1,
 	}],
+	"for_customers": true
 },
 
 # EMERALD WEAPONS
@@ -527,6 +551,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 1,
 	}],
+	"for_customers": true
 }, {
 	"id": inventory_dictionary["maceEmerald"]["id"],
 	"name": inventory_dictionary["maceEmerald"]["name"],
@@ -547,6 +572,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 1,
 	}],
+	"for_customers": true
 }, {
 	"id": inventory_dictionary["staffEmerald"]["id"],
 	"name": inventory_dictionary["staffEmerald"]["name"],
@@ -567,6 +593,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["wood"]["texture"],
 		"qty": 2,
 	}],
+	"for_customers": true
 },
 
 # TWILIGHTITE
@@ -584,6 +611,7 @@ var recipes: Array = [{
 		"texture": inventory_dictionary["twilightite"]["texture"],
 		"qty": 4,
 	}],
+	"for_customers": true
 },
 
 # LEGENDARY SWORD
@@ -844,3 +872,13 @@ func get_unlocked_recipes() -> Array:
 		if not recipe.locked:
 			unlocked_recipe_list.append(recipe)
 	return unlocked_recipe_list
+
+func get_unlocked_recipes_for_customers() -> Array:
+	var unlocked_recipes = get_unlocked_recipes()
+	var customer_recipes = []
+
+	for recipe in unlocked_recipes:
+		if recipe.has("for_customers") and recipe["for_customers"]:
+			customer_recipes.append(recipe)
+
+	return customer_recipes

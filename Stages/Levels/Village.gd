@@ -24,5 +24,6 @@ func _ready():
 		print("No entry point specified.")
 
 func _on_portal_to_cave_portal_entered():
+	# TODO: refactor it, move LevelsMenuUI to player, use signals
 	levels_menu_ui.visible = !levels_menu_ui.visible
 	get_tree().paused = !get_tree().paused

@@ -27,7 +27,7 @@ func _process(delta):
 		sprite.flip_h = true
 
 func generate_wish():
-	var unlocked_recipes = Inventory.get_unlocked_recipes()
+	var unlocked_recipes = Inventory.get_unlocked_recipes_for_customers()
 	if unlocked_recipes.size() == 0:
 		# No unlocked recipes; villager cannot have a wish
 		print("No unlocked recipes available for villager wishes.")
