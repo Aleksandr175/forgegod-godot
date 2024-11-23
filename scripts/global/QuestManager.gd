@@ -223,7 +223,7 @@ var quest_database = {
 	"quest_tutorial_9": {
 		"quest_id": "quest_tutorial_9",
 		"title": "Craft 3 Wooden Axes",
-		"description": "Use your forge to craft three wooden axes for the foresters.",
+		"description": "Use your furnace at home to craft wooden axes",
 		"objectives": [{
 			"type": Enums.QuestTypes.CRAFT,
 			"item_id": Inventory.inventory_dictionary["axeWooden"]["id"],

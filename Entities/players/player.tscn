@@ -241,6 +241,8 @@ one_shot = true
 layer = 3
 
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("5_6nexr")]
+offset_top = 20.0
+offset_bottom = 20.0
 
 [node name="XP" type="Label" parent="QuestsUi"]
 visible = false
