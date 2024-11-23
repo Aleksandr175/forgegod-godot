@@ -1,10 +1,12 @@
 extends Node2D
 
 @onready var levels_menu_ui = $LevelsMenuUI
+@onready var ambient_sound = $AmbientSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, Enums.QuestTargetObjects.VILLAGE, 1)
+	MusicManager.play_music("res://assets/music/ambient_village.mp3")
 
 	var player = get_node_or_null("Player")
 	if player == null:

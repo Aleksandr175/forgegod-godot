@@ -24,6 +24,7 @@ Inventory="*res://scripts/global/inventory.gd"
 QuestManager="*res://scripts/global/QuestManager.gd"
 GlobalSignals="*res://scripts/global/GlobalSignals.gd"
 SceneManager="*res://scripts/global/SceneManager.gd"
+MusicManager="*res://scripts/global/MusicManager.gd"
 
 [display]
 

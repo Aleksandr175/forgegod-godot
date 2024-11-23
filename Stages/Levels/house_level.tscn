@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://dbhm70crwg8ui"]
+[gd_scene load_steps=8 format=4 uid="uid://dbhm70crwg8ui"]
 
 [ext_resource type="Script" path="res://Stages/Levels/house_level.gd" id="1_jxpk6"]
 [ext_resource type="PackedScene" uid="uid://dj53b06sf4sxy" path="res://Entities/players/player_house.tscn" id="1_yo7ni"]
 [ext_resource type="PackedScene" uid="uid://bcklgjr2v6qjr" path="res://Entities/objects/Furnace/Furnace.tscn" id="4_478m1"]
 [ext_resource type="TileSet" uid="uid://b2vrrmbvihc3b" path="res://tilesets/house.tres" id="4_tjgdf"]
 [ext_resource type="PackedScene" uid="uid://ddjublycqau75" path="res://Entities/characters/Customer/Customer.tscn" id="5_fwco5"]
+[ext_resource type="PackedScene" uid="uid://cdwio8e7l8x4s" path="res://Entities/objects/Torch/Torch.tscn" id="6_f0f70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lipq7"]
 size = Vector2(30, 9)
@@ -80,6 +81,16 @@ customer_id = "customer_second_chapter_4"
 position = Vector2(-2, 8)
 direction = -1
 customer_id = "customer_second_chapter_3"
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="."]
+
+[node name="DirectionalLight2D3" type="DirectionalLight2D" parent="."]
+position = Vector2(56, -137)
+energy = 0.2
+blend_mode = 1
+
+[node name="Torch" parent="." instance=ExtResource("6_f0f70")]
+position = Vector2(-12, -107)
 
 [connection signal="area_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_area_entered"]
 [connection signal="body_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]

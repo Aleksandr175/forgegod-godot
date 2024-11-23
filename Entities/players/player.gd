@@ -27,6 +27,7 @@ var can_move = true
 
 @onready var chop_sound = $ChopSound
 @onready var jump_sound = $JumpSound
+@onready var dying_sound = $DieSound
 
 func _ready():
 	GameManager.player = self
@@ -147,6 +148,7 @@ func _on_weapon_sprite_frame_changed():
 
 func die():
 	print("You died!", self, self.get_parent())
+	dying_sound.play()
 	Engine.time_scale = 0.5
 	animated_sprite.play("die")
 	dying = true

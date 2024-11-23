@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready():
 	QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, Enums.QuestTargetObjects.HOUSE, 1)
+	MusicManager.play_music("res://assets/music/ambient_bonfire.mp3")
 
 func _on_exit_area_2d_area_entered(area):
 	if area.get_parent() is PlayerHouse:

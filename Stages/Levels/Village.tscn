@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dpsqn4et5qmh2"]
+[gd_scene load_steps=26 format=4 uid="uid://dpsqn4et5qmh2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://Entities/players/player.tscn" id="1_6e2qq"]
 [ext_resource type="PackedScene" uid="uid://46cqw8xalq6v" path="res://Entities/characters/Dealer/Dealer.tscn" id="1_fkvx4"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ml70jcqibis3" path="res://Entities/objects/resources/resource_tear_heavens.tscn" id="21_cyatc"]
 [ext_resource type="PackedScene" uid="uid://ddjublycqau75" path="res://Entities/characters/Customer/Customer.tscn" id="22_qmm02"]
 [ext_resource type="PackedScene" uid="uid://i2lpt6wvs77u" path="res://Entities/Buildings/House4/House4.tscn" id="22_tkes4"]
+[ext_resource type="AudioStream" path="res://assets/music/ambient_village.wav" id="24_yoccn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru3oh"]
 size = Vector2(20, 247)
@@ -225,5 +226,9 @@ position = Vector2(-200, -109)
 
 [node name="from_library" type="Node2D" parent="EntryPoints"]
 position = Vector2(395, -54)
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_yoccn")
+volume_db = -3.0
 
 [connection signal="portal_entered" from="PortalToCave" to="." method="_on_portal_to_cave_portal_entered"]

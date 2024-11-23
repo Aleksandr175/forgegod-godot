@@ -10,6 +10,7 @@ func _ready():
 	var camera = player.find_child("Camera2D")
 	camera.limit_bottom = 1000000
 	QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, level_name, 1)
+	MusicManager.play_music("res://assets/music/ambient_village.mp3")
 
 func _on_cave_exit_level_menu_opened():
 	GameState.complete_level(level_name)
