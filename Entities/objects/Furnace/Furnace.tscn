@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcklgjr2v6qjr"]
+[gd_scene load_steps=7 format=3 uid="uid://bcklgjr2v6qjr"]
 
 [ext_resource type="Texture2D" uid="uid://suitv8sml7v1" path="res://assets/sprites/objects/furnace/on.png" id="1_glpfn"]
 [ext_resource type="Script" path="res://Entities/objects/Furnace/Furnace.gd" id="1_nnp1k"]
@@ -6,6 +6,18 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8jbf5"]
 radius = 31.0
+
+[sub_resource type="Gradient" id="Gradient_f0uhy"]
+colors = PackedColorArray(1, 0.545098, 0.137255, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lde8p"]
+gradient = SubResource("Gradient_f0uhy")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+metadata/_snap_enabled = true
 
 [node name="Furnace" type="Node2D"]
 script = ExtResource("1_nnp1k")
@@ -22,6 +34,10 @@ position = Vector2(0, -6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_8jbf5")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(0, -8)
+texture = SubResource("GradientTexture2D_lde8p")
 
 [connection signal="pointer_pressed" from="Pointer" to="." method="_on_pointer_pointer_pressed"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

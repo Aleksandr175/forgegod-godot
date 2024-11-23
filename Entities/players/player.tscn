@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrsemp5dhpfs" path="res://UI/HUD/HUD.tscn" id="11_7olqj"]
 [ext_resource type="Texture2D" uid="uid://c0v32vj6qo6se" path="res://assets/sprites/ui/menu.png" id="11_uvdw5"]
 [ext_resource type="AudioStream" uid="uid://c2u6c35qtrwnm" path="res://assets/sounds/chop.wav" id="15_4peym"]
-[ext_resource type="AudioStream" uid="uid://b55xtmvwkoslc" path="res://assets/sounds/jump.wav" id="16_vexx4"]
+[ext_resource type="AudioStream" uid="uid://dyyj1ctyfwgol" path="res://assets/sounds/jump.wav" id="16_vexx4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mte1a"]
 atlas = ExtResource("2_w7ppk")
