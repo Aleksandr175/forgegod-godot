@@ -897,7 +897,7 @@ var quest_database = {
 			"experience": 5
 		},
 		"prerequisites": [
-			{"type": "unlock_level", "level_id": "level-5"},
+			{"type": "unlock_level", "level_id": "level-4"},
 		],
 		"next_quests": ["quest_second_chapter_17"],
 		"dialog_data": [

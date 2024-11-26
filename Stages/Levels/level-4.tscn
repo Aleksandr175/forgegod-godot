@@ -167,7 +167,7 @@ position = Vector2(413, 81)
 position = Vector2(-31, 225)
 
 [node name="ResourceTwilightite3" parent="." instance=ExtResource("14_hgjnt")]
-position = Vector2(10, 112)
+position = Vector2(-11, 112)
 
 [node name="ResourceTwilightite4" parent="." instance=ExtResource("14_hgjnt")]
 position = Vector2(91, 193)
