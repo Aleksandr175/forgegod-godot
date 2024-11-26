@@ -381,7 +381,7 @@ var quest_database = {
 			{"character": "king", "text": "Elder: Excellent work! With this iron, we can begin crafting stronger weapons for our defenders."},
 			{"character": "king", "text": "Elder: You'll need to smelt the iron ore into iron ingots. Remember, raw ore isn't suitable for weapon-making."},
 			{"character": "player", "text": "Me: Understood. I'll use the forge to smelt the ore."},
-			{"character": "king", "text": "Elder: Here, take these as well—a new recipe for crafting an iron sword and spear. They will serve our villagers well."},
+			{"character": "king", "text": "Elder: Here, take these as well — a new recipe for crafting an iron sword and spear. They will serve our villagers well."},
 			{"character": "player", "text": "Me: Thank you! I'll make good use of them."},
 		],
 	},
@@ -733,7 +733,7 @@ var quest_database = {
 		}],
 		"next_quests": ["quest_second_chapter_10"],
 		"dialog_data": [
-			{"character": "villager", "text": "Collector: Good day! I’ve been admiring your work and was hoping you could make me something unique—a mace, crafted from emerald."},
+			{"character": "villager", "text": "Collector: Good day! I’ve been admiring your work and was hoping you could make me something unique — a mace, crafted from emerald."},
 			{"character": "villager", "text": "Collector: It’s not for combat, but rather for the pleasure of owning such a rare piece."},
 			{"character": "player", "text": "Me: An emerald mace... It will be as impressive to behold as it is to hold. I’ll see to it."},
 			{"character": "villager", "text": "Collector: Wonderful! I’m certain it will be the centerpiece of my collection."},
@@ -813,7 +813,7 @@ var quest_database = {
 		],
 		"next_quests": ["quest_second_chapter_13"],
 		"dialog_data": [
-			{"character": "king", "text": "Elder: It’s good to see you, apprentice. I’ve finally discovered where the Mountain’s Heart is located—it’s hidden deep within the most remote corner of the cave."},
+			{"character": "king", "text": "Elder: It’s good to see you, apprentice. I’ve finally discovered where the Mountain’s Heart is located — it’s hidden deep within the most remote corner of the cave."},
 			{"character": "king", "text": "Elder: But beware, the path to it is treacherous, and many have lost their way in those depths."},
 			{"character": "player", "text": "Me: I’ll be careful. If this artifact is as powerful as you say, I’ll make sure it doesn’t fall into the wrong hands."},
 			{"character": "king", "text": "Elder: Thank you. And... if you happen to find any sign of your mentor, please let me know. It’s possible he went after this very artifact."},
@@ -999,7 +999,7 @@ var quest_database = {
 		"next_quests": ["quest_second_chapter_21"],
 		"dialog_data": [
 			{"character": "soldier", "text": "Soldier: We’re all feeling the tension in the air. The darkness is coming, and we need every advantage we can get. "},
-			{"character": "soldier", "text": "Soldier: An iron broadsword — strong and reliable—is what I need. With it, I’ll stand guard and defend the village to my last breath."},
+			{"character": "soldier", "text": "Soldier: An iron broadsword — strong and reliable — is what I need. With it, I’ll stand guard and defend the village to my last breath."},
 			{"character": "player", "text": "Me: I’ll make sure your sword is as strong as your resolve."},
 		],
 		"quest_actions": [
@@ -1029,7 +1029,7 @@ var quest_database = {
 		"next_quests": ["quest_second_chapter_22"],
 		"dialog_data": [
 			{"character": "soldier", "text": "Soldier: If the darkness dares to threaten our home, it will meet my steel axe."},
-			{"character": "soldier", "text": "Soldier: Double-headed, balanced, and fierce—that’s the kind of weapon I need to face whatever comes from the caves."},
+			{"character": "soldier", "text": "Soldier: Double-headed, balanced, and fierce — that’s the kind of weapon I need to face whatever comes from the caves."},
 			{"character": "soldier", "text": "Soldier: This axe will give me the strength to strike down anything in my path."},
 			{"character": "player", "text": "Me: I’ll craft an axe worthy of your courage."},
 		],
@@ -1061,7 +1061,7 @@ var quest_database = {
 		"dialog_data": [
 			{"character": "soldier", "text": "Soldier: I’ve heard that Twilightite holds mysterious power… that it can channel energies beyond our understanding."}, 
 			{"character": "soldier", "text": "Soldier: I’ll need every bit of that power in the battles to come. Could you forge me a blade from this material? With it, I’ll have the strength to cut through even the shadows."},
-			{"character": "player", "text": "Me: A Twilight Blade—yes, it will be a weapon unlike any other. I’ll make sure it’s ready for you."},
+			{"character": "player", "text": "Me: A Twilight Blade — yes, it will be a weapon unlike any other. I’ll make sure it’s ready for you."},
 		],
 		"quest_actions": [
 			{
@@ -1109,7 +1109,7 @@ var quest_database = {
 		"next_quests": ["quest_second_chapter_25"],
 		"dialog_data": [
 			{"character": "king", "text": "Elder: You did excellent work assisting the soldiers. Now, I have news about the final artifact."},
-			{"character": "king", "text": "Elder: It’s called the Breath of the Forest—an ancient wood with magical properties."},
+			{"character": "king", "text": "Elder: It’s called the Breath of the Forest — an ancient wood with magical properties."},
 			{"character": "king", "text": "Elder: It’s hidden deep within the forest, which can be reached by traveling through the entire cave. "},
 			{"character": "king", "text": "Elder: At the cave’s exit, you’ll find a new snowy biome. Among the trees there, you will find this artifact."},
 			{"character": "player", "text": "Me: Thank you for the guidance, Elder. I’ll set off immediately."},
@@ -1309,7 +1309,7 @@ var quest_database = {
 		"next_quests": ["quest_second_chapter_33"],
 		"dialog_data": [
 			{"character": "king", "text": "Elder: You've helped all those who needed protection. Now it’s time for the final step. Take this magical potion."},
-			{"character": "king", "text": "Elder: Combine it with the three artifacts you’ve found, and from this, forge the legendary weapon—the Sword of Light. Only it has the power to defeat the darkness."},
+			{"character": "king", "text": "Elder: Combine it with the three artifacts you’ve found, and from this, forge the legendary weapon — the Sword of Light. Only it has the power to defeat the darkness."},
 			{"character": "player", "text": "Me: Thank you, Elder. I’ll use everything I have to create this sword."},
 		],
 	},

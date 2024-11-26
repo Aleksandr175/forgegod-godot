@@ -11,7 +11,8 @@ var selected_recipe = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	particles.emitting = false
-	_on_selected_recipe_updated(Inventory.recipes[0])
+	var recipes = Inventory.get_unlocked_recipes()
+	_on_selected_recipe_updated(recipes[0])
 
 func _on_selected_recipe_updated(item):
 	clear_grid_container()

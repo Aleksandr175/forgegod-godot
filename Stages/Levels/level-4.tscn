@@ -152,7 +152,7 @@ blend_mode = 1
 position = Vector2(353, 289)
 
 [node name="Player" parent="." instance=ExtResource("4_j1m0x")]
-position = Vector2(-72, -16)
+position = Vector2(-31, -2)
 
 [node name="LevelsMenuUI" type="CanvasLayer" parent="."]
 visible = false

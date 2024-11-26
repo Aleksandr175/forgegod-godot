@@ -25,13 +25,13 @@ var inventory_dictionary: Dictionary = {
 		"texture": load("res://assets/sprites/objects/resources/resource-iron.png"),
 		"value": 3,
 	},
-	"copper": {
-		"id": 4,
-		"name": "Copper",
-		"type": "resource",
-		"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
-		"value": 2
-	},
+	#"copper": {
+	#	"id": 4,
+	#	"name": "Copper",
+	#	"type": "resource",
+	#	"texture": load("res://assets/sprites/objects/resources/resource-copper.png"),
+	#	"value": 2
+	#},
 	
 	"emerald": {
 		"id": 5,
@@ -50,13 +50,13 @@ var inventory_dictionary: Dictionary = {
 	},
 	
 
-	"copperIngot": {
-		"id": 15,
-		"name": "Copper Ingot",
-		"type": "resource",
-		"texture": load("res://assets/sprites/objects/resources/resource-copper-ingot.png"),
-		"value": 5
-	},
+	#"copperIngot": {
+	#	"id": 15,
+	#	"name": "Copper Ingot",
+	#	"type": "resource",
+	#	"texture": load("res://assets/sprites/objects/resources/resource-copper-ingot.png"),
+	#	"value": 5
+	#},
 
 	"ironIngot": {
 		"id": 16,
@@ -285,39 +285,41 @@ var shop_items: Array = [{
 	"texture": inventory_dictionary["iron"]["texture"],
 	"price": inventory_dictionary["iron"]["value"],
 	"type": "resource"
-}, {
-	"id": inventory_dictionary["copper"]["id"],
-	"name": inventory_dictionary["copper"]["name"],
-	"texture": inventory_dictionary["copper"]["texture"],
-	"price": inventory_dictionary["copper"]["value"],
-	"type": "resource",
-}]
+}, #{
+	#"id": inventory_dictionary["copper"]["id"],
+	#"name": inventory_dictionary["copper"]["name"],
+	#"texture": inventory_dictionary["copper"]["texture"],
+	#"price": inventory_dictionary["copper"]["value"],
+	#"type": "resource",
+#}
+]
 
 
 var unlocked_recipes: Array = []  # Stores IDs of unlocked recipes
 var default_unlocked_recipes: Array = [inventory_dictionary["axeWooden"]["id"]]
 
-var recipes: Array = [{
-	"id": inventory_dictionary["copperIngot"]["id"],
-	"name": inventory_dictionary["copperIngot"]["name"],
-	"texture": inventory_dictionary["copperIngot"]["texture"],
-	"qty": 1,
-	"type": "recipe",
-	"locked": false,
-	"requirements": [{
-		"id": inventory_dictionary["wood"]["id"], 
-		"name": inventory_dictionary["wood"]["name"], 
-		"type": inventory_dictionary["wood"]["type"], 
-		"texture": inventory_dictionary["wood"]["texture"],
-		"qty": 1,
-	}, {
-		"id": inventory_dictionary["copper"]["id"], 
-		"name": inventory_dictionary["copper"]["name"], 
-		"type": inventory_dictionary["copper"]["type"], 
-		"texture": inventory_dictionary["copper"]["texture"],
-		"qty": 1,
-	}],
-}, {
+var recipes: Array = [#{
+	#"id": inventory_dictionary["copperIngot"]["id"],
+	#"name": inventory_dictionary["copperIngot"]["name"],
+	#"texture": inventory_dictionary["copperIngot"]["texture"],
+	#"qty": 1,
+	#"type": "recipe",
+	#"locked": false,
+	#"requirements": [{
+	#	"id": inventory_dictionary["wood"]["id"],
+	#	"name": inventory_dictionary["wood"]["name"], 
+	#	"type": inventory_dictionary["wood"]["type"], 
+	#	"texture": inventory_dictionary["wood"]["texture"],
+	#	"qty": 1,
+	#}, {
+	#	"id": inventory_dictionary["copper"]["id"], 
+	#	"name": inventory_dictionary["copper"]["name"], 
+	#	"type": inventory_dictionary["copper"]["type"], 
+	#	"texture": inventory_dictionary["copper"]["texture"],
+	#	"qty": 1,
+	#}],
+#}, 
+{
 	"id": inventory_dictionary["ironIngot"]["id"],
 	"name": inventory_dictionary["ironIngot"]["name"],
 	"texture": inventory_dictionary["ironIngot"]["texture"],
