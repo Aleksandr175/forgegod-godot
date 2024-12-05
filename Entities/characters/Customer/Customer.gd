@@ -199,9 +199,9 @@ func close_wish_panel():
 	panel.visible = false
 
 func _on_area_2d_2_area_entered(area):
-	QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, customer_id, 1)
-
 	if (area.get_parent() is Player or area.get_parent() is PlayerHouse):
+		QuestManager.update_objective_progress(Enums.QuestTypes.VISIT, customer_id, 1)
+
 		generate_wish()
 		
 		var panelButton = panel.find_child('Button')

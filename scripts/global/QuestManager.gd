@@ -953,7 +953,7 @@ var quest_database = {
 
 	"quest_second_chapter_19": {
 		"quest_id": "quest_second_chapter_19",
-		"title": "Serve first sodier",
+		"title": "Find First Soldier",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -983,7 +983,7 @@ var quest_database = {
 
 	"quest_second_chapter_20": {
 		"quest_id": "quest_second_chapter_20",
-		"title": "Serve first sodier",
+		"title": "Serve First Soldier",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
@@ -1013,7 +1013,7 @@ var quest_database = {
 
 	"quest_second_chapter_21": {
 		"quest_id": "quest_second_chapter_21",
-		"title": "Serve second sodier",
+		"title": "Serve Second Soldier",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
@@ -1044,7 +1044,7 @@ var quest_database = {
 
 	"quest_second_chapter_22": {
 		"quest_id": "quest_second_chapter_22",
-		"title": "Serve third sodier",
+		"title": "Serve Third Soldier",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
@@ -1087,7 +1087,7 @@ var quest_database = {
 		"prerequisites": [],
 		"next_quests": ["quest_second_chapter_24"],
 		"dialog_data": [
-			{"character": "player", "text": "Me: Uh, ok, let's go back to the elder"},
+			{"character": "player", "text": "Me: Uh, ok, let's go back to the Elder"},
 		],
 	},
 
@@ -1162,7 +1162,7 @@ var quest_database = {
 
 	"quest_second_chapter_27": {
 		"quest_id": "quest_second_chapter_27",
-		"title": "Find first villager",
+		"title": "Find First Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1182,7 +1182,7 @@ var quest_database = {
 
 	"quest_second_chapter_28": {
 		"quest_id": "quest_second_chapter_28",
-		"title": "Serve first villager",
+		"title": "Serve First Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
@@ -1201,7 +1201,7 @@ var quest_database = {
 	
 	"quest_second_chapter_29": {
 		"quest_id": "quest_second_chapter_29",
-		"title": "Find second villager",
+		"title": "Find Second Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1217,7 +1217,7 @@ var quest_database = {
 
 	"quest_second_chapter_29_2": {
 		"quest_id": "quest_second_chapter_29_2",
-		"title": "Serve second villager",
+		"title": "Serve Second Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
@@ -1236,7 +1236,7 @@ var quest_database = {
 	
 	"quest_second_chapter_30": {
 		"quest_id": "quest_second_chapter_30",
-		"title": "Find third villager",
+		"title": "Find Third Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1254,7 +1254,7 @@ var quest_database = {
 	
 	"quest_second_chapter_30_2": {
 		"quest_id": "quest_second_chapter_30_2",
-		"title": "Serve third villager",
+		"title": "Serve Third Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.SELL,
@@ -1309,14 +1309,15 @@ var quest_database = {
 		"next_quests": ["quest_second_chapter_33"],
 		"dialog_data": [
 			{"character": "king", "text": "Elder: You've helped all those who needed protection. Now it’s time for the final step. Take this magical potion."},
-			{"character": "king", "text": "Elder: Combine it with the three artifacts you’ve found, and from this, forge the legendary weapon — the Sword of Light. Only it has the power to defeat the darkness."},
+			{"character": "king", "text": "Elder: Combine it with the three artifacts you’ve found, and from this, forge the legendary weapon — the Sword of Light."},
+			{"character": "king", "text": "Elder: Only it has the power to defeat the darkness."},
 			{"character": "player", "text": "Me: Thank you, Elder. I’ll use everything I have to create this sword."},
 		],
 	},
 	
 	"quest_second_chapter_33": {
 		"quest_id": "quest_second_chapter_33",
-		"title": "Craft legendary sword",
+		"title": "Craft Legendary Sword",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.CRAFT,
@@ -1431,7 +1432,7 @@ var quest_database = {
 
 	"quest_third_chapter_1": {
 		"quest_id": "quest_third_chapter_1",
-		"title": "Talk with first villager",
+		"title": "Talk with First Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1459,7 +1460,7 @@ var quest_database = {
 	
 	"quest_third_chapter_2": {
 		"quest_id": "quest_third_chapter_2",
-		"title": "Talk with second villager",
+		"title": "Talk with Second Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1484,7 +1485,7 @@ var quest_database = {
 	
 	"quest_third_chapter_3": {
 		"quest_id": "quest_third_chapter_3",
-		"title": "Talk with third villager",
+		"title": "Talk with Third Villager",
 		"description": "",
 		"objectives": [{
 			"type": Enums.QuestTypes.VISIT,
@@ -1527,7 +1528,7 @@ var quest_database = {
 
 	"quest_third_chapter_5": {
 		"quest_id": "quest_third_chapter_5",
-		"title": "More quests coming!",
+		"title": "More Quests coming!",
 		"description": "",
 		"objectives": [],
 		"rewards": {
@@ -1548,7 +1549,7 @@ func _ready():
 	GlobalSignals.new_game_started.connect(start_timer)
 	GlobalSignals.stage_changed.connect(update_quest)
 	start_timer()
-	#start_quest("quest_second_chapter_35")
+	#start_quest("quest_second_chapter_18")
 
 func start_timer():
 	var timer = Timer.new()
