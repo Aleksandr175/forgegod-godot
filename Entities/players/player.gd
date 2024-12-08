@@ -38,7 +38,7 @@ func _ready():
 	GlobalSignals.inventory_opened.connect(open_inventory)
 	GlobalSignals.inventory_closed.connect(close_inventory)
 	GlobalSignals.resource_picked_up.connect(_on_resource_picked_up)
-	
+
 func _process(_delta):
 	if Input.is_action_just_pressed("attack") and !attacking:
 		attack()

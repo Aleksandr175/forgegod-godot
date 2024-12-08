@@ -62,6 +62,7 @@ func find_item_by_name(recipe_name):
 func order(recipe):
 	if Inventory.has_required_items(recipe.requirements):
 		# Proceed with item creation
+		on_craft_button_pressed(recipe.id)
 		print("All requirements met. Creating item:", recipe.name, recipe.id)
 
 		Inventory.remove_items(recipe.requirements)
@@ -90,3 +91,16 @@ func set_craft_button_available(requirements):
 		craft_button.disabled = false
 	else:
 		craft_button.disabled = true
+
+func on_craft_button_pressed(recipe_id):
+	var item_data = Inventory.find_recipe_by_id(recipe_id)
+	print('emit craft game', item_data)
+	GlobalSignals.craft_game_opened.emit(item_data)
+	# Load the crafting mini-game scene
+	#var crafting_mini_game_scene = preload("res://UI/CraftMiniGame/CraftMiniGame.tscn")
+	#var crafting_mini_game = crafting_mini_game_scene.instantiate()
+
+	# Instead of add_child(crafting_mini_game), add it to the root to make it separate
+	#get_tree().get_root().add_child(crafting_mini_game)
+
+	#crafting_mini_game.start_crafting(item_data)

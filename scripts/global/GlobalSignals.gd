@@ -9,6 +9,9 @@ signal inventory_closed
 signal craft_menu_opened
 signal craft_menu_closed
 
+signal craft_game_opened(recipe)
+signal craft_game_closed
+
 signal recipes_unlocked
 
 signal resource_picked_up

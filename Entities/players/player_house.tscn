@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dj53b06sf4sxy"]
+[gd_scene load_steps=29 format=3 uid="uid://dj53b06sf4sxy"]
 
 [ext_resource type="Script" path="res://Entities/players/player_house.gd" id="1_mytfb"]
 [ext_resource type="Texture2D" uid="uid://bvk5lgy0kkxgh" path="res://assets/sprites/player/main_hero.png" id="2_ksb0t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dufr618ouycjg" path="res://assets/sprites/ui/circle.png" id="7_d0a42"]
 [ext_resource type="Texture2D" uid="uid://ce6ayhor22a6t" path="res://assets/sprites/ui/arrow.png" id="9_m1mgn"]
 [ext_resource type="Texture2D" uid="uid://c0v32vj6qo6se" path="res://assets/sprites/ui/menu.png" id="10_6bg15"]
+[ext_resource type="PackedScene" uid="uid://dj0vexoixsn23" path="res://UI/CraftMiniGame/CraftMiniGame.tscn" id="10_oig27"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mte1a"]
 atlas = ExtResource("2_ksb0t")
@@ -324,6 +325,22 @@ text = "0"
 visible = false
 
 [node name="CraftPanel" parent="InventoryUI" instance=ExtResource("6_mphkm")]
+
+[node name="CraftMiniGameUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CraftMiniGame" parent="CraftMiniGameUI" instance=ExtResource("10_oig27")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -500.0
+offset_right = 240.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Hud" parent="." instance=ExtResource("6_g2ogr")]
 layer = 2

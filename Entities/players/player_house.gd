@@ -4,16 +4,30 @@ class_name PlayerHouse
 const SPEED = 100.0
 @onready var animated_sprite = $AnimatedSpritePlayer
 @onready var inventory_ui = $InventoryUI
+@onready var craft_game_ui = $CraftMiniGameUI
 
 func _ready():
 	GlobalSignals.craft_menu_opened.connect(open_inventory)
 	GlobalSignals.craft_menu_closed.connect(close_inventory)
+	GlobalSignals.craft_game_opened.connect(open_craft_game)
+	GlobalSignals.craft_game_closed.connect(close_craft_game)
+
+	print('---------', craft_game_ui)
+	craft_game_ui.visible = true
 
 func open_inventory():
 	inventory_ui.visible = true
 	
 func close_inventory():
 	inventory_ui.visible = false
+
+func open_craft_game(item):
+	print('open_craft_game', item)
+	craft_game_ui.visible = true
+
+func close_craft_game():
+	print('close craft game')
+	craft_game_ui.visible = false
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
