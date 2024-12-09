@@ -24,25 +24,47 @@ func start_crafting(item):
 func generate_dots():
 	dots_clicked = 0
 
-	# Collect references to all existing children first
-	var children = dots_container.get_children()
-	
 	# Remove all existing dots
+	var children = dots_container.get_children()
 	for child in children:
-		# Before queue_free, remove the child from the parent
 		dots_container.remove_child(child)
 		child.queue_free()
 
-	# Create and add 3 dots at random positions
+	var placed_positions = []  # To store positions of already placed dots
+
 	for i in range(total_dots):
 		var dot = create_dot()
+		
+		var position = get_valid_dot_position(placed_positions, dot)
+		dot.position = position
+
 		dots_container.add_child(dot)
+		placed_positions.append(position)
 
-		var x = randf() * (item_image.size.x - dot.size.x)
-		var y = randf() * (item_image.size.y - dot.size.y) - item_image.size.y
+func get_valid_dot_position(existing_positions: Array, dot: Control) -> Vector2:
+	var max_attempts = 20
+	var min_distance = 100.0
 
-		dot.position = Vector2(x, y)
+	var width = item_image.size.x - dot.size.x
+	var height = item_image.size.y - dot.size.y
 
+	for attempt in range(max_attempts):
+		var x = randf() * width
+		var y = randf() * height - item_image.size.y
+
+		var candidate = Vector2(x, y)
+		if is_position_valid(candidate, existing_positions, min_distance):
+			return candidate
+
+	# If no valid position found after max_attempts, just place it anyway
+	# But better to handle this gracefully
+	return Vector2(randf() * width, randf() * height - item_image.size.y)
+
+func is_position_valid(candidate: Vector2, existing_positions: Array, min_dist: float) -> bool:
+	for pos in existing_positions:
+		if pos.distance_to(candidate) < min_dist:
+			return false
+	return true
 
 func create_dot():
 	var dot_scene = preload("res://UI/CraftMiniGame/Dot/Dot.tscn")
