@@ -12,9 +12,6 @@ func _ready():
 	GlobalSignals.craft_game_opened.connect(open_craft_game)
 	GlobalSignals.craft_game_closed.connect(close_craft_game)
 
-	print('---------', craft_game_ui)
-	craft_game_ui.visible = true
-
 func open_inventory():
 	inventory_ui.visible = true
 	

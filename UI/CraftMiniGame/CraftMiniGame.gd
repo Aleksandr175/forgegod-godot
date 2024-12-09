@@ -11,6 +11,7 @@ var dots_clicked = 0
 func _ready():
 	print('craft mini game ready...')
 	GlobalSignals.craft_game_opened.connect(start_crafting)
+	GlobalSignals.craft_game_dot_pressed.connect(_on_dot_clicked)
 	#close_button.connect("pressed", _on_close_button_pressed)
 
 func start_crafting(item):
@@ -22,7 +23,15 @@ func start_crafting(item):
 
 func generate_dots():
 	dots_clicked = 0
-	dots_container.call_deferred("clear_children")
+
+	# Collect references to all existing children first
+	var children = dots_container.get_children()
+	
+	# Remove all existing dots
+	for child in children:
+		# Before queue_free, remove the child from the parent
+		dots_container.remove_child(child)
+		child.queue_free()
 
 	# Create and add 3 dots at random positions
 	for i in range(total_dots):
@@ -38,23 +47,17 @@ func generate_dots():
 func create_dot():
 	var dot_scene = preload("res://UI/CraftMiniGame/Dot/Dot.tscn")
 	var dot = dot_scene.instantiate()
+
 	dot.connect("dot_clicked", _on_dot_clicked)
 	return dot
 
 func _on_dot_clicked(dot_node):
+	print('dot clicked ', dot_node)
 	dots_clicked += 1
-
-	# Play small animation on the dot before removing it
-	# We can run a tween or call an animation here
-	play_dot_animation(dot_node)
-
-func play_dot_animation(dot_node):
-	# Example using a Tween for a simple scale animation
-	var tween = create_tween()
-	tween.tween_property(dot_node, "scale", Vector2(2,2), 0.2)  # Scale up in 0.2s
-	#tween.tween_callback(Callable(self, "_remove_dot"), dot_node)  # After done, remove dot
+	_remove_dot(dot_node)
 
 func _remove_dot(dot_node):
+	dot_node.get_parent().remove_child(dot_node)  # Explicitly remove from parent
 	dot_node.queue_free()
 	check_crafting_complete()
 
@@ -68,13 +71,10 @@ func craft_item():
 	print('Crafted', item_data)
 	# Add the item to the player's inventory
 	Inventory.add_item(item_data.id, item_data.qty)
-	#UIManager.show_message("You have crafted: " + item_data.name)
 	close_crafting_ui()
 
 func _on_close_button_pressed():
-	# Close the mini-game without crafting if the player cancels
 	close_crafting_ui()
 
 func close_crafting_ui():
 	GlobalSignals.craft_game_closed.emit()
-	#queue_free()

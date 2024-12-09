@@ -12,6 +12,8 @@ signal craft_menu_closed
 signal craft_game_opened(recipe)
 signal craft_game_closed
 
+signal craft_game_dot_pressed(dot_node)
+
 signal recipes_unlocked
 
 signal resource_picked_up
