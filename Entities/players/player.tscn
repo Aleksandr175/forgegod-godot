@@ -459,7 +459,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_uvdw5")
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
-layer = 2
+layer = 4
 visible = false
 
 [node name="InventoryPanel" parent="InventoryUI" instance=ExtResource("5_pvdss")]

@@ -42,7 +42,12 @@ theme_override_fonts/font = ExtResource("1_tufhb")
 theme_override_font_sizes/font_size = 16
 text = "1"
 
-[node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
-position = Vector2(20, 23)
+[node name="ItemIcon" type="TextureRect" parent="InnerBorder"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 20.0
+offset_bottom = 24.0
 scale = Vector2(2, 2)
 texture = ExtResource("2_1d0kg")
+expand_mode = 2

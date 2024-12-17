@@ -18,4 +18,3 @@ func set_item(new_item):
 	item = new_item
 	icon.texture = item['texture']
 	label_qty.text = str(item['qty'])
-

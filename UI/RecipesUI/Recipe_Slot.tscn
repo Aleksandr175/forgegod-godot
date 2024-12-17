@@ -47,10 +47,15 @@ theme_override_fonts/font = ExtResource("1_5jlxj")
 theme_override_font_sizes/font_size = 16
 text = "1"
 
-[node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
-position = Vector2(44, 48)
+[node name="ItemIcon" type="TextureRect" parent="InnerBorder"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 29.0
+offset_bottom = 34.0
 scale = Vector2(4, 4)
 texture = ExtResource("3_r10c3")
+expand_mode = 2
 
 [node name="LockIcon" type="Sprite2D" parent="InnerBorder"]
 visible = false
