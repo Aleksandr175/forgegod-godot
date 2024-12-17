@@ -9,13 +9,10 @@ var total_dots = 3
 var dots_clicked = 0
 
 func _ready():
-	print('craft mini game ready...')
 	GlobalSignals.craft_game_opened.connect(start_crafting)
 	GlobalSignals.craft_game_dot_pressed.connect(_on_dot_clicked)
-	#close_button.connect("pressed", _on_close_button_pressed)
 
 func start_crafting(item):
-	print('start_crafting craft item', item)
 	item_data = item
 	item_image.texture = item.texture  # Ensure your item_data has a texture property
 
@@ -46,7 +43,7 @@ func get_valid_dot_position(existing_positions: Array, dot: Control) -> Vector2:
 	var min_distance = 100.0
 
 	var width = item_image.size.x - dot.size.x
-	var height = item_image.size.y - dot.size.y
+	var height = item_image.size.y - 50 - dot.size.y
 
 	for attempt in range(max_attempts):
 		var x = randf() * width
@@ -74,7 +71,6 @@ func create_dot():
 	return dot
 
 func _on_dot_clicked(dot_node):
-	print('dot clicked ', dot_node)
 	dots_clicked += 1
 	_remove_dot(dot_node)
 
@@ -84,15 +80,18 @@ func _remove_dot(dot_node):
 	check_crafting_complete()
 
 func check_crafting_complete():
-	print('check_crafting_complete', 'dots_clicked', dots_clicked, 'count ->', dots_container.get_child_count())
 	# If all dots are clicked (and removed), craft the item
 	if dots_clicked >= total_dots and dots_container.get_child_count() == 0:
 		craft_item()
 
 func craft_item():
-	print('Crafted', item_data)
+	print('Crafted: ', item_data)
+
+	Inventory.remove_items(item_data.requirements)
 	# Add the item to the player's inventory
 	Inventory.add_item(item_data.id, item_data.qty)
+
+	QuestManager.update_objective_progress(Enums.QuestTypes.CRAFT, item_data.id, int(item_data.qty))
 	close_crafting_ui()
 
 func _on_close_button_pressed():

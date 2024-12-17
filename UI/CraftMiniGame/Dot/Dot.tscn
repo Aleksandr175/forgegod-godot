@@ -5,7 +5,22 @@
 [ext_resource type="AudioStream" uid="uid://dcxvybkym1jpf" path="res://assets/sounds/forge.wav" id="3_52djn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mhxkf"]
-radius = 41.3
+radius = 60.0
+
+[sub_resource type="Animation" id="Animation_cq886"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pointer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, 11)]
+}
 
 [sub_resource type="Animation" id="Animation_u2hg6"]
 resource_name = "idle"
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(14, 11), Vector2(21, 21), Vector2(14, 11)]
-}
-
-[sub_resource type="Animation" id="Animation_cq886"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pointer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(14, 11)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uimcc"]
