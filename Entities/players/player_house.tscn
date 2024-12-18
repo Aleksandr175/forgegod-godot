@@ -304,6 +304,8 @@ texture = ExtResource("10_6bg15")
 [node name="QuestsUi" type="CanvasLayer" parent="."]
 
 [node name="QuestUi" parent="QuestsUi" instance=ExtResource("3_mqr4x")]
+offset_top = 20.0
+offset_bottom = 20.0
 
 [node name="XP" type="Label" parent="QuestsUi"]
 visible = false

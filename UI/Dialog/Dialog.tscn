@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drc63e5cttlvl" path="res://assets/sprites/coin1.png" id="2_yvx0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feaam"]
-size = Vector2(900, 2000)
+size = Vector2(1200, 2000)
 
 [node name="Dialog" type="Control"]
 process_mode = 2
@@ -26,7 +26,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -300.0
-offset_top = -250.0
+offset_top = -360.0
 offset_right = 300.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -35,11 +35,12 @@ color = Color(0, 0, 0, 0.811765)
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 0
-offset_left = 31.0
-offset_top = 44.0
+offset_left = 30.0
+offset_top = 30.0
 offset_right = 420.0
-offset_bottom = 211.0
+offset_bottom = 330.0
 theme_override_constants/line_separation = 6
+theme_override_font_sizes/normal_font_size = 20
 text = "Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text "
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
@@ -57,6 +58,7 @@ offset_left = 452.0
 offset_top = 145.0
 offset_right = 572.0
 offset_bottom = 212.0
+theme_override_font_sizes/font_size = 24
 text = "Next"
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="ColorRect"]

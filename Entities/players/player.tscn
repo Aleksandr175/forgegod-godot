@@ -184,16 +184,16 @@ radius = 6.0
 height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x26y3"]
-radius = 40.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8nfp5"]
-radius = 30.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rl5h8"]
 radius = 60.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8nfp5"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rl5h8"]
+radius = 70.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqoii"]
-radius = 40.0
+radius = 50.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 process_mode = 3
@@ -302,9 +302,9 @@ layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
+offset_left = 30.0
 offset_top = -232.0
-offset_right = 10.0
+offset_right = 30.0
 offset_bottom = -232.0
 grow_vertical = 0
 
@@ -337,8 +337,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 108.0
-offset_right = 208.0
+offset_left = 140.0
+offset_right = 240.0
 offset_bottom = 100.0
 grow_vertical = 0
 
@@ -361,10 +361,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 55.0
-offset_top = -60.0
-offset_right = 155.0
-offset_bottom = 40.0
+offset_left = 70.0
+offset_top = -70.0
+offset_right = 170.0
+offset_bottom = 30.0
 grow_vertical = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control4"]
@@ -387,10 +387,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 54.0
-offset_top = 60.0
-offset_right = 154.0
-offset_bottom = 160.0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 170.0
+offset_bottom = 170.0
 grow_vertical = 0
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control5"]
@@ -439,9 +439,9 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -101.0
+offset_left = -130.0
 offset_top = 71.0
-offset_right = -1.0
+offset_right = -30.0
 offset_bottom = 171.0
 grow_horizontal = 0
 
