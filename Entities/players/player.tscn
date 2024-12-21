@@ -285,6 +285,7 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/Control"]
+process_mode = 1
 position = Vector2(47, 48)
 shape = SubResource("CircleShape2D_x26y3")
 action = "inventory_ui"
@@ -318,6 +319,7 @@ offset_bottom = 100.0
 grow_vertical = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control2"]
+process_mode = 1
 position = Vector2(47, 48)
 shape = SubResource("CircleShape2D_x26y3")
 action = "move_left"
@@ -343,6 +345,7 @@ offset_bottom = 100.0
 grow_vertical = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control3"]
+process_mode = 1
 position = Vector2(47, 48)
 shape = SubResource("CircleShape2D_x26y3")
 action = "move_right"
@@ -368,6 +371,7 @@ offset_bottom = 30.0
 grow_vertical = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control4"]
+process_mode = 1
 position = Vector2(47, 48)
 shape = SubResource("CircleShape2D_x26y3")
 action = "move_up"
@@ -394,6 +398,7 @@ offset_bottom = 170.0
 grow_vertical = 0
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera2D/CanvasLayer/MoveControls/Control5"]
+process_mode = 1
 position = Vector2(47, 46)
 shape = SubResource("CircleShape2D_8nfp5")
 action = "move_down"
@@ -423,6 +428,7 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/CanvasLayer/Control2"]
+process_mode = 1
 shape = SubResource("CircleShape2D_rl5h8")
 action = "jump"
 
