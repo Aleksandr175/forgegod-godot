@@ -40,4 +40,5 @@ func restart():
 	get_tree().reload_current_scene()
 		
 func exit():
+	# It is not working on iOS, but maybe it will be needed for other OS
 	get_tree().quit()

@@ -44,7 +44,7 @@ theme_override_font_sizes/font_size = 48
 text = "New Game"
 
 [node name="VSplitContainer" type="VSplitContainer" parent="PauseMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="PauseMenu/VBoxContainer"]
@@ -59,10 +59,12 @@ theme_override_font_sizes/font_size = 48
 text = "Resume"
 
 [node name="VSplitContainer2" type="VSplitContainer" parent="PauseMenu/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PauseMenu/VBoxContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
