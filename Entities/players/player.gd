@@ -40,8 +40,8 @@ func _ready():
 	GlobalSignals.resource_picked_up.connect(_on_resource_picked_up)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("attack") and !attacking:
-		attack()
+	#if Input.is_action_just_pressed("attack") and !attacking:
+	#	attack()
 
 	# Cheat code for getting resources and test game
 	if Input.is_action_just_pressed("cheat_add_resources"):
