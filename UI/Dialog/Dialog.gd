@@ -4,11 +4,12 @@ var current_dialog_index = 0
 @onready var rich_text_label = $ColorRect/MarginContainer/HBoxContainer/RichTextLabel
 @onready var dialog_ui = $"."
 @onready var character_image = $ColorRect/MarginContainer/HBoxContainer/VBoxContainer/TextureRect
+@onready var audio_player = $MumblingSound
 
 var char_index = 0
 var current_text = ""
 var full_text = ""
-var typing_speed = 0.01  # Delay between letters
+var typing_speed = 0.02  # Delay between letters
 
 var dialog_data = null
 #var dialog_data = [
@@ -80,11 +81,18 @@ func show_text_typing():
 		rich_text_label.text = current_text
 		char_index += 1
 
+		# Play sound only if the text is 50 or more characters
+		if full_text.length() >= 50:
+			# Play the typing sound effect
+			if not audio_player.playing:  # Avoid overlapping sounds
+				audio_player.play()
+
 		# Wait for the typing speed before continuing
 		await get_tree().create_timer(typing_speed).timeout
 
 	# Once the text is fully displayed, allow for further input
 	rich_text_label.text = full_text
+	audio_player.stop()  # Stop the sound when typing is complete
 
 
 func set_character_image(character_name):

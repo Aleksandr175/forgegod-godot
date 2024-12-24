@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ges3fmqdhvsf"]
+[gd_scene load_steps=6 format=3 uid="uid://ges3fmqdhvsf"]
 
 [ext_resource type="Script" path="res://UI/Dialog/Dialog.gd" id="1_f6tnr"]
 [ext_resource type="Texture2D" uid="uid://drc63e5cttlvl" path="res://assets/sprites/coin1.png" id="2_yvx0d"]
+[ext_resource type="AudioStream" uid="uid://belcrq4wsjdnf" path="res://assets/sounds/mumbling.mp3" id="3_ke56k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feaam"]
 size = Vector2(2000, 2000)
@@ -80,6 +81,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_hpw4c")
 text = "Next"
+
+[node name="MumblingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ke56k")
+volume_db = -7.0
 
 [connection signal="pressed" from="ColorRect/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
