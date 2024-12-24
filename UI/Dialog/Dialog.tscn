@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://ges3fmqdhvsf"]
+[gd_scene load_steps=5 format=3 uid="uid://ges3fmqdhvsf"]
 
 [ext_resource type="Script" path="res://UI/Dialog/Dialog.gd" id="1_f6tnr"]
 [ext_resource type="Texture2D" uid="uid://drc63e5cttlvl" path="res://assets/sprites/coin1.png" id="2_yvx0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feaam"]
 size = Vector2(2000, 2000)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpw4c"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.215686, 0.254902, 0.317647, 1)
 
 [node name="Dialog" type="Control"]
 process_mode = 2
@@ -29,38 +36,49 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 0.811765)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-custom_minimum_size = Vector2(2.08165e-12, 100)
-layout_mode = 0
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 420.0
-offset_bottom = 330.0
-theme_override_constants/line_separation = 6
-theme_override_font_sizes/normal_font_size = 20
-text = "Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text "
-
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
-offset_left = 466.0
-offset_top = 25.0
-offset_right = 566.0
-offset_bottom = 125.0
-texture = ExtResource("2_yvx0d")
-
-[node name="Button" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 452.0
-offset_top = 145.0
-offset_right = 572.0
-offset_bottom = 212.0
-theme_override_font_sizes/font_size = 24
-text = "Next"
-
 [node name="TouchScreenButton" type="TouchScreenButton" parent="ColorRect"]
 position = Vector2(500, -1048)
 shape = SubResource("RectangleShape2D_feaam")
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_separation = 6
+theme_override_font_sizes/normal_font_size = 20
+text = "Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text Sampple text "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_yvx0d")
+
+[node name="Button" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hpw4c")
+text = "Next"
+
 [connection signal="pressed" from="ColorRect/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
