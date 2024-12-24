@@ -8,7 +8,7 @@ var current_dialog_index = 0
 var char_index = 0
 var current_text = ""
 var full_text = ""
-var typing_speed = 0.05  # Delay between letters
+var typing_speed = 0.01  # Delay between letters
 
 var dialog_data = null
 #var dialog_data = [
@@ -60,17 +60,32 @@ func show_next_character():
 		#get_tree().paused = false  # Resume game after dialog
 		rich_text_label.text = full_text
 
-func start_dialog(dialogItem):
-	full_text = dialogItem["text"]
+func start_dialog(dialog_item):
+	# Prepare the full text and reset the current text
+	full_text = dialog_item["text"]
 	current_text = ""
-	#char_index = 0
-	
-	rich_text_label.text = full_text
-	#var timer = get_tree().create_timer(typing_speed, true)  # true for repeating the timer
-	#timer.connect("timeout", Callable(self, "show_next_character"))
-	#get_tree().create_timer(typing_speed).connect("timeout", self, "show_next_character", [], true)
+	char_index = 0
+	rich_text_label.text = ""
 
-	set_character_image(dialogItem["character"])
+	# Set the character image
+	set_character_image(dialog_item["character"])
+
+	# Start the typing animation
+	show_text_typing()
+
+func show_text_typing():
+	# Display one character at a time with a delay
+	while char_index < full_text.length():
+		current_text += full_text[char_index]
+		rich_text_label.text = current_text
+		char_index += 1
+
+		# Wait for the typing speed before continuing
+		await get_tree().create_timer(typing_speed).timeout
+
+	# Once the text is fully displayed, allow for further input
+	rich_text_label.text = full_text
+
 
 func set_character_image(character_name):
 	match character_name:
@@ -90,12 +105,17 @@ func set_character_image(character_name):
 
 
 func _on_button_pressed():
-	current_dialog_index += 1
-	#print(dialog_data.size(), current_dialog_index)
-	if dialog_data.size() > current_dialog_index:
-		start_dialog(dialog_data[current_dialog_index])
+	if char_index < full_text.length():
+		# Skip typing and display the full text immediately
+		rich_text_label.text = full_text
+		char_index = full_text.length()
 	else:
-		close_dialog()
+		# Proceed to the next dialog or close
+		current_dialog_index += 1
+		if current_dialog_index < dialog_data.size():
+			start_dialog(dialog_data[current_dialog_index])
+		else:
+			close_dialog()
 
 
 func _on_touch_screen_button_pressed():
