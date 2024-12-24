@@ -13,6 +13,19 @@ var player: Player
 var current_checkpoint: Checkpoint
 var pause_menu
 
+func _ready():
+	#if OS.is_debug_build():
+	#	print("Debug mode detected, skipping dynamic screen size adjustments.")
+	#	return  # Skip the rest of the code if in debug mode
+
+	# Set the window size to match the screen size
+	var screen_size = get_viewport().get_visible_rect().size
+	print("Current Screen Size:", screen_size)
+
+	# Set the window size dynamically
+	#DisplayServer.window_set_size(screen_size)
+	#DisplayServer.window_set_mode(DisplayServer.WindowMode.FULLSCREEN)
+
 func add_point(inceased_coins: int):
 	coins += inceased_coins
 	gained_coins.emit()

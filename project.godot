@@ -31,6 +31,7 @@ MusicManager="*res://scripts/global/MusicManager.gd"
 window/size/viewport_width=1170
 window/size/viewport_height=2532
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/stretch/scale=2.0
 window/handheld/orientation=1
 
