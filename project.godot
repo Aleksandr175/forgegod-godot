@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ForgeMaster"
-run/main_scene="res://Stages/Levels/Village.tscn"
+run/main_scene="res://Stages/Levels/instruction.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://app_store_icon.png"
 
