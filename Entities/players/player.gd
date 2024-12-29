@@ -7,12 +7,14 @@ const ATTACK_DURATION = 0.5 # Duration of the attack animation in seconds
 const ROTATION_INCREMENT = deg_to_rad(45) # 45 degrees in radians
 @onready var timer = $Timer
 @export var DAMAGE = 10
+@export var hasLight = false # turn on/off lighting around player
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSpritePlayer
 @onready var weapon_sprite = $WeaponSprite
+@onready var player_light = $PlayerLight
 
 @onready var inventory_ui = $InventoryUI
 
@@ -38,6 +40,9 @@ func _ready():
 	GlobalSignals.inventory_opened.connect(open_inventory)
 	GlobalSignals.inventory_closed.connect(close_inventory)
 	GlobalSignals.resource_picked_up.connect(_on_resource_picked_up)
+
+	# turn on/off lighting around player
+	player_light.visible = hasLight
 
 func _process(_delta):
 	#if Input.is_action_just_pressed("attack") and !attacking:

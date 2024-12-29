@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=46 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://Entities/players/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://bvk5lgy0kkxgh" path="res://assets/sprites/player/main_hero.png" id="2_w7ppk"]
@@ -194,6 +194,18 @@ radius = 70.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqoii"]
 radius = 50.0
+
+[sub_resource type="Gradient" id="Gradient_f0uhy"]
+colors = PackedColorArray(1, 0.545098, 0.137255, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_net66"]
+gradient = SubResource("Gradient_f0uhy")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+metadata/_snap_enabled = true
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 process_mode = 3
@@ -506,6 +518,12 @@ stream = ExtResource("16_vexx4")
 [node name="DieSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_bpgeu")
 volume_db = -5.0
+
+[node name="PlayerLight" type="PointLight2D" parent="."]
+position = Vector2(0, -8)
+energy = 0.5
+texture = SubResource("GradientTexture2D_net66")
+texture_scale = 2.0
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

@@ -57,6 +57,7 @@ tile_set = ExtResource("3_p2yox")
 
 [node name="Player" parent="." instance=ExtResource("12_x8oor")]
 position = Vector2(-31, -2)
+hasLight = true
 
 [node name="Ladder" parent="." instance=ExtResource("4_rq4tk")]
 position = Vector2(121, 130)

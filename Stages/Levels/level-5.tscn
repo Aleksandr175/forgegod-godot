@@ -113,7 +113,8 @@ visible = false
 position = Vector2(138, 48)
 
 [node name="Player" parent="." instance=ExtResource("12_2k8lo")]
-position = Vector2(-31, -6)
+position = Vector2(-31, 0)
+hasLight = true
 
 [node name="Bridge3" parent="." instance=ExtResource("10_0bs1x")]
 position = Vector2(136, 7)

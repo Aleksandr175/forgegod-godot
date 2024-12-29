@@ -63,11 +63,11 @@ _data = {
 "torch": SubResource("Animation_p4rjt")
 }
 
-[sub_resource type="Gradient" id="Gradient_f0uhy"]
+[sub_resource type="Gradient" id="Gradient_wrgqj"]
 colors = PackedColorArray(1, 0.545098, 0.137255, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4mihs"]
-gradient = SubResource("Gradient_f0uhy")
+gradient = SubResource("Gradient_wrgqj")
 width = 96
 height = 96
 fill = 1
