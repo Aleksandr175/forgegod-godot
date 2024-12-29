@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cc1hr0me53y38"]
+[gd_scene load_steps=16 format=4 uid="uid://cc1hr0me53y38"]
 
 [ext_resource type="Script" path="res://Stages/Levels/level-5.gd" id="1_g8fad"]
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="2_m3mg5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dt3mc571af53i" path="res://Entities/characters/Blacksmith/Blacksmith.tscn" id="12_w0qyg"]
 [ext_resource type="PackedScene" uid="uid://ca0eodaibq7gn" path="res://UI/LevelsUI/Levels_UI.tscn" id="13_ve17l"]
 [ext_resource type="PackedScene" uid="uid://by3ggahosp1oh" path="res://Entities/objects/resources/resource_mountainsHeart.tscn" id="13_vfefh"]
+[ext_resource type="PackedScene" uid="uid://b7fbqtq7i7fuh" path="res://Entities/objects/resources/resource_recipe.tscn" id="15_g4f0j"]
 
 [node name="Level-5" type="Node2D"]
 script = ExtResource("1_g8fad")
@@ -48,9 +49,6 @@ z_index = -50
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD6//z/BwADAAAAAAD9//z/BwADAAAAAAAAAPz/BwADAAAAAAADAPz/BwADAAAAAAD6////BwADAAAAAAD9////BwADAAAAAAAAAP//BwADAAAAAAADAP//BwADAAAAAAAGAP3/BwADAAAAAAAJAP3/BwADAAAAAAAMAPv/BwADAAAAAAAPAPr/BwADAAAAAAAPAP3/BwADAAAAAAASAP3/BwADAAAAAAAMAP7/BwADAAAAAAAJAAAABwADAAAAAAAMAAEABwADAAAAAAAPAAAABwADAAAAAAASAAAABwADAAAAAAAVAP//BwADAAAAAAAYAP//BwADAAAAAAAbAP//BwADAAAAAAAVAAIABwADAAAAAAASAAMABwADAAAAAAAPAAMABwADAAAAAAAMAAQABwADAAAAAAAVAAUABwADAAAAAAAYAAUABwADAAAAAAAYAAgABwADAAAAAAAVAAgABwADAAAAAAASAAYABwADAAAAAAAPAAcABwADAAAAAAAMAAcABwADAAAAAAAJAAcABwADAAAAAAAGAAcABwADAAAAAAADAAcABwADAAAAAAAAAAcABwADAAAAAAD9/wcABwADAAAAAAD6/wcABwADAAAAAAD7/woABwADAAAAAAD+/woABwADAAAAAAABAAoABwADAAAAAAAEAAoABwADAAAAAAAHAAoABwADAAAAAAAKAAoABwADAAAAAAANAAoABwADAAAAAAASAAkABwADAAAAAAAYAAIABwADAAAAAAAbAAIABwADAAAAAAAeAAIABwADAAAAAAAhAAIABwADAAAAAAAhAP//BwADAAAAAAADAPP/BwADAAAAAAAAAPP/BwADAAAAAAD9//P/BwADAAAAAAD0//P/BwADAAAAAAD0//b/BwADAAAAAAD3//b/BwADAAAAAADz//n/BwADAAAAAAAGAPL/BwADAAAAAAAJAPL/BwADAAAAAAAMAPL/BwADAAAAAAAPAPL/BwADAAAAAAASAPP/BwADAAAAAAAVAPP/BwADAAAAAAAYAPP/BwADAAAAAAAbAPP/BwADAAAAAADz/wYABwADAAAAAADz/wkABwADAAAAAAAQAAoABwABAAEAAAAGAAAABwADAAAAAAARAAYABwAAAAAAAAADAPn/BwADAAAAAAAGAPr/BwADAAAAAAAJAPr/BwADAAAAAAAGAPf/BwADAAAAAAAJAPf/BwADAAAAAAASAPr/BwADAAAAAAAVAPz/BwADAAAAAAAYAPz/BwADAAAAAAAbAPz/BwADAAAAAAAbAPn/BwADAAAAAAAYAPn/BwADAAAAAAAVAPn/BwADAAAAAAASAPf/BwADAAAAAAAJAAQABwADAAAAAAAGAAQABwADAAAAAAADAAQABwADAAAAAAAAAAQABwADAAAAAAAPAAYABwABAAAAAAAVAAsABwAAAAAAAAAaAAYABwADAAAAAAAdAAYABwADAAAAAAAgAAYABwADAAAAAAAbAAkABwADAAAAAAAeAAkABwADAAAAAAD9/wQABwADAAAAAAD6/wQABwADAAAAAAD3/wQABwADAAAAAAD3/wcABwADAAAAAAD4/woABwADAAAAAAD6//P/BwADAAAAAAD3//P/BwADAAAAAAD3/wAABwADAAAAAAD6/wIABwADAAAAAAAAAAIABwADAAAAAAADAAIABwADAAAAAAA=")
 tile_set = ExtResource("2_m3mg5")
-
-[node name="Coin" parent="Node/TileMap" instance=ExtResource("3_iq6sr")]
-position = Vector2(-127, 36)
 
 [node name="Coin2" parent="Node/TileMap" instance=ExtResource("3_iq6sr")]
 position = Vector2(-106, 36)
@@ -154,5 +152,9 @@ visible = false
 
 [node name="ResourceBreathForest" parent="QuestNodes/quest_get_mountain_heart" instance=ExtResource("13_vfefh")]
 position = Vector2(339, 0)
+
+[node name="ResourceRecipe3" parent="." instance=ExtResource("15_g4f0j")]
+position = Vector2(-129, 43)
+recipe_id = "304"
 
 [connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]

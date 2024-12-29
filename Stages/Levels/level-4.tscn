@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cviakntj1q8fk"]
+[gd_scene load_steps=14 format=4 uid="uid://cviakntj1q8fk"]
 
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="1_1utdn"]
 [ext_resource type="Script" path="res://Stages/Levels/level-4.gd" id="1_b7h8b"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bhvmtffufxoc2" path="res://Entities/objects/Checkpoint/Checkpoint.tscn" id="9_o00v4"]
 [ext_resource type="PackedScene" uid="uid://cdwio8e7l8x4s" path="res://Entities/objects/Torch/Torch.tscn" id="11_wvsc2"]
 [ext_resource type="PackedScene" uid="uid://cjrth4mg58yfy" path="res://Entities/objects/Cave/Cave_Exit.tscn" id="12_jx51t"]
+[ext_resource type="PackedScene" uid="uid://b7fbqtq7i7fuh" path="res://Entities/objects/resources/resource_recipe.tscn" id="13_kh3ps"]
 [ext_resource type="PackedScene" uid="uid://cmikmpd064muo" path="res://Entities/objects/resources/resource_twilightite.tscn" id="14_hgjnt"]
 
 [node name="Level-4" type="Node2D"]
@@ -105,9 +106,6 @@ position = Vector2(275, 182)
 [node name="Coin11" parent="." instance=ExtResource("8_82g22")]
 position = Vector2(400, 165)
 
-[node name="Coin12" parent="." instance=ExtResource("8_82g22")]
-position = Vector2(416, 165)
-
 [node name="Coin13" parent="." instance=ExtResource("8_82g22")]
 position = Vector2(437, 71)
 
@@ -171,5 +169,9 @@ position = Vector2(-11, 112)
 
 [node name="ResourceTwilightite4" parent="." instance=ExtResource("14_hgjnt")]
 position = Vector2(91, 193)
+
+[node name="ResourceRecipe2" parent="." instance=ExtResource("13_kh3ps")]
+position = Vector2(418, 171)
+recipe_id = "302"
 
 [connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]

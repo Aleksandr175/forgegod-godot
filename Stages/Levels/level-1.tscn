@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cu2n0vnsfyrei"]
+[gd_scene load_steps=13 format=4 uid="uid://cu2n0vnsfyrei"]
 
 [ext_resource type="TileSet" uid="uid://mkadhw41oeau" path="res://tilesets/terrain.tres" id="1_n88j0"]
 [ext_resource type="Script" path="res://Stages/Levels/level-1.gd" id="1_u2axs"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b1bjmfy8vuu2n" path="res://Entities/objects/Signpost/Signpost.tscn" id="8_kkykl"]
 [ext_resource type="PackedScene" uid="uid://cvmjw85or2k2f" path="res://Entities/objects/resources/resource_wood_big.tscn" id="9_tjefp"]
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://Entities/objects/Coin/coin.tscn" id="10_gden1"]
+[ext_resource type="PackedScene" uid="uid://b7fbqtq7i7fuh" path="res://Entities/objects/resources/resource_recipe.tscn" id="12_x846y"]
 
 [node name="Level-1" type="Node2D"]
 script = ExtResource("1_u2axs")
@@ -78,9 +79,6 @@ position = Vector2(456, 32)
 position = Vector2(203, 0)
 description = "Caves"
 
-[node name="Coin" parent="." instance=ExtResource("10_gden1")]
-position = Vector2(345, -56)
-
 [node name="Coin2" parent="." instance=ExtResource("10_gden1")]
 position = Vector2(386, 21)
 
@@ -107,5 +105,9 @@ position = Vector2(151, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_rpr4n")]
 position = Vector2(-31, -6)
+
+[node name="ResourceRecipe2" parent="." instance=ExtResource("12_x846y")]
+position = Vector2(344, -52)
+recipe_id = "100"
 
 [connection signal="level_menu_opened" from="Cave_Exit" to="." method="_on_cave_exit_level_menu_opened"]
