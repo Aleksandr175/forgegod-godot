@@ -1,10 +1,10 @@
 extends Control
 class_name ShopSlot
 
-@onready var icon = $InnerBorder/ItemIcon
-@onready var label_qty = $InnerBorder/ItemQty
+@onready var icon = $ItemIcon
+@onready var label_qty = $ItemQty
 @onready var item_button = $ItemButton
-@onready var lockIcon = $InnerBorder/LockIcon
+@onready var lockIcon = $LockIcon
 
 signal recipe_slot_selected(recipe)
 

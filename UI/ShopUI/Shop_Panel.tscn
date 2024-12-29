@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bitkk2rofc8yf"]
+[gd_scene load_steps=6 format=3 uid="uid://bitkk2rofc8yf"]
 
 [ext_resource type="Script" path="res://UI/ShopUI/Shop_Panel.gd" id="1_i0af0"]
 [ext_resource type="PackedScene" uid="uid://ojev0t2qyvbn" path="res://UI/ShopUI/Goods_UI.tscn" id="2_r2wjx"]
+[ext_resource type="Texture2D" uid="uid://nklunu0usfjl" path="res://assets/sprites/ui/bg-panel-big.png" id="2_yiu0o"]
 [ext_resource type="PackedScene" uid="uid://dutum2bfx4x6o" path="res://UI/InventoryUI/Inventory_UI.tscn" id="4_v4rdj"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_rdr3k"]
 
@@ -22,7 +23,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_i0af0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +31,13 @@ anchor_bottom = 1.0
 offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.235732, 0.235732, 0.235732, 1)
+texture = ExtResource("2_yiu0o")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 layout_mode = 1
@@ -72,8 +79,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -50.0
-offset_bottom = 50.0
+offset_left = -65.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 65.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("5_rdr3k")
 text = "X"

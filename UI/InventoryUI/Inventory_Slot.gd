@@ -1,8 +1,8 @@
 extends Control
 class_name InventorySlot
 
-@onready var icon = $InnerBorder/ItemIcon
-@onready var label_qty = $InnerBorder/ItemQty
+@onready var icon = $ItemIcon
+@onready var label_qty = $ItemQty
 @onready var item_button = $ItemButton
 
 signal inventory_slot_selected
