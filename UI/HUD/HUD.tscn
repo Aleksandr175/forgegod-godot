@@ -1,15 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgrsemp5dhpfs"]
+[gd_scene load_steps=8 format=3 uid="uid://bgrsemp5dhpfs"]
 
 [ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_55ceo"]
 [ext_resource type="Texture2D" uid="uid://nklunu0usfjl" path="res://assets/sprites/ui/bg-panel-big.png" id="2_ld5mq"]
+[ext_resource type="StyleBox" uid="uid://dpa570w4gswer" path="res://UI/tres/ButtonPressed.tres" id="3_0jcqi"]
+[ext_resource type="StyleBox" uid="uid://ckmcfudj5oghs" path="res://UI/tres/ButtonNormal.tres" id="3_w25d3"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="4_c3tt3"]
+
+[sub_resource type="Theme" id="Theme_0a8pk"]
+Button/styles/hover = ExtResource("3_w25d3")
+Button/styles/normal = ExtResource("3_w25d3")
+Button/styles/pressed = ExtResource("3_0jcqi")
+
+[sub_resource type="Theme" id="Theme_573wm"]
+Button/styles/hover = ExtResource("3_w25d3")
+Button/styles/normal = ExtResource("3_w25d3")
+Button/styles/pressed = ExtResource("3_0jcqi")
 
 [node name="Hud" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_55ceo")
 
 [node name="PauseMenu" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(440, 360)
+custom_minimum_size = Vector2(480, 400)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,10 +45,15 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
-layout_mode = 0
-offset_top = 30.0
-offset_right = 440.0
-offset_bottom = 330.0
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -106.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/VBoxContainer"]
@@ -46,12 +63,13 @@ alignment = 1
 [node name="NewGame" type="Button" parent="PauseMenu/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
+theme = SubResource("Theme_0a8pk")
 theme_override_fonts/font = ExtResource("4_c3tt3")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 40
 text = "New Game"
 
 [node name="VSplitContainer" type="VSplitContainer" parent="PauseMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="PauseMenu/VBoxContainer"]
@@ -61,8 +79,9 @@ alignment = 1
 [node name="Resume" type="Button" parent="PauseMenu/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
+theme = SubResource("Theme_573wm")
 theme_override_fonts/font = ExtResource("4_c3tt3")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 40
 text = "Resume"
 
 [node name="VSplitContainer2" type="VSplitContainer" parent="PauseMenu/VBoxContainer"]
