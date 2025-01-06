@@ -3,13 +3,9 @@
 [ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_55ceo"]
 [ext_resource type="Texture2D" uid="uid://nklunu0usfjl" path="res://assets/sprites/ui/bg-panel-big.png" id="2_ld5mq"]
 [ext_resource type="StyleBox" uid="uid://dpa570w4gswer" path="res://UI/tres/ButtonPressed.tres" id="3_0jcqi"]
+[ext_resource type="Theme" uid="uid://c1y5dg3ri0dog" path="res://UI/tres/ThemeButton.tres" id="3_ey8oo"]
 [ext_resource type="StyleBox" uid="uid://ckmcfudj5oghs" path="res://UI/tres/ButtonNormal.tres" id="3_w25d3"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="4_c3tt3"]
-
-[sub_resource type="Theme" id="Theme_0a8pk"]
-Button/styles/hover = ExtResource("3_w25d3")
-Button/styles/normal = ExtResource("3_w25d3")
-Button/styles/pressed = ExtResource("3_0jcqi")
 
 [sub_resource type="Theme" id="Theme_573wm"]
 Button/styles/hover = ExtResource("3_w25d3")
@@ -63,7 +59,7 @@ alignment = 1
 [node name="NewGame" type="Button" parent="PauseMenu/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
-theme = SubResource("Theme_0a8pk")
+theme = ExtResource("3_ey8oo")
 theme_override_fonts/font = ExtResource("4_c3tt3")
 theme_override_font_sizes/font_size = 40
 text = "New Game"

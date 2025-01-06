@@ -1,23 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://i2lsmi0eoplk"]
+[gd_scene load_steps=3 format=3 uid="uid://i2lsmi0eoplk"]
 
 [ext_resource type="Script" path="res://Stages/Levels/LevelButton.gd" id="1_4vt32"]
+[ext_resource type="Theme" uid="uid://c1y5dg3ri0dog" path="res://UI/tres/ThemeButton.tres" id="1_rjka1"]
 
 [node name="LevelButton" type="Button"]
 custom_minimum_size = Vector2(240, 35)
 offset_right = 195.0
 offset_bottom = 22.0
+theme = ExtResource("1_rjka1")
 action_mode = 0
 script = ExtResource("1_4vt32")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 0
-offset_right = 240.0
-offset_bottom = 35.0
-
-[node name="Control2" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 5)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -26,13 +29,9 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 44.0

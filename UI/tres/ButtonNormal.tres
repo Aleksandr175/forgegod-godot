@@ -5,12 +5,8 @@
 [resource]
 texture = ExtResource("1_55gr7")
 texture_margin_left = 16.0
-texture_margin_top = 16.0
+texture_margin_top = 24.0
 texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-expand_margin_left = 16.0
-expand_margin_top = 8.0
-expand_margin_right = 16.0
-expand_margin_bottom = 8.0
+texture_margin_bottom = 24.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2

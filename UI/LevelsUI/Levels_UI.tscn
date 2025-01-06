@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca0eodaibq7gn"]
+[gd_scene load_steps=6 format=3 uid="uid://ca0eodaibq7gn"]
 
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_2wipf"]
 [ext_resource type="Script" path="res://UI/LevelsUI/Levels_UI.gd" id="1_ruyv2"]
 [ext_resource type="Texture2D" uid="uid://nklunu0usfjl" path="res://assets/sprites/ui/bg-panel-big.png" id="2_hwt36"]
 [ext_resource type="PackedScene" uid="uid://i2lsmi0eoplk" path="res://Stages/Levels/LevelButton.tscn" id="3_1uait"]
+[ext_resource type="Theme" uid="uid://c1y5dg3ri0dog" path="res://UI/tres/ThemeButton.tres" id="3_tto3i"]
 
 [node name="LevelsUi" type="Control"]
 layout_mode = 3
@@ -59,6 +60,7 @@ size_flags_horizontal = 4
 [node name="VillageButton" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 35)
 layout_mode = 2
+theme = ExtResource("3_tto3i")
 theme_override_fonts/font = ExtResource("1_2wipf")
 theme_override_font_sizes/font_size = 16
 text = "Village"

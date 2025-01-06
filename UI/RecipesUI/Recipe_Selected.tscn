@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://baphtpay2atal"]
+[gd_scene load_steps=8 format=3 uid="uid://baphtpay2atal"]
 
 [ext_resource type="Script" path="res://UI/RecipesUI/Recipe_Selected.gd" id="1_rtpl1"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_u0qec"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dp6h2dbl4d8yc" path="res://UI/RecipesUI/Recipe_Slot.tscn" id="3_n2355"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="3_u8req"]
 [ext_resource type="AudioStream" uid="uid://dcxvybkym1jpf" path="res://assets/sounds/forge.wav" id="6_b2uwy"]
+[ext_resource type="Theme" uid="uid://c1y5dg3ri0dog" path="res://UI/tres/ThemeButton.tres" id="6_kb4oc"]
 
 [node name="RecipeSelected" type="Control"]
 layout_mode = 3
@@ -67,9 +68,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(400, 50)
+custom_minimum_size = Vector2(360, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_u0qec")
+theme = ExtResource("6_kb4oc")
 text = "CRAFT"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="VBoxContainer"]
