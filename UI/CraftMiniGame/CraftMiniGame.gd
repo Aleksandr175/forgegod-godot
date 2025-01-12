@@ -77,7 +77,6 @@ func create_dot():
 
 	print("Timer duration:", timer.wait_time)  # Debug
 	timer.start()
-	print("Timer started:", timer.is_stopped())  # Should print "false"
 
 	dot.connect("dot_clicked", _on_dot_clicked)
 	print("Connecting dot_clicked signal for:", dot)
@@ -131,31 +130,22 @@ func _remove_dot(dot_node):
 	if dot_node.is_connected("dot_clicked", _on_dot_clicked):
 		dot_node.disconnect("dot_clicked", _on_dot_clicked)
 
-	# Disconnect the Timer's timeout signal
-	for child in dots_container.get_children():
-		if child is Timer:
-			var timeout_callable = child.get_meta("timeout_callable")  # Retrieve the stored Callable
-			if timeout_callable and child.is_connected("timeout", timeout_callable):
-				child.disconnect("timeout", timeout_callable)
-				child.stop()
-				child.queue_free()
+	# Disconnect and remove ONLY the timer linked to this dot
+	if dot_node.has_meta("timer"):
+		var timer = dot_node.get_meta("timer")
+		if timer and is_instance_valid(timer):
+			if timer.is_connected("timeout", Callable(self, "_on_dot_timeout").bind(dot_node)):
+				timer.disconnect("timeout", Callable(self, "_on_dot_timeout").bind(dot_node))
+			timer.stop()
+			timer.queue_free()
 
 	print("Removing dot:", dot_node)
-	parent.remove_child(dot_node)
 	dot_node.queue_free()
 
 func check_crafting_complete():
 	# If all dots are clicked (and removed), craft the item
 	if dots_clicked >= total_dots:
 		craft_item()
-		# Stop and remove all timers
-	#	for dot in dots_container.get_children():
-	#		_remove_dot(dot)
-			#if dot.has_node("Timer"):  # Check if the dot has a Timer
-			#	var timer = dot.get_node("Timer")
-			#	timer.stop()  # Stop the timer
-			#	timer.queue_free()  # Remove the timer from the dot
-
 
 func craft_item():
 	print('Crafted: ', item_data)
@@ -174,15 +164,6 @@ func close_crafting_ui():
 	# Stop and remove all timers in dots_container
 	for child in dots_container.get_children():
 		_remove_dot(child)
-		#if child is Timer:
-		#	print("Stopping and removing Timer:", child)
-		#	child.stop()
-		#	child.queue_free()
-		#elif child.has_node("Timer"):  # Handle Timers inside dots (if nested)
-		#	var timer = child.get_node("Timer")
-		#	print("Stopping and removing nested Timer:", timer)
-		#	timer.stop()
-		#	timer.queue_free()
 
-	print("All timers removed. Closing crafting UI.")
+	print("Closing crafting UI.")
 	GlobalSignals.craft_game_closed.emit()
