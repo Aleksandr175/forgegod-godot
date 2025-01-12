@@ -1,8 +1,8 @@
 extends Control
 class_name RecipeSlot
 
-@onready var icon = $InnerBorder/ItemIcon
-@onready var label_price = $InnerBorder/Price
+@onready var icon = $ItemIcon
+@onready var label_price = $Price
 @onready var item_button = $ItemButton
 
 signal shop_slot_selected(item)
@@ -20,4 +20,5 @@ func set_item(new_item):
 	label_price.text = str(item['price']) 
 
 func _on_item_button_pressed():
+	SoundManager.play_sfx("click.wav")
 	shop_slot_selected.emit(item)

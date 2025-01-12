@@ -56,7 +56,6 @@ frame = 2
 frame_progress = 0.782634
 
 [node name="ShopUI" type="CanvasLayer" parent="."]
-layer = 4
 visible = false
 
 [node name="ShopPanel" parent="ShopUI" instance=ExtResource("3_v1qyj")]

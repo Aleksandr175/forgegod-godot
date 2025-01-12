@@ -33,5 +33,6 @@ func clear_grid_container():
 # Callback function that handles the slot selection
 func _on_recipe_slot_selected(recipe):
 	#print("Recipe selected!", recipe)
+	SoundManager.play_sfx("click.wav")
 	# Emit the signal to notify other parts of your game
 	emit_signal("recipe_ui_slot_selected", recipe)

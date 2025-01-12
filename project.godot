@@ -25,6 +25,7 @@ QuestManager="*res://scripts/global/QuestManager.gd"
 GlobalSignals="*res://scripts/global/GlobalSignals.gd"
 SceneManager="*res://scripts/global/SceneManager.gd"
 MusicManager="*res://scripts/global/MusicManager.gd"
+SoundManager="*res://scripts/global/SoundManager.gd"
 
 [display]
 

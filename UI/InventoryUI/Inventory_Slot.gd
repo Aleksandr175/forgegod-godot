@@ -20,4 +20,5 @@ func set_item(new_item):
 	label_qty.text = str(item['qty'])
 
 func _on_item_button_pressed():
+	SoundManager.play_sfx("click.wav")
 	inventory_slot_selected.emit()
