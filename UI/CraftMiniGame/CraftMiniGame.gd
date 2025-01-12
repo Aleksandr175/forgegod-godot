@@ -67,9 +67,15 @@ func create_dot():
 	var timer = Timer.new()
 	timer.one_shot = true
 	timer.wait_time = randf_range(0.6, 1.2)
+
+	# Store the Callable in the dot for later disconnection
+	var timeout_callable = Callable(self, "_on_dot_timeout").bind(dot)
+	timer.set_meta("timeout_callable", timeout_callable)  # Store the Callable
+
+	timer.connect("timeout", timeout_callable)
+	dots_container.add_child(timer)
+
 	print("Timer duration:", timer.wait_time)  # Debug
-	timer.connect("timeout", Callable(self, "_on_dot_timeout").bind(dot))
-	dots_container.add_child(timer)  # Ensure this is the correct parent
 	timer.start()
 	print("Timer started:", timer.is_stopped())  # Should print "false"
 
@@ -109,25 +115,34 @@ func _on_dot_timeout(dot):
 func _on_dot_clicked(dot_node):
 	dots_clicked += 1
 	_remove_dot(dot_node)
+	check_crafting_complete()
 
 func _remove_dot(dot_node):
-	if not dot_node or not is_instance_valid(dot_node):  # Ensure the dot exists
+	if not dot_node or not is_instance_valid(dot_node):
 		print("Dot node already removed or invalid.")
 		return
 
 	var parent = dot_node.get_parent()
-	if not parent or not is_instance_valid(parent):  # Ensure the parent exists
+	if not parent or not is_instance_valid(parent):
 		print("Dot node has no valid parent.")
 		return
 
-	# Disable pressing by disconnecting the signal
-	dot_node.disconnect("dot_clicked", _on_dot_clicked)
-	dot_node.disconnect("timeout", _on_dot_timeout)
+	# Disconnect the dot_clicked signal
+	if dot_node.is_connected("dot_clicked", _on_dot_clicked):
+		dot_node.disconnect("dot_clicked", _on_dot_clicked)
+
+	# Disconnect the Timer's timeout signal
+	for child in dots_container.get_children():
+		if child is Timer:
+			var timeout_callable = child.get_meta("timeout_callable")  # Retrieve the stored Callable
+			if timeout_callable and child.is_connected("timeout", timeout_callable):
+				child.disconnect("timeout", timeout_callable)
+				child.stop()
+				child.queue_free()
 
 	print("Removing dot:", dot_node)
 	parent.remove_child(dot_node)
 	dot_node.queue_free()
-	check_crafting_complete()
 
 func check_crafting_complete():
 	# If all dots are clicked (and removed), craft the item
