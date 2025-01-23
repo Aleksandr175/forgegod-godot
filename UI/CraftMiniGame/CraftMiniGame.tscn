@@ -54,6 +54,11 @@ theme_override_fonts/font = ExtResource("5_dhvtr")
 theme_override_font_sizes/font_size = 24
 text = "Crafting"
 
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 3.0
+step = 1.0
+
 [node name="ItemImage" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2

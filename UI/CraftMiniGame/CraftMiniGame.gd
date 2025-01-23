@@ -3,6 +3,7 @@ extends Control
 @onready var item_image = $ColorRect/MarginContainer/VBoxContainer/ItemImage
 @onready var dots_container = $ColorRect/MarginContainer/VBoxContainer/DotContainer
 @onready var close_button = $CloseButton
+@onready var progress_bar = $ColorRect/MarginContainer/VBoxContainer/ProgressBar
 
 var item_data
 var total_dots = 3
@@ -20,6 +21,7 @@ func start_crafting(item):
 
 func generate_dots():
 	dots_clicked = 0
+	progress_bar.value = 0  # Reset progress bar
 
 	# Remove all existing dots
 	var children = dots_container.get_children()
@@ -113,6 +115,7 @@ func _on_dot_timeout(dot):
 
 func _on_dot_clicked(dot_node):
 	dots_clicked += 1
+	progress_bar.value = dots_clicked  # Update the progress bar
 	_remove_dot(dot_node)
 	check_crafting_complete()
 
